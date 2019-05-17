@@ -25,7 +25,20 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/jquery.colorpanel.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.flexslider.js",
+              "src/assets/js/bootstrap-datepicker.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/custom-gallery.js",
+              "src/assets/js/custom-navigation.js",
+              "src/assets/js/custom-date-picker.js",
+              "src/assets/js/custom-flex.js",
+              "src/assets/js/custom-owl.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

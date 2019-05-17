@@ -1,0 +1,38 @@
+<div class="row" style="text-align: center;margin-bottom: 20px;font-weight: bold">
+  <div class="col-sm-4" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-up fa-2x"
+                                                                           (click)="nextYear()"></i></div>
+  <div class="col-sm-4" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-up fa-2x"
+                                                                           (click)="nextMonth()"></i></div>
+  <div class="col-sm-4" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-up fa-2x"
+                                                                           (click)="nextDay()"></i></div>
+</div>
+<div class="row" style="text-align: center;font-weight: bold">
+  <div class="col-sm-4" style="font-size: 28px">
+    <select style="background-color: rgba(255, 255, 255, 0);border: 1px solid rgba(0, 0, 0, 0.096);"
+            (change)="changeYear()" [(ngModel)]="selectedYear">
+      <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+    </select>
+  </div>
+
+  <div class="col-sm-4" style="font-size: 28px">
+    <select [ngStyle]="{'background-color': 'rgba(255, 255, 255, 0)','border': '1px solid rgba(0, 0, 0, 0.096)'}"
+            (change)="changeMonth()" [(ngModel)]="selectedMonth">
+      <option *ngFor="let month of months" value="{{month}}">{{month}}</option>
+    </select>
+  </div>
+
+  <div class="col-sm-4" style="font-size: 28px">
+    <select [ngStyle]="{'background-color': 'rgba(255, 255, 255, 0)','border': '1px solid rgba(0, 0, 0, 0.096)'}"
+            (change)="changeDay()" [(ngModel)]="selectedDay">
+      <option *ngFor="let day of days" value="{{day}}">{{day}}</option>
+    </select>
+  </div>
+</div>
+<div class="row" style="text-align: center;margin-top: 20px;margin-bottom: 70px;font-weight: bold">
+  <div class="col-sm-4" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-down fa-2x"
+                                                                           (click)="previousYear()"></i></div>
+  <div class="col-sm-4" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-down fa-2x"
+                                                                           (click)="previousMonth()"></i></div>
+  <div class="col-sm-4" style="cursor: pointer;color: rgb(194, 146, 2)"><i class="fa fa-arrow-down fa-2x"
+                                                                           (click)="previousDay()"></i></div>
+</div>
