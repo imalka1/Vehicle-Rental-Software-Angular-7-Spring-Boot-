@@ -1,10 +1,10 @@
 <!-- <app-header></app-header> -->
 <section id="about" style="padding-top: 120px">
   <div class="container" style="font-size: 16px">
-    <div class="row" style="padding: 20px;border: 1px solid black">
+    <div class="row" style="padding: 20px">
       <div class="col-sm-12">
         <div class="row">
-          <div class="col-sm-12" style="font-size: 25px">
+          <div class="col-sm-12" style="font-size: 25px;color: #86867f">
             Transport Type
           </div>
         </div>
@@ -15,76 +15,76 @@
         </div>
         <div class="row">
           <div class="col-sm-12">
-            <select class="form-control"></select>
+            <select class="form-control" (change)="changeCategory()" [(ngModel)]="selectedCategory">
+              <option value="airport">Airport Transfer</option>
+              <option value="disneyland">Disneyland Transfer</option>
+              <option value="inland">Inland Transfer</option>
+            </select>
+          </div>
+        </div>
+
+        <hr style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+        <div class="row" style="font-size: 25px;color: #86867f">
+          <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='airport'">
+            Pickup Details (Airport)
+          </div>
+          <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='disneyland'">
+            Pickup Details (Disneyland)
+          </div>
+          <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='inland'">
+            Pickup Details (Inland)
+          </div>
+        </div>
+        <div class="row" style="font-weight: bold">
+          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Pickup From</div>
+            <div class="col-sm-12"><select name="" id="" class="form-control"></select></div>
+          </div>
+          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Drop To</div>
+            <div class="col-sm-12" *ngIf="selectedCategory=='airport'">
+              <select name="" class="form-control"></select>
+            </div>
+            <div class="col-sm-12" *ngIf="selectedCategory=='disneyland'">
+              <select name="" class="form-control" disabled>
+                <option value="disneyland">Disneyland</option>
+              </select>
+            </div>
+            <div class="col-sm-12" *ngIf="selectedCategory=='inland'">
+              <select name="" class="form-control"></select>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="font-weight: bold">
+          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Pickup Date</div>
+            <div class="col-sm-12"><input type="date" class="form-control" min="2019-05-18"></div>
+          </div>
+          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Pickup Time</div>
+            <div class="col-sm-12"><input type="time" class="form-control" min="03:00"></div>
+          </div>
+        </div>
+        <div class="row" style="font-weight: bold">
+          <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Adults (Passengers)</div>
+              <div class="col-sm-12"><input type="number" class="form-control" min="0" (change)="changePassengers()" [(ngModel)]="adults"></div>
+          </div>
+          <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Children (Passengers)</div>
+              <div class="col-sm-12"><input type="number" class="form-control" min="0" (change)="changePassengers()" [(ngModel)]="children"></div>
+          </div>
+          <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Total (Passengers)</div>
+            <div class="col-sm-12"><input type="text" class="form-control" [(ngModel)]="totalPassengers" disabled></div>
           </div>
         </div>
 
         <hr style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
 
         <div class="row">
-          <div class="col-sm-12" style="font-size: 25px">
-            Pickup Details (Airport)
-          </div>
-        </div>
-        <div class="row" style="margin-top: 25px;font-weight: bold">
-          <div class="col-sm-6">
-            Pickup From
-          </div>
-          <div class="col-sm-6">
-            Drop To
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <select name="" id="" class="form-control"></select>
-          </div>
-          <div class="col-sm-6">
-            <select name="" id="" class="form-control"></select>
-          </div>
-        </div>
-        <div class="row" style="margin-top: 25px;font-weight: bold">
-          <div class="col-sm-6">
-            Pickup Date
-          </div>
-          <div class="col-sm-6">
-            Pickup Time
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <input type="date" class="form-control" min="2019-05-18">
-          </div>
-          <div class="col-sm-6">
-            <input type="time" class="form-control" min="03:00">
-          </div>
-        </div>
-        <div class="row" style="margin-top: 25px;font-weight: bold">
-          <div class="col-sm-4">
-            Adults (Passengers)
-          </div>
-          <div class="col-sm-4">
-            Children (Passengers)
-          </div>
-          <div class="col-sm-4">
-            Total (Passengers)
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <input type="number" class="form-control" min="1">
-          </div>
-          <div class="col-sm-4">
-            <input type="number" class="form-control" min="1">
-          </div>
-          <div class="col-sm-4">
-
-          </div>
-        </div>
-
-        <!--<hr style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">-->
-
-        <div class="row">
-          <div class="col-sm-12" style="font-size: 25px;margin-top: 50px">
+          <div class="col-sm-12" style="font-size: 25px;color: #86867f">
             Vehicles Availability
           </div>
         </div>
@@ -106,7 +106,7 @@
         <hr style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
 
         <div class="row">
-          <div class="col-sm-12" style="font-size: 25px">
+          <div class="col-sm-12" style="font-size: 25px;color: #86867f">
             Personal Details
           </div>
         </div>
@@ -120,20 +120,14 @@
             <input type="text" class="form-control">
           </div>
         </div>
-        <div class="row" style="margin-top: 25px;font-weight: bold">
-          <div class="col-sm-6">
-            Email
+        <div class="row" style="font-weight: bold">
+          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Email</div>
+            <div class="col-sm-12"><input type="text" class="form-control"></div>
           </div>
-          <div class="col-sm-6">
-            Contact Number
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <input type="text" class="form-control">
-          </div>
-          <div class="col-sm-6">
-            <input type="text" class="form-control">
+          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Contact Number</div>
+            <div class="col-sm-12"><input type="text" class="form-control"></div>
           </div>
         </div>
         <div class="row" style="margin-top: 25px;font-weight: bold">
@@ -144,6 +138,11 @@
         <div class="row">
           <div class="col-sm-12">
             <textarea class="form-control" style="height: 150px"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" style="margin-top: 80px">
+            <button class="btn btn-warning" style="position: absolute;left: 50%;transform: translateX(-50%)">Submit Reservation</button>
           </div>
         </div>
       </div>

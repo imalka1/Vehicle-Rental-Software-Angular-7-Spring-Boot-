@@ -498,21 +498,21 @@ p{
 	}
 
 	.transparent-nav.affix {
-		background-color: #000000 !important;
+		background-color: rgba(0, 0, 0, 0.56) !important;
 		box-shadow:0px 2px 5px rgba(0,0,0,0.5);
-		border-bottom:1px solid #333333;
+		/*border-bottom:1px solid #333333;*/
 	}
 }
 
 @media(max-width:767px){
 	
 	.navbar-default{
-		background:black;
+    background-color: rgba(0, 0, 0, 0.56);
 	}
 	
 	.navbar-default.affix{
 		box-shadow:0px 2px 5px rgba(0,0,0,0.5);
-		border-bottom:1px solid #333333;
+		/*border-bottom:1px solid #333333;*/
 	}
 
 	.navbar-default .navbar-nav li .dropdown-menu{
