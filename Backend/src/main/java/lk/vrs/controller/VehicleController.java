@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/vehicle")
 public class VehicleController {
+
     @Autowired
     private VehicleRepository vehicleRepository;
 
