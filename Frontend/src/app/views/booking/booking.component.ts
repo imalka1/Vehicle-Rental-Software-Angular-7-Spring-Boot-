@@ -14,6 +14,7 @@ export class BookingComponent implements OnInit {
   selectedCategory: string = 'airport';
   selectedFrom: PlaceDto;
   selectedTo: PlaceDto;
+  placeDtos: Array<PlaceDto>;
   totalPassengers: number = 0;
   adults: number = 0;
   children: number = 0;
@@ -36,37 +37,36 @@ export class BookingComponent implements OnInit {
   changeCategory() {
     this.placesFrom = new Array<PlaceDto>();
     this.placesTo = new Array<PlaceDto>();
-    let placeDtos: Array<PlaceDto>;
     if (this.selectedCategory == 'airport') {
 
       this.placeDisneyToDisable = false;
       this.categoryPlaceService.getPlacesViaCategory('inland').subscribe((result) => {
-        placeDtos = result;
-        for (let i = 0; i < placeDtos.length; i++) {
-          this.placesFrom.push(placeDtos[i]);
+        this.placeDtos = result;
+        for (let i = 0; i < this.placeDtos.length; i++) {
+          this.placesFrom.push(this.placeDtos[i]);
         }
-        this.selectedFrom = placeDtos[0];
+        this.selectedFrom = this.placeDtos[0];
       });
       this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        placeDtos = result;
-        for (let i = 0; i < placeDtos.length; i++) {
-          this.placesTo.push(placeDtos[i]);
+        this.placeDtos = result;
+        for (let i = 0; i < this.placeDtos.length; i++) {
+          this.placesTo.push(this.placeDtos[i]);
         }
-        this.selectedTo = placeDtos[0];
+        this.selectedTo = this.placeDtos[0];
       });
 
     } else if (this.selectedCategory == 'disneyland') {
 
       this.placeDisneyToDisable = true;
       this.categoryPlaceService.getPlacesViaCategory('inland').subscribe((result) => {
-        placeDtos = result;
-        for (let i = 0; i < placeDtos.length; i++) {
-          this.placesFrom.push(placeDtos[i]);
+        this.placeDtos = result;
+        for (let i = 0; i < this.placeDtos.length; i++) {
+          this.placesFrom.push(this.placeDtos[i]);
         }
-        this.selectedFrom = placeDtos[0];
+        this.selectedFrom = this.placeDtos[0];
         let placeDto: PlaceDto = new PlaceDto();
         placeDto.place = 'Disneyland';
-        this.placesTo.push(placeDto)
+        this.placesTo.push(placeDto);
         this.selectedTo = placeDto;
       });
 
@@ -74,24 +74,37 @@ export class BookingComponent implements OnInit {
 
       this.placeDisneyToDisable = false;
       this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        placeDtos = result;
-        for (let i = 0; i < placeDtos.length; i++) {
-          this.placesFrom.push(placeDtos[i]);
-          this.placesTo.push(placeDtos[i]);
+        this.placeDtos = result;
+        for (let i = 0; i < this.placeDtos.length; i++) {
+          this.placesFrom.push(this.placeDtos[i]);
+          this.placesTo.push(this.placeDtos[i]);
         }
-        this.selectedFrom = placeDtos[0];
-        this.selectedTo = placeDtos[0];
+        this.selectedFrom = this.placeDtos[0];
+        this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1)
+        this.selectedTo = this.placesTo[0];
       });
 
     }
   }
 
   changeFrom() {
-    console.log(this.selectedFrom.place)
+    if (this.selectedFrom == this.selectedTo) {
+      this.placesTo = new Array<PlaceDto>();
+      for (let i = 0; i < this.placeDtos.length; i++) {
+        this.placesTo.push(this.placeDtos[i]);
+      }
+      this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
+      this.selectedTo = this.placesTo[0];
+    }
   }
 
   changeTo() {
-
+    // this.placesFrom = new Array<PlaceDto>();
+    // for (let i = 0; i < this.placeDtos.length; i++) {
+    //   this.placesFrom.push(this.placeDtos[i]);
+    // }
+    // this.placesFrom.splice(this.placesFrom.indexOf(this.selectedTo), 1);
+    // this.selectedFrom = this.placesFrom[0];
   }
 
   exchangeFromTo() {
