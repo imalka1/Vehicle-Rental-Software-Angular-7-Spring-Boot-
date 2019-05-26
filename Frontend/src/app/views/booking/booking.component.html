@@ -41,7 +41,7 @@
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Pickup From</div>
             <div class="col-sm-12">
-              <select name="" id="" class="form-control" [disabled]="placeDisneyFromDisable" [(ngModel)]="selectedFrom" (change)="changeFrom()">
+              <select name="" id="" class="form-control" [disabled]="placeDisneyDisable" [(ngModel)]="selectedFrom" (change)="changeFrom()">
                 <option *ngFor="let placeDto of placesFrom" [ngValue]="placeDto">{{placeDto.place}}</option>
               </select>
             </div>
@@ -57,7 +57,7 @@
               </select>
             </div>
             <div class="col-sm-12" *ngIf="selectedCategory=='disneyland'">
-              <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()" [disabled]="placeDisneyToDisable">
+              <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()" [disabled]="!placeDisneyDisable">
                 <option *ngFor="let placeDto of placesTo" [ngValue]="placeDto">{{placeDto.place}}</option>
               </select>
             </div>

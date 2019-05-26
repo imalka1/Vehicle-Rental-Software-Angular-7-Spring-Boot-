@@ -20,8 +20,9 @@ export class BookingComponent implements OnInit {
   children: number = 0;
   placesFrom: Array<PlaceDto>;
   placesTo: Array<PlaceDto>;
-  placeDisneyFromDisable: boolean = false;
-  placeDisneyToDisable: boolean = false;
+  placeDisneyDisable: boolean = false;
+
+  // placeDisneyToDisable: boolean = false;
 
   constructor(private categoryPlaceService: CategoryPlacesService) {
   }
@@ -37,9 +38,9 @@ export class BookingComponent implements OnInit {
   changeCategory() {
     this.placesFrom = new Array<PlaceDto>();
     this.placesTo = new Array<PlaceDto>();
+    this.placeDisneyDisable = false;
     if (this.selectedCategory == 'airport') {
 
-      this.placeDisneyToDisable = false;
       this.categoryPlaceService.getPlacesViaCategory('inland').subscribe((result) => {
         this.placeDtos = result;
         for (let i = 0; i < this.placeDtos.length; i++) {
@@ -57,7 +58,6 @@ export class BookingComponent implements OnInit {
 
     } else if (this.selectedCategory == 'disneyland') {
 
-      this.placeDisneyToDisable = true;
       this.categoryPlaceService.getPlacesViaCategory('inland').subscribe((result) => {
         this.placeDtos = result;
         for (let i = 0; i < this.placeDtos.length; i++) {
@@ -71,8 +71,7 @@ export class BookingComponent implements OnInit {
       });
 
     } else if (this.selectedCategory == 'inland') {
-
-      this.placeDisneyToDisable = false;
+      
       this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.placeDtos = result;
         for (let i = 0; i < this.placeDtos.length; i++) {
@@ -80,7 +79,7 @@ export class BookingComponent implements OnInit {
           this.placesTo.push(this.placeDtos[i]);
         }
         this.selectedFrom = this.placeDtos[0];
-        this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1)
+        this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
         this.selectedTo = this.placesTo[0];
       });
 
@@ -99,15 +98,27 @@ export class BookingComponent implements OnInit {
   }
 
   changeTo() {
-    // this.placesFrom = new Array<PlaceDto>();
-    // for (let i = 0; i < this.placeDtos.length; i++) {
-    //   this.placesFrom.push(this.placeDtos[i]);
-    // }
-    // this.placesFrom.splice(this.placesFrom.indexOf(this.selectedTo), 1);
-    // this.selectedFrom = this.placesFrom[0];
+
   }
 
   exchangeFromTo() {
-
+    if (this.selectedCategory == 'airport') {
+      let placesTemp = this.placesFrom;
+      this.placesFrom = this.placesTo;
+      this.placesTo = placesTemp;
+      this.selectedFrom = this.placesFrom[0];
+      this.selectedTo = this.placesTo[0];
+    } else if (this.selectedCategory == 'disneyland') {
+      let placesTemp = this.placesFrom;
+      this.placesFrom = this.placesTo;
+      this.placesTo = placesTemp;
+      this.selectedFrom = this.placesFrom[0];
+      this.selectedTo = this.placesTo[0];
+      if (this.placeDisneyDisable) {
+        this.placeDisneyDisable = false;
+      } else {
+        this.placeDisneyDisable = true;
+      }
+    }
   }
 }

@@ -59,22 +59,22 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="39" />
-          <entry key="html" value="1645" />
+          <entry key="html" value="1648" />
           <entry key="java" value="929" />
           <entry key="json" value="1" />
           <entry key="place-dto" value="23" />
           <entry key="properties" value="36" />
-          <entry key="ts" value="1896" />
+          <entry key="ts" value="2007" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="39" />
-          <entry key="HTML" value="1645" />
+          <entry key="HTML" value="1648" />
           <entry key="JAVA" value="929" />
           <entry key="JSON" value="1" />
           <entry key="Properties" value="36" />
-          <entry key="TypeScript" value="1919" />
+          <entry key="TypeScript" value="2030" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -86,11 +86,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="116">
-              <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+              <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -123,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="87" column="3" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
+            <state relative-caret-position="167">
+              <caret line="109" column="33" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -237,8 +237,8 @@
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/PlaceRepository.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/PlaceServiceImpl.java" />
         <option value="$PROJECT_DIR$/Frontend/src/app/dtos/place-dto.ts" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html" />
       </list>
     </option>
   </component>
@@ -538,7 +538,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558897460502" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558898992575" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -597,12 +597,12 @@
       <workItem from="1558357606448" duration="1627000" />
       <workItem from="1558366419083" duration="649000" />
       <workItem from="1558430068896" duration="9874000" />
-      <workItem from="1558619789406" duration="40028000" />
+      <workItem from="1558619789406" duration="41471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105583000" />
+    <option name="totallyTimeSpent" value="107026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -1027,10 +1027,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="109" column="33" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
-          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+          <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -1058,16 +1068,6 @@
             <element signature="n#style#0;n#div#1;n#div#12;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#15;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#15;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="87" column="3" selection-start-line="87" selection-start-column="3" selection-end-line="87" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
