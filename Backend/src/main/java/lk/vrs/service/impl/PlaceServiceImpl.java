@@ -23,7 +23,6 @@ public class PlaceServiceImpl implements PlaceService {
             PlaceDTO placeDTO = new PlaceDTO();
             placeDTO.setPlaceId(Integer.parseInt(placeViaCategory[0].toString()));
             placeDTO.setPlace(placeViaCategory[1].toString());
-            placeDTO.setFromOrTo(placeViaCategory[2].toString());
             placeDTOS.add(placeDTO);
         }
         return placeDTOS;

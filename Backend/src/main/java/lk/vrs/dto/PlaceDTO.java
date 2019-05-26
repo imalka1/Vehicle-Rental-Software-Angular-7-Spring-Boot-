@@ -4,7 +4,6 @@ public class PlaceDTO {
     private Integer placeId;
     private String place;
     private String category;
-    private String fromOrTo;
 
     public Integer getPlaceId() {
         return placeId;
@@ -28,13 +27,5 @@ public class PlaceDTO {
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    public String getFromOrTo() {
-        return fromOrTo;
-    }
-
-    public void setFromOrTo(String fromOrTo) {
-        this.fromOrTo = fromOrTo;
     }
 }

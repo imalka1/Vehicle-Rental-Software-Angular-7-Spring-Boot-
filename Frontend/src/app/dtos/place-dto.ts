@@ -2,5 +2,5 @@ export class PlaceDto {
   placeId: number;
   place: string;
   category: string;
-  fromOrTo: string;
+  edit: boolean;
 }

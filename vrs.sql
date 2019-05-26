@@ -12,17 +12,15 @@ FROM `vehicle_rental_software`.`vehicle`;
 
 SELECT `place`.`place_id`,
     `place`.`category`,
-    `place`.`from_or_to`,
     `place`.`place`
 FROM `vehicle_rental_software`.`place`;
 
+
 INSERT INTO `vehicle_rental_software`.`place`
-(
-`category`,
-`from_or_to`,
+(`category`,
 `place`)
 VALUES
-('airport','from','Colombo'),('airport','from','Galle'),('inland','from','Matara');
+('airport','Colombo'),('airport','Galle'),('inland','Matara'),('inland','Malabe');
 
 
 

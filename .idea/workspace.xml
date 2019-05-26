@@ -31,14 +31,14 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="css" value="6" />
-          <entry key="html" value="32" />
-          <entry key="java" value="29" />
+          <entry key="html" value="38" />
+          <entry key="java" value="48" />
           <entry key="js" value="2" />
           <entry key="json" value="2" />
-          <entry key="place-dto" value="1" />
+          <entry key="place-dto" value="3" />
           <entry key="properties" value="5" />
           <entry key="sql" value="1" />
-          <entry key="ts" value="29" />
+          <entry key="ts" value="44" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
@@ -46,35 +46,35 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="32" />
-          <entry key="JAVA" value="29" />
+          <entry key="HTML" value="38" />
+          <entry key="JAVA" value="48" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="2" />
           <entry key="Properties" value="5" />
           <entry key="SQL" value="1" />
-          <entry key="TypeScript" value="30" />
+          <entry key="TypeScript" value="47" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="39" />
-          <entry key="html" value="1399" />
-          <entry key="java" value="815" />
+          <entry key="html" value="1643" />
+          <entry key="java" value="929" />
           <entry key="json" value="1" />
-          <entry key="place-dto" value="14" />
+          <entry key="place-dto" value="23" />
           <entry key="properties" value="36" />
-          <entry key="ts" value="1259" />
+          <entry key="ts" value="1728" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="39" />
-          <entry key="HTML" value="1399" />
-          <entry key="JAVA" value="815" />
+          <entry key="HTML" value="1643" />
+          <entry key="JAVA" value="929" />
           <entry key="JSON" value="1" />
           <entry key="Properties" value="36" />
-          <entry key="TypeScript" value="1273" />
+          <entry key="TypeScript" value="1751" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -86,19 +86,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="62" column="114" selection-start-line="62" selection-start-column="114" selection-end-line="62" selection-end-column="114" />
+            <state relative-caret-position="303">
+              <caret line="60" column="64" lean-forward="true" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#5;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -120,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+            <state relative-caret-position="340">
+              <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -133,24 +136,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/src/app/services/category-places.service.ts">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/admin-panel.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="1802">
+              <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/PlaceController.java">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="12" />
+            <state relative-caret-position="204">
+              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,32 +208,37 @@
         <option value="$PROJECT_DIR$/Frontend/src/app/views/auth/signin/signin.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/common/footer/footer.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/common/header/header.component.ts" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/auth/signin/signin.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/assets/js/custom-date-picker.js" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/date/date.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/date/date.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/index.html" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Place.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Personal.java" />
         <option value="$PROJECT_DIR$/Frontend/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/common/footer/footer.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/home/home.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/common/header/header.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/assets/css/yellow.css" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/PlaceDTO.java" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/dtos/place-dto" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/VehicleRepository.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/PlaceService.java" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/PlaceServiceImpl.java" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/PlaceRepository.java" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/services/category-places.service.ts" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/PlaceController.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/VehicleController.java" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/auth/signin/signin.component.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/guards/login.guard.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/admin-panel.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/dtos/place-dto" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/services/category-places.service.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.ts" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Place.java" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/PlaceDTO.java" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/PlaceRepository.java" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/PlaceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/dtos/place-dto.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts" />
       </list>
     </option>
   </component>
@@ -362,6 +385,17 @@
               <item name="Backend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vrs" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
+              <item name="Backend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,6 +430,14 @@
               <item name="Frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="guards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -405,6 +447,47 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin-panel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin-panel" type="462c0819:PsiDirectoryNode" />
+              <item name="places" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin-panel" type="462c0819:PsiDirectoryNode" />
+              <item name="places" type="462c0819:PsiDirectoryNode" />
+              <item name="edit-place" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin-panel" type="462c0819:PsiDirectoryNode" />
+              <item name="places" type="462c0819:PsiDirectoryNode" />
+              <item name="fixed-place" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
@@ -439,54 +522,6 @@
               <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
               <item name="Frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="booking" type="462c0819:PsiDirectoryNode" />
-              <item name="date" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
-              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
-              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="footer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
-              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
-              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleRentalSoftware" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleRentalSoftware" type="462c0819:PsiDirectoryNode" />
-              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="environments" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -503,7 +538,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558851312715" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558873801171" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -562,18 +597,18 @@
       <workItem from="1558357606448" duration="1627000" />
       <workItem from="1558366419083" duration="649000" />
       <workItem from="1558430068896" duration="9874000" />
-      <workItem from="1558619789406" duration="18861000" />
+      <workItem from="1558619789406" duration="34532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84416000" />
+    <option name="totallyTimeSpent" value="100087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.10872483" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.11677852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -591,7 +626,7 @@
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.21560283" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.33049646" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.16453901" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.18014185" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2567376" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
@@ -636,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/auth/signin/signin.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/services/login.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -654,13 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/auth/signin/signin.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -696,20 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -829,51 +836,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/dtos/place-dto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/PlaceDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-          <folding>
-            <element signature="e#191#192#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#408#409#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#710#711#0" expanded="true" />
-            <element signature="e#750#751#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/VehicleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Place.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -900,43 +866,6 @@
     <entry file="file://$PROJECT_DIR$/Backend/vrs.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/PlaceRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="79" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/PlaceServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/services/category-places.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/VehicleController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -957,28 +886,162 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        <state relative-caret-position="442">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/auth/signin/signin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/guards/login.guard.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="66" lean-forward="true" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/auth/signin/signin.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/admin-panel.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/services/category-places.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/dtos/place-dto.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Place.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/PlaceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="21" column="61" lean-forward="true" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/PlaceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/PlaceDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="62" column="114" selection-start-line="62" selection-start-column="114" selection-end-line="62" selection-end-column="114" />
+        <state relative-caret-position="303">
+          <caret line="60" column="64" lean-forward="true" selection-start-line="60" selection-start-column="64" selection-end-line="60" selection-end-column="64" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#5;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -995,6 +1058,16 @@
             <element signature="n#style#0;n#div#1;n#div#12;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#15;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#15;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>

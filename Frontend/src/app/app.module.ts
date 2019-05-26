@@ -12,6 +12,11 @@ import {FormsModule} from "@angular/forms";
 import {DatePipe} from "@angular/common";
 import { DateComponent } from './views/booking/date/date.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PlacesComponent } from './views/admin-panel/places/places.component';
+import { VehiclesComponent } from './views/admin-panel/vehicles/vehicles.component';
+import {AdminPanelComponent} from "./views/admin-panel/admin-panel.component";
+import { FixedPlaceComponent } from './views/admin-panel/places/fixed-place/fixed-place.component';
+import { EditPlaceComponent } from './views/admin-panel/places/edit-place/edit-place.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     BookingComponent,
     SigninComponent,
-    DateComponent
+    DateComponent,
+    AdminPanelComponent,
+    PlacesComponent,
+    VehiclesComponent,
+    FixedPlaceComponent,
+    EditPlaceComponent
   ],
   imports: [
     BrowserModule,

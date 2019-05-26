@@ -16,7 +16,7 @@ export class SigninComponent implements OnInit {
 
   login() {
     localStorage.setItem('login', 'true');
-    this.router.navigate(['/head/main']);
+    this.router.navigate(['/log-head/admin']);
     this.loginService.setLoginOrLogout(true)
   }
 }

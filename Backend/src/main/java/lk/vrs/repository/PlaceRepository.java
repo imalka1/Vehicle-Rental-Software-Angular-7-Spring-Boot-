@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PlaceRepository extends CrudRepository<Place, Integer> {
 
-    @Query(value = "SELECT placeId,place,fromOrTo FROM Place WHERE category=?1")
+    @Query(value = "SELECT placeId,place FROM Place WHERE category=?1")
     List<Object[]> getPlacesViaCategory(String category);
 
 }
