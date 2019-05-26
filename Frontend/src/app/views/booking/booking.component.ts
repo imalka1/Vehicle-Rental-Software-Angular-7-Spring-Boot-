@@ -51,6 +51,7 @@ export class BookingComponent implements OnInit {
       this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.placeDtos = result;
         for (let i = 0; i < this.placeDtos.length; i++) {
+          this.placeDtos[i].place=this.placeDtos[i].place+' (Airport)'
           this.placesTo.push(this.placeDtos[i]);
         }
         this.selectedTo = this.placeDtos[0];
