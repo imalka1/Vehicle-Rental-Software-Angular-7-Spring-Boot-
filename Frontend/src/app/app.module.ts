@@ -11,6 +11,7 @@ import { SigninComponent } from './views/auth/signin/signin.component';
 import {FormsModule} from "@angular/forms";
 import {DatePipe} from "@angular/common";
 import { DateComponent } from './views/booking/date/date.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DateComponent } from './views/booking/date/date.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     DatePipe
