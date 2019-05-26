@@ -71,7 +71,7 @@ export class BookingComponent implements OnInit {
       });
 
     } else if (this.selectedCategory == 'inland') {
-      
+
       this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.placeDtos = result;
         for (let i = 0; i < this.placeDtos.length; i++) {
@@ -87,12 +87,13 @@ export class BookingComponent implements OnInit {
   }
 
   changeFrom() {
+
+    this.placesTo = new Array<PlaceDto>();
+    for (let i = 0; i < this.placeDtos.length; i++) {
+      this.placesTo.push(this.placeDtos[i]);
+    }
+    this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
     if (this.selectedFrom == this.selectedTo) {
-      this.placesTo = new Array<PlaceDto>();
-      for (let i = 0; i < this.placeDtos.length; i++) {
-        this.placesTo.push(this.placeDtos[i]);
-      }
-      this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
       this.selectedTo = this.placesTo[0];
     }
   }
