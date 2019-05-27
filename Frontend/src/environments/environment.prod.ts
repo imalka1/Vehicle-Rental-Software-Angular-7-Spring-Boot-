@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backend_url: 'http://imalkag.ddns.net:8080'
 };
