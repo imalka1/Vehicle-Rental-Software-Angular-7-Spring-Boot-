@@ -11,6 +11,7 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String vehicle_name;
+    private Integer totalPassengers;
 
     public Integer getId() {
         return id;
@@ -26,5 +27,13 @@ public class Vehicle {
 
     public void setVehicle_name(String vehicle_name) {
         this.vehicle_name = vehicle_name;
+    }
+
+    public Integer getTotalPassengers() {
+        return totalPassengers;
+    }
+
+    public void setTotalPassengers(Integer totalPassengers) {
+        this.totalPassengers = totalPassengers;
     }
 }
