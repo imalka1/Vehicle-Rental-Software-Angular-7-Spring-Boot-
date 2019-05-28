@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PlaceDto} from "../../../dtos/place-dto";
+import {PlaceDto} from "../../../model/place-dto";
 
 
 @Component({
@@ -9,7 +9,8 @@ import {PlaceDto} from "../../../dtos/place-dto";
 })
 export class PlacesComponent implements OnInit {
 
-  placeDtos: Array<PlaceDto>;
+  selectedCategory: string = 'airport';
+  placeDtos: Array<PlaceDto>=new Array<PlaceDto>();
 
   constructor() {
   }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PlaceDto} from "../../../../model/place-dto";
 
 @Component({
   selector: 'app-edit-place',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-place.component.css']
 })
 export class EditPlaceComponent implements OnInit {
+
+  @Input() edit_placeDto: PlaceDto;
 
   constructor() { }
 

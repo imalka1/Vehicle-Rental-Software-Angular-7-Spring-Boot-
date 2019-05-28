@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {PlaceDto} from "../dtos/place-dto";
+import {PlaceDto} from "../model/place-dto";
 import {environment} from "../../environments/environment";
 
 const URL = "/place";

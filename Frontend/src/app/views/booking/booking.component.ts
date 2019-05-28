@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryPlacesService} from "../../services/category-places.service";
-import {PlaceDto} from "../../dtos/place-dto";
+import {PlaceDto} from "../../model/place-dto";
 
 declare var custom_date_picker: any;
 
