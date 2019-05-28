@@ -35,4 +35,10 @@ export class PlacesComponent implements OnInit {
 
     }
   }
+
+  addPlace() {
+    let placeDto: PlaceDto = new PlaceDto();
+    placeDto.edit = true;
+    this.placeDtos.push(placeDto)
+  }
 }

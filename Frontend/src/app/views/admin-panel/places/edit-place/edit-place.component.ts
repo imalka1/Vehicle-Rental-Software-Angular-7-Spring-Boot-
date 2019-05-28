@@ -16,7 +16,13 @@ export class EditPlaceComponent implements OnInit {
   ngOnInit() {
   }
 
-  fixPlace() {
-    this.edit_placeDto.edit = false;
+  addPlace() {
+    if (this.edit_placeDto.place != undefined) {
+      this.edit_placeDto.edit = false;
+    }
+  }
+
+  deletePlace() {
+    // this.edit_placeDto=null;
   }
 }
