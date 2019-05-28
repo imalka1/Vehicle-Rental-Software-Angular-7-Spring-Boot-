@@ -47,7 +47,10 @@
             <li class="dropdown {{isHomeActive()}}"><a class="dropdown-toggle" data-toggle="dropdown" routerLink="">Home</a>
             </li>
 
-            <li *ngIf="isPatientsPanel()" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" routerLink="/head/bookings">Bookings</a>
+            <li *ngIf="isAdminPanel()" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" routerLink="/head/bookings">Bookings</a>
+            </li>
+
+            <li *ngIf="isAdminPanel()" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" routerLink="/log-head/admin">Admin Panel</a>
             </li>
 
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Contact<span><i

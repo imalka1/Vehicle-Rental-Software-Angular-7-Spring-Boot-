@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {LoginService} from "../../../services/login.service";
+
 declare var custom_navigation: any;
 
 @Component({
@@ -61,12 +62,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  isPatientsPanel() {
-    // if (this.route.snapshot.queryParamMap.get('clinicDate') != undefined) {
+  isAdminPanel() {
+    if (this.loginService.isLoggedIn()) {
       return true;
-    // } else {
-    //   return false;
-    // }
+    } else {
+      return false;
+    }
   }
 
 }
