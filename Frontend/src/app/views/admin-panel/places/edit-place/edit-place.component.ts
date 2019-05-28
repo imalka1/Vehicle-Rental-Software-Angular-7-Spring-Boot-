@@ -10,9 +10,13 @@ export class EditPlaceComponent implements OnInit {
 
   @Input() edit_placeDto: PlaceDto;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  fixPlace() {
+    this.edit_placeDto.edit = false;
+  }
 }
