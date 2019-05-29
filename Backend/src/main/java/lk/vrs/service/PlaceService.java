@@ -1,6 +1,5 @@
 package lk.vrs.service;
 
-import lk.vrs.dto.PlaceDTO;
 import lk.vrs.entity.Place;
 
 import java.util.ArrayList;

@@ -10,7 +10,7 @@ public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer placeId;
-    private String place;
+    private String placeName;
     private String category;
 
     public Integer getPlaceId() {
@@ -21,12 +21,12 @@ public class Place {
         this.placeId = placeId;
     }
 
-    public String getPlace() {
-        return place;
+    public String getPlaceName() {
+        return placeName;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setPlaceName(String placeName) {
+        this.placeName = placeName;
     }
 
     public String getCategory() {

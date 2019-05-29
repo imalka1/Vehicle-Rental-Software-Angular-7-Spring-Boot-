@@ -9,7 +9,7 @@ const URL = "/api/place";
 @Injectable({
   providedIn: 'root'
 })
-export class PlacesService {
+export class PlaceService {
 
   constructor(private http: HttpClient) {
   }

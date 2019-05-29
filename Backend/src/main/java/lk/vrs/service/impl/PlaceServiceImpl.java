@@ -1,6 +1,5 @@
 package lk.vrs.service.impl;
 
-import lk.vrs.dto.PlaceDTO;
 import lk.vrs.entity.Place;
 import lk.vrs.repository.PlaceRepository;
 import lk.vrs.service.PlaceService;
@@ -24,7 +23,7 @@ public class PlaceServiceImpl implements PlaceService {
     @Override
     public Place updatePlace(Place place, int id) {
         Place placeObj = placeRepository.findById(id).get();
-        placeObj.setPlace(place.getPlace());
+        placeObj.setPlaceName(place.getPlaceName());
         return placeRepository.save(placeObj);
     }
 
@@ -40,7 +39,7 @@ public class PlaceServiceImpl implements PlaceService {
         for (Object[] placeViaCategory : placesViaCategory) {
             Place place = new Place();
             place.setPlaceId(Integer.parseInt(placeViaCategory[0].toString()));
-            place.setPlace(placeViaCategory[1].toString());
+            place.setPlaceName(placeViaCategory[1].toString());
             places.add(place);
         }
         return places;

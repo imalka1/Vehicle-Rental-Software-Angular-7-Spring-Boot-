@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {PlacesService} from "../../services/places.service";
+import {PlaceService} from "../../services/place.service";
 import {Place} from "../../model/place";
 import {PlaceDto} from "../../dtos/place-dto";
 
-declare var custom_date_picker: any;
+// declare var custom_date_picker: any;
 
 @Component({
   selector: 'app-booking',
@@ -23,9 +23,7 @@ export class BookingComponent implements OnInit {
   placesTo: Array<Place>;
   placeDisneyDisable: boolean = false;
 
-  // placeDisneyToDisable: boolean = false;
-
-  constructor(private placeService: PlacesService) {
+  constructor(private placeService: PlaceService) {
   }
 
   ngOnInit() {
@@ -52,7 +50,7 @@ export class BookingComponent implements OnInit {
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placeDtos[i].place.place=this.placeDtos[i].place.place+' (Airport)';
+          this.placeDtos[i].place.placeName = this.placeDtos[i].place.placeName + ' (Airport)';
           this.placesTo.push(this.placeDtos[i].place);
         }
         this.selectedTo = this.placeDtos[0].place;
@@ -67,7 +65,7 @@ export class BookingComponent implements OnInit {
         }
         this.selectedFrom = this.placeDtos[0].place;
         let place: Place = new Place();
-        place.place = 'Disneyland';
+        place.placeName = 'Disneyland';
         this.placesTo.push(place);
         this.selectedTo = place;
       });
@@ -88,8 +86,8 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  setPlaceDtos(places:Array<Place>){
-    this.placeDtos=new Array<PlaceDto>();
+  setPlaceDtos(places: Array<Place>) {
+    this.placeDtos = new Array<PlaceDto>();
     for (let i = 0; i < places.length; i++) {
       let placeDto = new PlaceDto();
       placeDto.place = places[i];

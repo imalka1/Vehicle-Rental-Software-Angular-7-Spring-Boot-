@@ -9,24 +9,25 @@ import javax.persistence.Id;
 public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String vehicle_name;
+    private Integer vehicleId;
+    private String vehicleName;
     private Integer totalPassengers;
+    private String category;
 
-    public Integer getId() {
-        return id;
+    public Integer getVehicleId() {
+        return vehicleId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setVehicleId(Integer vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
-    public String getVehicle_name() {
-        return vehicle_name;
+    public String getVehicleName() {
+        return vehicleName;
     }
 
-    public void setVehicle_name(String vehicle_name) {
-        this.vehicle_name = vehicle_name;
+    public void setVehicleName(String vehicleName) {
+        this.vehicleName = vehicleName;
     }
 
     public Integer getTotalPassengers() {
@@ -35,5 +36,13 @@ public class Vehicle {
 
     public void setTotalPassengers(Integer totalPassengers) {
         this.totalPassengers = totalPassengers;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

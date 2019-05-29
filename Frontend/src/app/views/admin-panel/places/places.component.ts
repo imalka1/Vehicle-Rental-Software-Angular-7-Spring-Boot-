@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Place} from "../../../model/place";
-import {PlacesService} from "../../../services/places.service";
+import {PlaceService} from "../../../services/place.service";
 import {PlaceDto} from "../../../dtos/place-dto";
 
 
@@ -14,7 +14,7 @@ export class PlacesComponent implements OnInit {
   selectedCategory: string = 'airport';
   placeDtos: Array<PlaceDto>;
 
-  constructor(private placeService: PlacesService) {
+  constructor(private placeService: PlaceService) {
   }
 
   ngOnInit() {
@@ -37,8 +37,8 @@ export class PlacesComponent implements OnInit {
     }
   }
 
-  setPlaceDtos(places:Array<Place>){
-    this.placeDtos=new Array<PlaceDto>();
+  setPlaceDtos(places: Array<Place>) {
+    this.placeDtos = new Array<PlaceDto>();
     for (let i = 0; i < places.length; i++) {
       let placeDto = new PlaceDto();
       placeDto.place = places[i];

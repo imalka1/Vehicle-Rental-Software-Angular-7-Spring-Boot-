@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PlacesService} from "../../../../services/places.service";
+import {PlaceService} from "../../../../services/place.service";
 import {PlaceDto} from "../../../../dtos/place-dto";
 
 @Component({
@@ -11,7 +11,7 @@ export class EditPlaceComponent implements OnInit {
 
   @Input() edit_placeDto: PlaceDto;
 
-  constructor(private placeService: PlacesService) {
+  constructor(private placeService: PlaceService) {
   }
 
   ngOnInit() {

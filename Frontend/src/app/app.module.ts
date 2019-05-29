@@ -17,6 +17,8 @@ import { VehiclesComponent } from './views/admin-panel/vehicles/vehicles.compone
 import {AdminPanelComponent} from "./views/admin-panel/admin-panel.component";
 import { FixedPlaceComponent } from './views/admin-panel/places/fixed-place/fixed-place.component';
 import { EditPlaceComponent } from './views/admin-panel/places/edit-place/edit-place.component';
+import { EditVehicleComponent } from './views/admin-panel/vehicles/edit-vehicle/edit-vehicle.component';
+import { FixedVehicleComponent } from './views/admin-panel/vehicles/fixed-vehicle/fixed-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { EditPlaceComponent } from './views/admin-panel/places/edit-place/edit-p
     PlacesComponent,
     VehiclesComponent,
     FixedPlaceComponent,
-    EditPlaceComponent
+    EditPlaceComponent,
+    EditVehicleComponent,
+    FixedVehicleComponent
   ],
   imports: [
     BrowserModule,
