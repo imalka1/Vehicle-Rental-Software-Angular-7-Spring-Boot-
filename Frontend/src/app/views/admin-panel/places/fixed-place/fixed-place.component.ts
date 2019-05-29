@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PlaceDto} from "../../../../model/place-dto";
+import {Place} from "../../../../model/place";
+import {PlaceDto} from "../../../../dtos/place-dto";
 
 @Component({
   selector: 'app-fixed-place',

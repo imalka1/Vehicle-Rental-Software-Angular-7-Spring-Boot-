@@ -1,6 +1,7 @@
 package lk.vrs.service.impl;
 
 import lk.vrs.dto.PlaceDTO;
+import lk.vrs.entity.Place;
 import lk.vrs.repository.PlaceRepository;
 import lk.vrs.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +17,32 @@ public class PlaceServiceImpl implements PlaceService {
     private PlaceRepository placeRepository;
 
     @Override
-    public ArrayList<PlaceDTO> getPlacesViaCategory(String category) {
+    public Place addPlace(Place place) {
+        return placeRepository.save(place);
+    }
+
+    @Override
+    public Place updatePlace(Place place, int id) {
+        Place placeObj = placeRepository.findById(id).get();
+        placeObj.setPlace(place.getPlace());
+        return placeRepository.save(placeObj);
+    }
+
+    @Override
+    public void deletePlace(int id) {
+        placeRepository.deleteById(id);
+    }
+
+    @Override
+    public ArrayList<Place> getPlacesViaCategory(String category) {
         List<Object[]> placesViaCategory = placeRepository.getPlacesViaCategory(category);
-        ArrayList<PlaceDTO> placeDTOS = new ArrayList<>();
+        ArrayList<Place> places = new ArrayList<>();
         for (Object[] placeViaCategory : placesViaCategory) {
-            PlaceDTO placeDTO = new PlaceDTO();
-            placeDTO.setPlaceId(Integer.parseInt(placeViaCategory[0].toString()));
-            placeDTO.setPlace(placeViaCategory[1].toString());
-            placeDTOS.add(placeDTO);
+            Place place = new Place();
+            place.setPlaceId(Integer.parseInt(placeViaCategory[0].toString()));
+            place.setPlace(placeViaCategory[1].toString());
+            places.add(place);
         }
-        return placeDTOS;
+        return places;
     }
 }

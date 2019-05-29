@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "/vehicle")
+@RequestMapping(path = "/api/vehicle")
 public class VehicleController {
 
     @Autowired

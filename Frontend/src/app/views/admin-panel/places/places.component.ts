@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {PlaceDto} from "../../../model/place-dto";
-import {CategoryPlacesService} from "../../../services/category-places.service";
+import {Place} from "../../../model/place";
+import {PlacesService} from "../../../services/places.service";
+import {PlaceDto} from "../../../dtos/place-dto";
 
 
 @Component({
@@ -11,9 +12,9 @@ import {CategoryPlacesService} from "../../../services/category-places.service";
 export class PlacesComponent implements OnInit {
 
   selectedCategory: string = 'airport';
-  placeDtos: Array<PlaceDto> = new Array<PlaceDto>();
+  placeDtos: Array<PlaceDto>;
 
-  constructor(private categoryPlaceService: CategoryPlacesService) {
+  constructor(private placeService: PlacesService) {
   }
 
   ngOnInit() {
@@ -23,22 +24,36 @@ export class PlacesComponent implements OnInit {
   changeCategory() {
     if (this.selectedCategory == 'airport') {
 
-      this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.placeDtos = result;
+      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
+        this.setPlaceDtos(result);
       });
 
-    } else if (this.selectedCategory == 'inland') {
+    } else if (this.selectedCategory == 'private') {
 
-      this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.placeDtos = result;
+      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
+        this.setPlaceDtos(result);
       });
 
     }
   }
 
+  setPlaceDtos(places:Array<Place>){
+    this.placeDtos=new Array<PlaceDto>();
+    for (let i = 0; i < places.length; i++) {
+      let placeDto = new PlaceDto();
+      placeDto.place = places[i];
+      placeDto.placeDtos = this.placeDtos;
+      this.placeDtos.push(placeDto);
+    }
+  }
+
   addPlace() {
     let placeDto: PlaceDto = new PlaceDto();
+    let place: Place = new Place();
     placeDto.edit = true;
-    this.placeDtos.push(placeDto)
+    place.category = this.selectedCategory;
+    placeDto.place = place;
+    this.placeDtos.push(placeDto);
+    this.placeDtos[this.placeDtos.indexOf(placeDto)].placeDtos = this.placeDtos;
   }
 }

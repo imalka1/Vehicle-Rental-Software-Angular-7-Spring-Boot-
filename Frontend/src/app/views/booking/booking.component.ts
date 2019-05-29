@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {CategoryPlacesService} from "../../services/category-places.service";
-import {PlaceDto} from "../../model/place-dto";
+import {PlacesService} from "../../services/places.service";
+import {Place} from "../../model/place";
+import {PlaceDto} from "../../dtos/place-dto";
 
 declare var custom_date_picker: any;
 
@@ -12,19 +13,19 @@ declare var custom_date_picker: any;
 export class BookingComponent implements OnInit {
 
   selectedCategory: string = 'airport';
-  selectedFrom: PlaceDto;
-  selectedTo: PlaceDto;
+  selectedFrom: Place;
+  selectedTo: Place;
   placeDtos: Array<PlaceDto>;
   totalPassengers: number = 0;
   adults: number = 0;
   children: number = 0;
-  placesFrom: Array<PlaceDto>;
-  placesTo: Array<PlaceDto>;
+  placesFrom: Array<Place>;
+  placesTo: Array<Place>;
   placeDisneyDisable: boolean = false;
 
   // placeDisneyToDisable: boolean = false;
 
-  constructor(private categoryPlaceService: CategoryPlacesService) {
+  constructor(private placeService: PlacesService) {
   }
 
   ngOnInit() {
@@ -36,50 +37,50 @@ export class BookingComponent implements OnInit {
   }
 
   changeCategory() {
-    this.placesFrom = new Array<PlaceDto>();
-    this.placesTo = new Array<PlaceDto>();
+    this.placesFrom = new Array<Place>();
+    this.placesTo = new Array<Place>();
     this.placeDisneyDisable = false;
     if (this.selectedCategory == 'airport') {
 
-      this.categoryPlaceService.getPlacesViaCategory('inland').subscribe((result) => {
-        this.placeDtos = result;
+      this.placeService.getPlacesViaCategory('private').subscribe((result) => {
+        this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placesFrom.push(this.placeDtos[i]);
+          this.placesFrom.push(this.placeDtos[i].place);
         }
-        this.selectedFrom = this.placeDtos[0];
+        this.selectedFrom = this.placeDtos[0].place;
       });
-      this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.placeDtos = result;
+      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
+        this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placeDtos[i].place=this.placeDtos[i].place+' (Airport)'
-          this.placesTo.push(this.placeDtos[i]);
+          this.placeDtos[i].place.place=this.placeDtos[i].place.place+' (Airport)';
+          this.placesTo.push(this.placeDtos[i].place);
         }
-        this.selectedTo = this.placeDtos[0];
+        this.selectedTo = this.placeDtos[0].place;
       });
 
     } else if (this.selectedCategory == 'disneyland') {
 
-      this.categoryPlaceService.getPlacesViaCategory('inland').subscribe((result) => {
-        this.placeDtos = result;
+      this.placeService.getPlacesViaCategory('private').subscribe((result) => {
+        this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placesFrom.push(this.placeDtos[i]);
+          this.placesFrom.push(this.placeDtos[i].place);
         }
-        this.selectedFrom = this.placeDtos[0];
-        let placeDto: PlaceDto = new PlaceDto();
-        placeDto.place = 'Disneyland';
-        this.placesTo.push(placeDto);
-        this.selectedTo = placeDto;
+        this.selectedFrom = this.placeDtos[0].place;
+        let place: Place = new Place();
+        place.place = 'Disneyland';
+        this.placesTo.push(place);
+        this.selectedTo = place;
       });
 
-    } else if (this.selectedCategory == 'inland') {
+    } else if (this.selectedCategory == 'private') {
 
-      this.categoryPlaceService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.placeDtos = result;
+      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
+        this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placesFrom.push(this.placeDtos[i]);
-          this.placesTo.push(this.placeDtos[i]);
+          this.placesFrom.push(this.placeDtos[i].place);
+          this.placesTo.push(this.placeDtos[i].place);
         }
-        this.selectedFrom = this.placeDtos[0];
+        this.selectedFrom = this.placeDtos[0].place;
         this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
         this.selectedTo = this.placesTo[0];
       });
@@ -87,11 +88,20 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  changeFrom() {
+  setPlaceDtos(places:Array<Place>){
+    this.placeDtos=new Array<PlaceDto>();
+    for (let i = 0; i < places.length; i++) {
+      let placeDto = new PlaceDto();
+      placeDto.place = places[i];
+      placeDto.placeDtos = this.placeDtos;
+      this.placeDtos.push(placeDto);
+    }
+  }
 
-    this.placesTo = new Array<PlaceDto>();
+  changeFrom() {
+    this.placesTo = new Array<Place>();
     for (let i = 0; i < this.placeDtos.length; i++) {
-      this.placesTo.push(this.placeDtos[i]);
+      this.placesTo.push(this.placeDtos[i].place);
     }
     this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
     if (this.selectedFrom == this.selectedTo) {

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PlaceDto} from "../../../../model/place-dto";
+import {PlacesService} from "../../../../services/places.service";
+import {PlaceDto} from "../../../../dtos/place-dto";
 
 @Component({
   selector: 'app-edit-place',
@@ -10,7 +11,7 @@ export class EditPlaceComponent implements OnInit {
 
   @Input() edit_placeDto: PlaceDto;
 
-  constructor() {
+  constructor(private placeService: PlacesService) {
   }
 
   ngOnInit() {
@@ -18,11 +19,24 @@ export class EditPlaceComponent implements OnInit {
 
   addPlace() {
     if (this.edit_placeDto.place != undefined) {
-      this.edit_placeDto.edit = false;
+      if (this.edit_placeDto.place.placeId != undefined) {
+        this.placeService.updatePlace(this.edit_placeDto.place).subscribe((result) => {
+          this.edit_placeDto.place = result;
+          this.edit_placeDto.edit = false;
+        })
+      } else {
+        this.placeService.addPlace(this.edit_placeDto.place).subscribe((result) => {
+          this.edit_placeDto.place = result;
+          this.edit_placeDto.edit = false;
+        })
+      }
     }
   }
 
   deletePlace() {
-    // this.edit_placeDto=null;
+    if (this.edit_placeDto.place.placeId != undefined) {
+      this.placeService.deletePlace(this.edit_placeDto.place).subscribe();
+    }
+    this.edit_placeDto.placeDtos.splice(this.edit_placeDto.placeDtos.indexOf(this.edit_placeDto), 1);
   }
 }
