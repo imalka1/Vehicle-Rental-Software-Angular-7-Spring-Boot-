@@ -71,11 +71,11 @@
         <div class="row" style="font-weight: bold">
           <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Pickup Date</div>
-            <div class="col-sm-12"><input type="date" class="form-control" min="2019-05-18"></div>
+            <div class="col-sm-12"><input type="date" class="form-control" min="{{currentDate}}" [(ngModel)]="currentDate"></div>
           </div>
           <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Pickup Time</div>
-            <div class="col-sm-12"><input type="time" class="form-control" min="03:00"></div>
+            <div class="col-sm-12"><input type="time" class="form-control" [(ngModel)]="currentTime"></div>
           </div>
         </div>
         <div class="row" style="font-weight: bold">

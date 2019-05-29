@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PlaceService} from "../../services/place.service";
 import {Place} from "../../model/place";
 import {PlaceDto} from "../../dtos/place-dto";
+import {DatePipe} from "@angular/common";
 
 // declare var custom_date_picker: any;
 
@@ -12,6 +13,8 @@ import {PlaceDto} from "../../dtos/place-dto";
 })
 export class BookingComponent implements OnInit {
 
+  currentDate: string;
+  currentTime: string;
   selectedCategory: string = 'airport';
   selectedFrom: Place;
   selectedTo: Place;
@@ -23,10 +26,12 @@ export class BookingComponent implements OnInit {
   placesTo: Array<Place>;
   placeDisneyDisable: boolean = false;
 
-  constructor(private placeService: PlaceService) {
+  constructor(private placeService: PlaceService, private datePipe: DatePipe) {
   }
 
   ngOnInit() {
+    this.currentDate = this.datePipe.transform((new Date()), 'yyyy-MM-dd');
+    this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
   }
 
