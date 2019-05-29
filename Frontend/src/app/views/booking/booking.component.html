@@ -105,22 +105,56 @@
         </div>
         <div class="row" style="margin-top: 25px">
           <div class="col-sm-12">
-            <table border="1px" width="100%">
-              <tr>
-                <th width="50%" style="padding: 10px">Vehicle</th>
-                <th width="20%" style="padding: 10px;text-align: center">Category</th>
-                <th width="20%" style="padding: 10px;text-align: center">Total Passengers</th>
-                <th width="10%" style="padding: 10px;text-align: center">Select</th>
-              </tr>
-              <tr>
-                <td style="padding: 10px">Benz</td>
-                <td style="padding: 10px;text-align: center">Mini Van</td>
-                <td style="padding: 10px;text-align: center">5</td>
-                <td style="padding: 10px;text-align: center"><input type="radio"></td>
-              </tr>
-            </table>
+            <div class="row" style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
+              <div class="col-sm-5 col-5" style="border-right: 1px solid black">
+                Vehicle
+              </div>
+              <div class="col-sm-3 col-3" style="text-align: center;border-right: 1px solid black">
+                Category
+              </div>
+              <div class="col-sm-3 col-3" style="text-align: center;border-right: 1px solid black">
+                Total Passengers
+              </div>
+              <div class="col-sm-1 col-1" style="text-align: center">
+                Select
+              </div>
+            </div>
+            <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
+            <div class="row" style="border-bottom: 1px solid black;padding: 10px">
+              <div class="col-sm-5 col-5" style="border-right: 1px solid black">
+                Mercedes-Benz
+              </div>
+              <div class="col-sm-3 col-3" style="text-align: center;border-right: 1px solid black">
+                Car
+              </div>
+              <div class="col-sm-3 col-3" style="text-align: center;border-right: 1px solid black">
+                5
+              </div>
+              <div class="col-sm-1 col-1" style="text-align: center">
+                <input type="radio">
+              </div>
+            </div>
+            <!--</ng-container>-->
           </div>
         </div>
+        <!--<div class="row" style="margin-top: 25px">-->
+          <!--<div class="col-sm-12">-->
+            <!--<table border="1px" width="100%">-->
+              <!--<tr>-->
+                <!--<th width="50%" style="padding: 10px">Vehicle</th>-->
+                <!--<th width="20%" style="padding: 10px;text-align: center">Category</th>-->
+                <!--<th width="20%" style="padding: 10px;text-align: center">Total Passengers</th>-->
+                <!--<th width="10%" style="padding: 10px;text-align: center">Select</th>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td style="padding: 10px">Benz</td>-->
+                <!--<td style="padding: 10px;text-align: center">Mini Van</td>-->
+                <!--<td style="padding: 10px;text-align: center">5</td>-->
+                <!--<td style="padding: 10px;text-align: center"><input type="radio"></td>-->
+              <!--</tr>-->
+            <!--</table>-->
+          <!--</div>-->
+        <!--</div>-->
 
         <hr
           style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
