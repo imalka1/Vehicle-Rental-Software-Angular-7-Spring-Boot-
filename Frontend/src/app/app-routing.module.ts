@@ -6,6 +6,8 @@ import {SigninComponent} from "./views/auth/signin/signin.component";
 import {BookingComponent} from "./views/booking/booking.component";
 import {AdminPanelComponent} from "./views/admin-panel/admin-panel.component";
 import {LoginGuard} from "./guards/login.guard";
+import {PlacesComponent} from "./views/admin-panel/places/places.component";
+import {VehiclesComponent} from "./views/admin-panel/vehicles/vehicles.component";
 
 const routes: Routes = [
   {
@@ -15,8 +17,18 @@ const routes: Routes = [
     children: [
       {
         path: 'admin',
-        component: AdminPanelComponent
-      }
+        component: AdminPanelComponent,
+        children: [
+          {
+            path: 'place',
+            component: PlacesComponent
+          },
+          {
+            path: 'vehicle',
+            component: VehiclesComponent
+          }
+        ]
+      },
     ]
   },
   {
