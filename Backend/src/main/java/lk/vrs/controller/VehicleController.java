@@ -15,17 +15,17 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    @PostMapping(value = "/vehicles")
+    @PostMapping(value = "/admin/vehicles")
     public Vehicle addVehicle(@RequestBody Vehicle vehicle) {
         return vehicleService.addVehicle(vehicle);
     }
 
-    @PutMapping(value = "/vehicles/{id}")
+    @PutMapping(value = "/admin/vehicles/{id}")
     public Vehicle updateVehicle(@RequestBody Vehicle vehicle, @PathVariable int id) {
         return vehicleService.updateVehicle(vehicle, id);
     }
 
-    @DeleteMapping(value = "/vehicles/{id}")
+    @DeleteMapping(value = "/admin/vehicles/{id}")
     public void deletePlace(@PathVariable int id) {
         vehicleService.deleteVehicle(id);
     }
