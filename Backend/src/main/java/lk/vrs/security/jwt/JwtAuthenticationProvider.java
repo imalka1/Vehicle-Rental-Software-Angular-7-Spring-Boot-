@@ -20,8 +20,6 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
 
     @Autowired
     private JwtValidator validator;
-    @Autowired
-    private UserService userService;
 
     @Override
     protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws AuthenticationException {
@@ -36,10 +34,6 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
         User user = validator.validate(token);
         if (user == null) {
             throw new RuntimeException("JWT Token is incorrect");
-        } else {
-            if (!userService.chkUserViaSecurityKey(user)) {
-                throw new RuntimeException("JWT Token is incorrect (Key failed)");
-            }
         }
 
         List<GrantedAuthority> grantedAuthorityList = AuthorityUtils

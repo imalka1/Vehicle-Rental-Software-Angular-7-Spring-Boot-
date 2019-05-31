@@ -3,6 +3,7 @@ package lk.vrs.service.impl;
 import lk.vrs.entity.User;
 import lk.vrs.repository.UserRepository;
 import lk.vrs.service.UserService;
+import lk.vrs.session.SessionStack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,23 +19,9 @@ public class UserServiceImpl implements UserService {
         Object userId = userRepository.getUserId(user.getUserName(), user.getPassword(), user.getRole());
         if (userId != null) {
             User userObj = userRepository.findById(Long.parseLong(userId.toString())).get();
-            userObj.setSecurityKey(generateRandomNumber());
-            return userRepository.save(userObj);
+            SessionStack.setUser(userObj);
+            return userObj;
         }
         return null;
-    }
-
-    @Override
-    public boolean chkUserViaSecurityKey(User user) {
-        Object userId = userRepository.getUserViaSecurityKey(user.getUserId(), user.getSecurityKey());
-        if (userId != null) {
-            return true;
-        }
-        return false;
-    }
-
-    private int generateRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(10000000);
     }
 }

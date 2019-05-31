@@ -39,8 +39,7 @@ VALUES
 SELECT `user`.`user_id`,
     `user`.`password`,
     `user`.`role`,
-    `user`.`user_name`,
-    `user`.`security_key`
+    `user`.`user_name`
 FROM `vehicle_rental_software`.`user`;
 
 

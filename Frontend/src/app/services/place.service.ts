@@ -17,7 +17,9 @@ export class PlaceService {
 
   createAuthorizationHeader() {
     let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Authorization', 'Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2ExIiwidXNlcklkIjoiMiIsInJvbGUiOiJhZG1pbiIsInNlY3VyaXR5S2V5Ijo0NTcwOTM1fQ.hXHTJL_18K5gV4q9xQJFP4memY1X8hWVuovnhCexSofZJNx-oVRY-HuASG4F03WhUXR6fO8C_JUSGON94mKn1A');
+    headers = headers.append('Authorization', 'Token ' +
+      'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2ExIiwidXNlcklkIjoiMiIsInJvbGUiOiJhZG1pbiIsInNlY3VyaXR5S2V5IjoxNDQ3Nzk2NzM3fQ.VwbuSdF_AnahjpGmGiYtBSHUY7CyXOEnGN0WrIsZf8ZsWZ5MoBBiyYa2M_SoJqMbwlrP4ur-7VPMMSzoYGuHAQ'
+    );
     // headers = headers.append('Authorization', 'Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2ExIiwidXNlcklkIjoiMCIsInJvbGUiOiJhZG1pbiJ9.xaiM5oAKbhlsjt-rXW2ecSt93Qx9bh8Y3PhIrJiWNTAwkyOH9RpaesPPobrWYiFTxilFCilMdj45tkY3KTQYjA1');
     return headers;
   }

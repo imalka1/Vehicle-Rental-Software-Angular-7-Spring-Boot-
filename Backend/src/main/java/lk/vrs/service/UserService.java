@@ -4,6 +4,4 @@ import lk.vrs.entity.User;
 
 public interface UserService {
     User chkLogin(User user);
-
-    boolean chkUserViaSecurityKey(User user);
 }

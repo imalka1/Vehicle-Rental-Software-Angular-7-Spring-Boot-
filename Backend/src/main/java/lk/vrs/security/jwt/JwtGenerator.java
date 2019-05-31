@@ -12,7 +12,7 @@ public class JwtGenerator {
         Claims claims = Jwts.claims().setSubject(user.getUserName());
         claims.put("userId", String.valueOf(user.getUserId()));
         claims.put("role", user.getRole());
-        claims.put("securityKey", user.getSecurityKey());
+        claims.put("securityKey", user.hashCode());
 
         return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, "mercedes").compact();
     }
