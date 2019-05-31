@@ -1,8 +1,11 @@
 <div class="row" style="border-bottom: 1px solid black;padding: 10px">
-  <div class="col-sm-10 col-10" style="border-right: 1px solid black">
+  <div class="col-8" style="border-right: 1px solid black">
     {{fixed_vehicleDto.vehicle.vehicleName}}
   </div>
-  <div class="col-sm-2 col-2" style="text-align: center">
+  <div class="col-2" style="border-right: 1px solid black;text-align: center">
+    {{fixed_vehicleDto.vehicle.totalPassengers}}
+  </div>
+  <div class="col-2" style="text-align: center">
     <i class="fa fa-pencil" style="color: #866006;cursor: pointer" (click)="editPlace()"></i>
   </div>
 </div>

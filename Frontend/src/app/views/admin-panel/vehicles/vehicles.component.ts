@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {VehicleDto} from "../../../dtos/vehicle-dto";
 import {VehicleService} from "../../../services/vehicle.service";
 import {Vehicle} from "../../../model/vehicle";
@@ -49,6 +49,7 @@ export class VehiclesComponent implements OnInit {
   addVehicle() {
     let vehicleDto: VehicleDto = new VehicleDto();
     let vehicle: Vehicle = new Vehicle();
+    vehicle.totalPassengers = 1;
     vehicleDto.edit = true;
     vehicle.category = this.selectedCategory;
     vehicleDto.vehicle = vehicle;

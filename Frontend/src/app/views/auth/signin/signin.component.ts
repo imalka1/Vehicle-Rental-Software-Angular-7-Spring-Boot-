@@ -25,7 +25,7 @@ export class SigninComponent implements OnInit {
       let token: Token = result;
       if (token.token != 'errorLogin') {
         localStorage.setItem('token', 'Token ' + token.token);
-        this.router.navigate(['/log-head/admin/place']);
+        this.router.navigate(['/head/main']);
         this.loginService.setLoginOrLogout(true);
       }
     });

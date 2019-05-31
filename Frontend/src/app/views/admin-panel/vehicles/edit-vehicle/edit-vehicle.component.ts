@@ -42,4 +42,7 @@ export class EditVehicleComponent implements OnInit {
     this.edit_vehicleDto.vehicleDtos.splice(this.edit_vehicleDto.vehicleDtos.indexOf(this.edit_vehicleDto), 1);
   }
 
+  cancelVehicle(){
+    this.edit_vehicleDto.edit = false;
+  }
 }

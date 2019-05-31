@@ -23,6 +23,7 @@ public class VehicleServiceImpl implements VehicleService {
     public Vehicle updateVehicle(Vehicle vehicle, int id) {
         Vehicle vehicleObj = vehicleRepository.findById(id).get();
         vehicleObj.setVehicleName(vehicle.getVehicleName());
+        vehicleObj.setTotalPassengers(vehicle.getTotalPassengers());
         return vehicleRepository.save(vehicleObj);
     }
 
@@ -39,6 +40,7 @@ public class VehicleServiceImpl implements VehicleService {
             Vehicle vehicle = new Vehicle();
             vehicle.setVehicleId(Integer.parseInt(vehicleViaCategory[0].toString()));
             vehicle.setVehicleName(vehicleViaCategory[1].toString());
+            vehicle.setTotalPassengers(Integer.parseInt(vehicleViaCategory[2].toString()));
             vehicles.add(vehicle);
         }
         return vehicles;
