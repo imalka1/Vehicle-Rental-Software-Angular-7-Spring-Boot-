@@ -13,6 +13,7 @@ public class User {
     private String userName;
     private String password;
     private String role;
+    private Integer securityKey;
 
     public String getUserName() {
         return userName;
@@ -48,5 +49,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getSecurityKey() {
+        return securityKey;
+    }
+
+    public void setSecurityKey(Integer securityKey) {
+        this.securityKey = securityKey;
     }
 }

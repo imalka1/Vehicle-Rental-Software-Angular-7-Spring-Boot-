@@ -3,6 +3,7 @@ package lk.vrs.security.jwt;
 import lk.vrs.security.jwt.model.JwtAuthenticationToken;
 import lk.vrs.entity.User;
 import lk.vrs.security.jwt.model.JwtUserDetails;
+import lk.vrs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
@@ -19,6 +20,8 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
 
     @Autowired
     private JwtValidator validator;
+    @Autowired
+    private UserService userService;
 
     @Override
     protected void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken) throws AuthenticationException {
@@ -33,9 +36,13 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
         User user = validator.validate(token);
         if (user == null) {
             throw new RuntimeException("JWT Token is incorrect");
+        } else {
+            if (!userService.chkUserViaSecurityKey(user)) {
+                throw new RuntimeException("JWT Token is incorrect (Key failed)");
+            }
         }
 
-        List<GrantedAuthority> grantedAuthorityList= AuthorityUtils
+        List<GrantedAuthority> grantedAuthorityList = AuthorityUtils
                 .commaSeparatedStringToAuthorityList(user.getRole());
 
         return new JwtUserDetails(user.getUserName(), user.getUserId(),

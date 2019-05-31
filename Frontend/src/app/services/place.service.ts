@@ -17,7 +17,7 @@ export class PlaceService {
 
   createAuthorizationHeader() {
     let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Authorization', 'Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2EiLCJ1c2VySWQiOiIwIiwicm9sZSI6ImFkbWluIn0.EwdNxt_M8LNLTUpqTqnow_IJ5BFeHZbzOjPC5qz7jODFGEp9m-SC-x0ZBrucF9BVZTDaVqfqLJCuodu96o0c8A');
+    headers = headers.append('Authorization', 'Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2ExIiwidXNlcklkIjoiMiIsInJvbGUiOiJhZG1pbiIsInNlY3VyaXR5S2V5Ijo0NTcwOTM1fQ.hXHTJL_18K5gV4q9xQJFP4memY1X8hWVuovnhCexSofZJNx-oVRY-HuASG4F03WhUXR6fO8C_JUSGON94mKn1A');
     // headers = headers.append('Authorization', 'Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2ExIiwidXNlcklkIjoiMCIsInJvbGUiOiJhZG1pbiJ9.xaiM5oAKbhlsjt-rXW2ecSt93Qx9bh8Y3PhIrJiWNTAwkyOH9RpaesPPobrWYiFTxilFCilMdj45tkY3KTQYjA1');
     return headers;
   }

@@ -8,4 +8,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     @Query(value = "SELECT userId FROM User WHERE userName=?1 AND password=?2 AND role=?3")
     Object getUserId(String username, String password, String role);
+
+    @Query(value = "SELECT userId FROM User WHERE userId=?1 AND securityKey=?2")
+    Object getUserViaSecurityKey(Long userId, int key);
 }

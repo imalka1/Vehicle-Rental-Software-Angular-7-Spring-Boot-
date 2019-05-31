@@ -36,12 +36,13 @@ INSERT INTO `vehicle_rental_software`.`user`
 VALUES
 ('123','admin','imalka'),('456','admin','imalka1');
 
-
 SELECT `user`.`user_id`,
     `user`.`password`,
     `user`.`role`,
-    `user`.`user_name`
+    `user`.`user_name`,
+    `user`.`security_key`
 FROM `vehicle_rental_software`.`user`;
+
 
 SELECT user_id FROM user WHERE user_name='imalka' AND password='123' AND role='admin';
 

@@ -6,6 +6,8 @@ import lk.vrs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/login")
@@ -21,8 +23,9 @@ public class UserController {
 
     @PostMapping
     public String loginAndGenerateToken(@RequestBody User user) {
-        if (userService.chkLogin(user)) {
-            return jwtGenerator.generate(user);
+        User userObj = userService.chkLogin(user);
+        if (userObj != null) {
+            return jwtGenerator.generate(userObj);
         }
         return "errorLogin";
     }
