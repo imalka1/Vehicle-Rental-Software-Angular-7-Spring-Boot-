@@ -20,7 +20,7 @@ export class EditVehicleComponent implements OnInit {
   }
 
   addVehicle() {
-    if (this.edit_vehicleDto.vehicle != undefined) {
+    if (this.edit_vehicleDto.vehicle.vehicleName != undefined) {
       if (this.edit_vehicleDto.vehicle.vehicleId != undefined) {
         this.vehicleService.updateVehicle(this.edit_vehicleDto.vehicle).subscribe((result) => {
           this.edit_vehicleDto.vehicle = result;

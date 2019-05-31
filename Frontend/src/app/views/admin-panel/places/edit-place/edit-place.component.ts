@@ -18,7 +18,7 @@ export class EditPlaceComponent implements OnInit {
   }
 
   addPlace() {
-    if (this.edit_placeDto.place != undefined) {
+    if (this.edit_placeDto.place.placeName != undefined) {
       if (this.edit_placeDto.place.placeId != undefined) {
         this.placeService.updatePlace(this.edit_placeDto.place).subscribe((result) => {
           this.edit_placeDto.place = result;
