@@ -41,6 +41,10 @@ export class EditPlaceComponent implements OnInit {
   }
 
   cancelPlace(){
-    this.edit_placeDto.edit = false;
+    if (this.edit_placeDto.place.placeId != undefined) {
+      this.edit_placeDto.edit = false;
+    }else{
+      this.edit_placeDto.placeDtos.splice(this.edit_placeDto.placeDtos.indexOf(this.edit_placeDto), 1);
+    }
   }
 }

@@ -1,14 +1,14 @@
 <div class="row" style="border-bottom: 1px solid black;padding: 10px">
-  <div class="col-8" style="border-right: 1px solid black">
+  <div class="col-sm-8 col-8" style="border-right: 1px solid black">
     <input type="text" class="form-control" [(ngModel)]="edit_vehicleDto.vehicle.vehicleName">
   </div>
-  <div class="col-2" style="border-right: 1px solid black">
+  <div class="col-sm-2 col-2">
     <input type="number" min="1" class="form-control" [(ngModel)]="edit_vehicleDto.vehicle.totalPassengers">
   </div>
-  <div class="col-2" style="text-align: center;font-size: 13px;font-weight: bold">
+  <div class="col-sm-2 col-2" style="text-align: center;font-size: 13px;font-weight: bold;border-left: 1px solid black">
     <i class="fa fa-check btnEdit" style="color: green;cursor: pointer" (click)="addVehicle()"><span style="padding-left: 10px">Submit</span></i><br>
-    <i class="fa fa-times btnEdit" style="color: red;cursor: pointer" (click)="deleteVehicle()"><span style="padding-left: 10px">Delete</span></i><br>
-    <i class="fa fa-ban btnEdit" style="color: #a04005;cursor: pointer" (click)="cancelVehicle()"><span style="padding-left: 10px">Cancel</span></i>
+    <span *ngIf="edit_vehicleDto.vehicle.vehicleId != undefined"><i class="fa fa-times btnEdit" style="color: red;cursor: pointer" (click)="deleteVehicle()"><span style="padding-left: 10px">Delete</span></i><br></span>
+    <i class="fa fa-ban btnEdit" style="color: #d60000;cursor: pointer" (click)="cancelVehicle()"><span style="padding-left: 10px">Cancel</span></i>
   </div>
 </div>
 

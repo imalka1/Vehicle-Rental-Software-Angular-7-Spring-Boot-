@@ -43,6 +43,10 @@ export class EditVehicleComponent implements OnInit {
   }
 
   cancelVehicle(){
-    this.edit_vehicleDto.edit = false;
+    if (this.edit_vehicleDto.vehicle.vehicleId != undefined) {
+      this.edit_vehicleDto.edit = false;
+    }else{
+      this.edit_vehicleDto.vehicleDtos.splice(this.edit_vehicleDto.vehicleDtos.indexOf(this.edit_vehicleDto), 1);
+    }
   }
 }

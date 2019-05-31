@@ -1,11 +1,11 @@
 <div class="row" style="border-bottom: 1px solid black;padding: 10px">
-  <div class="col-sm-10  col-10" style="border-right: 1px solid black">
+  <div class="col-sm-10  col-10">
     <input type="text" class="form-control" [(ngModel)]="edit_placeDto.place.placeName">
   </div>
-  <div class="col-sm-2 col-2" style="text-align: center;font-size: 13px">
+  <div class="col-sm-2 col-2" style="text-align: center;font-size: 13px;border-left: 1px solid black">
     <i class="fa fa-check btnEdit" style="color: green;cursor: pointer" (click)="addPlace()"><span style="padding-left: 10px">Submit</span></i><br>
-    <i class="fa fa-times btnEdit" style="color: red;cursor: pointer" (click)="deletePlace()"><span style="padding-left: 10px">Delete</span></i><br>
-    <i class="fa fa-ban btnEdit" style="color: #c70000;cursor: pointer" (click)="cancelPlace()"><span style="padding-left: 10px">Cancel</span></i>
+    <span *ngIf="edit_placeDto.place.placeId != undefined"><i class="fa fa-times btnEdit" style="color: red;cursor: pointer" (click)="deletePlace()"><span style="padding-left: 10px">Delete</span></i><br></span>
+    <i class="fa fa-ban btnEdit" style="color: #d60000;cursor: pointer" (click)="cancelPlace()"><span style="padding-left: 10px">Cancel</span></i>
   </div>
 </div>
 
