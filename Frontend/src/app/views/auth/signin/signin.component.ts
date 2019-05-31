@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {LoginService} from "../../../services/login.service";
+import {User} from "../../../model/user";
+import {Token} from "../../../model/token";
 
 @Component({
   selector: 'app-signin',
@@ -9,14 +11,23 @@ import {LoginService} from "../../../services/login.service";
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private router: Router,private loginService: LoginService) { }
+  user: User = new User();
+
+  constructor(private router: Router, private loginService: LoginService) {
+  }
 
   ngOnInit() {
   }
 
-  login() {
-    localStorage.setItem('login', 'true');
-    this.router.navigate(['/log-head/admin/place']);
-    this.loginService.setLoginOrLogout(true)
+  accLogin() {
+    this.user.role = 'admin';
+    this.loginService.accLogin(this.user).subscribe((result) => {
+      let token: Token = result;
+      if (token.token != 'errorLogin') {
+        localStorage.setItem('token', 'Token ' + token.token);
+        this.router.navigate(['/log-head/admin/place']);
+        this.loginService.setLoginOrLogout(true);
+      }
+    });
   }
 }

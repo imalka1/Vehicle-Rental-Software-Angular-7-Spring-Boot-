@@ -38,9 +38,12 @@ export class HeaderComponent implements OnInit {
 
   loginOrLogout() {
     if (this.loginService.isLoggedIn()) {
-      localStorage.clear()
-      this.loginService.setLoginOrLogout(false)
-      this.router.navigate(['/head/main'])
+      this.loginService.accLogout().subscribe((result) => {
+          localStorage.clear();
+          this.loginService.setLoginOrLogout(false);
+          this.router.navigate(['/head/main'])
+        }
+      )
     } else {
       this.router.navigate(['/head/signin'])
     }

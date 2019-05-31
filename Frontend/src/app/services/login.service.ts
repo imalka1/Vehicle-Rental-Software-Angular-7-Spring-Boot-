@@ -1,5 +1,12 @@
-import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from "rxjs";
+import {User} from "../model/user";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Place} from "../model/place";
+import {environment} from "../../environments/environment";
+import {Token} from "../model/token";
+
+const URL = "/api";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +15,21 @@ export class LoginService {
 
   login: Subject<boolean> = new Subject<boolean>();
 
-  constructor() {
+  constructor(private http: HttpClient) {
+  }
+
+  createAuthorizationHeader() {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Authorization', localStorage.getItem('token'));
+    return headers;
+  }
+
+  accLogin(user: User): Observable<Token> {
+    return this.http.post<Token>(environment.backend_url + URL + "/login", user);
+  }
+
+  accLogout(): Observable<void> {
+    return this.http.get<void>(environment.backend_url + URL + "/logout", {headers: this.createAuthorizationHeader()});
   }
 
   setLoginOrLogout(logged) {
@@ -16,6 +37,6 @@ export class LoginService {
   }
 
   isLoggedIn() {
-    return localStorage.getItem('login') != undefined ? localStorage.getItem('login') == 'true' ? true : false : false;
+    return localStorage.getItem('token') != undefined;
   }
 }

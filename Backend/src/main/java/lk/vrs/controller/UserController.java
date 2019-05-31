@@ -1,5 +1,6 @@
 package lk.vrs.controller;
 
+import lk.vrs.dto.TokenDTO;
 import lk.vrs.entity.User;
 import lk.vrs.security.jwt.JwtAuthenticationProvider;
 import lk.vrs.security.jwt.JwtAuthenticationTokenFilter;
@@ -36,12 +37,15 @@ public class UserController {
 //    }
 
     @PostMapping(value = "/login")
-    public String loginAndGenerateToken(@RequestBody User user) {
+    public TokenDTO loginAndGenerateToken(@RequestBody User user) {
         User userObj = userService.chkLogin(user);
+        TokenDTO tokenDTO = new TokenDTO();
         if (userObj != null) {
-            return jwtGenerator.generate(userObj);
+            tokenDTO.setToken(jwtGenerator.generate(userObj));
+        } else {
+            tokenDTO.setToken("errorLogin");
         }
-        return "errorLogin";
+        return tokenDTO;
     }
 
     @GetMapping("/logout")

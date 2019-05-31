@@ -17,8 +17,7 @@ export class VehicleService {
 
   createAuthorizationHeader() {
     let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Authorization', 'Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2EiLCJ1c2VySWQiOiIwIiwicm9sZSI6ImFkbWluIn0.EwdNxt_M8LNLTUpqTqnow_IJ5BFeHZbzOjPC5qz7jODFGEp9m-SC-x0ZBrucF9BVZTDaVqfqLJCuodu96o0c8A');
-    // headers = headers.append('Authorization', 'Token eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbWFsa2ExIiwidXNlcklkIjoiMCIsInJvbGUiOiJhZG1pbiJ9.xaiM5oAKbhlsjt-rXW2ecSt93Qx9bh8Y3PhIrJiWNTAwkyOH9RpaesPPobrWYiFTxilFCilMdj45tkY3KTQYjA1');
+    headers = headers.append('Authorization', localStorage.getItem('token'));
     return headers;
   }
 
