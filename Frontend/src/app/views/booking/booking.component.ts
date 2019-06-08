@@ -118,22 +118,22 @@ export class BookingComponent implements OnInit {
 
   exchangeFromTo() {
     if (this.selectedCategory == 'airport') {
-      let placesTemp = this.placesFrom;
-      this.placesFrom = this.placesTo;
-      this.placesTo = placesTemp;
-      this.selectedFrom = this.placesFrom[0];
-      this.selectedTo = this.placesTo[0];
+      this.swapPlaces();
     } else if (this.selectedCategory == 'disneyland') {
-      let placesTemp = this.placesFrom;
-      this.placesFrom = this.placesTo;
-      this.placesTo = placesTemp;
-      this.selectedFrom = this.placesFrom[0];
-      this.selectedTo = this.placesTo[0];
+      this.swapPlaces();
       if (this.placeDisneyDisable) {
         this.placeDisneyDisable = false;
       } else {
         this.placeDisneyDisable = true;
       }
     }
+  }
+
+  swapPlaces(){
+    let placesTemp = this.placesFrom;
+    this.placesFrom = this.placesTo;
+    this.placesTo = placesTemp;
+    this.selectedFrom = this.placesFrom[0];
+    this.selectedTo = this.placesTo[0];
   }
 }
