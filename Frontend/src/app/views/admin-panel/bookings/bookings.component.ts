@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PlaceDto} from "../../../dtos/place-dto";
 import {PlaceService} from "../../../services/place.service";
 import {Place} from "../../../model/place";
@@ -12,6 +12,8 @@ export class BookingsComponent implements OnInit {
 
   selectedCategory: string = 'airport';
   placeDtos: Array<PlaceDto>;
+  totalSets: number = 20;
+  setNumber: number = 1;
 
   constructor(private placeService: PlaceService) {
   }
@@ -46,14 +48,14 @@ export class BookingsComponent implements OnInit {
     }
   }
 
-  addPlace() {
-    // let placeDto: PlaceDto = new PlaceDto();
-    // let place: Place = new Place();
-    // placeDto.edit = true;
-    // place.category = this.selectedCategory;
-    // placeDto.place = place;
-    // this.placeDtos.push(placeDto);
-    // this.placeDtos[this.placeDtos.indexOf(placeDto)].placeDtos = this.placeDtos;
+  nextPage() {
+    this.setNumber++;
+  }
+
+  previousPage() {
+    if (this.setNumber > 1) {
+      this.setNumber--;
+    }
   }
 
 }

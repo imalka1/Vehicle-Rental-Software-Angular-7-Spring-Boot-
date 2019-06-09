@@ -26,12 +26,12 @@
     <div class="row" style="margin-top: 80px;text-align: center">
       <div class="col-sm-4">
         <i class="fa fa-arrow-circle-left fa-3x" style="color: #cca303;cursor: pointer"
-           (click)="addPlace()"></i>
+           (click)="previousPage()"></i>
       </div>
-      <div class="col-sm-4" style="font-size: 28px;color: #696862">5 / 15</div>
+      <div class="col-sm-4" style="font-size: 25px;color: #696862">{{setNumber}} / {{totalSets}}</div>
       <div class="col-sm-4">
         <i class="fa fa-arrow-circle-right fa-3x" style="color: #cca303;cursor: pointer"
-           (click)="addPlace()"></i>
+           (click)="nextPage()"></i>
       </div>
     </div>
   </div>
