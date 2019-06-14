@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -31,7 +32,7 @@ public class VehicleController {
     }
 
     @GetMapping(value = "/vehiclesViaCategory/{category}")
-    public ArrayList<Vehicle> getVehiclesViaCategory(@PathVariable String category) {
+    public List<Vehicle> getVehiclesViaCategory(@PathVariable String category) {
         return vehicleService.getVehiclesViaCategory(category);
     }
 }

@@ -3,6 +3,7 @@ package lk.vrs.service;
 import lk.vrs.entity.Vehicle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface VehicleService {
     Vehicle addVehicle(Vehicle vehicle);
@@ -11,5 +12,5 @@ public interface VehicleService {
 
     void deleteVehicle(int id);
 
-    ArrayList<Vehicle> getVehiclesViaCategory(String category);
+    List<Vehicle> getVehiclesViaCategory(String category);
 }

@@ -33,15 +33,7 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public ArrayList<Place> getPlacesViaCategory(String category) {
-        List<Object[]> placesViaCategory = placeRepository.getPlacesViaCategory(category);
-        ArrayList<Place> places = new ArrayList<>();
-        for (Object[] placeViaCategory : placesViaCategory) {
-            Place place = new Place();
-            place.setPlaceId(Integer.parseInt(placeViaCategory[0].toString()));
-            place.setPlaceName(placeViaCategory[1].toString());
-            places.add(place);
-        }
-        return places;
+    public List<Place> getPlacesViaCategory(String category) {
+        return placeRepository.getPlacesViaCategory(category);
     }
 }

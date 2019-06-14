@@ -1,16 +1,21 @@
 package lk.vrs.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
+
 
 @Entity
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reservationId;
-    private String dateOfReservation;
+    private Date dateOfReservation;
+    private Time timeOfReservation;
+    @OneToOne
+    private Place place;
+    @OneToOne
+    private Vehicle vehicle;
 
     public int getReservationId() {
         return reservationId;
@@ -20,11 +25,35 @@ public class Reservation {
         this.reservationId = reservationId;
     }
 
-    public String getDateOfReservation() {
+    public Date getDateOfReservation() {
         return dateOfReservation;
     }
 
-    public void setDateOfReservation(String dateOfReservation) {
+    public void setDateOfReservation(Date dateOfReservation) {
         this.dateOfReservation = dateOfReservation;
+    }
+
+    public Time getTimeOfReservation() {
+        return timeOfReservation;
+    }
+
+    public void setTimeOfReservation(Time timeOfReservation) {
+        this.timeOfReservation = timeOfReservation;
+    }
+
+    public Place getPlace() {
+        return place;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 }

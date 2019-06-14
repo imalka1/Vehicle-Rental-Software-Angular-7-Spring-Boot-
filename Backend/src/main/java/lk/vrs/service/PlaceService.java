@@ -3,6 +3,7 @@ package lk.vrs.service;
 import lk.vrs.entity.Place;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface PlaceService {
     Place addPlace(Place place);
@@ -11,5 +12,5 @@ public interface PlaceService {
 
     void deletePlace(int id);
 
-    ArrayList<Place> getPlacesViaCategory(String category);
+    List<Place> getPlacesViaCategory(String category);
 }

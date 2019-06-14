@@ -33,16 +33,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public ArrayList<Vehicle> getVehiclesViaCategory(String category) {
-        List<Object[]> vehiclesViaCategory = vehicleRepository.getVehiclesViaCategory(category);
-        ArrayList<Vehicle> vehicles = new ArrayList<>();
-        for (Object[] vehicleViaCategory : vehiclesViaCategory) {
-            Vehicle vehicle = new Vehicle();
-            vehicle.setVehicleId(Integer.parseInt(vehicleViaCategory[0].toString()));
-            vehicle.setVehicleName(vehicleViaCategory[1].toString());
-            vehicle.setTotalPassengers(Integer.parseInt(vehicleViaCategory[2].toString()));
-            vehicles.add(vehicle);
-        }
-        return vehicles;
+    public List<Vehicle> getVehiclesViaCategory(String category) {
+        return vehicleRepository.getVehiclesViaCategory(category);
     }
 }

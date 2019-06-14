@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -32,7 +33,7 @@ public class PlaceController {
     }
 
     @GetMapping(value = "/placesViaCategory/{category}")
-    public ArrayList<Place> getPlacesViaCategory(@PathVariable String category) {
+    public List<Place> getPlacesViaCategory(@PathVariable String category) {
         return placeService.getPlacesViaCategory(category);
     }
 }

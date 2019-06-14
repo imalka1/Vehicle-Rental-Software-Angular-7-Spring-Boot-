@@ -17,6 +17,23 @@ INSERT INTO `vehicle_rental_software`.`place`
 VALUES
 ('airport','Colombo'),('airport','Galle'),('private','Matara'),('private','Malabe'),('private','Hambantota');
 
+INSERT INTO `vehicle_rental_software`.`user`
+(
+`password`,
+`role`,
+`user_name`)
+VALUES
+('123','admin','imalka'),('456','admin','imalka1');
+
+INSERT INTO `vehicle_rental_software`.`reservation`
+(
+`date_of_reservation`,
+`time_of_reservation`,
+`place_place_id`,
+`vehicle_vehicle_id`)
+VALUES
+('2019-05-05','02:03',1,1);
+
 SELECT `place`.`place_id`,
     `place`.`category`,
     `place`.`place_name`
@@ -28,14 +45,6 @@ SELECT `vehicle`.`vehicle_id`,
     `vehicle`.`vehicle_name`
 FROM `vehicle_rental_software`.`vehicle`;
 
-INSERT INTO `vehicle_rental_software`.`user`
-(
-`password`,
-`role`,
-`user_name`)
-VALUES
-('123','admin','imalka'),('456','admin','imalka1');
-
 SELECT `user`.`user_id`,
     `user`.`password`,
     `user`.`role`,
@@ -44,6 +53,17 @@ FROM `vehicle_rental_software`.`user`;
 
 
 SELECT user_id FROM user WHERE user_name='imalka' AND password='123' AND role='admin';
+
+SELECT `reservation`.`reservation_id`,
+    `reservation`.`date_of_reservation`,
+    `reservation`.`time_of_reservation`,
+    `reservation`.`place_place_id`,
+    `reservation`.`vehicle_vehicle_id`
+FROM `vehicle_rental_software`.`reservation`;
+
+
+
+
 
 
 
