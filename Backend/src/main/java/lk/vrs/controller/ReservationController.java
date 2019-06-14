@@ -24,4 +24,9 @@ public class ReservationController {
     public List<Reservation> getReservationDates(@PathVariable int start, @PathVariable int limit) {
         return reservationService.getReservationDates(start, limit);
     }
+
+//    @GetMapping(value = "/admin/reservationDates/{start}")
+//    public List<Reservation> getReservationDates(@PathVariable int start) {
+//        return reservationService.getReservationDates(start);
+//    }
 }

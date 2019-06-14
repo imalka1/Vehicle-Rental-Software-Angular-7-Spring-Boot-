@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "SELECT u FROM User u WHERE userName=?1 AND password=?2 AND role=?3")
+    @Query(value = "FROM User WHERE userName=?1 AND password=?2 AND role=?3")
     User getUser(String username, String password, String role);
 
 }

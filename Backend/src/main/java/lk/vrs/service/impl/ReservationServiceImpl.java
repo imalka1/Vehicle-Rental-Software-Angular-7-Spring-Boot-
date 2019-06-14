@@ -23,6 +23,11 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public List<Reservation> getReservationDates(int start, int limit) {
-        return reservationRepository.getReservationDates(new PageRequest(start, limit));
+        return reservationRepository.getReservationDates(PageRequest.of(start, limit));
     }
+
+//    @Override
+//    public List<Reservation> getReservationDates(int id) {
+//        return reservationRepository.getReservationDates(id);
+//    }
 }
