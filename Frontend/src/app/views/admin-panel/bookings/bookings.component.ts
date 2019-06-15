@@ -14,7 +14,7 @@ import {Reservation} from "../../../model/reservation";
 export class BookingsComponent implements OnInit {
 
   reservationDtos: Array<ReservationDto>;
-  totalSets: number = 0;
+  totalSets: Array<number>;
   setNumber: number = 1;
 
   constructor(private reservationService: ReservationService) {
@@ -40,13 +40,17 @@ export class BookingsComponent implements OnInit {
   }
 
   setTotalSets() {
+    let count = 0;
+    this.totalSets = new Array<number>();
     this.reservationService.getReservationTableRowCount().subscribe((result) => {
-      this.totalSets = Math.ceil(result/10)
+      for (let i = 0; i < Math.ceil(result / 10); i++) {
+        this.totalSets.push(++count);
+      }
     })
   }
 
   nextPage() {
-    if (this.setNumber < this.totalSets) {
+    if (this.setNumber < this.totalSets.length) {
       this.setNumber++;
       this.setReservedDates();
     }
@@ -59,4 +63,7 @@ export class BookingsComponent implements OnInit {
     }
   }
 
+  changeSetNumber(){
+    this.setReservedDates();
+  }
 }

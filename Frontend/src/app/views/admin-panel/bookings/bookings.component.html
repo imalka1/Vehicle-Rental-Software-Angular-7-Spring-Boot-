@@ -47,7 +47,11 @@
         <i class="fa fa-arrow-circle-left fa-3x" style="color: #cca303;cursor: pointer"
            (click)="previousPage()"></i>
       </div>
-      <div class="col-sm-4" style="font-size: 25px;color: #696862">{{setNumber}} / {{totalSets}}</div>
+      <div class="col-sm-4" style="font-size: 25px;color: #696862">
+        <select [(ngModel)]="setNumber" (change)="changeSetNumber()">
+          <option *ngFor="let totalSet of totalSets" [ngValue]="totalSet">{{totalSet}}</option>
+        </select>
+        / {{totalSets.length}}</div>
       <div class="col-sm-4">
         <i class="fa fa-arrow-circle-right fa-3x" style="color: #cca303;cursor: pointer"
            (click)="nextPage()"></i>
