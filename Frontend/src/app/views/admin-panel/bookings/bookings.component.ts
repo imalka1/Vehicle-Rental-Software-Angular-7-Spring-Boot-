@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {PlaceDto} from "../../../dtos/place-dto";
 import {PlaceService} from "../../../services/place.service";
 import {Place} from "../../../model/place";
+import {ReservationService} from "../../../services/reservation.service";
+import {ReservationDto} from "../../../dtos/reservation-dto";
+import {Reservation} from "../../../model/reservation";
 
 @Component({
   selector: 'app-bookings',
@@ -10,51 +13,49 @@ import {Place} from "../../../model/place";
 })
 export class BookingsComponent implements OnInit {
 
-  selectedCategory: string = 'airport';
-  placeDtos: Array<PlaceDto>;
-  totalSets: number = 20;
+  reservationDtos: Array<ReservationDto>;
+  totalSets: number = 0;
   setNumber: number = 1;
 
-  constructor(private placeService: PlaceService) {
+  constructor(private reservationService: ReservationService) {
   }
 
   ngOnInit() {
-    this.changeCategory();
+    this.setTotalSets();
+    this.setReservedDates();
   }
 
-  changeCategory() {
-    if (this.selectedCategory == 'airport') {
-
-      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.setPlaceDtos(result);
-      });
-
-    } else if (this.selectedCategory == 'private') {
-
-      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.setPlaceDtos(result);
-      });
-
-    }
+  setReservedDates() {
+    this.reservationDtos = new Array<ReservationDto>();
+    let reservations: Array<Reservation>;
+    this.reservationService.getReservedDates(this.setNumber - 1, 10).subscribe((result) => {
+      reservations = result;
+      for (let i = 0; i < reservations.length; i++) {
+        let reservationDto = new ReservationDto();
+        reservationDto.reservation = reservations[i];
+        // placeDto.placeDtos = this.placeDtos;
+        this.reservationDtos.push(reservationDto);
+      }
+    })
   }
 
-  setPlaceDtos(places: Array<Place>) {
-    this.placeDtos = new Array<PlaceDto>();
-    for (let i = 0; i < places.length; i++) {
-      let placeDto = new PlaceDto();
-      placeDto.place = places[i];
-      placeDto.placeDtos = this.placeDtos;
-      this.placeDtos.push(placeDto);
-    }
+  setTotalSets() {
+    this.reservationService.getReservationTableRowCount().subscribe((result) => {
+      this.totalSets = Math.ceil(result/10)
+    })
   }
 
   nextPage() {
-    this.setNumber++;
+    if (this.setNumber < this.totalSets) {
+      this.setNumber++;
+      this.setReservedDates();
+    }
   }
 
   previousPage() {
     if (this.setNumber > 1) {
       this.setNumber--;
+      this.setReservedDates();
     }
   }
 

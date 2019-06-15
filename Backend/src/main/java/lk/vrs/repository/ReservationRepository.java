@@ -11,7 +11,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
     @Query(value = "select count(reservationId) from Reservation")
     int getTableRowCount();
 
-    @Query(value = "from Reservation order by reservationId desc")
+    @Query(value = "from Reservation order by dateOfReservation desc")
     List<Reservation> getReservationDates(Pageable pageable);
 
 //    @Query(value = "from Reservation where place.placeId=?1")

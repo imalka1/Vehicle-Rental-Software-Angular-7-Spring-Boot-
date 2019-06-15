@@ -32,7 +32,7 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `place_place_id`,
 `vehicle_vehicle_id`)
 VALUES
-('2019-05-05','02:03',1,1);
+('2019-05-05','02:03',1,1),('2019-05-04','14:05',2,2);
 
 SELECT `place`.`place_id`,
     `place`.`category`,

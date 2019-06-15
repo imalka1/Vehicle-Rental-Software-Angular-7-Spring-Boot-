@@ -1,5 +1,6 @@
 package lk.vrs.controller;
 
+import lk.vrs.dto.ReservationDTO;
 import lk.vrs.entity.Reservation;
 import lk.vrs.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping(value = "/admin/rowCount")
-    public int getTableRowCount() {
+    public int getReservationTableRowCount() {
         return reservationService.getTableRowCount();
     }
 
     @GetMapping(value = "/admin/reservationDates/{start}/{limit}")
-    public List<Reservation> getReservationDates(@PathVariable int start, @PathVariable int limit) {
+    public List<ReservationDTO> getReservedDates(@PathVariable int start, @PathVariable int limit) {
         return reservationService.getReservationDates(start, limit);
     }
 

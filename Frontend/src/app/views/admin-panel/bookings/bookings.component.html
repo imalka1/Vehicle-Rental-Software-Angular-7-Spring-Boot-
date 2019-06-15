@@ -10,16 +10,35 @@
       <div class="col-sm-12">
         <div class="row"
              style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
-          <div class="col-10" style="border-right: 1px solid black">
+          <div class="col-6" style="border-right: 1px solid black">
             Date
           </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            Time
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            Completion
+          </div>
           <div class="col-2" style="text-align: center">
-            Edit
+            View
           </div>
         </div>
-        <ng-container *ngFor="let placeDto of placeDtos">
-          <app-fixed-place [fixed_placeDto]="placeDto" *ngIf="!placeDto.edit" style="cursor: default"></app-fixed-place>
-          <app-edit-place [edit_placeDto]="placeDto" *ngIf="placeDto.edit" style="cursor: default"></app-edit-place>
+        <ng-container *ngFor="let reservationDto of reservationDtos">
+          <div class="row" style="border-bottom: 1px solid black;padding: 10px">
+            <div class="col-sm-6 col-6" style="border-right: 1px solid black">
+              {{reservationDto.reservation.dateOfReservation}}
+            </div>
+            <div class="col-sm-2 col-2" style="text-align: center;border-right: 1px solid black">
+              {{reservationDto.reservation.timeOfReservation}}
+            </div>
+            <div class="col-sm-2 col-2" style="text-align: center;border-right: 1px solid black">
+              Not yet
+            </div>
+            <div class="col-sm-2 col-2" style="text-align: center">
+              <i class="fa fa-search" style="color: #866006;cursor: pointer" (click)="editPlace()"></i>
+            </div>
+          </div>
+
         </ng-container>
       </div>
     </div>
