@@ -11,7 +11,7 @@ import {PlaceDto} from "../../../dtos/place-dto";
 })
 export class PlacesComponent implements OnInit {
 
-  selectedCategory: string = 'airport';
+  selectedCategory: string = 'Airport';
   placeDtos: Array<PlaceDto>;
 
   constructor(private placeService: PlaceService) {
@@ -22,13 +22,13 @@ export class PlacesComponent implements OnInit {
   }
 
   changeCategory() {
-    if (this.selectedCategory == 'airport') {
+    if (this.selectedCategory == 'Airport') {
 
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.setPlaceDtos(result);
       });
 
-    } else if (this.selectedCategory == 'private') {
+    } else if (this.selectedCategory == 'Private') {
 
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.setPlaceDtos(result);
