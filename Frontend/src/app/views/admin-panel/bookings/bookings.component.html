@@ -10,7 +10,7 @@
       <div class="col-sm-12">
         <div class="row"
              style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
-          <div class="col-2" style="border-right: 1px solid black">
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
             Date
           </div>
           <div class="col-4" style="text-align: center;border-right: 1px solid black">
@@ -28,7 +28,7 @@
         </div>
         <ng-container *ngFor="let reservationDto of reservationDtos">
           <div class="row" style="border-bottom: 1px solid black;padding: 10px">
-            <div class="col-sm-2 col-2" style="border-right: 1px solid black">
+            <div class="col-sm-2 col-2" style="text-align: center;border-right: 1px solid black">
               {{reservationDto.reservation.dateOfReservation}}
             </div>
             <div class="col-sm-4 col-4" style="text-align: center;border-right: 1px solid black">
