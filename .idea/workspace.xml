@@ -39,14 +39,14 @@
           <entry key="class" value="22" />
           <entry key="css" value="10" />
           <entry key="html" value="115" />
-          <entry key="java" value="308" />
+          <entry key="java" value="314" />
           <entry key="jpg" value="5" />
           <entry key="js" value="2" />
           <entry key="json" value="2" />
           <entry key="place-dto" value="3" />
           <entry key="properties" value="9" />
           <entry key="sql" value="1" />
-          <entry key="ts" value="162" />
+          <entry key="ts" value="165" />
           <entry key="xml" value="5" />
           <entry key="yml" value="2" />
         </counts>
@@ -57,12 +57,12 @@
           <entry key="CSS" value="10" />
           <entry key="HTML" value="115" />
           <entry key="Image" value="5" />
-          <entry key="JAVA" value="308" />
+          <entry key="JAVA" value="314" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="2" />
           <entry key="Properties" value="9" />
           <entry key="SQL" value="1" />
-          <entry key="TypeScript" value="165" />
+          <entry key="TypeScript" value="168" />
           <entry key="XML" value="5" />
           <entry key="YAML" value="2" />
         </counts>
@@ -71,12 +71,12 @@
         <counts>
           <entry key="css" value="64" />
           <entry key="dummy" value="30" />
-          <entry key="html" value="3298" />
-          <entry key="java" value="5539" />
+          <entry key="html" value="3317" />
+          <entry key="java" value="5618" />
           <entry key="json" value="1" />
           <entry key="place-dto" value="23" />
           <entry key="properties" value="77" />
-          <entry key="ts" value="4266" />
+          <entry key="ts" value="4332" />
           <entry key="xml" value="5" />
           <entry key="yml" value="65" />
         </counts>
@@ -84,12 +84,12 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="64" />
-          <entry key="HTML" value="3298" />
-          <entry key="JAVA" value="5539" />
+          <entry key="HTML" value="3317" />
+          <entry key="JAVA" value="5618" />
           <entry key="JSON" value="1" />
           <entry key="PLAIN_TEXT" value="30" />
           <entry key="Properties" value="77" />
-          <entry key="TypeScript" value="4289" />
+          <entry key="TypeScript" value="4355" />
           <entry key="XML" value="5" />
           <entry key="YAML" value="65" />
         </counts>
@@ -103,11 +103,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="51" column="84" selection-start-line="51" selection-start-column="84" selection-end-line="51" selection-end-column="84" />
+            <state relative-caret-position="158">
+              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -122,17 +122,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+            <state relative-caret-position="124">
+              <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+            <state relative-caret-position="134">
+              <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,12 +141,59 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/ReservationController.java">
+        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Reservation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#417#418#0" expanded="true" />
+                <element signature="e#453#454#0" expanded="true" />
+                <element signature="e#508#509#0" expanded="true" />
+                <element signature="e#558#559#0" expanded="true" />
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#844#845#0" expanded="true" />
+                <element signature="e#908#909#0" expanded="true" />
+                <element signature="e#966#967#0" expanded="true" />
+                <element signature="e#997#998#0" expanded="true" />
+                <element signature="e#1025#1026#0" expanded="true" />
+                <element signature="e#1066#1067#0" expanded="true" />
+                <element signature="e#1100#1101#0" expanded="true" />
+                <element signature="e#1135#1136#0" expanded="true" />
+                <element signature="e#1165#1166#0" expanded="true" />
+                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#1250#1251#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
+                <element signature="e#1349#1350#0" expanded="true" />
+                <element signature="e#1400#1401#0" expanded="true" />
+                <element signature="e#1442#1443#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/ReservationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/ReservationDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1284#1285#0" expanded="true" />
+                <element signature="e#1334#1335#0" expanded="true" />
+                <element signature="e#1376#1377#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,21 +261,21 @@
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/VehicleServiceImpl.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/VehicleController.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/PlaceRepository.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/VehicleRepository.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/model/reservation.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/services/reservation.service.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/dtos/reservation-dto.ts" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/repository/ReservationRepository.java" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/ReservationDTO.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/ReservationService.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/ReservationController.java" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Reservation.java" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/model/reservation.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.ts" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/ReservationDTO.java" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.html" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -663,7 +710,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560632353510" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560676689281" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Web Applications" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -749,15 +796,16 @@
       <workItem from="1560532281817" duration="13881000" />
       <workItem from="1560577546767" duration="3000" />
       <workItem from="1560578049969" duration="4348000" />
-      <workItem from="1560620930515" duration="9929000" />
+      <workItem from="1560620930515" duration="13703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256528000" />
+    <option name="totallyTimeSpent" value="260302000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4982699" visible="true" weight="0.15167785" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -769,15 +817,15 @@
       <window_info id="Web" order="7" sideWeight="0.5017301" side_tool="true" weight="0.10872483" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23620933" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.34468085" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3460993" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.43404254" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.21560283" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.33049646" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.16453901" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20425531" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.20425531" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
@@ -977,16 +1025,6 @@
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/dtos/vehicle-dto.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/model/reservation.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/VehicleController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
@@ -1051,82 +1089,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Reservation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#908#909#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#997#998#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/ReservationDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#838#839#0" expanded="true" />
-            <element signature="e#896#897#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#996#997#0" expanded="true" />
-            <element signature="e#1030#1031#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1095#1096#0" expanded="true" />
-            <element signature="e#1142#1143#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/ReservationService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/ReservationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1185,23 +1151,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Reservation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+            <element signature="e#1025#1026#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1165#1166#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/model/reservation.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        <state relative-caret-position="124">
+          <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/ReservationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/ReservationDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+            <element signature="e#1334#1335#0" expanded="true" />
+            <element signature="e#1376#1377#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="51" column="84" selection-start-line="51" selection-start-column="84" selection-end-line="51" selection-end-column="84" />
+        <state relative-caret-position="158">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,6 @@
 drop database vehicle_rental_software;
 
+use vehicle_rental_software;
 
 INSERT INTO `vehicle_rental_software`.`vehicle`
 (
@@ -30,9 +31,10 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `date_of_reservation`,
 `time_of_reservation`,
 `place_place_id`,
-`vehicle_vehicle_id`)
+`vehicle_vehicle_id`,
+`completed`)
 VALUES
-('2019-05-05','02:03',1,1),('2019-05-04','14:05',2,2);
+('2019-05-05','02:03',1,1,false),('2019-05-04','14:05',2,2,true);
 
 SELECT `place`.`place_id`,
     `place`.`category`,
@@ -58,8 +60,10 @@ SELECT `reservation`.`reservation_id`,
     `reservation`.`date_of_reservation`,
     `reservation`.`time_of_reservation`,
     `reservation`.`place_place_id`,
-    `reservation`.`vehicle_vehicle_id`
+    `reservation`.`vehicle_vehicle_id`,
+    `reservation`.`completed`
 FROM `vehicle_rental_software`.`reservation`;
+
 
 
 

@@ -10,6 +10,7 @@ public class ReservationDTO {
     private int reservationId;
     private Date dateOfReservation;
     private String timeOfReservation;
+    private String completed;
     private Place place;
     private Vehicle vehicle;
 
@@ -51,5 +52,13 @@ public class ReservationDTO {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public String getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(String completed) {
+        this.completed = completed;
     }
 }

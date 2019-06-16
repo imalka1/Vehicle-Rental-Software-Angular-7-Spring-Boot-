@@ -5,6 +5,7 @@ export class Reservation {
   reservationId: number;
   dateOfReservation: string;
   timeOfReservation: string;
+  completed: string;
   place: Place;
   vehicle: Vehicle;
 }

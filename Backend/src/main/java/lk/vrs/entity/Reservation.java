@@ -12,6 +12,7 @@ public class Reservation {
     private int reservationId;
     private Date dateOfReservation;
     private Time timeOfReservation;
+    private boolean completed;
     @OneToOne
     private Place place;
     @OneToOne
@@ -55,5 +56,13 @@ public class Reservation {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

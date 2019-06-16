@@ -63,7 +63,7 @@ export class BookingsComponent implements OnInit {
     }
   }
 
-  changeSetNumber(){
+  changeSetNumber() {
     this.setReservedDates();
   }
 }
