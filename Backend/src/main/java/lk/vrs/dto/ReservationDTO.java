@@ -11,7 +11,8 @@ public class ReservationDTO {
     private Date dateOfReservation;
     private String timeOfReservation;
     private String completed;
-    private Place place;
+    private Place placeFrom;
+    private Place placeTo;
     private Vehicle vehicle;
 
     public int getReservationId() {
@@ -38,14 +39,6 @@ public class ReservationDTO {
         this.timeOfReservation = timeOfReservation;
     }
 
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
-    }
-
     public Vehicle getVehicle() {
         return vehicle;
     }
@@ -60,5 +53,21 @@ public class ReservationDTO {
 
     public void setCompleted(String completed) {
         this.completed = completed;
+    }
+
+    public Place getPlaceFrom() {
+        return placeFrom;
+    }
+
+    public void setPlaceFrom(Place placeFrom) {
+        this.placeFrom = placeFrom;
+    }
+
+    public Place getPlaceTo() {
+        return placeTo;
+    }
+
+    public void setPlaceTo(Place placeTo) {
+        this.placeTo = placeTo;
     }
 }

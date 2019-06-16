@@ -9,6 +9,7 @@ import {LoginGuard} from "./guards/login.guard";
 import {PlacesComponent} from "./views/admin-panel/places/places.component";
 import {VehiclesComponent} from "./views/admin-panel/vehicles/vehicles.component";
 import {BookingsComponent} from "./views/admin-panel/bookings/bookings.component";
+import {ViewBookingsComponent} from "./views/admin-panel/bookings/view-bookings/view-bookings.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
           {
             path: 'bookings',
             component: BookingsComponent
+          },
+          {
+            path: 'view-bookings',
+            component: ViewBookingsComponent
           }
         ]
       },

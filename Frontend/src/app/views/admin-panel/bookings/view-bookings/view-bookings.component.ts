@@ -1,17 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {PlaceService} from "../../services/place.service";
-import {Place} from "../../model/place";
-import {PlaceDto} from "../../dtos/place-dto";
+import { Component, OnInit } from '@angular/core';
+import {Place} from "../../../../model/place";
+import {PlaceDto} from "../../../../dtos/place-dto";
+import {PlaceService} from "../../../../services/place.service";
 import {DatePipe} from "@angular/common";
 
-// declare var custom_date_picker: any;
-
 @Component({
-  selector: 'app-booking',
-  templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.css']
+  selector: 'app-view-bookings',
+  templateUrl: './view-bookings.component.html',
+  styleUrls: ['./view-bookings.component.css']
 })
-export class BookingComponent implements OnInit {
+export class ViewBookingsComponent implements OnInit {
 
   currentDate: string;
   currentTime: string;
@@ -69,11 +67,8 @@ export class BookingComponent implements OnInit {
           this.placesFrom.push(this.placeDtos[i].place);
         }
         this.selectedFrom = this.placeDtos[0].place;
-      });
-
-      this.placeService.getPlacesViaCategory('disneyland').subscribe((result) => {
         let place: Place = new Place();
-        place.placeName = result[0].placeName;
+        place.placeName = 'Disneyland';
         this.placesTo.push(place);
         this.selectedTo = place;
       });
@@ -132,11 +127,12 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  swapPlaces() {
+  swapPlaces(){
     let placesTemp = this.placesFrom;
     this.placesFrom = this.placesTo;
     this.placesTo = placesTemp;
     this.selectedFrom = this.placesFrom[0];
     this.selectedTo = this.placesTo[0];
   }
+
 }

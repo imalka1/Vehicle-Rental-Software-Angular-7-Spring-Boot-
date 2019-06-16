@@ -16,7 +16,7 @@ INSERT INTO `vehicle_rental_software`.`place`
 `category`,
 `place_name`)
 VALUES
-('airport','Colombo'),('airport','Galle'),('private','Matara'),('private','Malabe'),('private','Hambantota');
+('airport','Colombo'),('airport','Galle'),('private','Matara'),('private','Malabe'),('private','Hambantota'),('disneyland','Disneyland');
 
 INSERT INTO `vehicle_rental_software`.`user`
 (
@@ -28,18 +28,20 @@ VALUES
 
 INSERT INTO `vehicle_rental_software`.`reservation`
 (
+`completed`,
 `date_of_reservation`,
 `time_of_reservation`,
-`place_place_id`,
-`vehicle_vehicle_id`,
-`completed`)
+`place_from_place_id`,
+`place_to_place_id`,
+`vehicle_vehicle_id`)
 VALUES
-('2019-05-05','02:03',1,1,false),('2019-05-04','14:05',2,2,true);
+(false,'2019-05-05','02:03',1,2,1),(true,'2019-05-04','14:05',2,3,2);
 
 SELECT `place`.`place_id`,
     `place`.`category`,
     `place`.`place_name`
 FROM `vehicle_rental_software`.`place`;
+
 
 SELECT `vehicle`.`vehicle_id`,
     `vehicle`.`category`,
@@ -63,6 +65,8 @@ SELECT `reservation`.`reservation_id`,
     `reservation`.`vehicle_vehicle_id`,
     `reservation`.`completed`
 FROM `vehicle_rental_software`.`reservation`;
+
+
 
 
 

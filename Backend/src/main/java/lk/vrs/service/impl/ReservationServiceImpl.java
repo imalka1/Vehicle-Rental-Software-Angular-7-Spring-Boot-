@@ -44,7 +44,8 @@ public class ReservationServiceImpl implements ReservationService {
                 } else {
                     reservationDTO.setCompleted("Not yet");
                 }
-                reservationDTO.setPlace(reservationDate.getPlace());
+                reservationDTO.setPlaceFrom(reservationDate.getPlaceFrom());
+                reservationDTO.setPlaceTo(reservationDate.getPlaceTo());
                 reservationDTO.setVehicle(reservationDate.getVehicle());
                 reservationDTOS.add(reservationDTO);
             }

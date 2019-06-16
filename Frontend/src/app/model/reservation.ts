@@ -6,6 +6,7 @@ export class Reservation {
   dateOfReservation: string;
   timeOfReservation: string;
   completed: string;
-  place: Place;
+  placeFrom: Place;
+  placeTo: Place;
   vehicle: Vehicle;
 }

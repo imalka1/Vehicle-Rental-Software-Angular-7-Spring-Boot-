@@ -5,6 +5,7 @@ import {Place} from "../../../model/place";
 import {ReservationService} from "../../../services/reservation.service";
 import {ReservationDto} from "../../../dtos/reservation-dto";
 import {Reservation} from "../../../model/reservation";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-bookings',
@@ -17,7 +18,7 @@ export class BookingsComponent implements OnInit {
   totalSets: Array<number>;
   setNumber: number = 1;
 
-  constructor(private reservationService: ReservationService) {
+  constructor(private reservationService: ReservationService, private router: Router) {
   }
 
   ngOnInit() {
@@ -65,5 +66,9 @@ export class BookingsComponent implements OnInit {
 
   changeSetNumber() {
     this.setReservedDates();
+  }
+
+  viewBooking() {
+    this.router.navigate(['log-head/admin/view-bookings']);
   }
 }

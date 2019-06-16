@@ -14,7 +14,9 @@ public class Reservation {
     private Time timeOfReservation;
     private boolean completed;
     @OneToOne
-    private Place place;
+    private Place placeFrom;
+    @OneToOne
+    private Place placeTo;
     @OneToOne
     private Vehicle vehicle;
 
@@ -42,14 +44,6 @@ public class Reservation {
         this.timeOfReservation = timeOfReservation;
     }
 
-    public Place getPlace() {
-        return place;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
-    }
-
     public Vehicle getVehicle() {
         return vehicle;
     }
@@ -64,5 +58,21 @@ public class Reservation {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public Place getPlaceFrom() {
+        return placeFrom;
+    }
+
+    public void setPlaceFrom(Place placeFrom) {
+        this.placeFrom = placeFrom;
+    }
+
+    public Place getPlaceTo() {
+        return placeTo;
+    }
+
+    public void setPlaceTo(Place placeTo) {
+        this.placeTo = placeTo;
     }
 }

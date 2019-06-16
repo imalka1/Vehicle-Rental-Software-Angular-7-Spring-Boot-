@@ -1,0 +1,222 @@
+<!-- <app-header></app-header> -->
+<div class="row" style="padding: 20px">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-12" style="font-size: 25px;color: #86867f">
+        Transport Type
+      </div>
+    </div>
+    <div class="row" style="margin-top: 25px;font-weight: bold">
+      <div class="col-sm-12">
+        Category
+      </div>
+    </div>
+    <div class="row" style="font-weight: bold">
+      <div class="col-sm-12">
+        <select class="form-control" (change)="changeCategory()" [(ngModel)]="selectedCategory">
+          <option value="airport">Airport Transfer</option>
+          <option value="disneyland">Disneyland Transfer</option>
+          <option value="private">Private Transfer</option>
+        </select>
+      </div>
+    </div>
+
+    <hr
+      style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+    <div class="row" style="font-size: 25px;color: #86867f">
+      <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='airport'">
+        Pickup Details (Airport)
+      </div>
+      <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='disneyland'">
+        Pickup Details (Disneyland)
+      </div>
+      <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='private'">
+        Pickup Details (Private)
+      </div>
+    </div>
+    <div class="row" style="font-weight: bold">
+      <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Pickup From</div>
+        <div class="col-sm-12">
+          <select name="" id="" class="form-control" [disabled]="placeDisneyDisable" [(ngModel)]="selectedFrom"
+                  (change)="changeFrom()">
+            <option *ngFor="let place of placesFrom" [ngValue]="place">{{place.placeName}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
+        <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
+                                                             (click)="exchangeFromTo()"></i></div>
+      </div>
+      <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Drop To</div>
+        <div class="col-sm-12" *ngIf="selectedCategory=='airport'">
+          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()">
+            <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
+          </select>
+        </div>
+        <div class="col-sm-12" *ngIf="selectedCategory=='disneyland'">
+          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()"
+                  [disabled]="!placeDisneyDisable">
+            <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
+          </select>
+        </div>
+        <div class="col-sm-12" *ngIf="selectedCategory=='private'">
+          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()">
+            <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="font-weight: bold">
+      <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Pickup Date</div>
+        <div class="col-sm-12"><input type="date" class="form-control" min="{{currentDate}}" [(ngModel)]="currentDate">
+        </div>
+      </div>
+      <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Pickup Time</div>
+        <div class="col-sm-12"><input type="time" class="form-control" [(ngModel)]="currentTime"></div>
+      </div>
+    </div>
+    <div class="row" style="font-weight: bold">
+      <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Adults (Passengers)</div>
+        <div class="col-sm-12"><input type="number" class="form-control" min="0" (change)="changePassengers()"
+                                      [(ngModel)]="adults"></div>
+      </div>
+      <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Children (Passengers)</div>
+        <div class="col-sm-12"><input type="number" class="form-control" min="0" (change)="changePassengers()"
+                                      [(ngModel)]="children"></div>
+      </div>
+      <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Total (Passengers)</div>
+        <div class="col-sm-12"><input type="text" class="form-control" [(ngModel)]="totalPassengers" disabled></div>
+      </div>
+    </div>
+
+    <hr
+      style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+    <div class="row">
+      <div class="col-sm-12" style="font-size: 25px;color: #86867f">
+        Vehicles Availability
+      </div>
+    </div>
+    <div class="row" style="margin-top: 25px">
+      <div class="col-sm-12">
+        <div class="row"
+             style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
+          <div class="col-5" style="border-right: 1px solid black">
+            Vehicle
+          </div>
+          <div class="col-3" style="text-align: center;border-right: 1px solid black">
+            Category
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            Seating capacity
+          </div>
+          <div class="col-2" style="text-align: center">
+            Select
+          </div>
+        </div>
+        <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
+        <div class="row" style="border-bottom: 1px solid black;padding: 10px">
+          <div class="col-5" style="border-right: 1px solid black">
+            Mercedes-Benz
+          </div>
+          <div class="col-3" style="text-align: center;border-right: 1px solid black">
+            Car
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            5
+          </div>
+          <div class="col-2" style="text-align: center">
+            <input type="radio">
+          </div>
+        </div>
+        <div class="row" style="border-bottom: 1px solid black;padding: 10px">
+          <div class="col-5" style="border-right: 1px solid black">
+            Toyota Prius
+          </div>
+          <div class="col-3" style="text-align: center;border-right: 1px solid black">
+            Car
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            4
+          </div>
+          <div class="col-2" style="text-align: center">
+            <input type="radio">
+          </div>
+        </div>
+        <!--</ng-container>-->
+      </div>
+    </div>
+    <!--<div class="row" style="margin-top: 25px">-->
+    <!--<div class="col-sm-12">-->
+    <!--<table border="1px" width="100%">-->
+    <!--<tr>-->
+    <!--<th width="50%" style="padding: 10px">Vehicle</th>-->
+    <!--<th width="20%" style="padding: 10px;text-align: center">Category</th>-->
+    <!--<th width="20%" style="padding: 10px;text-align: center">Total Passengers</th>-->
+    <!--<th width="10%" style="padding: 10px;text-align: center">Select</th>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td style="padding: 10px">Benz</td>-->
+    <!--<td style="padding: 10px;text-align: center">Mini Van</td>-->
+    <!--<td style="padding: 10px;text-align: center">5</td>-->
+    <!--<td style="padding: 10px;text-align: center"><input type="radio"></td>-->
+    <!--</tr>-->
+    <!--</table>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <hr
+      style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+    <div class="row">
+      <div class="col-sm-12" style="font-size: 25px;color: #86867f">
+        Personal Details
+      </div>
+    </div>
+    <div class="row" style="margin-top: 25px;font-weight: bold">
+      <div class="col-sm-12">
+        Your Name
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="row" style="font-weight: bold">
+      <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Email</div>
+        <div class="col-sm-12"><input type="text" class="form-control"></div>
+      </div>
+      <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+        <div class="col-sm-12">Contact Number</div>
+        <div class="col-sm-12"><input type="text" class="form-control"></div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 25px;font-weight: bold">
+      <div class="col-sm-12">
+        Your Comment
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <textarea class="form-control" style="height: 150px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" style="margin-top: 80px">
+        <button class="btn btn-warning" style="position: absolute;left: 50%;transform: translateX(-50%)">Submit
+          Reservation
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
