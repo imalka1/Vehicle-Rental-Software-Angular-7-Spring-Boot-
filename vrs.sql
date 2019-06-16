@@ -16,7 +16,7 @@ INSERT INTO `vehicle_rental_software`.`place`
 `category`,
 `place_name`)
 VALUES
-('airport','Colombo'),('airport','Galle'),('private','Matara'),('private','Malabe'),('private','Hambantota'),('disneyland','Disneyland');
+('Airport','Colombo'),('Airport','Galle'),('Private','Matara'),('Private','Malabe'),('Private','Hambantota'),('Disneyland','Disneyland');
 
 INSERT INTO `vehicle_rental_software`.`user`
 (

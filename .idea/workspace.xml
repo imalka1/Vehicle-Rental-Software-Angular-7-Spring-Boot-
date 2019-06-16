@@ -38,15 +38,15 @@
         <counts>
           <entry key="class" value="22" />
           <entry key="css" value="10" />
-          <entry key="html" value="124" />
-          <entry key="java" value="322" />
+          <entry key="html" value="128" />
+          <entry key="java" value="323" />
           <entry key="jpg" value="5" />
           <entry key="js" value="2" />
           <entry key="json" value="2" />
           <entry key="place-dto" value="3" />
           <entry key="properties" value="9" />
           <entry key="sql" value="1" />
-          <entry key="ts" value="181" />
+          <entry key="ts" value="182" />
           <entry key="xml" value="5" />
           <entry key="yml" value="2" />
         </counts>
@@ -55,14 +55,14 @@
         <counts>
           <entry key="CLASS" value="22" />
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="124" />
+          <entry key="HTML" value="128" />
           <entry key="Image" value="5" />
-          <entry key="JAVA" value="322" />
+          <entry key="JAVA" value="323" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="2" />
           <entry key="Properties" value="9" />
           <entry key="SQL" value="1" />
-          <entry key="TypeScript" value="184" />
+          <entry key="TypeScript" value="185" />
           <entry key="XML" value="5" />
           <entry key="YAML" value="2" />
         </counts>
@@ -71,12 +71,12 @@
         <counts>
           <entry key="css" value="64" />
           <entry key="dummy" value="30" />
-          <entry key="html" value="3385" />
+          <entry key="html" value="3409" />
           <entry key="java" value="5655" />
           <entry key="json" value="1" />
           <entry key="place-dto" value="23" />
           <entry key="properties" value="77" />
-          <entry key="ts" value="4401" />
+          <entry key="ts" value="4410" />
           <entry key="xml" value="5" />
           <entry key="yml" value="65" />
         </counts>
@@ -84,12 +84,12 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="64" />
-          <entry key="HTML" value="3385" />
+          <entry key="HTML" value="3409" />
           <entry key="JAVA" value="5655" />
           <entry key="JSON" value="1" />
           <entry key="PLAIN_TEXT" value="30" />
           <entry key="Properties" value="77" />
-          <entry key="TypeScript" value="4424" />
+          <entry key="TypeScript" value="4433" />
           <entry key="XML" value="5" />
           <entry key="YAML" value="65" />
         </counts>
@@ -103,17 +103,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+            <state relative-caret-position="198">
+              <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1071">
+              <caret line="63" column="62" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
+              <folding>
+                <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2108">
+              <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -188,14 +227,14 @@
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/view-bookings/view-bookings.component.ts" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/view-bookings/view-bookings.component.html" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/dto/ReservationDTO.java" />
         <option value="$PROJECT_DIR$/Frontend/src/app/model/reservation.ts" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts" />
       </list>
     </option>
   </component>
@@ -604,7 +643,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560681788735" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560682434394" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Web Applications" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -690,12 +729,12 @@
       <workItem from="1560532281817" duration="13881000" />
       <workItem from="1560577546767" duration="3000" />
       <workItem from="1560578049969" duration="4348000" />
-      <workItem from="1560620930515" duration="18526000" />
+      <workItem from="1560620930515" duration="19020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265125000" />
+    <option name="totallyTimeSpent" value="265619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -854,13 +893,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/edit-bookings/edit-bookings.component.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/fixed-place/fixed-place.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="8" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/dtos/reservation-dto.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -1051,29 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/services/place.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1134,26 +1143,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/fixed-place/fixed-place.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+        <state>
+          <caret selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/places/places.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/ReservationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="63" column="62" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/bookings/bookings.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+        <state relative-caret-position="198">
+          <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/booking/booking.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>

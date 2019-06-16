@@ -15,7 +15,7 @@ export class BookingComponent implements OnInit {
 
   currentDate: string;
   currentTime: string;
-  selectedCategory: string = 'airport';
+  selectedCategory: string = 'Airport';
   selectedFrom: Place;
   selectedTo: Place;
   placeDtos: Array<PlaceDto>;
@@ -43,9 +43,9 @@ export class BookingComponent implements OnInit {
     this.placesFrom = new Array<Place>();
     this.placesTo = new Array<Place>();
     this.placeDisneyDisable = false;
-    if (this.selectedCategory == 'airport') {
+    if (this.selectedCategory == 'Airport') {
 
-      this.placeService.getPlacesViaCategory('private').subscribe((result) => {
+      this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
         this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
           this.placesFrom.push(this.placeDtos[i].place);
@@ -61,9 +61,9 @@ export class BookingComponent implements OnInit {
         this.selectedTo = this.placeDtos[0].place;
       });
 
-    } else if (this.selectedCategory == 'disneyland') {
+    } else if (this.selectedCategory == 'Disneyland') {
 
-      this.placeService.getPlacesViaCategory('private').subscribe((result) => {
+      this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
         this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
           this.placesFrom.push(this.placeDtos[i].place);
@@ -71,14 +71,14 @@ export class BookingComponent implements OnInit {
         this.selectedFrom = this.placeDtos[0].place;
       });
 
-      this.placeService.getPlacesViaCategory('disneyland').subscribe((result) => {
+      this.placeService.getPlacesViaCategory('Disneyland').subscribe((result) => {
         let place: Place = new Place();
         place.placeName = result[0].placeName;
         this.placesTo.push(place);
         this.selectedTo = place;
       });
 
-    } else if (this.selectedCategory == 'private') {
+    } else if (this.selectedCategory == 'Private') {
 
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.setPlaceDtos(result);
@@ -120,9 +120,9 @@ export class BookingComponent implements OnInit {
   }
 
   exchangeFromTo() {
-    if (this.selectedCategory == 'airport') {
+    if (this.selectedCategory == 'Airport') {
       this.swapPlaces();
-    } else if (this.selectedCategory == 'disneyland') {
+    } else if (this.selectedCategory == 'Disneyland') {
       this.swapPlaces();
       if (this.placeDisneyDisable) {
         this.placeDisneyDisable = false;
