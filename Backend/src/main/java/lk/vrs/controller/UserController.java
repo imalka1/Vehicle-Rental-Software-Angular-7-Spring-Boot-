@@ -54,4 +54,9 @@ public class UserController {
         JwtAuthenticationToken jwtAuthenticationToken = new JwtAuthenticationToken(authenticationToken);
         SessionStack.removeUser(validator.getSeurityCode(jwtAuthenticationToken.getToken()));
     }
+
+    @GetMapping("/admin/chkLogin")
+    public void chkLogin() {
+
+    }
 }

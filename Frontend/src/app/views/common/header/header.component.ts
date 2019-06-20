@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {LoginService} from "../../../services/login.service";
+import {CommonService} from "../../../services/common.service";
 
 declare var custom_navigation: any;
 
@@ -13,15 +14,15 @@ export class HeaderComponent implements OnInit {
 
   loginButtonText: String = '';
 
-  constructor(private router: Router, private loginService: LoginService) {
-    loginService.login.subscribe((value) => {
+  constructor(private router: Router, private loginService: LoginService,private commonService: CommonService) {
+    commonService.login.subscribe((value) => {
       this.setLoginText(value)
     })
   }
 
   ngOnInit() {
     custom_navigation();
-    if (this.loginService.isLoggedIn()) {
+    if (this.commonService.isLoggedIn()) {
       this.setLoginText(true)
     } else {
       this.setLoginText(false)
@@ -37,10 +38,10 @@ export class HeaderComponent implements OnInit {
   }
 
   loginOrLogout() {
-    if (this.loginService.isLoggedIn()) {
+    if (this.commonService.isLoggedIn()) {
       this.loginService.accLogout().subscribe((result) => {
           localStorage.clear();
-          this.loginService.setLoginOrLogout(false);
+          this.commonService.setLoginOrLogout(false);
           this.router.navigate(['/head/main'])
         }
       )
@@ -66,7 +67,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isAdminPanel() {
-    if (this.loginService.isLoggedIn()) {
+    if (this.commonService.isLoggedIn()) {
       return true;
     } else {
       return false;

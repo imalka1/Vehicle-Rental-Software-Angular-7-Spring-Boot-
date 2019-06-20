@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PlaceService} from "../../../../services/place.service";
 import {PlaceDto} from "../../../../dtos/place-dto";
+import {Router} from "@angular/router";
+import {CommonService} from "../../../../services/common.service";
 
 @Component({
   selector: 'app-edit-place',
@@ -11,7 +13,7 @@ export class EditPlaceComponent implements OnInit {
 
   @Input() edit_placeDto: PlaceDto;
 
-  constructor(private placeService: PlaceService) {
+  constructor(private placeService: PlaceService, private commonService: CommonService) {
   }
 
   ngOnInit() {
@@ -23,11 +25,15 @@ export class EditPlaceComponent implements OnInit {
         this.placeService.updatePlace(this.edit_placeDto.place).subscribe((result) => {
           this.edit_placeDto.place = result;
           this.edit_placeDto.edit = false;
+        }, (error) => {
+          this.commonService.errorHandler(error)
         })
       } else {
         this.placeService.addPlace(this.edit_placeDto.place).subscribe((result) => {
           this.edit_placeDto.place = result;
           this.edit_placeDto.edit = false;
+        }, (error) => {
+          this.commonService.errorHandler(error)
         })
       }
     }
@@ -35,15 +41,19 @@ export class EditPlaceComponent implements OnInit {
 
   deletePlace() {
     if (this.edit_placeDto.place.placeId != undefined) {
-      this.placeService.deletePlace(this.edit_placeDto.place).subscribe();
+      this.placeService.deletePlace(this.edit_placeDto.place).subscribe((data) => {
+        },
+        (error) => {
+          this.commonService.errorHandler(error)
+        });
     }
     this.edit_placeDto.placeDtos.splice(this.edit_placeDto.placeDtos.indexOf(this.edit_placeDto), 1);
   }
 
-  cancelPlace(){
+  cancelPlace() {
     if (this.edit_placeDto.place.placeId != undefined) {
       this.edit_placeDto.edit = false;
-    }else{
+    } else {
       this.edit_placeDto.placeDtos.splice(this.edit_placeDto.placeDtos.indexOf(this.edit_placeDto), 1);
     }
   }

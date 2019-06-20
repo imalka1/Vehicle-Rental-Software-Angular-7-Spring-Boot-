@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {Observable, throwError} from "rxjs";
 import {environment} from "../../environments/environment";
 import {Reservation} from "../model/reservation";
+import {catchError} from "rxjs/operators";
+import {CommonService} from "./common.service";
 
 const URL = "/api/reservation";
 
@@ -11,32 +13,26 @@ const URL = "/api/reservation";
 })
 export class ReservationService {
 
-  constructor(private http: HttpClient) {
-  }
-
-  createAuthorizationHeader() {
-    let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Authorization', localStorage.getItem('token'));
-    return headers;
+  constructor(private http: HttpClient, private commonService: CommonService) {
   }
 
   addReservation(reservation: Reservation): Observable<Reservation> {
-    return this.http.post<Reservation>(environment.backend_url + URL + "/admin/reservations", reservation, {headers: this.createAuthorizationHeader()});
+    return this.http.post<Reservation>(environment.backend_url + URL + "/admin/reservations", reservation, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   updateReservation(reservation: Reservation): Observable<Reservation> {
-    return this.http.put<Reservation>(environment.backend_url + URL + "/admin/reservations" + reservation.reservationId, reservation, {headers: this.createAuthorizationHeader()});
+    return this.http.put<Reservation>(environment.backend_url + URL + "/admin/reservations" + reservation.reservationId, reservation, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   deleteReservation(reservation: Reservation): Observable<void> {
-    return this.http.delete<void>(environment.backend_url + URL + "/admin/reservations/" + reservation.reservationId, {headers: this.createAuthorizationHeader()});
+    return this.http.delete<void>(environment.backend_url + URL + "/admin/reservations/" + reservation.reservationId, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   getReservationTableRowCount(): Observable<number> {
-    return this.http.get<number>(environment.backend_url + URL + "/admin/rowCount/", {headers: this.createAuthorizationHeader()});
+    return this.http.get<number>(environment.backend_url + URL + "/admin/rowCount/", {headers: this.commonService.createAuthorizationHeader()});
   }
 
   getReservedDates(start: number, limit: number): Observable<Array<Reservation>> {
-    return this.http.get<Array<Reservation>>(environment.backend_url + URL + "/admin/reservationDates/" + start + "/" + limit, {headers: this.createAuthorizationHeader()});
+    return this.http.get<Array<Reservation>>(environment.backend_url + URL + "/admin/reservationDates/" + start + "/" + limit, {headers: this.commonService.createAuthorizationHeader()});
   }
 }

@@ -3,6 +3,7 @@ import {PlaceDto} from "../../../../dtos/place-dto";
 import {PlaceService} from "../../../../services/place.service";
 import {VehicleDto} from "../../../../dtos/vehicle-dto";
 import {VehicleService} from "../../../../services/vehicle.service";
+import {CommonService} from "../../../../services/common.service";
 
 @Component({
   selector: 'app-edit-vehicle',
@@ -13,7 +14,7 @@ export class EditVehicleComponent implements OnInit {
 
   @Input() edit_vehicleDto: VehicleDto;
 
-  constructor(private vehicleService: VehicleService) {
+  constructor(private vehicleService: VehicleService,private commonService: CommonService) {
   }
 
   ngOnInit() {
@@ -25,19 +26,23 @@ export class EditVehicleComponent implements OnInit {
         this.vehicleService.updateVehicle(this.edit_vehicleDto.vehicle).subscribe((result) => {
           this.edit_vehicleDto.vehicle = result;
           this.edit_vehicleDto.edit = false;
-        })
+        },(error)=>{this.commonService.errorHandler(error)})
       } else {
         this.vehicleService.addVehicle(this.edit_vehicleDto.vehicle).subscribe((result) => {
           this.edit_vehicleDto.vehicle = result;
           this.edit_vehicleDto.edit = false;
-        })
+        },(error)=>{this.commonService.errorHandler(error)})
       }
     }
   }
 
   deleteVehicle() {
     if (this.edit_vehicleDto.vehicle.vehicleId != undefined) {
-      this.vehicleService.deleteVehicle(this.edit_vehicleDto.vehicle).subscribe();
+      this.vehicleService.deleteVehicle(this.edit_vehicleDto.vehicle).subscribe((data) => {
+        },
+        (error) => {
+          this.commonService.errorHandler(error)
+        });
     }
     this.edit_vehicleDto.vehicleDtos.splice(this.edit_vehicleDto.vehicleDtos.indexOf(this.edit_vehicleDto), 1);
   }

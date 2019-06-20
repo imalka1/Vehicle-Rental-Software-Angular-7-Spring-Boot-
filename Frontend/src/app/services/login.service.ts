@@ -5,6 +5,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Place} from "../model/place";
 import {environment} from "../../environments/environment";
 import {Token} from "../model/token";
+import {CommonService} from "./common.service";
+import {catchError} from "rxjs/operators";
 
 const URL = "/api";
 
@@ -13,15 +15,7 @@ const URL = "/api";
 })
 export class LoginService {
 
-  login: Subject<boolean> = new Subject<boolean>();
-
-  constructor(private http: HttpClient) {
-  }
-
-  createAuthorizationHeader() {
-    let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Authorization', localStorage.getItem('token'));
-    return headers;
+  constructor(private http: HttpClient, private commonService: CommonService) {
   }
 
   accLogin(user: User): Observable<Token> {
@@ -29,14 +23,6 @@ export class LoginService {
   }
 
   accLogout(): Observable<void> {
-    return this.http.get<void>(environment.backend_url + URL + "/logout", {headers: this.createAuthorizationHeader()});
-  }
-
-  setLoginOrLogout(logged) {
-    this.login.next(logged)
-  }
-
-  isLoggedIn() {
-    return localStorage.getItem('token') != undefined;
+    return this.http.get<void>(environment.backend_url + URL + "/logout", {headers: this.commonService.createAuthorizationHeader()});
   }
 }

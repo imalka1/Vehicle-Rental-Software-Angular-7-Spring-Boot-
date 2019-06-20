@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {Observable, throwError} from "rxjs";
 import {Place} from "../model/place";
 import {environment} from "../../environments/environment";
+import {catchError} from "rxjs/operators";
+import {CommonService} from "./common.service";
 
 const URL = "/api/place";
 
@@ -11,26 +13,20 @@ const URL = "/api/place";
 })
 export class PlaceService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private commonService: CommonService) {
 
-  }
-
-  createAuthorizationHeader() {
-    let headers: HttpHeaders = new HttpHeaders();
-    headers = headers.append('Authorization', localStorage.getItem('token'));
-    return headers;
   }
 
   addPlace(place: Place): Observable<Place> {
-    return this.http.post<Place>(environment.backend_url + URL + "/admin/places", place, {headers: this.createAuthorizationHeader()});
+    return this.http.post<Place>(environment.backend_url + URL + "/admin/places", place, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   updatePlace(place: Place): Observable<Place> {
-    return this.http.put<Place>(environment.backend_url + URL + "/admin/places/" + place.placeId, place, {headers: this.createAuthorizationHeader()});
+    return this.http.put<Place>(environment.backend_url + URL + "/admin/places/" + place.placeId, place, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   deletePlace(place: Place): Observable<void> {
-    return this.http.delete<void>(environment.backend_url + URL + "/admin/places/" + place.placeId, {headers: this.createAuthorizationHeader()});
+    return this.http.delete<void>(environment.backend_url + URL + "/admin/places/" + place.placeId, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   getPlacesViaCategory(category: string): Observable<Array<Place>> {

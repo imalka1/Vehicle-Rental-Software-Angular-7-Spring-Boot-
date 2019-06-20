@@ -6,6 +6,7 @@ import {ReservationService} from "../../../services/reservation.service";
 import {ReservationDto} from "../../../dtos/reservation-dto";
 import {Reservation} from "../../../model/reservation";
 import {Router} from "@angular/router";
+import {CommonService} from "../../../services/common.service";
 
 @Component({
   selector: 'app-bookings',
@@ -18,7 +19,7 @@ export class BookingsComponent implements OnInit {
   totalSets: Array<number>;
   setNumber: number = 1;
 
-  constructor(private reservationService: ReservationService, private router: Router) {
+  constructor(private reservationService: ReservationService, private router: Router,private commonService: CommonService) {
   }
 
   ngOnInit() {
@@ -29,7 +30,8 @@ export class BookingsComponent implements OnInit {
   setReservedDates() {
     this.reservationDtos = new Array<ReservationDto>();
     let reservations: Array<Reservation>;
-    this.reservationService.getReservedDates(this.setNumber - 1, 10).subscribe((result) => {
+    this.reservationService.getReservedDates(this.setNumber - 1, 10).subscribe(
+      (result) => {
       reservations = result;
       for (let i = 0; i < reservations.length; i++) {
         let reservationDto = new ReservationDto();
@@ -37,7 +39,7 @@ export class BookingsComponent implements OnInit {
         // placeDto.placeDtos = this.placeDtos;
         this.reservationDtos.push(reservationDto);
       }
-    })
+    },(error)=>{this.commonService.errorHandler(error)})
   }
 
   setTotalSets() {
@@ -47,7 +49,7 @@ export class BookingsComponent implements OnInit {
       for (let i = 0; i < Math.ceil(result / 10); i++) {
         this.totalSets.push(++count);
       }
-    })
+    },(error)=>{this.commonService.errorHandler(error)})
   }
 
   nextPage() {
