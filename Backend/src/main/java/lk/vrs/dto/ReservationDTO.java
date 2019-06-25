@@ -1,5 +1,6 @@
 package lk.vrs.dto;
 
+import lk.vrs.entity.Customer;
 import lk.vrs.entity.Place;
 import lk.vrs.entity.Vehicle;
 
@@ -7,67 +8,76 @@ import java.sql.Time;
 import java.sql.Date;
 
 public class ReservationDTO {
-    private int reservationId;
-    private Date dateOfReservation;
-    private String timeOfReservation;
-    private String completed;
-    private Place placeFrom;
-    private Place placeTo;
-    private Vehicle vehicle;
+    private long id;
+    private Date reservationDate;
+    private String reservationTime;
+    private String reservationCompleted;
+    private Place reservationPlaceFrom;
+    private Place reservationPlaceTo;
+    private Vehicle reservationVehicle;
+    private Customer reservationCustomer;
 
-    public int getReservationId() {
-        return reservationId;
+    public long getId() {
+        return id;
     }
 
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Date getDateOfReservation() {
-        return dateOfReservation;
+    public Date getReservationDate() {
+        return reservationDate;
     }
 
-    public void setDateOfReservation(Date dateOfReservation) {
-        this.dateOfReservation = dateOfReservation;
+    public void setReservationDate(Date reservationDate) {
+        this.reservationDate = reservationDate;
     }
 
-    public String getTimeOfReservation() {
-        return timeOfReservation;
+    public String getReservationTime() {
+        return reservationTime;
     }
 
-    public void setTimeOfReservation(String timeOfReservation) {
-        this.timeOfReservation = timeOfReservation;
+    public void setReservationTime(String reservationTime) {
+        this.reservationTime = reservationTime;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
+    public String getReservationCompleted() {
+        return reservationCompleted;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setReservationCompleted(String reservationCompleted) {
+        this.reservationCompleted = reservationCompleted;
     }
 
-    public String getCompleted() {
-        return completed;
+    public Place getReservationPlaceFrom() {
+        return reservationPlaceFrom;
     }
 
-    public void setCompleted(String completed) {
-        this.completed = completed;
+    public void setReservationPlaceFrom(Place reservationPlaceFrom) {
+        this.reservationPlaceFrom = reservationPlaceFrom;
     }
 
-    public Place getPlaceFrom() {
-        return placeFrom;
+    public Place getReservationPlaceTo() {
+        return reservationPlaceTo;
     }
 
-    public void setPlaceFrom(Place placeFrom) {
-        this.placeFrom = placeFrom;
+    public void setReservationPlaceTo(Place reservationPlaceTo) {
+        this.reservationPlaceTo = reservationPlaceTo;
     }
 
-    public Place getPlaceTo() {
-        return placeTo;
+    public Vehicle getReservationVehicle() {
+        return reservationVehicle;
     }
 
-    public void setPlaceTo(Place placeTo) {
-        this.placeTo = placeTo;
+    public void setReservationVehicle(Vehicle reservationVehicle) {
+        this.reservationVehicle = reservationVehicle;
+    }
+
+    public Customer getReservationCustomer() {
+        return reservationCustomer;
+    }
+
+    public void setReservationCustomer(Customer reservationCustomer) {
+        this.reservationCustomer = reservationCustomer;
     }
 }

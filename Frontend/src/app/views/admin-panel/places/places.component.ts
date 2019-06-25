@@ -51,7 +51,7 @@ export class PlacesComponent implements OnInit {
     let placeDto: PlaceDto = new PlaceDto();
     let place: Place = new Place();
     placeDto.edit = true;
-    place.category = this.selectedCategory;
+    place.placeCategory = this.selectedCategory;
     placeDto.place = place;
     this.placeDtos.push(placeDto);
     this.placeDtos[this.placeDtos.indexOf(placeDto)].placeDtos = this.placeDtos;

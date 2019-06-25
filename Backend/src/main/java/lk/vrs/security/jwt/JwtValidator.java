@@ -21,7 +21,7 @@ public class JwtValidator {
             User user = new User();
             user.setUserName(body.getSubject());
             user.setId(Long.parseLong(body.get("userId").toString()));
-            user.setRole(body.get("role").toString());
+            user.setUserRole(body.get("role").toString());
             if (SessionStack.userExists(Integer.parseInt(body.get("securityKey").toString()))) {
                 return user;
             }

@@ -21,11 +21,11 @@ export class ReservationService {
   }
 
   updateReservation(reservation: Reservation): Observable<Reservation> {
-    return this.http.put<Reservation>(environment.backend_url + URL + "/admin/reservations" + reservation.reservationId, reservation, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.put<Reservation>(environment.backend_url + URL + "/admin/reservations" + reservation.id, reservation, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   deleteReservation(reservation: Reservation): Observable<void> {
-    return this.http.delete<void>(environment.backend_url + URL + "/admin/reservations/" + reservation.reservationId, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.delete<void>(environment.backend_url + URL + "/admin/reservations/" + reservation.id, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   getReservationTableRowCount(): Observable<number> {

@@ -1,6 +1,6 @@
 export class Vehicle {
-  vehicleId: number;
+  id: number;
   vehicleName: string;
-  totalPassengers: number;
-  category: string;
+  vehicleTotalPassengers: number;
+  vehicleCategory: string;
 }

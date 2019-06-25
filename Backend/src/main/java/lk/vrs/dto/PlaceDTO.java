@@ -1,31 +1,31 @@
 package lk.vrs.dto;
 
 public class PlaceDTO {
-    private Integer placeId;
-    private String place;
-    private String category;
+    private long id;
+    private String placeName;
+    private String placeCategory;
 
-    public Integer getPlaceId() {
-        return placeId;
+    public long getId() {
+        return id;
     }
 
-    public void setPlaceId(Integer placeId) {
-        this.placeId = placeId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getPlace() {
-        return place;
+    public String getPlaceName() {
+        return placeName;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setPlaceName(String placeName) {
+        this.placeName = placeName;
     }
 
-    public String getCategory() {
-        return category;
+    public String getPlaceCategory() {
+        return placeCategory;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setPlaceCategory(String placeCategory) {
+        this.placeCategory = placeCategory;
     }
 }

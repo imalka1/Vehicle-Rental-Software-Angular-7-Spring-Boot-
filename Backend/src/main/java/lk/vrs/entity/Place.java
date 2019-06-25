@@ -1,24 +1,35 @@
 package lk.vrs.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 
 @Entity
 public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer placeId;
+    private long id;
     private String placeName;
-    private String category;
+    private String placeCategory;
 
-    public Integer getPlaceId() {
-        return placeId;
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceFrom")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Reservation reservationFrom;
+
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceTo")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Reservation reservationTo;
+
+    public long getId() {
+        return id;
     }
 
-    public void setPlaceId(Integer placeId) {
-        this.placeId = placeId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getPlaceName() {
@@ -29,11 +40,27 @@ public class Place {
         this.placeName = placeName;
     }
 
-    public String getCategory() {
-        return category;
+    public String getPlaceCategory() {
+        return placeCategory;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setPlaceCategory(String placeCategory) {
+        this.placeCategory = placeCategory;
+    }
+
+    public Reservation getReservationFrom() {
+        return reservationFrom;
+    }
+
+    public void setReservationFrom(Reservation reservationFrom) {
+        this.reservationFrom = reservationFrom;
+    }
+
+    public Reservation getReservationTo() {
+        return reservationTo;
+    }
+
+    public void setReservationTo(Reservation reservationTo) {
+        this.reservationTo = reservationTo;
     }
 }

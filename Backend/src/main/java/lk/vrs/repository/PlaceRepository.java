@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PlaceRepository extends JpaRepository<Place, Integer> {
 
-    @Query(value = "FROM Place WHERE category=?1")
-    List<Place> getPlacesViaCategory(String category);
+    @Query(value = "FROM Place WHERE placeCategory=?1")
+    List<Place> getPlacesViaCategory(String placeCategory);
 
 }

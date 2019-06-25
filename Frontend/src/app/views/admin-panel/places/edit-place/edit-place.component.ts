@@ -21,7 +21,7 @@ export class EditPlaceComponent implements OnInit {
 
   addPlace() {
     if (this.edit_placeDto.place.placeName != undefined) {
-      if (this.edit_placeDto.place.placeId != undefined) {
+      if (this.edit_placeDto.place.id != undefined) {
         this.placeService.updatePlace(this.edit_placeDto.place).subscribe((result) => {
           this.edit_placeDto.place = result;
           this.edit_placeDto.edit = false;
@@ -40,7 +40,7 @@ export class EditPlaceComponent implements OnInit {
   }
 
   deletePlace() {
-    if (this.edit_placeDto.place.placeId != undefined) {
+    if (this.edit_placeDto.place.id != undefined) {
       this.placeService.deletePlace(this.edit_placeDto.place).subscribe((data) => {
         },
         (error) => {
@@ -51,7 +51,7 @@ export class EditPlaceComponent implements OnInit {
   }
 
   cancelPlace() {
-    if (this.edit_placeDto.place.placeId != undefined) {
+    if (this.edit_placeDto.place.id != undefined) {
       this.edit_placeDto.edit = false;
     } else {
       this.edit_placeDto.placeDtos.splice(this.edit_placeDto.placeDtos.indexOf(this.edit_placeDto), 1);

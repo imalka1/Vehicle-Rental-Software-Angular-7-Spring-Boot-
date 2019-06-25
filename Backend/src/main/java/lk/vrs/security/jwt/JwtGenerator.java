@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 public class JwtGenerator {
     public String generate(User user) {
         Claims claims = Jwts.claims().setSubject(user.getUserName());
-        claims.put("userId", String.valueOf(user.getUserId()));
-        claims.put("role", user.getRole());
+        claims.put("userId", String.valueOf(user.getId()));
+        claims.put("role", user.getUserRole());
         claims.put("securityKey", user.hashCode());
 
         return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, "mercedes").compact();

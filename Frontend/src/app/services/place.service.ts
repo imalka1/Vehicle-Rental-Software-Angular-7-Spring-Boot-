@@ -22,11 +22,11 @@ export class PlaceService {
   }
 
   updatePlace(place: Place): Observable<Place> {
-    return this.http.put<Place>(environment.backend_url + URL + "/admin/places/" + place.placeId, place, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.put<Place>(environment.backend_url + URL + "/admin/places/" + place.id, place, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   deletePlace(place: Place): Observable<void> {
-    return this.http.delete<void>(environment.backend_url + URL + "/admin/places/" + place.placeId, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.delete<void>(environment.backend_url + URL + "/admin/places/" + place.id, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   getPlacesViaCategory(category: string): Observable<Array<Place>> {

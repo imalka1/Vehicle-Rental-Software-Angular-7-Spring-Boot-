@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
 
-    @Query(value = "FROM Vehicle WHERE category=?1")
-    List<Vehicle> getVehiclesViaCategory(String category);
+    @Query(value = "FROM Vehicle WHERE vehicleCategory=?1")
+    List<Vehicle> getVehiclesViaCategory(String vehicleCategory);
 }

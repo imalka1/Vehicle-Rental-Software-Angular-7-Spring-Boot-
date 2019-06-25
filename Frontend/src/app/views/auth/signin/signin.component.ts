@@ -21,7 +21,7 @@ export class SigninComponent implements OnInit {
   }
 
   accLogin() {
-    this.user.role = 'admin';
+    this.user.userRole = 'admin';
     this.loginService.accLogin(this.user).subscribe((result) => {
       let token: Token = result;
       if (token.token != 'errorLogin') {

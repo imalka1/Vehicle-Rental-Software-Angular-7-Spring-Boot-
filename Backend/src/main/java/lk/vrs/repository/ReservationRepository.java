@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
-    @Query(value = "select count(reservationId) from Reservation")
+    @Query(value = "select count(id) from Reservation")
     int getTableRowCount();
 
-    @Query(value = "from Reservation order by dateOfReservation desc")
+    @Query(value = "from Reservation order by reservationDate desc")
     List<Reservation> getReservationDates(Pageable pageable);
 
 //    @Query(value = "from Reservation where place.placeId=?1")

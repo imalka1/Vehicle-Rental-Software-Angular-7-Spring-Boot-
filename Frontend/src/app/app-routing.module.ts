@@ -26,7 +26,7 @@ const routes: Routes = [
             component: PlacesComponent
           },
           {
-            path: 'vehicle',
+            path: 'reservationVehicle',
             component: VehiclesComponent
           },
           {

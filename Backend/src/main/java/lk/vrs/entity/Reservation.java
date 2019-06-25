@@ -1,78 +1,102 @@
 package lk.vrs.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
-
 
 @Entity
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reservationId;
-    private Date dateOfReservation;
-    private Time timeOfReservation;
-    private boolean completed;
+    private long id;
+    private Date reservationDate;
+    private Time reservationTime;
+    private boolean reservationCompleted;
+
     @OneToOne
-    private Place placeFrom;
+    @JoinColumn(nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Place reservationPlaceFrom;
+
     @OneToOne
-    private Place placeTo;
+    @JoinColumn(nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Place reservationPlaceTo;
+
     @OneToOne
-    private Vehicle vehicle;
+    @JoinColumn(nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Vehicle reservationVehicle;
 
-    public int getReservationId() {
-        return reservationId;
+    @OneToOne
+    @JoinColumn(nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Customer reservationCustomer;
+
+    public long getId() {
+        return id;
     }
 
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Date getDateOfReservation() {
-        return dateOfReservation;
+    public Date getReservationDate() {
+        return reservationDate;
     }
 
-    public void setDateOfReservation(Date dateOfReservation) {
-        this.dateOfReservation = dateOfReservation;
+    public void setReservationDate(Date reservationDate) {
+        this.reservationDate = reservationDate;
     }
 
-    public Time getTimeOfReservation() {
-        return timeOfReservation;
+    public Time getReservationTime() {
+        return reservationTime;
     }
 
-    public void setTimeOfReservation(Time timeOfReservation) {
-        this.timeOfReservation = timeOfReservation;
+    public void setReservationTime(Time reservationTime) {
+        this.reservationTime = reservationTime;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
+    public boolean isReservationCompleted() {
+        return reservationCompleted;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setReservationCompleted(boolean reservationCompleted) {
+        this.reservationCompleted = reservationCompleted;
     }
 
-    public boolean isCompleted() {
-        return completed;
+    public Place getReservationPlaceFrom() {
+        return reservationPlaceFrom;
     }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
+    public void setReservationPlaceFrom(Place reservationPlaceFrom) {
+        this.reservationPlaceFrom = reservationPlaceFrom;
     }
 
-    public Place getPlaceFrom() {
-        return placeFrom;
+    public Place getReservationPlaceTo() {
+        return reservationPlaceTo;
     }
 
-    public void setPlaceFrom(Place placeFrom) {
-        this.placeFrom = placeFrom;
+    public void setReservationPlaceTo(Place reservationPlaceTo) {
+        this.reservationPlaceTo = reservationPlaceTo;
     }
 
-    public Place getPlaceTo() {
-        return placeTo;
+    public Vehicle getReservationVehicle() {
+        return reservationVehicle;
     }
 
-    public void setPlaceTo(Place placeTo) {
-        this.placeTo = placeTo;
+    public void setReservationVehicle(Vehicle reservationVehicle) {
+        this.reservationVehicle = reservationVehicle;
+    }
+
+    public Customer getReservationCustomer() {
+        return reservationCustomer;
+    }
+
+    public void setReservationCustomer(Customer reservationCustomer) {
+        this.reservationCustomer = reservationCustomer;
     }
 }

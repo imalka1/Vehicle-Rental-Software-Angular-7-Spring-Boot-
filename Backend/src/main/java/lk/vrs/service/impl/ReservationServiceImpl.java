@@ -34,19 +34,19 @@ public class ReservationServiceImpl implements ReservationService {
         SimpleDateFormat timeFormat = new SimpleDateFormat("KK:mm a");
         try {
             for (Reservation reservationDate : reservationDates) {
-                Date dateObj = sdf.parse(reservationDate.getTimeOfReservation().toString());
+                Date dateObj = sdf.parse(reservationDate.getReservationTime().toString());
                 ReservationDTO reservationDTO = new ReservationDTO();
-                reservationDTO.setReservationId(reservationDate.getReservationId());
-                reservationDTO.setDateOfReservation(reservationDate.getDateOfReservation());
-                reservationDTO.setTimeOfReservation(timeFormat.format(dateObj));
-                if (reservationDate.isCompleted()) {
-                    reservationDTO.setCompleted("Ended");
+                reservationDTO.setId(reservationDate.getId());
+                reservationDTO.setReservationDate(reservationDate.getReservationDate());
+                reservationDTO.setReservationTime(timeFormat.format(dateObj));
+                if (reservationDate.isReservationCompleted()) {
+                    reservationDTO.setReservationCompleted("Ended");
                 } else {
-                    reservationDTO.setCompleted("Not yet");
+                    reservationDTO.setReservationCompleted("Not yet");
                 }
-                reservationDTO.setPlaceFrom(reservationDate.getPlaceFrom());
-                reservationDTO.setPlaceTo(reservationDate.getPlaceTo());
-                reservationDTO.setVehicle(reservationDate.getVehicle());
+                reservationDTO.setReservationPlaceFrom(reservationDate.getReservationPlaceFrom());
+                reservationDTO.setReservationPlaceTo(reservationDate.getReservationPlaceTo());
+                reservationDTO.setReservationVehicle(reservationDate.getReservationVehicle());
                 reservationDTOS.add(reservationDTO);
             }
         } catch (ParseException e) {

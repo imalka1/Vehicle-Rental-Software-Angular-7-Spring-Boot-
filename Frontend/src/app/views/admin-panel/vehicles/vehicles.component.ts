@@ -40,7 +40,7 @@ export class VehiclesComponent implements OnInit {
     this.vehicleDtos = new Array<VehicleDto>();
     for (let i = 0; i < vehicles.length; i++) {
       let vehicleDto = new VehicleDto();
-      vehicleDto.vehicle = vehicles[i];
+      vehicleDto.reservationVehicle = vehicles[i];
       vehicleDto.vehicleDtos = this.vehicleDtos;
       this.vehicleDtos.push(vehicleDto);
     }
@@ -49,9 +49,9 @@ export class VehiclesComponent implements OnInit {
   addVehicle() {
     let vehicleDto: VehicleDto = new VehicleDto();
     let vehicle: Vehicle = new Vehicle();
-    vehicle.totalPassengers = 1;
+    vehicle.vehicleTotalPassengers = 1;
     vehicleDto.edit = true;
-    vehicle.category = this.selectedCategory;
+    vehicle.vehicleCategory = this.selectedCategory;
     vehicleDto.vehicle = vehicle;
     this.vehicleDtos.push(vehicleDto);
     this.vehicleDtos[this.vehicleDtos.indexOf(vehicleDto)].vehicleDtos = this.vehicleDtos;

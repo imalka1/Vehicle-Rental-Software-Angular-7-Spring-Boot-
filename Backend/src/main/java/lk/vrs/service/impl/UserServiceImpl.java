@@ -16,9 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User chkLogin(User user) {
-        User loggedUser = userRepository.getUser(user.getUserName(), user.getPassword(), user.getRole());
+        User loggedUser = userRepository.getUser(user.getUserName(), user.getUserPassword(), user.getUserRole());
         if (loggedUser != null) {
-            User userObj = userRepository.findById(loggedUser.getUserId()).get();
+            User userObj = userRepository.findById(loggedUser.getId()).get();
             SessionStack.setUser(userObj);
             return userObj;
         }

@@ -1,5 +1,5 @@
 export class Place {
-  placeId: number;
+  id: number;
   placeName: string;
-  category: string;
+  placeCategory: string;
 }
