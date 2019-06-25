@@ -2,23 +2,32 @@ drop database vehicle_rental_software;
 
 use vehicle_rental_software;
 
+INSERT INTO `vehicle_rental_software`.`customer`
+(
+`customer_comment`,
+`customer_contact_number`,
+`customer_email`,
+`customer_name`)
+VALUES
+('abc',123,'im@gmail.com','im');
+
 INSERT INTO `vehicle_rental_software`.`vehicle`
-(`id`,
+(
 `vehicle_category`,
-`vehicle_name`,
-`vehicle_total_passengers`)
+`vehicle_total_passengers`,
+`vehicle_name`)
 VALUES
 ('car',5,'Benz'),('car',4,'Toyota'),('minivan',4,'Mitsubishi'),('minivan',4,'Skoda'),('minivan',7,'Nissan');
 
 INSERT INTO `vehicle_rental_software`.`place`
-(`id`,
+(
 `place_category`,
 `place_name`)
 VALUES
 ('Airport','Colombo'),('Airport','Galle'),('Private','Matara'),('Private','Malabe'),('Private','Hambantota'),('Disneyland','Disneyland');
 
 INSERT INTO `vehicle_rental_software`.`user`
-(`id`,
+(
 `user_name`,
 `user_password`,
 `user_role`)
@@ -26,7 +35,7 @@ VALUES
 ('123','admin','imalka'),('456','admin','imalka1');
 
 INSERT INTO `vehicle_rental_software`.`reservation`
-(`id`,
+(
 `reservation_completed`,
 `reservation_date`,
 `reservation_time`,
@@ -35,7 +44,7 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `reservation_place_to_id`,
 `reservation_vehicle_id`)
 VALUES
-(false,'2019-05-05','02:03',1,2,1),(true,'2019-05-04','14:05',2,3,2);
+(false,'2019-05-05','02:03',1,1,2,1),(true,'2019-05-04','14:05',1,2,3,2);
 
 SELECT `place`.`id`,
     `place`.`place_category`,
