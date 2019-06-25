@@ -59,4 +59,14 @@ public class Vehicle {
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", vehicleName='" + vehicleName + '\'' +
+                ", vehicleTotalPassengers=" + vehicleTotalPassengers +
+                ", vehicleCategory='" + vehicleCategory + '\'' +
+                '}';
+    }
 }

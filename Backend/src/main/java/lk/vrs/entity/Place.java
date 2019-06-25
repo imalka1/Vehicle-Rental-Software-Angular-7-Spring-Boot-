@@ -63,4 +63,14 @@ public class Place {
     public void setReservationTo(Reservation reservationTo) {
         this.reservationTo = reservationTo;
     }
+
+    @Override
+    public String toString() {
+        return "Place{" +
+                "id=" + id +
+                ", placeName='" + placeName + '\'' +
+                ", placeCategory='" + placeCategory + '\'' +
+                ", reservationFrom=" + reservationFrom +
+                '}';
+    }
 }

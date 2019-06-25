@@ -99,4 +99,18 @@ public class Reservation {
     public void setReservationCustomer(Customer reservationCustomer) {
         this.reservationCustomer = reservationCustomer;
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", reservationDate=" + reservationDate +
+                ", reservationTime=" + reservationTime +
+                ", reservationCompleted=" + reservationCompleted +
+                ", reservationPlaceFrom=" + reservationPlaceFrom +
+                ", reservationPlaceTo=" + reservationPlaceTo +
+                ", reservationVehicle=" + reservationVehicle +
+                ", reservationCustomer=" + reservationCustomer +
+                '}';
+    }
 }

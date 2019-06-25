@@ -68,4 +68,15 @@ public class Customer {
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", customerName='" + customerName + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", customerContactNumber='" + customerContactNumber + '\'' +
+                ", customerComment='" + customerComment + '\'' +
+                '}';
+    }
 }
