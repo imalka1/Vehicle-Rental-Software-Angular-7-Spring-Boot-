@@ -16,12 +16,12 @@ public class Place {
 
     @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceFrom")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+//    @JsonIgnore
     private Reservation reservationFrom;
 
     @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceTo")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+//    @JsonIgnore
     private Reservation reservationTo;
 
     public long getId() {

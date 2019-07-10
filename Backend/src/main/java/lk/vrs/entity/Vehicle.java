@@ -17,7 +17,7 @@ public class Vehicle {
 
     @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationVehicle")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+//    @JsonIgnore
     private Reservation reservation;
 
     public long getId() {

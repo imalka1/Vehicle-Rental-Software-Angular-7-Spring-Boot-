@@ -7,7 +7,7 @@ import {Vehicle} from "../model/vehicle";
 import {CommonService} from "./common.service";
 import {catchError} from "rxjs/operators";
 
-const URL = "/api/reservationVehicle";
+const URL = "/api/vehicle";
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +18,11 @@ export class VehicleService {
   }
 
   addVehicle(vehicle: Vehicle): Observable<Vehicle> {
-    return this.http.post<Vehicle>(environment.backend_url + URL + "/admin/vehicles", vehicle, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.post<Vehicle>(environment.backend_url + URL + "/admin/vehicles/add", vehicle, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   updateVehicle(vehicle: Vehicle): Observable<Vehicle> {
-    return this.http.put<Vehicle>(environment.backend_url + URL + "/admin/vehicles/" + vehicle.id, vehicle, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.post<Vehicle>(environment.backend_url + URL + "/admin/vehicles/update", vehicle, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   deleteVehicle(vehicle: Vehicle): Observable<void> {

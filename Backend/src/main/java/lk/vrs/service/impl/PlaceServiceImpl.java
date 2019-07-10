@@ -21,14 +21,12 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public Place updatePlace(Place place, int id) {
-        Place placeObj = placeRepository.findById(id).get();
-        placeObj.setPlaceName(place.getPlaceName());
-        return placeRepository.save(placeObj);
+    public Place updatePlace(Place place) {
+        return placeRepository.save(place);
     }
 
     @Override
-    public void deletePlace(int id) {
+    public void deletePlace(long id) {
         placeRepository.deleteById(id);
     }
 

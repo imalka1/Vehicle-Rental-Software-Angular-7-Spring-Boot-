@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface PlaceRepository extends JpaRepository<Place, Integer> {
+public interface PlaceRepository extends JpaRepository<Place, Long> {
 
     @Query(value = "FROM Place WHERE placeCategory=?1")
     List<Place> getPlacesViaCategory(String placeCategory);

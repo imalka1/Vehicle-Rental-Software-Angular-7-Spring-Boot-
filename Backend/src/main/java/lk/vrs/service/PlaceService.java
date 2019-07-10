@@ -8,9 +8,9 @@ import java.util.List;
 public interface PlaceService {
     Place addPlace(Place place);
 
-    Place updatePlace(Place place, int id);
+    Place updatePlace(Place place);
 
-    void deletePlace(int id);
+    void deletePlace(long id);
 
     List<Place> getPlacesViaCategory(String category);
 }

@@ -18,11 +18,11 @@ export class PlaceService {
   }
 
   addPlace(place: Place): Observable<Place> {
-    return this.http.post<Place>(environment.backend_url + URL + "/admin/places", place, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.post<Place>(environment.backend_url + URL + "/admin/places/add", place, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   updatePlace(place: Place): Observable<Place> {
-    return this.http.put<Place>(environment.backend_url + URL + "/admin/places/" + place.id, place, {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.post<Place>(environment.backend_url + URL + "/admin/places/update", place, {headers: this.commonService.createAuthorizationHeader()});
   }
 
   deletePlace(place: Place): Observable<void> {

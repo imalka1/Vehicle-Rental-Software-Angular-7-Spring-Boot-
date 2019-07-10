@@ -18,7 +18,7 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationCustomer")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+//    @JsonIgnore
     private Reservation reservation;
 
     public long getId() {

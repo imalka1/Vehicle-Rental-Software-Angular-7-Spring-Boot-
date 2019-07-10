@@ -27,12 +27,11 @@ VALUES
 ('Airport','Colombo'),('Airport','Galle'),('Private','Matara'),('Private','Malabe'),('Private','Hambantota'),('Disneyland','Disneyland');
 
 INSERT INTO `vehicle_rental_software`.`user`
-(
-`user_name`,
+(`user_name`,
 `user_password`,
 `user_role`)
 VALUES
-('123','admin','imalka'),('456','admin','imalka1');
+('imalka','123','admin'),('imalka1','456','admin');
 
 INSERT INTO `vehicle_rental_software`.`reservation`
 (

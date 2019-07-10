@@ -17,18 +17,18 @@ public class PlaceController {
     @Autowired
     private PlaceService placeService;
 
-    @PostMapping(value = "/admin/places")
+    @PostMapping(value = "/admin/places/add")
     public Place addPlace(@RequestBody Place place) {
         return placeService.addPlace(place);
     }
 
-    @PutMapping(value = "/admin/places/{id}")
-    public Place updatePlace(@RequestBody Place place, @PathVariable int id) {
-        return placeService.updatePlace(place, id);
+    @PostMapping(value = "/admin/places/update")
+    public Place updatePlace(@RequestBody Place place) {
+        return placeService.updatePlace(place);
     }
 
     @DeleteMapping(value = "/admin/places/{id}")
-    public void deletePlace(@PathVariable int id) {
+    public void deletePlace(@PathVariable long id) {
         placeService.deletePlace(id);
     }
 

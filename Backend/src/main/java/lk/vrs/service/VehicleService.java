@@ -8,9 +8,9 @@ import java.util.List;
 public interface VehicleService {
     Vehicle addVehicle(Vehicle vehicle);
 
-    Vehicle updateVehicle(Vehicle vehicle, int id);
+    Vehicle updateVehicle(Vehicle vehicle);
 
-    void deleteVehicle(int id);
+    void deleteVehicle(long id);
 
     List<Vehicle> getVehiclesViaCategory(String category);
 }
