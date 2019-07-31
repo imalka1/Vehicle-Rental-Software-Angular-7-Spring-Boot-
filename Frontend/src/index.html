@@ -41,6 +41,12 @@
   <!-- Color Panel -->
   <link rel="stylesheet" href="assets/css/jquery.colorpanel.css">
 
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="text/javascript">
+    var stripe = Stripe('pk_test_XXXXXXXXXXXXXXXXX'); // use your test publishable key
+    var elements = stripe.elements();
+  </script>
+
   <style>
     body{
       min-width:500px;

@@ -21,6 +21,7 @@ import { EditVehicleComponent } from './views/admin-panel/vehicles/edit-vehicle/
 import { FixedVehicleComponent } from './views/admin-panel/vehicles/fixed-vehicle/fixed-vehicle.component';
 import { BookingsComponent } from './views/admin-panel/bookings/bookings.component';
 import { ViewBookingsComponent } from './views/admin-panel/bookings/view-bookings/view-bookings.component';
+import { PaymentComponent } from './views/booking/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ViewBookingsComponent } from './views/admin-panel/bookings/view-booking
     EditVehicleComponent,
     FixedVehicleComponent,
     BookingsComponent,
-    ViewBookingsComponent
+    ViewBookingsComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
