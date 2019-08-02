@@ -1,8 +1,9 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-
-declare var stripe: any;
-declare var elements: any;
+import {PaymentService} from "../../../services/payment.service";
+import {ResponseDto} from "../../../dtos/response-dto";
+import {CardDto} from "../../../dtos/card-dto";
+import {SkuDto} from "../../../dtos/sku-dto";
 
 @Component({
   selector: 'app-payment',
@@ -10,7 +11,7 @@ declare var elements: any;
   styleUrls: ['./payment.component.css']
 })
 
-export class PaymentComponent implements AfterViewInit,OnDestroy {
+export class PaymentComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('cardInfo') cardInfo: ElementRef;
 
@@ -18,7 +19,8 @@ export class PaymentComponent implements AfterViewInit,OnDestroy {
   cardHandler = this.onChange.bind(this);
   error: string;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef, private paymentService: PaymentService) {
+  }
 
   ngAfterViewInit() {
     this.card = elements.create('card');
@@ -32,7 +34,7 @@ export class PaymentComponent implements AfterViewInit,OnDestroy {
     this.card.destroy();
   }
 
-  onChange({ error }) {
+  onChange({error}) {
     if (error) {
       this.error = error.message;
     } else {
@@ -41,15 +43,36 @@ export class PaymentComponent implements AfterViewInit,OnDestroy {
     this.cd.detectChanges();
   }
 
-  async onSubmit(form: NgForm) {
-    const { token, error } = await stripe.createToken(this.card);
-
-    if (error) {
-      console.log('Something is wrong:', error);
-    } else {
-      console.log('Success!', token);
-      // ...send the token to the your backend to process the charge
-    }
+  async onSubmit() {
+    // const {token, error} = await stripe.createToken(this.card);
+    //
+    // if (error) {
+    //   // console.log('Something is wrong:', error);
+    // } else {
+    //   console.log('Success!', token);
+    //   console.log('Success!', token.id);
+    //   let cardDto: CardDto = new CardDto();
+    //   cardDto.email = 'imalkagunawardana1@gmail.com';
+    //   cardDto.keyToken = token.id;
+    //   cardDto.card = token.card.id;
+    //   this.paymentService.makePayment(cardDto).subscribe((result) => {
+    //     console.log(result)
+    //   });
+    // }
+    let cardDto: CardDto = new CardDto();
+    this.paymentService.makePayment(cardDto).subscribe((result) => {
+      let sku: SkuDto = result;
+       console.log(sku.sku)
+      stripe.redirectToCheckout({
+        items: [{sku: sku.sku, quantity: 1}],
+        successUrl: 'http://localhost:4200/#/head/booking',
+        cancelUrl: 'http://localhost:4200/#/head/booking',
+      }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      });
+    });
   }
 
 }

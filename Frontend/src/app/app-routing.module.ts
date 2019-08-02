@@ -31,7 +31,17 @@ const routes: Routes = [
           },
           {
             path: 'bookings',
-            component: BookingsComponent
+            component: BookingsComponent,
+            children: [
+              {
+                path: 'success',
+                component: BookingsComponent
+              },
+              {
+                path: 'cancel',
+                component: BookingsComponent
+              }
+            ]
           },
           {
             path: 'view-bookings',
