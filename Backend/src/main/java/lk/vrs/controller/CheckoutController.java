@@ -120,9 +120,13 @@ public class CheckoutController {
         skuParams.put("currency", "eur");
         Map<String, Object> attributesParams = new HashMap<String, Object>();
         attributesParams.put("name", "Bus");
-//        attributesParams.put("size", "Medium");
-//        attributesParams.put("gender", "Unisex");
         skuParams.put("attributes", attributesParams);
+        Map<String, Object> metaDataParams = new HashMap<String, Object>();
+        metaDataParams.put("from", "Galle");
+        metaDataParams.put("to", "Colombo");
+        metaDataParams.put("time", "9:45 AM");
+        metaDataParams.put("total", "5");
+        skuParams.put("metadata", metaDataParams);
         Map<String, Object> inventoryParams = new HashMap<String, Object>();
         inventoryParams.put("type", "infinite");
 //        inventoryParams.put("quantity", 500);

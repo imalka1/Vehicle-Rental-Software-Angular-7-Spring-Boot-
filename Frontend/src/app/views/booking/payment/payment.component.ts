@@ -62,7 +62,7 @@ export class PaymentComponent implements AfterViewInit, OnDestroy {
     let cardDto: CardDto = new CardDto();
     this.paymentService.makePayment(cardDto).subscribe((result) => {
       let sku: SkuDto = result;
-       console.log(sku.sku)
+      console.log(sku.sku)
       stripe.redirectToCheckout({
         items: [{sku: sku.sku, quantity: 1}],
         successUrl: 'http://localhost:4200/#/head/booking',
