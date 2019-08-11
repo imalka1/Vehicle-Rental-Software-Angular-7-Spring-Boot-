@@ -1,9 +1,12 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {PaymentService} from "../../../services/payment.service";
-import {ResponseDto} from "../../../dtos/response-dto";
-import {CardDto} from "../../../dtos/card-dto";
-import {SkuDto} from "../../../dtos/sku-dto";
+import {CreditcardDto} from "../../../dtos/creditcard-dto";
+import {PaymentDto} from "../../../dtos/payment-dto";
+import {environment} from "../../../../environments/environment";
+import {ActivatedRoute} from "@angular/router";
+import {Token} from "../../../model/token";
+import {ReservationService} from "../../../services/reservation.service";
 
 @Component({
   selector: 'app-payment',
@@ -11,39 +14,44 @@ import {SkuDto} from "../../../dtos/sku-dto";
   styleUrls: ['./payment.component.css']
 })
 
-export class PaymentComponent implements AfterViewInit, OnDestroy {
+export class PaymentComponent implements OnInit {
 
   @ViewChild('cardInfo') cardInfo: ElementRef;
 
-  card: any;
-  cardHandler = this.onChange.bind(this);
-  error: string;
+  // card: any;
+  // cardHandler = this.onChange.bind(this);
+  // error: string;
 
-  constructor(private cd: ChangeDetectorRef, private paymentService: PaymentService) {
+  constructor(
+    private cd: ChangeDetectorRef,
+    private paymentService: PaymentService,
+    private reservationService: ReservationService,
+    private activatedRoute: ActivatedRoute
+  ) {
   }
 
-  ngAfterViewInit() {
-    this.card = elements.create('card');
-    this.card.mount(this.cardInfo.nativeElement);
+  // ngAfterViewInit() {
+  //   this.card = elements.create('card');
+  //   this.card.mount(this.cardInfo.nativeElement);
+  //
+  //   this.card.addEventListener('change', this.cardHandler);
+  // }
+  //
+  // ngOnDestroy() {
+  //   this.card.removeEventListener('change', this.cardHandler);
+  //   this.card.destroy();
+  // }
+  //
+  // onChange({error}) {
+  //   if (error) {
+  //     this.error = error.message;
+  //   } else {
+  //     this.error = null;
+  //   }
+  //   this.cd.detectChanges();
+  // }
 
-    this.card.addEventListener('change', this.cardHandler);
-  }
-
-  ngOnDestroy() {
-    this.card.removeEventListener('change', this.cardHandler);
-    this.card.destroy();
-  }
-
-  onChange({error}) {
-    if (error) {
-      this.error = error.message;
-    } else {
-      this.error = null;
-    }
-    this.cd.detectChanges();
-  }
-
-  async onSubmit() {
+  onSubmit() {
     // const {token, error} = await stripe.createToken(this.card);
     //
     // if (error) {
@@ -51,7 +59,7 @@ export class PaymentComponent implements AfterViewInit, OnDestroy {
     // } else {
     //   console.log('Success!', token);
     //   console.log('Success!', token.id);
-    //   let cardDto: CardDto = new CardDto();
+    //   let cardDto: CreditcardDto = new CreditcardDto();
     //   cardDto.email = 'imalkagunawardana1@gmail.com';
     //   cardDto.keyToken = token.id;
     //   cardDto.card = token.card.id;
@@ -59,19 +67,33 @@ export class PaymentComponent implements AfterViewInit, OnDestroy {
     //     console.log(result)
     //   });
     // }
-    let cardDto: CardDto = new CardDto();
+
+    let cardDto: CreditcardDto = new CreditcardDto();
     this.paymentService.makePayment(cardDto).subscribe((result) => {
-      let sku: SkuDto = result;
+      let sku: PaymentDto = result;
+      let randomNumber = Math.floor(Math.random() * 100000000) + 1000000000;
       console.log(sku.sku)
       stripe.redirectToCheckout({
         items: [{sku: sku.sku, quantity: 1}],
-        successUrl: 'http://localhost:4200/#/head/booking',
-        cancelUrl: 'http://localhost:4200/#/head/booking',
+        successUrl: environment.frontend_url + '/head/booking?success=' + randomNumber,
+        cancelUrl: environment.frontend_url + '/head/booking',
       }).then(function (result) {
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer
         // using `result.error.message`.
       });
+    });
+    // console.log(Math.floor(Math.random()* 100000000)+100000000)
+  }
+
+  ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['success'] != undefined) {
+        // console.log(Token.randomNumber)
+        // if (params['success'] == Token.randomNumber) {
+        //   console.log(params['success'])
+        // }
+      }
     });
   }
 

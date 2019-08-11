@@ -3,6 +3,12 @@ import {PlaceService} from "../../services/place.service";
 import {Place} from "../../model/place";
 import {PlaceDto} from "../../dtos/place-dto";
 import {DatePipe} from "@angular/common";
+import {CreditcardDto} from "../../dtos/creditcard-dto";
+import {PaymentDto} from "../../dtos/payment-dto";
+import {environment} from "../../../environments/environment";
+import {PaymentService} from "../../services/payment.service";
+import {ActivatedRoute} from "@angular/router";
+import {ReservationService} from "../../services/reservation.service";
 
 // declare var custom_date_picker: any;
 
@@ -26,13 +32,21 @@ export class BookingComponent implements OnInit {
   placesTo: Array<Place>;
   placeDisneyDisable: boolean = false;
 
-  constructor(private placeService: PlaceService, private datePipe: DatePipe) {
+  constructor(
+    private placeService: PlaceService,
+    private paymentService: PaymentService,
+    private activatedRoute: ActivatedRoute,
+    private reservationService: ReservationService,
+    private datePipe: DatePipe
+  ) {
   }
 
   ngOnInit() {
     this.currentDate = this.datePipe.transform((new Date()), 'yyyy-MM-dd');
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
+
+    this.submitReservation();
   }
 
   changePassengers() {
@@ -138,5 +152,33 @@ export class BookingComponent implements OnInit {
     this.placesTo = placesTemp;
     this.selectedFrom = this.placesFrom[0];
     this.selectedTo = this.placesTo[0];
+  }
+
+  submitReservation() {
+    let cardDto: CreditcardDto = new CreditcardDto();
+    this.reservationService.makeReservation(cardDto).subscribe((result) => {
+      let paymentDto: PaymentDto = result;
+      // console.log(sku.sku)
+      stripe.redirectToCheckout({
+        items: [{sku: paymentDto.sku, quantity: 1}],
+        successUrl: environment.frontend_url + '/head/booking?success=' + paymentDto.reservation.reservationPaymentKey,
+        cancelUrl: environment.frontend_url + '/head/booking',
+      }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      });
+    });
+  }
+
+  submitReservation() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['success'] != undefined) {
+        // console.log(Token.randomNumber)
+        // if (params['success'] == Token.randomNumber) {
+        //   console.log(params['success'])
+        // }
+      }
+    });
   }
 }

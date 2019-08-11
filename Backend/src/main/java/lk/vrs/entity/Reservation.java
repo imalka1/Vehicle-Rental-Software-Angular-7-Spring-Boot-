@@ -15,6 +15,7 @@ public class Reservation {
     private Date reservationDate;
     private Time reservationTime;
     private boolean reservationCompleted;
+    private int reservationPaymentKey;
 
     @OneToOne
     @JoinColumn(nullable = false)
@@ -35,6 +36,14 @@ public class Reservation {
     @JoinColumn(nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Customer reservationCustomer;
+
+    public int getReservationPaymentKey() {
+        return reservationPaymentKey;
+    }
+
+    public void setReservationPaymentKey(int reservationPaymentKey) {
+        this.reservationPaymentKey = reservationPaymentKey;
+    }
 
     public long getId() {
         return id;
@@ -100,17 +109,4 @@ public class Reservation {
         this.reservationCustomer = reservationCustomer;
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", reservationDate=" + reservationDate +
-                ", reservationTime=" + reservationTime +
-                ", reservationCompleted=" + reservationCompleted +
-                ", reservationPlaceFrom=" + reservationPlaceFrom +
-                ", reservationPlaceTo=" + reservationPlaceTo +
-                ", reservationVehicle=" + reservationVehicle +
-                ", reservationCustomer=" + reservationCustomer +
-                '}';
-    }
 }

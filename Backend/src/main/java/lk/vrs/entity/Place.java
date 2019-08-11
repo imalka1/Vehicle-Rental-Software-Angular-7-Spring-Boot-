@@ -14,12 +14,12 @@ public class Place {
     private String placeName;
     private String placeCategory;
 
-    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceFrom")
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceFrom", orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
 //    @JsonIgnore
     private Reservation reservationFrom;
 
-    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceTo")
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceTo", orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
 //    @JsonIgnore
     private Reservation reservationTo;
@@ -64,13 +64,4 @@ public class Place {
         this.reservationTo = reservationTo;
     }
 
-    @Override
-    public String toString() {
-        return "Place{" +
-                "id=" + id +
-                ", placeName='" + placeName + '\'' +
-                ", placeCategory='" + placeCategory + '\'' +
-                ", reservationFrom=" + reservationFrom +
-                '}';
-    }
 }

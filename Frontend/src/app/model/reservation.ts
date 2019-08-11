@@ -1,6 +1,7 @@
 import {Place} from "./place";
 import {Vehicle} from "./vehicle";
 import {Customer} from "./customer";
+import {CreditcardDto} from "../dtos/creditcard-dto";
 
 export class Reservation {
   id: number;
@@ -11,4 +12,5 @@ export class Reservation {
   reservationPlaceTo: Place;
   reservationVehicle: Vehicle;
   reservationCustomer: Customer;
+  reservationPaymentKey: number;
 }

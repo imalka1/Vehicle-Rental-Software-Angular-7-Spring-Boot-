@@ -14,6 +14,9 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
     @Query(value = "from Reservation order by reservationDate desc")
     List<Reservation> getReservationDates(Pageable pageable);
 
+    @Query(value = "from Reservation where id=?1")
+    Reservation getPaymentKey(long reservationId);
+
 //    @Query(value = "from Reservation where place.placeId=?1")
 //    List<Reservation> getReservationDates(int id);
 }

@@ -10,6 +10,7 @@ import {PlacesComponent} from "./views/admin-panel/places/places.component";
 import {VehiclesComponent} from "./views/admin-panel/vehicles/vehicles.component";
 import {BookingsComponent} from "./views/admin-panel/bookings/bookings.component";
 import {ViewBookingsComponent} from "./views/admin-panel/bookings/view-bookings/view-bookings.component";
+import {PaymentGuard} from "./guards/payment.guard";
 
 const routes: Routes = [
   {
@@ -32,16 +33,17 @@ const routes: Routes = [
           {
             path: 'bookings',
             component: BookingsComponent,
-            children: [
-              {
-                path: 'success',
-                component: BookingsComponent
-              },
-              {
-                path: 'cancel',
-                component: BookingsComponent
-              }
-            ]
+
+            // children: [
+            //   {
+            //     path: 'success',
+            //     component: BookingsComponent
+            //   },
+            //   {
+            //     path: 'cancel',
+            //     component: BookingsComponent
+            //   }
+            // ]
           },
           {
             path: 'view-bookings',
@@ -88,7 +90,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  // imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

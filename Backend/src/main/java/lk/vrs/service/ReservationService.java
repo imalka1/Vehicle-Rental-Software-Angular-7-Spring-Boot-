@@ -1,5 +1,6 @@
 package lk.vrs.service;
 
+import lk.vrs.dto.PaymentDTO;
 import lk.vrs.dto.ReservationDTO;
 import lk.vrs.entity.Reservation;
 
@@ -10,6 +11,10 @@ public interface ReservationService {
     int getTableRowCount();
 
     List<ReservationDTO> getReservationDates(int start, int limit);
+
+    PaymentDTO makeReservation(Reservation reservation);
+
+    Reservation getPaymentKey(Reservation reservation);
 
 //    List<Reservation> getReservationDates(int id);
 }

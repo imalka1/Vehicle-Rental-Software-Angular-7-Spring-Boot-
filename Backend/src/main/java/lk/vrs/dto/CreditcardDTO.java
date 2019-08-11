@@ -1,10 +1,21 @@
 package lk.vrs.dto;
 
-public class CardDTO {
+import lk.vrs.entity.Reservation;
+
+public class CreditcardDTO {
     private String card;
     private String email;
     private String keyToken;
     private int amount;
+    private Reservation reservation;
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
 
     public int getAmount() {
         return amount;

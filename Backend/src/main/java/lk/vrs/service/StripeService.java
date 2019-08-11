@@ -1,9 +1,6 @@
 package lk.vrs.service;
 
-import com.stripe.exception.*;
-import com.stripe.model.Charge;
-import com.stripe.model.Coupon;
-import lk.vrs.dto.CardDTO;
+import lk.vrs.dto.CreditcardDTO;
 
 public interface StripeService {
 
@@ -13,7 +10,7 @@ public interface StripeService {
 
 //    public boolean cancelSubscription(String subscriptionId);
 
-    public Coupon retrieveCoupon(String code);
+//    Coupon retrieveCoupon(String code);
 
-    public String createCharge(CardDTO cardDTO);
+    String createCharge(CreditcardDTO creditcardDTO);
 }

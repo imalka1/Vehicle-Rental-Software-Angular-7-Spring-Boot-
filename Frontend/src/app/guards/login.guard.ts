@@ -8,8 +8,10 @@ import {CommonService} from "../services/common.service";
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-  constructor(private router: Router, private commonService: CommonService) {
-  };
+  constructor(
+    private router: Router,
+    private commonService: CommonService
+  ) {};
 
   canActivate(
     next: ActivatedRouteSnapshot,

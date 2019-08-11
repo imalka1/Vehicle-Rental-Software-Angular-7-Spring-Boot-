@@ -1,16 +1,14 @@
 package lk.vrs.service.impl;
 
 import com.stripe.Stripe;
-import com.stripe.exception.*;
 import com.stripe.model.Charge;
-import com.stripe.model.Coupon;
-import com.stripe.model.Source;
-import lk.vrs.dto.CardDTO;
+import lk.vrs.dto.CreditcardDTO;
+import lk.vrs.repository.ReservationRepository;
 import lk.vrs.service.StripeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +17,9 @@ public class StripeServiceImpl implements StripeService {
 
     @Value("${stripe.keys.secret}")
     private String API_SECRET_KEY;
+
+    @Autowired
+    private ReservationRepository reservationRepository;
 
 //    public String createCustomer(String email, String token) {
 //        String id = null;
@@ -80,33 +81,33 @@ public class StripeServiceImpl implements StripeService {
 //        return status;
 //    }
 
-    public Coupon retrieveCoupon(String code) {
-        try {
-            Stripe.apiKey = API_SECRET_KEY;
-            return Coupon.retrieve(code);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
-    }
+//    public Coupon retrieveCoupon(String code) {
+//        try {
+//            Stripe.apiKey = API_SECRET_KEY;
+//            return Coupon.retrieve(code);
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//        return null;
+//    }
 
     //    public String createCharge(String email, String token, int amount,String card) {
-    public String createCharge(CardDTO cardDTO) {
+    public String createCharge(CreditcardDTO creditcardDTO) {
         String id = null;
         try {
             Stripe.apiKey = API_SECRET_KEY;
             Map<String, Object> chargeParams = new HashMap<>();
 //            chargeParams.put("type", "three_d_secure");
-            chargeParams.put("amount", cardDTO.getAmount());
+            chargeParams.put("amount", creditcardDTO.getAmount());
             chargeParams.put("currency", "usd");
-            chargeParams.put("description", "Charge for " + cardDTO.getEmail());
-            chargeParams.put("source", cardDTO.getKeyToken()); // ^ obtained with Stripe.js
+            chargeParams.put("description", "Charge for " + creditcardDTO.getEmail());
+            chargeParams.put("source", creditcardDTO.getKeyToken()); // ^ obtained with Stripe.js
 //            chargeParams.put("type", "three_d_secure");
 //            Map<String, Object> redirectParams = new HashMap<String, Object>();
 //            redirectParams.put("return_url", "https://shop.example.com/crtA6B28E1");
 //            chargeParams.put("redirect", redirectParams);
 //            Map<String, Object> threeDSecureParams = new HashMap<String, Object>();
-//            threeDSecureParams.put("card", cardDTO.getCard());
+//            threeDSecureParams.put("card", creditcardDTO.getCard());
 //            chargeParams.put("three_d_secure", threeDSecureParams);
 //            Map<String, Object> chargeParams1 = new HashMap<>();
 //            chargeParams1.put("three_d_secure", "automatic");
@@ -122,9 +123,9 @@ public class StripeServiceImpl implements StripeService {
 //            redirectParams.put("return_url", "https://shop.example.com/crtA6B28E1");
 //            sourceParams.put("redirect", redirectParams);
 //            Map<String, Object> threeDSecureParams = new HashMap<String, Object>();
-//            threeDSecureParams.put("card", cardDTO.getCard());
+//            threeDSecureParams.put("card", creditcardDTO.getCard());
 //            sourceParams.put("three_d_secure", threeDSecureParams);
-//            sourceParams.put("source", cardDTO.getKeyToken()); // ^ obtained with Stripe.js
+//            sourceParams.put("source", creditcardDTO.getKeyToken()); // ^ obtained with Stripe.js
 //            Source source = Source.create(sourceParams);
 
             //create a charge
@@ -135,4 +136,5 @@ public class StripeServiceImpl implements StripeService {
         }
         return id;
     }
+
 }

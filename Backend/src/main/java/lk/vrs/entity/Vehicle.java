@@ -1,6 +1,5 @@
 package lk.vrs.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -15,7 +14,7 @@ public class Vehicle {
     private Integer vehicleTotalPassengers;
     private String vehicleCategory;
 
-    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationVehicle")
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationVehicle", orphanRemoval = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
 //    @JsonIgnore
     private Reservation reservation;
@@ -60,13 +59,4 @@ public class Vehicle {
         this.reservation = reservation;
     }
 
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "id=" + id +
-                ", vehicleName='" + vehicleName + '\'' +
-                ", vehicleTotalPassengers=" + vehicleTotalPassengers +
-                ", vehicleCategory='" + vehicleCategory + '\'' +
-                '}';
-    }
 }

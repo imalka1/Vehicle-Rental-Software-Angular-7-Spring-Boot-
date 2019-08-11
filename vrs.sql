@@ -41,9 +41,10 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `reservation_customer_id`,
 `reservation_place_from_id`,
 `reservation_place_to_id`,
-`reservation_vehicle_id`)
+`reservation_vehicle_id`,
+`reservation_payment_key`)
 VALUES
-(false,'2019-05-05','02:03',1,1,2,1),(true,'2019-05-04','14:05',1,2,3,2);
+(false,'2019-05-05','02:03',1,1,2,1,0),(true,'2019-05-04','14:05',1,2,3,2,0);
 
 SELECT `place`.`id`,
     `place`.`place_category`,
