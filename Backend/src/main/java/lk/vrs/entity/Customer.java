@@ -5,6 +5,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Customer {
@@ -14,12 +15,15 @@ public class Customer {
     private String customerName;
     private String customerEmail;
     private String customerContactNumber;
-    private String customerComment;
 
-    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationCustomer")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "customer")
     @OnDelete(action = OnDeleteAction.CASCADE)
-//    @JsonIgnore
-    private Reservation reservation;
+    private Set<Comment> customerComments;
+
+//    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationCustomer")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+////    @JsonIgnore
+//    private Reservation reservation;
 
     public long getId() {
         return id;
@@ -53,20 +57,20 @@ public class Customer {
         this.customerContactNumber = customerContactNumber;
     }
 
-    public String getCustomerComment() {
-        return customerComment;
+    public Set<Comment> getCustomerComments() {
+        return customerComments;
     }
 
-    public void setCustomerComment(String customerComment) {
-        this.customerComment = customerComment;
+    public void setCustomerComments(Set<Comment> customerComments) {
+        this.customerComments = customerComments;
     }
 
-    public Reservation getReservation() {
-        return reservation;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
+    //    public Reservation getReservation() {
+//        return reservation;
+//    }
+//
+//    public void setReservation(Reservation reservation) {
+//        this.reservation = reservation;
+//    }
 
 }

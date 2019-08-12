@@ -14,15 +14,15 @@ public class Place {
     private String placeName;
     private String placeCategory;
 
-    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceFrom", orphanRemoval = true)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @OneToOne(mappedBy = "reservationPlaceFrom")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
 //    @JsonIgnore
-    private Reservation reservationFrom;
-
-    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationPlaceTo", orphanRemoval = true)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Reservation reservationFrom;
+//
+//    @OneToOne(mappedBy = "reservationPlaceTo")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
 //    @JsonIgnore
-    private Reservation reservationTo;
+//    private Reservation reservationTo;
 
     public long getId() {
         return id;
@@ -48,20 +48,20 @@ public class Place {
         this.placeCategory = placeCategory;
     }
 
-    public Reservation getReservationFrom() {
-        return reservationFrom;
-    }
-
-    public void setReservationFrom(Reservation reservationFrom) {
-        this.reservationFrom = reservationFrom;
-    }
-
-    public Reservation getReservationTo() {
-        return reservationTo;
-    }
-
-    public void setReservationTo(Reservation reservationTo) {
-        this.reservationTo = reservationTo;
-    }
+//    public Reservation getReservationFrom() {
+//        return reservationFrom;
+//    }
+//
+//    public void setReservationFrom(Reservation reservationFrom) {
+//        this.reservationFrom = reservationFrom;
+//    }
+//
+//    public Reservation getReservationTo() {
+//        return reservationTo;
+//    }
+//
+//    public void setReservationTo(Reservation reservationTo) {
+//        this.reservationTo = reservationTo;
+//    }
 
 }

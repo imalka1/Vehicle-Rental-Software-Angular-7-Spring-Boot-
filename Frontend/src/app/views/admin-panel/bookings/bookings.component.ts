@@ -15,7 +15,7 @@ import {CommonService} from "../../../services/common.service";
 })
 export class BookingsComponent implements OnInit {
 
-  reservationDtos: Array<ReservationDto>;
+  reservations: Array<Reservation>;
   totalSets: Array<number>;
   setNumber: number = 1;
 
@@ -28,17 +28,17 @@ export class BookingsComponent implements OnInit {
   }
 
   setReservedDates() {
-    this.reservationDtos = new Array<ReservationDto>();
-    let reservations: Array<Reservation>;
+    // this.reservationDtos = new Array<ReservationDto>();
+    // let reservations: Array<Reservation>;
     this.reservationService.getReservedDates(this.setNumber - 1, 10).subscribe(
       (result) => {
-      reservations = result;
-      for (let i = 0; i < reservations.length; i++) {
-        let reservationDto = new ReservationDto();
-        reservationDto.reservation = reservations[i];
-        // placeDto.placeDtos = this.placeDtos;
-        this.reservationDtos.push(reservationDto);
-      }
+      this.reservations = result;
+      // for (let i = 0; i < reservations.length; i++) {
+      //   let reservationDTO = new ReservationDto();
+      //   reservationDTO.reservation = reservations[i];
+      //   // placeDto.placeDtos = this.placeDtos;
+      //   this.reservations.push(reservationDTO);
+      // }
     },(error)=>{this.commonService.errorHandler(error)})
   }
 

@@ -5,31 +5,31 @@ import lk.vrs.entity.Place;
 import lk.vrs.entity.Vehicle;
 
 import java.sql.Time;
-import java.sql.Date;
+import java.util.Date;
 
 public class ReservationDTO {
     private long id;
-    private Date reservationDate;
-    private String reservationTime;
-    private String reservationCompleted;
+    private String reservationDateAndTime;
+    private String submissionDateAndTime;
+    private boolean reservationCompleted;
     private Place reservationPlaceFrom;
     private Place reservationPlaceTo;
     private Vehicle reservationVehicle;
     private Customer reservationCustomer;
+    private double reservationAmount;
+    private int reservationPaymentKey;
+    private String reservationDate;
+    private String reservationTime;
 
-    public long getId() {
-        return id;
+    public boolean isReservationCompleted() {
+        return reservationCompleted;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Date getReservationDate() {
+    public String getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(Date reservationDate) {
+    public void setReservationDate(String reservationDate) {
         this.reservationDate = reservationDate;
     }
 
@@ -41,11 +41,51 @@ public class ReservationDTO {
         this.reservationTime = reservationTime;
     }
 
-    public String getReservationCompleted() {
+    public String getReservationDateAndTime() {
+        return reservationDateAndTime;
+    }
+
+    public void setReservationDateAndTime(String reservationDateAndTime) {
+        this.reservationDateAndTime = reservationDateAndTime;
+    }
+
+    public String getSubmissionDateAndTime() {
+        return submissionDateAndTime;
+    }
+
+    public void setSubmissionDateAndTime(String submissionDateAndTime) {
+        this.submissionDateAndTime = submissionDateAndTime;
+    }
+
+    public double getReservationAmount() {
+        return reservationAmount;
+    }
+
+    public void setReservationAmount(double reservationAmount) {
+        this.reservationAmount = reservationAmount;
+    }
+
+    public int getReservationPaymentKey() {
+        return reservationPaymentKey;
+    }
+
+    public void setReservationPaymentKey(int reservationPaymentKey) {
+        this.reservationPaymentKey = reservationPaymentKey;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean getReservationCompleted() {
         return reservationCompleted;
     }
 
-    public void setReservationCompleted(String reservationCompleted) {
+    public void setReservationCompleted(boolean reservationCompleted) {
         this.reservationCompleted = reservationCompleted;
     }
 

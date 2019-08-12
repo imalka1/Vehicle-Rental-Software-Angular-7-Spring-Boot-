@@ -4,12 +4,11 @@ use vehicle_rental_software;
 
 INSERT INTO `vehicle_rental_software`.`customer`
 (
-`customer_comment`,
 `customer_contact_number`,
 `customer_email`,
 `customer_name`)
 VALUES
-('abc',123,'im@gmail.com','im');
+(123,'im@gmail.com','im');
 
 INSERT INTO `vehicle_rental_software`.`vehicle`
 (
@@ -42,9 +41,21 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `reservation_place_from_id`,
 `reservation_place_to_id`,
 `reservation_vehicle_id`,
+`reservation_payment_key`,
+`reservation_amount`)
+VALUES
+(false,'2019-05-05','02:03',1,1,2,1,0,0),(true,'2019-05-04','14:05',1,2,3,2,0,0);
+
+INSERT INTO `vehicle_rental_software`.`reservation`
+(
+`reservation_completed`,
+`reservation_date`,
+`reservation_time`,
+`reservation_customer_id`,
+`reservation_vehicle_id`,
 `reservation_payment_key`)
 VALUES
-(false,'2019-05-05','02:03',1,1,2,1,0),(true,'2019-05-04','14:05',1,2,3,2,0);
+(false,'2019-05-05','02:03',1,1,0),(true,'2019-05-04','14:05',1,2,0);
 
 SELECT `place`.`id`,
     `place`.`place_category`,

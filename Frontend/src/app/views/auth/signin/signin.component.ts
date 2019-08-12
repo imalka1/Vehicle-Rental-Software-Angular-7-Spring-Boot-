@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {LoginService} from "../../../services/login.service";
 import {User} from "../../../model/user";
-import {Token} from "../../../model/token";
+import {Token} from "../../../dtos/token";
 import {CommonService} from "../../../services/common.service";
 
 @Component({

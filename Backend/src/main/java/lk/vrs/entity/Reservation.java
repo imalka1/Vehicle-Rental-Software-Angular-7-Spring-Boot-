@@ -1,10 +1,11 @@
 package lk.vrs.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Time;
 
 @Entity
@@ -12,9 +13,15 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date reservationDate;
-    private Time reservationTime;
+//    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date reservationDateAndTime;
+    //    @Temporal(TemporalType.TIME)
+//    private Date reservationTime;
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private Date submissionDateAndTime;
     private boolean reservationCompleted;
+    private double reservationAmount;
     private int reservationPaymentKey;
 
     @OneToOne
@@ -37,6 +44,30 @@ public class Reservation {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Customer reservationCustomer;
 
+    public Date getReservationDateAndTime() {
+        return reservationDateAndTime;
+    }
+
+    public void setReservationDateAndTime(Date reservationDateAndTime) {
+        this.reservationDateAndTime = reservationDateAndTime;
+    }
+
+    public Date getSubmissionDateAndTime() {
+        return submissionDateAndTime;
+    }
+
+    public void setSubmissionDateAndTime(Date submissionDateAndTime) {
+        this.submissionDateAndTime = submissionDateAndTime;
+    }
+
+    public double getReservationAmount() {
+        return reservationAmount;
+    }
+
+    public void setReservationAmount(double reservationAmount) {
+        this.reservationAmount = reservationAmount;
+    }
+
     public int getReservationPaymentKey() {
         return reservationPaymentKey;
     }
@@ -53,21 +84,21 @@ public class Reservation {
         this.id = id;
     }
 
-    public Date getReservationDate() {
-        return reservationDate;
-    }
-
-    public void setReservationDate(Date reservationDate) {
-        this.reservationDate = reservationDate;
-    }
-
-    public Time getReservationTime() {
-        return reservationTime;
-    }
-
-    public void setReservationTime(Time reservationTime) {
-        this.reservationTime = reservationTime;
-    }
+//    public Date getReservationDate() {
+//        return reservationDate;
+//    }
+//
+//    public void setReservationDate(Date reservationDate) {
+//        this.reservationDate = reservationDate;
+//    }
+//
+//    public Date getReservationTime() {
+//        return reservationTime;
+//    }
+//
+//    public void setReservationTime(Date reservationTime) {
+//        this.reservationTime = reservationTime;
+//    }
 
     public boolean isReservationCompleted() {
         return reservationCompleted;

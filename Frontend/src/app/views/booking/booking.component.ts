@@ -9,6 +9,10 @@ import {environment} from "../../../environments/environment";
 import {PaymentService} from "../../services/payment.service";
 import {ActivatedRoute} from "@angular/router";
 import {ReservationService} from "../../services/reservation.service";
+import {Reservation} from "../../model/reservation";
+import {Customer} from "../../model/customer";
+import {CustomerService} from "../../services/customer.service";
+import {ReservationDto} from "../../dtos/reservation-dto";
 
 // declare var custom_date_picker: any;
 
@@ -31,9 +35,11 @@ export class BookingComponent implements OnInit {
   placesFrom: Array<Place>;
   placesTo: Array<Place>;
   placeDisneyDisable: boolean = false;
+  customer: Customer = new Customer();
 
   constructor(
     private placeService: PlaceService,
+    private customerService: CustomerService,
     private paymentService: PaymentService,
     private activatedRoute: ActivatedRoute,
     private reservationService: ReservationService,
@@ -154,8 +160,19 @@ export class BookingComponent implements OnInit {
     this.selectedTo = this.placesTo[0];
   }
 
-  submitReservation() {
+  makeReservation() {
     let cardDto: CreditcardDto = new CreditcardDto();
+    let reservationDto: ReservationDto = new ReservationDto();
+
+    reservationDto.reservationCustomer = this.customer;
+    reservationDto.reservationPlaceFrom = this.selectedFrom;
+    reservationDto.reservationPlaceTo = this.selectedTo;
+    // reservation.reservationDateAndTime = this.currentDate + 'T' + this.currentTime+':00.000+0300';
+    reservationDto.reservationDateAndTime = this.currentDate + ' ' + this.currentTime;
+    // reservation.reservationTime = this.currentTime;
+    console.log(reservationDto.reservationDateAndTime)
+
+    cardDto.reservationDTO = reservationDto;
     this.reservationService.makeReservation(cardDto).subscribe((result) => {
       let paymentDto: PaymentDto = result;
       // console.log(sku.sku)
@@ -180,5 +197,20 @@ export class BookingComponent implements OnInit {
         // }
       }
     });
+  }
+
+  suggestCustomer() {
+    this.customerService.getCustomerViaEmail(this.customer.customerEmail).subscribe((result) => {
+      let customer: Customer = result;
+      if (customer != null) {
+        this.customer.id = customer.id;
+        this.customer.customerName = customer.customerName;
+        this.customer.customerContactNumber = customer.customerContactNumber;
+      } else {
+        this.customer.id = undefined;
+        this.customer.customerName = '';
+        this.customer.customerContactNumber = '';
+      }
+    })
   }
 }

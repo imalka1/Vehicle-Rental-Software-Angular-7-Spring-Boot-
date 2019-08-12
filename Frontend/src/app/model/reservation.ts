@@ -5,12 +5,13 @@ import {CreditcardDto} from "../dtos/creditcard-dto";
 
 export class Reservation {
   id: number;
-  reservationDate: string;
-  reservationTime: string;
+  reservationDateAndTime: string;
+  // reservationTime: string;
   reservationCompleted: string;
   reservationPlaceFrom: Place;
   reservationPlaceTo: Place;
   reservationVehicle: Vehicle;
   reservationCustomer: Customer;
+  reservationAmount: number;
   reservationPaymentKey: number;
 }

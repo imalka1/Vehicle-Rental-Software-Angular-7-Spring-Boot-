@@ -3,16 +3,18 @@ package lk.vrs.service.impl;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Sku;
+import lk.vrs.dto.CreditcardDTO;
 import lk.vrs.dto.PaymentDTO;
 import lk.vrs.dto.ReservationDTO;
 import lk.vrs.entity.Reservation;
 import lk.vrs.repository.ReservationRepository;
+import lk.vrs.repository.VehicleRepository;
 import lk.vrs.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.sql.Time;
+//import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -22,6 +24,8 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
     private ReservationRepository reservationRepository;
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
     @Override
     public int getTableRowCount() {
@@ -32,36 +36,42 @@ public class ReservationServiceImpl implements ReservationService {
     public List<ReservationDTO> getReservationDates(int start, int limit) {
         List<Reservation> reservationDates = reservationRepository.getReservationDates(PageRequest.of(start, limit));
         List<ReservationDTO> reservationDTOS = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        SimpleDateFormat timeFormat = new SimpleDateFormat("KK:mm a");
-        try {
-            for (Reservation reservationDate : reservationDates) {
-                Date dateObj = sdf.parse(reservationDate.getReservationTime().toString());
-                ReservationDTO reservationDTO = new ReservationDTO();
-                reservationDTO.setId(reservationDate.getId());
-                reservationDTO.setReservationDate(reservationDate.getReservationDate());
-                reservationDTO.setReservationTime(timeFormat.format(dateObj));
-                if (reservationDate.isReservationCompleted()) {
-                    reservationDTO.setReservationCompleted("Ended");
-                } else {
-                    reservationDTO.setReservationCompleted("Not yet");
-                }
-                reservationDTO.setReservationPlaceFrom(reservationDate.getReservationPlaceFrom());
-                reservationDTO.setReservationPlaceTo(reservationDate.getReservationPlaceTo());
-                reservationDTO.setReservationVehicle(reservationDate.getReservationVehicle());
-                reservationDTOS.add(reservationDTO);
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
+        for (Reservation reservationDate : reservationDates) {
+//                Date dateObj = sdf.parse(reservationDate.getReservationTime().toString());
+            ReservationDTO reservationDTO = new ReservationDTO();
+            reservationDTO.setId(reservationDate.getId());
+            reservationDTO.setReservationDate(new SimpleDateFormat("yyyy-MM-dd").format(reservationDate.getReservationDateAndTime()));
+            reservationDTO.setReservationTime(new SimpleDateFormat("KK:mm a").format(reservationDate.getReservationDateAndTime()));
+            reservationDTO.setReservationCompleted(reservationDate.isReservationCompleted());
+            reservationDTO.setReservationPlaceFrom(reservationDate.getReservationPlaceFrom());
+            reservationDTO.setReservationPlaceTo(reservationDate.getReservationPlaceTo());
+            reservationDTO.setReservationVehicle(reservationDate.getReservationVehicle());
+            reservationDTOS.add(reservationDTO);
         }
         return reservationDTOS;
     }
 
 
     @Override
-    public PaymentDTO makeReservation(Reservation reservation) {
+    public PaymentDTO makeReservation(CreditcardDTO creditcardDTO) {
+        Reservation reservation = new Reservation();
         reservation.setReservationPaymentKey(new Random().nextInt(1000000) + 1000000);
-//        Reservation reservationObj = reservationRepository.save(reservation);
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        try {
+            reservation.setReservationDateAndTime(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(creditcardDTO.getReservationDTO().getReservationDateAndTime()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        reservation.setSubmissionDateAndTime(new Date());
+        reservation.setReservationCompleted(creditcardDTO.getReservationDTO().getReservationCompleted());
+        reservation.setReservationAmount(creditcardDTO.getReservationDTO().getReservationAmount());
+        reservation.setReservationPaymentKey(creditcardDTO.getReservationDTO().getReservationPaymentKey());
+        reservation.setReservationPlaceFrom(creditcardDTO.getReservationDTO().getReservationPlaceFrom());
+        reservation.setReservationPlaceTo(creditcardDTO.getReservationDTO().getReservationPlaceTo());
+        reservation.setReservationVehicle(vehicleRepository.findById((long) 1).get());
+        reservation.setReservationCustomer(creditcardDTO.getReservationDTO().getReservationCustomer());
+        Reservation reservationObj = reservationRepository.save(reservation);
 
         Stripe.apiKey = "sk_test_qTewRRZA04hZEuCicmgIuKGO00gc8VvfHP";
 
@@ -74,9 +84,9 @@ public class ReservationServiceImpl implements ReservationService {
         attributesParams.put("name", "Reservation");
         skuParams.put("attributes", attributesParams);
         Map<String, Object> metaDataParams = new HashMap<String, Object>();
-        metaDataParams.put("from", "Galle");
-        metaDataParams.put("to", "Colombo");
-        metaDataParams.put("time", "9:45 AM");
+        metaDataParams.put("from", creditcardDTO.getReservationDTO().getReservationPlaceFrom().getPlaceName());
+        metaDataParams.put("to", creditcardDTO.getReservationDTO().getReservationPlaceTo().getPlaceName());
+        metaDataParams.put("date time", creditcardDTO.getReservationDTO().getReservationDateAndTime());
         metaDataParams.put("total", "5");
         skuParams.put("metadata", metaDataParams);
         Map<String, Object> inventoryParams = new HashMap<String, Object>();
@@ -90,7 +100,7 @@ public class ReservationServiceImpl implements ReservationService {
             e.printStackTrace();
         }
 
-        return new PaymentDTO(sku.getId(), reservation);
+        return new PaymentDTO(sku.getId(), reservationObj);
     }
 
     @Override

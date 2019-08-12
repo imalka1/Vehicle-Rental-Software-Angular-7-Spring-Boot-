@@ -4,7 +4,7 @@ import {User} from "../model/user";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Place} from "../model/place";
 import {environment} from "../../environments/environment";
-import {Token} from "../model/token";
+import {Token} from "../dtos/token";
 import {CommonService} from "./common.service";
 import {catchError} from "rxjs/operators";
 

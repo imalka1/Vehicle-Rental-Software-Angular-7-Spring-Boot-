@@ -4,4 +4,5 @@ export class Customer {
   customerEmail: string;
   customerContactNumber: string;
   customerComment: string;
+  customerComments: Array<Comment>;
 }

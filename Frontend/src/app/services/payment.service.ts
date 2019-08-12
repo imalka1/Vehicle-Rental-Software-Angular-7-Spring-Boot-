@@ -7,7 +7,7 @@ import {environment} from "../../environments/environment";
 // import {ResponseDto} from "../dtos/response-dto";
 import {CreditcardDto} from "../dtos/creditcard-dto";
 import {PaymentDto} from "../dtos/payment-dto";
-import {Token} from "../model/token";
+import {Token} from "../dtos/token";
 
 const URL = "/api/checkout";
 

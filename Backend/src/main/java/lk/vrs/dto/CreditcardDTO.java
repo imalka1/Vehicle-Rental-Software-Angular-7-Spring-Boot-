@@ -7,14 +7,14 @@ public class CreditcardDTO {
     private String email;
     private String keyToken;
     private int amount;
-    private Reservation reservation;
+    private ReservationDTO reservationDTO;
 
-    public Reservation getReservation() {
-        return reservation;
+    public ReservationDTO getReservationDTO() {
+        return reservationDTO;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+    public void setReservationDTO(ReservationDTO reservationDTO) {
+        this.reservationDTO = reservationDTO;
     }
 
     public int getAmount() {

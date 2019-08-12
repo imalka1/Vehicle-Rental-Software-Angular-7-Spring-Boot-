@@ -38,8 +38,8 @@ public class ReservationController {
     }
 
     @PostMapping("/make_reservation")
-    public PaymentDTO makeReservation(@RequestBody Reservation reservation) {
-        return reservationService.makeReservation(reservation);
+    public PaymentDTO makeReservation(@RequestBody CreditcardDTO creditcardDTO) {
+        return reservationService.makeReservation(creditcardDTO);
     }
 
     @GetMapping("/get_payment_key")

@@ -10,7 +10,6 @@ import {PlacesComponent} from "./views/admin-panel/places/places.component";
 import {VehiclesComponent} from "./views/admin-panel/vehicles/vehicles.component";
 import {BookingsComponent} from "./views/admin-panel/bookings/bookings.component";
 import {ViewBookingsComponent} from "./views/admin-panel/bookings/view-bookings/view-bookings.component";
-import {PaymentGuard} from "./guards/payment.guard";
 
 const routes: Routes = [
   {
