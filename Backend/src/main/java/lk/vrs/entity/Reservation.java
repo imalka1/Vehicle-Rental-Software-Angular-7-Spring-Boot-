@@ -39,7 +39,7 @@ public class Reservation {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Vehicle reservationVehicle;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Customer reservationCustomer;

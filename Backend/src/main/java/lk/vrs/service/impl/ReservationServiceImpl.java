@@ -66,7 +66,6 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setSubmissionDateAndTime(new Date());
         reservation.setReservationCompleted(creditcardDTO.getReservationDTO().getReservationCompleted());
         reservation.setReservationAmount(creditcardDTO.getReservationDTO().getReservationAmount());
-        reservation.setReservationPaymentKey(creditcardDTO.getReservationDTO().getReservationPaymentKey());
         reservation.setReservationPlaceFrom(creditcardDTO.getReservationDTO().getReservationPlaceFrom());
         reservation.setReservationPlaceTo(creditcardDTO.getReservationDTO().getReservationPlaceTo());
         reservation.setReservationVehicle(vehicleRepository.findById((long) 1).get());
