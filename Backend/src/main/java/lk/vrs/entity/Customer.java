@@ -16,7 +16,7 @@ public class Customer {
     private String customerEmail;
     private String customerContactNumber;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "customer")
+    @OneToMany(mappedBy = "customer")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Comment> customerComments;
 

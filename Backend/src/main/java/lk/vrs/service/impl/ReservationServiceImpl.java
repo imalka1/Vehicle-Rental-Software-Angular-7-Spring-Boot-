@@ -6,7 +6,10 @@ import com.stripe.model.Sku;
 import lk.vrs.dto.CreditcardDTO;
 import lk.vrs.dto.PaymentDTO;
 import lk.vrs.dto.ReservationDTO;
+import lk.vrs.entity.Customer;
 import lk.vrs.entity.Reservation;
+import lk.vrs.entity.Vehicle;
+import lk.vrs.repository.CustomerRepository;
 import lk.vrs.repository.ReservationRepository;
 import lk.vrs.repository.VehicleRepository;
 import lk.vrs.service.ReservationService;
@@ -24,6 +27,8 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
     private ReservationRepository reservationRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
     @Autowired
     private VehicleRepository vehicleRepository;
 
@@ -68,8 +73,14 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setReservationAmount(creditcardDTO.getReservationDTO().getReservationAmount());
         reservation.setReservationPlaceFrom(creditcardDTO.getReservationDTO().getReservationPlaceFrom());
         reservation.setReservationPlaceTo(creditcardDTO.getReservationDTO().getReservationPlaceTo());
-        reservation.setReservationVehicle(vehicleRepository.findById((long) 1).get());
-        reservation.setReservationCustomer(creditcardDTO.getReservationDTO().getReservationCustomer());
+        Vehicle vehicle = vehicleRepository.findById((long) 1).get();
+        vehicle.setVehicleReserved(true);
+        reservation.setReservationVehicle(vehicle);
+        if (creditcardDTO.getReservationDTO().getReservationCustomer().getId() == 0) {
+            reservation.setReservationCustomer(customerRepository.save(creditcardDTO.getReservationDTO().getReservationCustomer()));
+        } else {
+            reservation.setReservationCustomer(creditcardDTO.getReservationDTO().getReservationCustomer());
+        }
         Reservation reservationObj = reservationRepository.save(reservation);
 
         Stripe.apiKey = "sk_test_qTewRRZA04hZEuCicmgIuKGO00gc8VvfHP";

@@ -1,5 +1,6 @@
 package lk.vrs.controller;
 
+import lk.vrs.entity.Reservation;
 import lk.vrs.entity.Vehicle;
 import lk.vrs.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,10 @@ public class VehicleController {
     @GetMapping(value = "/vehiclesViaCategory/{category}")
     public List<Vehicle> getVehiclesViaCategory(@PathVariable String category) {
         return vehicleService.getVehiclesViaCategory(category);
+    }
+
+    @GetMapping(value = "/vehiclesViaCategoryForReservation/{category}")
+    public List<Vehicle> getVehiclesViaCategoryForReservation(@PathVariable String category) {
+        return vehicleService.getVehiclesViaCategoryForReservation(category);
     }
 }

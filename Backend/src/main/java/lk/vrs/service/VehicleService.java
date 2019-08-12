@@ -1,5 +1,6 @@
 package lk.vrs.service;
 
+import lk.vrs.entity.Reservation;
 import lk.vrs.entity.Vehicle;
 
 import java.util.ArrayList;
@@ -13,4 +14,6 @@ public interface VehicleService {
     void deleteVehicle(long id);
 
     List<Vehicle> getVehiclesViaCategory(String category);
+
+    List<Vehicle> getVehiclesViaCategoryForReservation(String category);
 }

@@ -1,5 +1,6 @@
 package lk.vrs.service.impl;
 
+import lk.vrs.entity.Reservation;
 import lk.vrs.entity.Vehicle;
 import lk.vrs.repository.VehicleRepository;
 import lk.vrs.service.VehicleService;
@@ -32,5 +33,10 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public List<Vehicle> getVehiclesViaCategory(String category) {
         return vehicleRepository.getVehiclesViaCategory(category);
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesViaCategoryForReservation(String category) {
+        return vehicleRepository.getVehiclesViaCategoryForReservation(category);
     }
 }

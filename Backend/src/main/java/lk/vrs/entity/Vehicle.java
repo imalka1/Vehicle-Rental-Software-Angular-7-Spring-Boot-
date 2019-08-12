@@ -14,11 +14,21 @@ public class Vehicle {
     private String vehicleName;
     private Integer vehicleTotalPassengers;
     private String vehicleCategory;
+    private boolean vehicleReserved;
 
 //    @OneToOne(mappedBy = "reservationVehicle")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
 //    @JsonIgnore
 //    private Reservation reservation;
+
+
+    public boolean isVehicleReserved() {
+        return vehicleReserved;
+    }
+
+    public void setVehicleReserved(boolean vehicleReserved) {
+        this.vehicleReserved = vehicleReserved;
+    }
 
     public long getId() {
         return id;

@@ -13,6 +13,9 @@ import {Reservation} from "../../model/reservation";
 import {Customer} from "../../model/customer";
 import {CustomerService} from "../../services/customer.service";
 import {ReservationDto} from "../../dtos/reservation-dto";
+import {VehicleService} from "../../services/vehicle.service";
+import {VehicleDto} from "../../dtos/vehicle-dto";
+import {Vehicle} from "../../model/vehicle";
 
 // declare var custom_date_picker: any;
 
@@ -28,6 +31,7 @@ export class BookingComponent implements OnInit {
   selectedCategory: string = 'Airport';
   selectedFrom: Place;
   selectedTo: Place;
+  selectedVehicleCategory: string = 'car';
   placeDtos: Array<PlaceDto>;
   totalPassengers: number = 0;
   adults: number = 0;
@@ -36,6 +40,7 @@ export class BookingComponent implements OnInit {
   placesTo: Array<Place>;
   placeDisneyDisable: boolean = false;
   customer: Customer = new Customer();
+  vehicles: Array<Vehicle>;
 
   constructor(
     private placeService: PlaceService,
@@ -43,6 +48,7 @@ export class BookingComponent implements OnInit {
     private paymentService: PaymentService,
     private activatedRoute: ActivatedRoute,
     private reservationService: ReservationService,
+    private vehicleService: VehicleService,
     private datePipe: DatePipe
   ) {
   }
@@ -51,6 +57,7 @@ export class BookingComponent implements OnInit {
     this.currentDate = this.datePipe.transform((new Date()), 'yyyy-MM-dd');
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
+    this.changeVehicleCategory();
 
     this.submitReservation();
   }
@@ -109,6 +116,22 @@ export class BookingComponent implements OnInit {
         this.selectedFrom = this.placeDtos[0].place;
         this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
         this.selectedTo = this.placesTo[0];
+      });
+
+    }
+  }
+
+  changeVehicleCategory() {
+    if (this.selectedVehicleCategory == 'car') {
+
+      this.vehicleService.getVehiclesViaCategoryForReservation(this.selectedVehicleCategory).subscribe((result) => {
+        this.vehicles = result;
+      });
+
+    } else if (this.selectedVehicleCategory == 'minivan') {
+
+      this.vehicleService.getVehiclesViaCategoryForReservation(this.selectedVehicleCategory).subscribe((result) => {
+        this.vehicles = result;
       });
 
     }

@@ -32,4 +32,8 @@ export class VehicleService {
   getVehiclesViaCategory(category: string): Observable<Array<Vehicle>> {
     return this.http.get<Array<Vehicle>>(environment.backend_url + URL + "/vehiclesViaCategory/" + category);
   }
+
+  getVehiclesViaCategoryForReservation(category: string): Observable<Array<Vehicle>> {
+    return this.http.get<Array<Vehicle>>(environment.backend_url + URL + "/vehiclesViaCategoryForReservation/" + category);
+  }
 }

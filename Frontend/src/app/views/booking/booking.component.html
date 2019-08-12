@@ -107,15 +107,24 @@
             Vehicles Availability
           </div>
         </div>
-        <div class="row" style="margin-top: 25px">
+        <div class="row" style="margin-top: 25px;font-weight: bold">
           <div class="col-sm-12">
-            <div class="row"
-                 style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
-              <div class="col-5" style="border-right: 1px solid black">
+            Category
+          </div>
+        </div>
+        <div class="row" style="font-weight: bold;margin-bottom: 50px">
+          <div class="col-sm-12">
+            <select class="form-control" (change)="changeVehicleCategory()" [(ngModel)]="selectedVehicleCategory">
+              <option value="car">Car</option>
+              <option value="minivan">Mini Van</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row" style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
+              <div class="col-8" style="border-right: 1px solid black">
                 Vehicle
-              </div>
-              <div class="col-3" style="text-align: center;border-right: 1px solid black">
-                Category
               </div>
               <div class="col-2" style="text-align: center;border-right: 1px solid black">
                 Seating capacity
@@ -125,29 +134,12 @@
               </div>
             </div>
             <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
-            <div class="row" style="border-bottom: 1px solid black;padding: 10px">
-              <div class="col-5" style="border-right: 1px solid black">
-                Mercedes-Benz
-              </div>
-              <div class="col-3" style="text-align: center;border-right: 1px solid black">
-                Car
+            <div class="row" style="border-bottom: 1px solid black;padding: 10px" *ngFor="let vehicle of vehicles">
+              <div class="col-8" style="border-right: 1px solid black">
+                {{vehicle.vehicleName}}
               </div>
               <div class="col-2" style="text-align: center;border-right: 1px solid black">
-                5
-              </div>
-              <div class="col-2" style="text-align: center">
-                <input type="radio">
-              </div>
-            </div>
-            <div class="row" style="border-bottom: 1px solid black;padding: 10px">
-              <div class="col-5" style="border-right: 1px solid black">
-                Toyota Prius
-              </div>
-              <div class="col-3" style="text-align: center;border-right: 1px solid black">
-                Car
-              </div>
-              <div class="col-2" style="text-align: center;border-right: 1px solid black">
-                4
+                {{vehicle.vehicleTotalPassengers}}
               </div>
               <div class="col-2" style="text-align: center">
                 <input type="radio">
