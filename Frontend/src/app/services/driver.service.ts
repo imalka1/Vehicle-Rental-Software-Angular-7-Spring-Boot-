@@ -30,6 +30,6 @@ export class DriverService {
   }
 
   getAllDrivers(): Observable<Array<Driver>> {
-    return this.http.get<Array<Driver>>(environment.backend_url + URL + "/admin/drivers", {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.get<Array<Driver>>(environment.backend_url + URL + "/admin/drivers/0/10", {headers: this.commonService.createAuthorizationHeader()});
   }
 }

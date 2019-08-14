@@ -12,5 +12,5 @@ public interface DriverService {
 
     void deleteDriver(long id);
 
-    List<Driver> getAllDrivers();
+    List<Driver> getAllDrivers(int start, int limit);
 }

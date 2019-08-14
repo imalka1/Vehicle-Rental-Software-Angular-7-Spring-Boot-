@@ -4,6 +4,8 @@ import lk.vrs.entity.Driver;
 import lk.vrs.repository.DriverRepository;
 import lk.vrs.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +34,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public List<Driver> getAllDrivers() {
-        return driverRepository.findAll();
+    public List<Driver> getAllDrivers(int start, int limit) {
+         return driverRepository.findAll(PageRequest.of(start,limit,Sort.by("id").descending())).getContent();
     }
 }

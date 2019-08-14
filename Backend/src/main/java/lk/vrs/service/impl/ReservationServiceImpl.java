@@ -39,7 +39,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public List<ReservationDTO> getReservationDates(int start, int limit) {
-        List<Reservation> reservationDates = reservationRepository.getReservationDates(PageRequest.of(start, limit));
+        List<Reservation> reservationDates = reservationRepository.findAll(PageRequest.of(start, limit)).getContent();
         List<ReservationDTO> reservationDTOS = new ArrayList<>();
         for (Reservation reservationDate : reservationDates) {
 //                Date dateObj = sdf.parse(reservationDate.getReservationTime().toString());

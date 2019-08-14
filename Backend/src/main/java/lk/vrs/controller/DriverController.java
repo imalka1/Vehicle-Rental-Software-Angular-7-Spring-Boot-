@@ -31,8 +31,8 @@ public class DriverController {
         driverService.deleteDriver(id);
     }
 
-    @GetMapping(value = "/admin/drivers")
-    public List<Driver> getAllDrivers() {
-        return driverService.getAllDrivers();
+    @GetMapping(value = "/admin/drivers/{start}/{limit}")
+    public List<Driver> getAllDrivers(@PathVariable int start, @PathVariable int limit) {
+        return driverService.getAllDrivers(start, limit);
     }
 }

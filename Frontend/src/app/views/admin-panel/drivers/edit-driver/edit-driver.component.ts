@@ -28,15 +28,14 @@ export class EditDriverComponent implements OnInit {
   }
 
   addDriver() {
-    let user: User = new User();
-    user.userName = this.edit_driverDto.driver.driverEmail;
-    user.userRole = 'driver';
-    this.edit_driverDto.driver.user = user;
+    this.edit_driverDto.driver.user.userName = this.edit_driverDto.driver.driverEmail;
+    this.edit_driverDto.driver.user.userRole = 'driver';
     if (this.edit_driverDto.driver.driverName != undefined && this.edit_driverDto.driver.driverContactNumber != undefined && this.edit_driverDto.driver.driverEmail != undefined && this.edit_driverDto.driver.user.userPassword != undefined) {
       if (this.edit_driverDto.driver.id != undefined) {
         this.driverService.updateDriver(this.edit_driverDto.driver).subscribe((result) => {
           this.edit_driverDto.driver = result;
           this.edit_driverDto.edit = false;
+          this.setVehicle();
         }, (error) => {
           this.commonService.errorHandler(error)
         })
@@ -44,6 +43,7 @@ export class EditDriverComponent implements OnInit {
         this.driverService.addDriver(this.edit_driverDto.driver).subscribe((result) => {
           this.edit_driverDto.driver = result;
           this.edit_driverDto.edit = false;
+          this.setVehicle();
         }, (error) => {
           this.commonService.errorHandler(error)
         })
@@ -67,6 +67,14 @@ export class EditDriverComponent implements OnInit {
       this.edit_driverDto.edit = false;
     } else {
       this.edit_driverDto.driverDtos.splice(this.edit_driverDto.driverDtos.indexOf(this.edit_driverDto), 1);
+    }
+  }
+
+  setVehicle(){
+    for (var j = 0; j < this.edit_driverDto.vehicles.length; j++) {
+      if (this.edit_driverDto.vehicles[j].id === this.edit_driverDto.driver.vehicle.id) {
+        this.edit_driverDto.driver.vehicle = this.edit_driverDto.vehicles[j];
+      }
     }
   }
 }

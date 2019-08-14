@@ -34,7 +34,8 @@ export class DriversComponent implements OnInit {
     driverDto.driver = driver;
     driverDto.vehicles = this.driverDtos[0].vehicles;
     driverDto.driver.vehicle = this.driverDtos[0].vehicles[0];
-    this.driverDtos.push(driverDto);
+    this.driverDtos.unshift(driverDto);
+    window.scroll(0,0);
     this.driverDtos[this.driverDtos.indexOf(driverDto)].driverDtos = this.driverDtos;
   }
 
