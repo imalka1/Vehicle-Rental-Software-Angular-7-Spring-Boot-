@@ -32,13 +32,18 @@ public class VehicleController {
         vehicleService.deleteVehicle(id);
     }
 
+    @GetMapping(value = "/admin/vehicles")
+    public List<Vehicle> getAllVehicles() {
+        return vehicleService.getAllVehicles();
+    }
+
     @GetMapping(value = "/vehiclesViaCategory/{category}")
     public List<Vehicle> getVehiclesViaCategory(@PathVariable String category) {
         return vehicleService.getVehiclesViaCategory(category);
     }
 
-    @GetMapping(value = "/vehiclesViaCategoryForReservation/{category}")
-    public List<Vehicle> getVehiclesViaCategoryForReservation(@PathVariable String category) {
-        return vehicleService.getVehiclesViaCategoryForReservation(category);
+    @PostMapping(value = "/vehiclesViaCategoryForReservation")
+    public List<Vehicle> getVehiclesViaCategoryForReservation(@RequestBody Vehicle vehicle) {
+        return vehicleService.getVehiclesViaCategoryForReservation(vehicle);
     }
 }

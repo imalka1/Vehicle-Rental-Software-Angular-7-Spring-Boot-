@@ -1,0 +1,51 @@
+<div class="row" style="border-bottom: 1px solid black;padding: 10px">
+  <div class="col-sm-10  col-10" style="border-right: 1px solid black">
+    <div class="row" style="padding-right: 10px">
+      <div class="col-12">
+        <span style="font-size: 13px">Driver's Name</span>
+        <input type="text" class="form-control" [(ngModel)]="edit_driverDto.driver.driverName"><br>
+      </div>
+      <div class="col-12">
+        <span style="font-size: 13px">Driver's Contact Number</span>
+        <input type="text" class="form-control" [(ngModel)]="edit_driverDto.driver.driverContactNumber"><br>
+      </div>
+      <div class="col-12">
+        <span style="font-size: 13px">Driver's Email Address</span>
+        <input type="text" class="form-control" [(ngModel)]="edit_driverDto.driver.driverEmail"><br>
+      </div>
+      <div class="col-6">
+        <span style="font-size: 13px">Driver is present</span>
+        <select name="" class="form-control" [(ngModel)]="edit_driverDto.driver.driverPresent">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      <div class="col-6">
+        <span style="font-size: 13px">Driver's Password</span>
+        <input type="text" class="form-control" [(ngModel)]="edit_driverDto.driver.user.userPassword">
+      </div>
+      <div class="col-12" style="margin-top: 20px">
+        <span style="font-size: 13px">Driver's Vehicle</span>
+        <select name="" class="form-control" [(ngModel)]="edit_driverDto.driver.vehicle">
+          <option *ngFor="let vehicle of edit_driverDto.vehicles" [ngValue]="vehicle">{{vehicle.vehicleName}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2 col-2" style="text-align: center;font-size: 13px;margin-top: 20px">
+    <i class="fa fa-check btnEdit" style="color: green;cursor: pointer" (click)="addDriver()"><span
+      style="padding-left: 10px">Submit</span></i><br>
+    <span *ngIf="edit_driverDto.driver.id != undefined">
+      <i class="fa fa-times btnEdit" style="color: red;cursor: pointer" (click)="deleteDriver()"><span
+        style="padding-left: 10px">Delete</span></i><br>
+    </span>
+    <i class="fa fa-ban btnEdit" style="color: #d60000;cursor: pointer" (click)="cancelDriver()"><span
+      style="padding-left: 10px">Cancel</span></i>
+  </div>
+</div>
+
+<style>
+  .btnEdit:hover {
+    font-size: 15px;
+  }
+</style>

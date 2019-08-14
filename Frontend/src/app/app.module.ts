@@ -21,6 +21,9 @@ import { EditVehicleComponent } from './views/admin-panel/vehicles/edit-vehicle/
 import { FixedVehicleComponent } from './views/admin-panel/vehicles/fixed-vehicle/fixed-vehicle.component';
 import { BookingsComponent } from './views/admin-panel/bookings/bookings.component';
 import { ViewBookingsComponent } from './views/admin-panel/bookings/view-bookings/view-bookings.component';
+import { DriversComponent } from './views/admin-panel/drivers/drivers.component';
+import { EditDriverComponent } from './views/admin-panel/drivers/edit-driver/edit-driver.component';
+import { FixedDriverComponent } from './views/admin-panel/drivers/fixed-driver/fixed-driver.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { ViewBookingsComponent } from './views/admin-panel/bookings/view-booking
     EditVehicleComponent,
     FixedVehicleComponent,
     BookingsComponent,
-    ViewBookingsComponent
+    ViewBookingsComponent,
+    DriversComponent,
+    EditDriverComponent,
+    FixedDriverComponent
   ],
   imports: [
     BrowserModule,

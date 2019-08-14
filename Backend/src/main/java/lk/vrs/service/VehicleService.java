@@ -13,7 +13,9 @@ public interface VehicleService {
 
     void deleteVehicle(long id);
 
+    List<Vehicle> getAllVehicles();
+
     List<Vehicle> getVehiclesViaCategory(String category);
 
-    List<Vehicle> getVehiclesViaCategoryForReservation(String category);
+    List<Vehicle> getVehiclesViaCategoryForReservation(Vehicle vehicle);
 }

@@ -42,9 +42,10 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `reservation_place_to_id`,
 `reservation_vehicle_id`,
 `reservation_payment_key`,
-`reservation_amount`)
+`reservation_amount`,
+`submission_date_and_time`)
 VALUES
-(false,'2019-05-05','02:03',1,1,2,1,0,0),(true,'2019-05-04','14:05',1,2,3,2,0,0);
+(false,'2019-05-05','02:03',1,1,2,1,0,0,curdate()),(true,'2019-05-04','14:05',1,2,3,2,0,0,curdate());
 
 INSERT INTO `vehicle_rental_software`.`reservation`
 (
@@ -55,7 +56,7 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `reservation_vehicle_id`,
 `reservation_payment_key`)
 VALUES
-(false,'2019-05-05','02:03',1,1,0),(true,'2019-05-04','14:05',1,2,0);
+(false,'2019-05-05 02:03','02:03',1,1,0),(true,'2019-05-04','14:05',1,2,0);
 
 SELECT `place`.`id`,
     `place`.`place_category`,
@@ -77,14 +78,25 @@ FROM `vehicle_rental_software`.`user`;
 SELECT user_id FROM user WHERE user_name='imalka' AND password='123' AND role='admin';
 
 SELECT `reservation`.`id`,
+    `reservation`.`reservation_amount`,
     `reservation`.`reservation_completed`,
-    `reservation`.`reservation_date`,
-    `reservation`.`reservation_time`,
+    `reservation`.`reservation_date_and_time`,
+    `reservation`.`reservation_payment_key`,
+    `reservation`.`submission_date_and_time`,
     `reservation`.`reservation_customer_id`,
     `reservation`.`reservation_place_from_id`,
     `reservation`.`reservation_place_to_id`,
     `reservation`.`reservation_vehicle_id`
 FROM `vehicle_rental_software`.`reservation`;
+
+SELECT `customer`.`id`,
+    `customer`.`customer_contact_number`,
+    `customer`.`customer_email`,
+    `customer`.`customer_name`
+FROM `vehicle_rental_software`.`customer`;
+
+
+
 
 
 

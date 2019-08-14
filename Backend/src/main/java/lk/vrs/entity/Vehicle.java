@@ -16,12 +16,6 @@ public class Vehicle {
     private String vehicleCategory;
     private boolean vehicleReserved;
 
-//    @OneToOne(mappedBy = "reservationVehicle")
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @JsonIgnore
-//    private Reservation reservation;
-
-
     public boolean isVehicleReserved() {
         return vehicleReserved;
     }

@@ -64,6 +64,7 @@ export class BookingComponent implements OnInit {
 
   changePassengers() {
     this.totalPassengers = this.adults + this.children;
+    this.changeVehicleCategory();
   }
 
   changeCategory() {
@@ -122,15 +123,18 @@ export class BookingComponent implements OnInit {
   }
 
   changeVehicleCategory() {
+    let vehicle: Vehicle = new Vehicle();
+    vehicle.vehicleCategory = this.selectedVehicleCategory;
+    vehicle.vehicleTotalPassengers = this.totalPassengers;
     if (this.selectedVehicleCategory == 'car') {
 
-      this.vehicleService.getVehiclesViaCategoryForReservation(this.selectedVehicleCategory).subscribe((result) => {
+      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
         this.vehicles = result;
       });
 
     } else if (this.selectedVehicleCategory == 'minivan') {
 
-      this.vehicleService.getVehiclesViaCategoryForReservation(this.selectedVehicleCategory).subscribe((result) => {
+      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
         this.vehicles = result;
       });
 

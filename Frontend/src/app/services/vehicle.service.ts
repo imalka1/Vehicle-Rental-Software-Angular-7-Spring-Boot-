@@ -29,11 +29,15 @@ export class VehicleService {
     return this.http.delete<void>(environment.backend_url + URL + "/admin/vehicles/" + vehicle.id, {headers: this.commonService.createAuthorizationHeader()});
   }
 
+  getAllVehicles(): Observable<Array<Vehicle>> {
+    return this.http.get<Array<Vehicle>>(environment.backend_url + URL + "/admin/vehicles", {headers: this.commonService.createAuthorizationHeader()});
+  }
+
   getVehiclesViaCategory(category: string): Observable<Array<Vehicle>> {
     return this.http.get<Array<Vehicle>>(environment.backend_url + URL + "/vehiclesViaCategory/" + category);
   }
 
-  getVehiclesViaCategoryForReservation(category: string): Observable<Array<Vehicle>> {
-    return this.http.get<Array<Vehicle>>(environment.backend_url + URL + "/vehiclesViaCategoryForReservation/" + category);
+  getVehiclesViaCategoryForReservation(vehicle: Vehicle): Observable<Array<Vehicle>> {
+    return this.http.post<Array<Vehicle>>(environment.backend_url + URL + "/vehiclesViaCategoryForReservation", vehicle);
   }
 }

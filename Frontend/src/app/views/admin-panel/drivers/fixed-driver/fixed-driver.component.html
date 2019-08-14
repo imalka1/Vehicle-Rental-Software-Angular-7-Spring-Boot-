@@ -1,0 +1,35 @@
+<div class="row" style="border-bottom: 1px solid black;padding: 10px">
+  <div class="col-sm-10 col-10" style="border-right: 1px solid black">
+    <div class="row" style="padding-right: 10px">
+      <div class="col-12">
+        <span style="font-weight: bold">Driver's Name : </span>{{fixed_driverDto.driver.driverName}}
+      </div>
+      <div class="col-12">
+        <span style="font-weight: bold">Driver's Contact Number : </span>{{fixed_driverDto.driver.driverContactNumber}}<br>
+      </div>
+      <div class="col-12">
+        <span style="font-weight: bold">Driver's Email Address : </span>{{fixed_driverDto.driver.driverEmail}}<br>
+      </div>
+      <div class="col-2">
+        <span style="font-weight: bold">Driver's Vehicle : </span>
+      </div>
+      <div class="col-10">
+        <select name="" class="form-control" [(ngModel)]="fixed_driverDto.driver.vehicle" (change)="updateVehicleOrPresent()">
+          <option *ngFor="let vehicle of fixed_driverDto.vehicles" [ngValue]="vehicle">{{vehicle.vehicleName}}</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <span style="font-weight: bold">Driver is present : </span>
+      </div>
+      <div class="col-10">
+        <select name="" class="form-control" [(ngModel)]="fixed_driverDto.driver.driverPresent" (change)="updateVehicleOrPresent()">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2 col-2" style="text-align: center">
+    <i class="fa fa-pencil" style="color: #866006;cursor: pointer" (click)="editDriver()"></i>
+  </div>
+</div>

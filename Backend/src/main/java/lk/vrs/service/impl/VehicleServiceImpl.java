@@ -6,6 +6,7 @@ import lk.vrs.repository.VehicleRepository;
 import lk.vrs.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +32,17 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
+    public List<Vehicle> getAllVehicles() {
+        return vehicleRepository.findAll();
+    }
+
+    @Override
     public List<Vehicle> getVehiclesViaCategory(String category) {
         return vehicleRepository.getVehiclesViaCategory(category);
     }
 
     @Override
-    public List<Vehicle> getVehiclesViaCategoryForReservation(String category) {
-        return vehicleRepository.getVehiclesViaCategoryForReservation(category);
+    public List<Vehicle> getVehiclesViaCategoryForReservation(Vehicle vehicle) {
+        return vehicleRepository.getVehiclesViaCategoryForReservation(vehicle.getVehicleCategory(), vehicle.getVehicleTotalPassengers());
     }
 }

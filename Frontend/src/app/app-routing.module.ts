@@ -10,6 +10,7 @@ import {PlacesComponent} from "./views/admin-panel/places/places.component";
 import {VehiclesComponent} from "./views/admin-panel/vehicles/vehicles.component";
 import {BookingsComponent} from "./views/admin-panel/bookings/bookings.component";
 import {ViewBookingsComponent} from "./views/admin-panel/bookings/view-bookings/view-bookings.component";
+import {DriversComponent} from "./views/admin-panel/drivers/drivers.component";
 
 const routes: Routes = [
   {
@@ -30,19 +31,12 @@ const routes: Routes = [
             component: VehiclesComponent
           },
           {
+            path: 'driver',
+            component: DriversComponent,
+          },
+          {
             path: 'bookings',
             component: BookingsComponent,
-
-            // children: [
-            //   {
-            //     path: 'success',
-            //     component: BookingsComponent
-            //   },
-            //   {
-            //     path: 'cancel',
-            //     component: BookingsComponent
-            //   }
-            // ]
           },
           {
             path: 'view-bookings',

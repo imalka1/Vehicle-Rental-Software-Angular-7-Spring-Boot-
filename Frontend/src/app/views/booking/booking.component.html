@@ -72,12 +72,21 @@
           </div>
         </div>
         <div class="row" style="font-weight: bold">
-          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+          <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Vehicle Category</div>
+            <div class="col-sm-12">
+              <select class="form-control" (change)="changeVehicleCategory()" [(ngModel)]="selectedVehicleCategory">
+                <option value="car">Car</option>
+                <option value="minivan">Mini Van</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Pickup Date</div>
             <div class="col-sm-12"><input type="date" class="form-control" min="{{currentDate}}"
                                           [(ngModel)]="currentDate"></div>
           </div>
-          <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
+          <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Pickup Time</div>
             <div class="col-sm-12"><input type="time" class="form-control" [(ngModel)]="currentTime"></div>
           </div>
@@ -85,12 +94,12 @@
         <div class="row" style="font-weight: bold">
           <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Adults (Passengers)</div>
-            <div class="col-sm-12"><input type="number" class="form-control" min="0" (change)="changePassengers()"
+            <div class="col-sm-12"><input type="number" class="form-control" min="0" (input)="changePassengers()"
                                           [(ngModel)]="adults"></div>
           </div>
           <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Children (Passengers)</div>
-            <div class="col-sm-12"><input type="number" class="form-control" min="0" (change)="changePassengers()"
+            <div class="col-sm-12"><input type="number" class="form-control" min="0" (input)="changePassengers()"
                                           [(ngModel)]="children"></div>
           </div>
           <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
@@ -107,20 +116,20 @@
             Vehicles Availability
           </div>
         </div>
-        <div class="row" style="margin-top: 25px;font-weight: bold">
-          <div class="col-sm-12">
-            Category
-          </div>
-        </div>
-        <div class="row" style="font-weight: bold;margin-bottom: 50px">
-          <div class="col-sm-12">
-            <select class="form-control" (change)="changeVehicleCategory()" [(ngModel)]="selectedVehicleCategory">
-              <option value="car">Car</option>
-              <option value="minivan">Mini Van</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
+        <!--<div class="row" style="margin-top: 25px;font-weight: bold">-->
+          <!--<div class="col-sm-12">-->
+            <!--Category-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row" style="font-weight: bold;margin-bottom: 50px">-->
+          <!--<div class="col-sm-12">-->
+            <!--<select class="form-control" (change)="changeVehicleCategory()" [(ngModel)]="selectedVehicleCategory">-->
+              <!--<option value="car">Car</option>-->
+              <!--<option value="minivan">Mini Van</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+        <div class="row" style="margin-top: 25px">
           <div class="col-sm-12">
             <div class="row" style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
               <div class="col-8" style="border-right: 1px solid black">
@@ -142,7 +151,7 @@
                 {{vehicle.vehicleTotalPassengers}}
               </div>
               <div class="col-2" style="text-align: center">
-                <input type="radio">
+                <input type="radio" name="vehicle">
               </div>
             </div>
             <!--</ng-container>-->
@@ -166,6 +175,11 @@
         <!--</table>-->
         <!--</div>-->
         <!--</div>-->
+        <div class="row">
+          <div class="col-sm-12" style="text-align: right;margin-top: 50px;font-size: 18px">
+            <span style="border-bottom: 1px solid black;border-top: 1px solid black;padding: 10px"><b>Total amount to pay -> </b> 1500</span>
+          </div>
+        </div>
 
         <hr
           style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">

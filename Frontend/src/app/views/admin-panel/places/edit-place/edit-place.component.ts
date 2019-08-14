@@ -13,7 +13,10 @@ export class EditPlaceComponent implements OnInit {
 
   @Input() edit_placeDto: PlaceDto;
 
-  constructor(private placeService: PlaceService, private commonService: CommonService) {
+  constructor(
+    private placeService: PlaceService,
+    private commonService: CommonService
+  ) {
   }
 
   ngOnInit() {
