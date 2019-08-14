@@ -10,7 +10,11 @@ public interface DriverService {
 
     Driver updateDriver(Driver driver);
 
-    void deleteDriver(long id);
+    void deleteDriver(String id);
 
     List<Driver> getAllDrivers(int start, int limit);
+
+    int getTableRowCount();
+
+    Driver searchDriver(String id);
 }

@@ -27,12 +27,22 @@ public class DriverController {
     }
 
     @DeleteMapping(value = "/admin/drivers/{id}")
-    public void deleteDriver(@PathVariable long id) {
+    public void deleteDriver(@PathVariable String id) {
         driverService.deleteDriver(id);
     }
 
     @GetMapping(value = "/admin/drivers/{start}/{limit}")
     public List<Driver> getAllDrivers(@PathVariable int start, @PathVariable int limit) {
         return driverService.getAllDrivers(start, limit);
+    }
+
+    @GetMapping(value = "/admin/drivers/rowCount")
+    public int getDriverTableRowCount() {
+        return driverService.getTableRowCount();
+    }
+
+    @GetMapping(value = "/admin/drivers/{id}")
+    public Driver searchDriver(@PathVariable String id) {
+        return driverService.searchDriver(id);
     }
 }

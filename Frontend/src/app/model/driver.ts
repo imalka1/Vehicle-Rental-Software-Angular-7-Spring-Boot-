@@ -2,7 +2,7 @@ import {User} from "./user";
 import {Vehicle} from "./vehicle";
 
 export class Driver {
-  id: number;
+  id: string;
   driverName: string;
   driverEmail: string;
   driverContactNumber: string;

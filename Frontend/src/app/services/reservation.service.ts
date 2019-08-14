@@ -43,10 +43,10 @@ export class ReservationService {
   // }
 
   getReservationTableRowCount(): Observable<number> {
-    return this.http.get<number>(environment.backend_url + URL + "/admin/rowCount/", {headers: this.commonService.createAuthorizationHeader()});
+    return this.http.get<number>(environment.backend_url + URL + "/admin/reservations/rowCount/", {headers: this.commonService.createAuthorizationHeader()});
   }
 
-  getReservedDates(start: number, limit: number): Observable<Array<Reservation>> {
+  getReservedDates(start, limit): Observable<Array<Reservation>> {
     return this.http.get<Array<Reservation>>(environment.backend_url + URL + "/admin/reservationDates/" + start + "/" + limit, {headers: this.commonService.createAuthorizationHeader()});
   }
 }

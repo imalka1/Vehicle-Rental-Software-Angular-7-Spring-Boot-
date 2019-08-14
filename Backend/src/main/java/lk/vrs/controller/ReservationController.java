@@ -27,7 +27,7 @@ public class ReservationController {
     @Autowired
     private ReservationService reservationService;
 
-    @GetMapping(value = "/admin/rowCount")
+    @GetMapping(value = "/admin/reservations/rowCount")
     public int getReservationTableRowCount() {
         return reservationService.getTableRowCount();
     }

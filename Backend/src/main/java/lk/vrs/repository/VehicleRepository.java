@@ -15,4 +15,5 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
     @Query(value = "FROM Vehicle WHERE vehicleCategory=?1 AND vehicleTotalPassengers=?2 AND vehicleReserved=false")
     List<Vehicle> getVehiclesViaCategoryForReservation(String category, int totalPassengers);
+
 }

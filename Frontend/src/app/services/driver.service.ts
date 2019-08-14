@@ -29,7 +29,15 @@ export class DriverService {
     return this.http.delete<void>(environment.backend_url + URL + "/admin/drivers/" + driver.id, {headers: this.commonService.createAuthorizationHeader()});
   }
 
-  getAllDrivers(): Observable<Array<Driver>> {
-    return this.http.get<Array<Driver>>(environment.backend_url + URL + "/admin/drivers/0/10", {headers: this.commonService.createAuthorizationHeader()});
+  getAllDrivers(start, limit): Observable<Array<Driver>> {
+    return this.http.get<Array<Driver>>(environment.backend_url + URL + "/admin/drivers/" + start + "/" + limit, {headers: this.commonService.createAuthorizationHeader()});
+  }
+
+  getDriverTableRowCount(): Observable<number> {
+    return this.http.get<number>(environment.backend_url + URL + "/admin/drivers/rowCount/", {headers: this.commonService.createAuthorizationHeader()});
+  }
+
+  searchDriver(driverId): Observable<Driver> {
+    return this.http.get<Driver>(environment.backend_url + URL + "/admin/drivers/" + driverId, {headers: this.commonService.createAuthorizationHeader()});
   }
 }

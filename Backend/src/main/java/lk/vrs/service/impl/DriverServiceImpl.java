@@ -29,12 +29,22 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public void deleteDriver(long id) {
+    public void deleteDriver(String id) {
         driverRepository.deleteById(id);
     }
 
     @Override
     public List<Driver> getAllDrivers(int start, int limit) {
          return driverRepository.findAll(PageRequest.of(start,limit,Sort.by("id").descending())).getContent();
+    }
+
+    @Override
+    public int getTableRowCount() {
+        return driverRepository.getTableRowCount();
+    }
+
+    @Override
+    public Driver searchDriver(String id) {
+        return driverRepository.findDriverById(id);
     }
 }

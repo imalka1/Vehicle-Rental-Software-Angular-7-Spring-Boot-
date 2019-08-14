@@ -8,8 +8,7 @@ import javax.persistence.*;
 @Entity
 public class Driver {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String id;
     private String driverName;
     private String driverEmail;
     private String driverContactNumber;
@@ -25,11 +24,11 @@ public class Driver {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

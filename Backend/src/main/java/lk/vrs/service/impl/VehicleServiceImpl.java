@@ -45,4 +45,5 @@ public class VehicleServiceImpl implements VehicleService {
     public List<Vehicle> getVehiclesViaCategoryForReservation(Vehicle vehicle) {
         return vehicleRepository.getVehiclesViaCategoryForReservation(vehicle.getVehicleCategory(), vehicle.getVehicleTotalPassengers());
     }
+
 }

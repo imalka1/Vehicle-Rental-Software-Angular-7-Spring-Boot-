@@ -14,9 +14,10 @@ INSERT INTO `vehicle_rental_software`.`vehicle`
 (
 `vehicle_category`,
 `vehicle_total_passengers`,
-`vehicle_name`)
+`vehicle_name`,
+`vehicle_reserved`)
 VALUES
-('car',5,'Benz'),('car',4,'Toyota'),('minivan',4,'Mitsubishi'),('minivan',4,'Skoda'),('minivan',7,'Nissan');
+('car',5,'Benz',true),('car',4,'Toyota',true),('minivan',4,'Mitsubishi',true),('minivan',4,'Skoda',true),('minivan',7,'Nissan',true);
 
 INSERT INTO `vehicle_rental_software`.`place`
 (
@@ -35,8 +36,7 @@ VALUES
 INSERT INTO `vehicle_rental_software`.`reservation`
 (
 `reservation_completed`,
-`reservation_date`,
-`reservation_time`,
+`reservation_date_and_time`,
 `reservation_customer_id`,
 `reservation_place_from_id`,
 `reservation_place_to_id`,
@@ -45,7 +45,7 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 `reservation_amount`,
 `submission_date_and_time`)
 VALUES
-(false,'2019-05-05','02:03',1,1,2,1,0,0,curdate()),(true,'2019-05-04','14:05',1,2,3,2,0,0,curdate());
+(false,'2019-05-05 02:03',1,1,2,1,0,0,curdate()),(true,'2019-05-04 14:05',1,2,3,2,0,0,curdate());
 
 INSERT INTO `vehicle_rental_software`.`reservation`
 (
