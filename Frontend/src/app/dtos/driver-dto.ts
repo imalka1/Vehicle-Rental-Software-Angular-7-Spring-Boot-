@@ -1,6 +1,6 @@
-import {Place} from "../model/place";
-import {Driver} from "../model/driver";
-import {Vehicle} from "../model/vehicle";
+import {DriverVehicle} from "../model/DriverVehicle";
+import {Vehicle} from "../model/Vehicle";
+import {Driver} from "../model/Driver";
 
 export class DriverDto {
   driver: Driver = new Driver();

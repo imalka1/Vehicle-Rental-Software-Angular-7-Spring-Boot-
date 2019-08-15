@@ -1,4 +1,5 @@
-<div class="row" style="border-bottom: 1px solid black;padding: 10px;padding: 10px;padding-top: 20px;padding-bottom: 20px">
+<div class="row"
+     style="border-bottom: 1px solid black;padding: 10px;padding: 10px;padding-top: 20px;padding-bottom: 20px">
   <div class="col-sm-10  col-10" style="border-right: 1px solid black">
     <div class="row" style="padding-right: 10px">
       <div class="col-12">
@@ -28,23 +29,49 @@
         <span style="font-size: 13px">Driver's Password</span>
         <input type="text" class="form-control" [(ngModel)]="edit_driverDto.driver.user.userPassword">
       </div>
-      <div class="col-12" style="margin-top: 24px">
+      <div class="col-6" style="margin-top: 24px;padding-right: 5px">
         <span style="font-size: 13px">Driver's Vehicle</span>
-        <select name="" class="form-control" [(ngModel)]="edit_driverDto.driver.vehicle">
+        <select name="" class="form-control" >
           <option *ngFor="let vehicle of edit_driverDto.vehicles" [ngValue]="vehicle">{{vehicle.vehicleName}}</option>
+          <option [ngValue]="null">No vehicle</option>
         </select>
       </div>
+      <div class="col-6" style="margin-top: 54px;text-align: center;font-weight: bold">
+        {{edit_driverDto.driver.driverVehicles[0]!=null?edit_driverDto.driver.driverVehicles[0].vehicle.vehicleName:"No vehicle assigned"}}
+      </div>
+      <!--<div class="col-3" style="margin-top: 44px;padding-left: 40px">-->
+      <!--<button class="btn btn-warning">Remove</button>-->
+      <!--</div>-->
     </div>
   </div>
-  <div class="col-sm-2 col-2" style="text-align: center;font-size: 16px;margin-top: 140px">
-    <i class="fa fa-check btnEdit" style="color: green;cursor: pointer" (click)="addDriver()"><span
-      style="padding-left: 10px">Submit</span></i><br>
-    <span *ngIf="edit_driverDto.driver.id != undefined">
-      <i class="fa fa-times btnEdit" style="color: red;cursor: pointer" (click)="deleteDriver()"><span
-        style="padding-left: 10px">Delete</span></i><br>
-    </span>
-    <i class="fa fa-ban btnEdit" style="color: #d60000;cursor: pointer" (click)="cancelDriver()"><span
-      style="padding-left: 10px">Cancel</span></i>
+  <div class="col-sm-2 col-2" style="text-align: center;font-size: 16px;margin-top: 120px">
+    <div class="row">
+      <div class="col-12">
+        <i class="fa fa-ban btnEdit" style="color: #d60000;cursor: pointer" (click)="cancelDriver()"><span
+          style="padding-left: 10px">Cancel</span></i>
+      </div>
+    </div>
+    <div class="row" *ngIf="edit_driverDto.driver.id != undefined" style="margin-top: 40px">
+      <div class="col-12">
+        <i class="fa fa-times btnEdit" style="color: red;cursor: pointer" (click)="deleteDriver()"><span
+          style="padding-left: 10px">Delete</span></i>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 40px">
+      <div class="col-12">
+        <i class="fa fa-check btnEdit" style="color: green;cursor: pointer" (click)="addDriver()">
+          <span style="padding-left: 10px">Submit only driver</span>
+        </i>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 40px">
+      <div class="col-12">
+        <i class="fa fa-check btnEdit" style="color: green;cursor: pointer" (click)="addDriverWithVehicle()">
+          <span style="padding-left: 10px">Submit driver with vehicle</span>
+        </i>
+      </div>
+    </div>
+
   </div>
 </div>
 

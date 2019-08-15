@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DriverDto} from "../../../../dtos/driver-dto";
+import {DriverVehicleDto} from "../../../../dtos/driverVehicle-dto";
 import {VehicleDto} from "../../../../dtos/vehicle-dto";
-import {Vehicle} from "../../../../model/vehicle";
+import {Vehicle} from "../../../../model/Vehicle";
 import {VehicleService} from "../../../../services/vehicle.service";
 import {DriverService} from "../../../../services/driver.service";
 import {CommonService} from "../../../../services/common.service";
+import {DriverDto} from "../../../../dtos/driver-dto";
 
 @Component({
   selector: 'app-fixed-driver',
@@ -17,7 +18,8 @@ export class FixedDriverComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private driverService: DriverService
+    private driverService: DriverService,
+    private vehicleService: VehicleService
   ) {
   }
 
@@ -29,16 +31,17 @@ export class FixedDriverComponent implements OnInit {
     this.fixed_driverDto.edit = true;
   }
 
-  updateVehicleOrPresent(){
-    this.driverService.updateDriver(this.fixed_driverDto.driver).subscribe((result) => {
-      this.fixed_driverDto.driver = result;
-      for (var j = 0; j < this.fixed_driverDto.vehicles.length; j++) {
-        if (this.fixed_driverDto.vehicles[j].id === this.fixed_driverDto.driver.vehicle.id) {
-          this.fixed_driverDto.driver.vehicle = this.fixed_driverDto.vehicles[j];
-        }
-      }
-    }, (error) => {
-      this.commonService.errorHandler(error)
-    })
-  }
+  // updateVehicleOrPresent() {
+  //   this.driverService.updateDriver(this.fixed_driverDto.driver).subscribe((result) => {
+  //     this.fixed_driverDto.driver = result;
+  //     this.vehicleService.getFreeVehicles().subscribe((result) => {
+  //       for (var j = 0; j < this.fixed_driverDto.driverDtos.length; j++) {
+  //         this.fixed_driverDto.driverDtos[j].vehicles = result;
+  //       }
+  //       this.fixed_driverDto.vehicles.push(this.fixed_driverDto.driver.vehicle);
+  //     })
+  //   }, (error) => {
+  //     this.commonService.errorHandler(error)
+  //   })
+  // }
 }

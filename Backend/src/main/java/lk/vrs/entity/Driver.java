@@ -1,9 +1,12 @@
 package lk.vrs.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Driver {
@@ -14,14 +17,14 @@ public class Driver {
     private String driverContactNumber;
     private boolean driverPresent;
 
-    @OneToOne
-    @JoinColumn(nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Vehicle vehicle;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "driver")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnoreProperties("driver")
+    private Set<DriverVehicle> driverVehicles;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     public String getId() {
@@ -64,12 +67,12 @@ public class Driver {
         this.driverContactNumber = driverContactNumber;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
+    public Set<DriverVehicle> getDriverVehicles() {
+        return driverVehicles;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setDriverVehicles(Set<DriverVehicle> driverVehicles) {
+        this.driverVehicles = driverVehicles;
     }
 
     public User getUser() {

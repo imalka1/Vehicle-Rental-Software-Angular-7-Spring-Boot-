@@ -18,17 +18,6 @@ public class DriverServiceImpl implements DriverService {
     private DriverRepository driverRepository;
 
     @Override
-    @Transactional
-    public Driver addDriver(Driver driver) {
-        return driverRepository.save(driver);
-    }
-
-    @Override
-    public Driver updateDriver(Driver driver) {
-        return driverRepository.save(driver);
-    }
-
-    @Override
     public void deleteDriver(String id) {
         driverRepository.deleteById(id);
     }
@@ -46,5 +35,10 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver searchDriver(String id) {
         return driverRepository.findDriverById(id);
+    }
+
+    @Override
+    public Driver addDriver(Driver driver) {
+        return driverRepository.save(driver);
     }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {VehicleDto} from "../../../dtos/vehicle-dto";
 import {VehicleService} from "../../../services/vehicle.service";
-import {Vehicle} from "../../../model/vehicle";
+import {Vehicle} from "../../../model/Vehicle";
 
 @Component({
   selector: 'app-vehicles',

@@ -1,4 +1,4 @@
-import {Vehicle} from "../model/vehicle";
+import {Vehicle} from "../model/Vehicle";
 
 export class VehicleDto {
   vehicle: Vehicle;

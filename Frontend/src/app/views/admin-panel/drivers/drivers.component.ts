@@ -2,12 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {PlaceDto} from "../../../dtos/place-dto";
 import {Place} from "../../../model/place";
 import {VehicleDto} from "../../../dtos/vehicle-dto";
-import {Vehicle} from "../../../model/vehicle";
-import {DriverDto} from "../../../dtos/driver-dto";
-import {Driver} from "../../../model/driver";
+import {Vehicle} from "../../../model/Vehicle";
+import {DriverVehicleDto} from "../../../dtos/driverVehicle-dto";
+import {Driver} from "../../../model/Driver";
 import {DriverService} from "../../../services/driver.service";
 import {VehicleService} from "../../../services/vehicle.service";
 import {CommonService} from "../../../services/common.service";
+import {DriverDto} from "../../../dtos/driver-dto";
 
 @Component({
   selector: 'app-drivers',
@@ -41,7 +42,7 @@ export class DriversComponent implements OnInit {
     driverDto.driver = driver;
     driverDto.vehicles = this.vehicles;
     if (this.vehicles.length > 0) {
-      driverDto.driver.vehicle = this.vehicles[0];
+      driverDto.driver.driverVehicles[0].vehicle = this.vehicles[0];
     }
     this.driverDtos.unshift(driverDto);
     window.scroll(0, 0);
@@ -58,8 +59,8 @@ export class DriversComponent implements OnInit {
           driverDto.driver = result;
           driverDto.vehicles = this.vehicles;
           for (var j = 0; j < this.vehicles.length; j++) {
-            if (this.vehicles[j].id === driverDto.driver.vehicle.id) {
-              driverDto.driver.vehicle = this.vehicles[j];
+            if (this.vehicles[j].id === driverDto.driver.driverVehicles[0].vehicle.id) {
+              driverDto.driver.driverVehicles[0].vehicle = this.vehicles[j];
             }
           }
           driverDto.driverDtos = this.driverDtos;
@@ -80,26 +81,29 @@ export class DriversComponent implements OnInit {
   }
 
   loadVehicles(drivers) {
-    this.vehicleService.getAllVehicles().subscribe((result) => {
+    this.vehicleService.getFreeVehicles().subscribe((result) => {
       this.vehicles = result;
-      this.setDriverDtos(drivers, result);
+      this.setDriverDtos(drivers);
     })
   }
 
-  setDriverDtos(drivers, vehicles) {
+  setDriverDtos(drivers) {
     this.driverDtos = new Array<DriverDto>();
     for (let i = 0; i < drivers.length; i++) {
       let driverDto = new DriverDto();
       driverDto.driver = drivers[i];
       driverDto.vehicles = this.vehicles;
-      for (var j = 0; j < vehicles.length; j++) {
-        if (vehicles[j].id === driverDto.driver.vehicle.id) {
-          driverDto.driver.vehicle = vehicles[j];
-        }
-      }
+      driverDto.edit = false;
+      // driverDto.vehicles.push(driverDto.driver.vehicle);
+      // for (var j = 0; j < driverDto.vehicles.length; j++) {
+      //   if (driverDto.vehicles[j].id === driverDto.driver.vehicle.id) {
+      //     driverDto.driver.vehicle = driverDto.vehicles[j];
+      //   }
+      // }
       driverDto.driverDtos = this.driverDtos;
       this.driverDtos.push(driverDto);
     }
+    console.log(this.driverDtos)
   }
 
   setTotalSets() {

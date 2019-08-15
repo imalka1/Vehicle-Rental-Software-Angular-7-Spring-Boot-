@@ -1,10 +1,12 @@
 package lk.vrs.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Vehicle {
@@ -15,6 +17,19 @@ public class Vehicle {
     private Integer vehicleTotalPassengers;
     private String vehicleCategory;
     private boolean vehicleReserved;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "driver")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnoreProperties("driver")
+    private Set<DriverVehicle> driverVehicles;
+
+    public Set<DriverVehicle> getDriverVehicles() {
+        return driverVehicles;
+    }
+
+    public void setDriverVehicles(Set<DriverVehicle> driverVehicles) {
+        this.driverVehicles = driverVehicles;
+    }
 
     public boolean isVehicleReserved() {
         return vehicleReserved;

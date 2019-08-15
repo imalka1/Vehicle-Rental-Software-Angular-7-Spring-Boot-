@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Driver} from "../model/driver";
+import {Driver} from "../model/Driver";
 import {HttpClient} from "@angular/common/http";
 import {CommonService} from "./common.service";
 import {Place} from "../model/place";
@@ -20,11 +20,11 @@ export class DriverService {
   addDriver(driver: Driver): Observable<Driver> {
     return this.http.post<Driver>(environment.backend_url + URL + "/admin/drivers/add", driver, {headers: this.commonService.createAuthorizationHeader()});
   }
-
-  updateDriver(driver: Driver): Observable<Driver> {
-    return this.http.post<Driver>(environment.backend_url + URL + "/admin/drivers/update", driver, {headers: this.commonService.createAuthorizationHeader()});
-  }
-
+  //
+  // updateDriver(driver: Driver): Observable<Driver> {
+  //   return this.http.post<Driver>(environment.backend_url + URL + "/admin/drivers/update", driver, {headers: this.commonService.createAuthorizationHeader()});
+  // }
+  //
   deleteDriver(driver: Driver): Observable<void> {
     return this.http.delete<void>(environment.backend_url + URL + "/admin/drivers/" + driver.id, {headers: this.commonService.createAuthorizationHeader()});
   }

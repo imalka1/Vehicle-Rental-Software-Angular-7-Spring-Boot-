@@ -25,26 +25,25 @@
       <div class="col-9">
         {{fixed_driverDto.driver.driverEmail}}
       </div>
-      <div class="col-3" style="font-weight: bold;margin-top: 10px">
+      <div class="col-3" style="font-weight: bold">
         Driver's Vehicle :
       </div>
-      <div class="col-9" style="margin-top: 5px">
-        <select name="" class="form-control" [(ngModel)]="fixed_driverDto.driver.vehicle" (change)="updateVehicleOrPresent()">
-          <option *ngFor="let vehicle of fixed_driverDto.vehicles" [ngValue]="vehicle">{{vehicle.vehicleName}}</option>
-        </select>
+      <div class="col-9">
+        {{fixed_driverDto.driver.driverVehicles[0]!=null?fixed_driverDto.driver.driverVehicles[0].vehicle.vehicleName:"No vehicle assigned"}}
       </div>
-      <div class="col-3" style="font-weight: bold;margin-top: 10px">
+      <div class="col-3" style="font-weight: bold">
         Driver is present (Today) :
       </div>
-      <div class="col-9" style="margin-top: 5px">
-        <select name="" class="form-control" [(ngModel)]="fixed_driverDto.driver.driverPresent" (change)="updateVehicleOrPresent()">
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
+      <div class="col-9">
+        <!--<select name="" class="form-control" [(ngModel)]="fixed_driverDto.driver.driverPresent" (change)="updateVehicleOrPresent()">-->
+          <!--<option value="true">Yes</option>-->
+          <!--<option value="false">No</option>-->
+        <!--</select>-->
+        {{fixed_driverDto.driver.driverPresent?"Present":"No"}}
       </div>
     </div>
   </div>
-  <div class="col-sm-2 col-2" style="text-align: center;font-size: 18px;margin-top: 55px">
+  <div class="col-sm-2 col-2" style="text-align: center;font-size: 18px;margin-top: 50px">
     <i class="fa fa-pencil btnEdit" style="color: #866006;cursor: pointer" (click)="editDriver()"><span style="padding-left: 10px">Edit</span></i>
   </div>
 </div>

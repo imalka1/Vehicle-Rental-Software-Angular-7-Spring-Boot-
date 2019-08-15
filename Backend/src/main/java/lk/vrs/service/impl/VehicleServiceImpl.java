@@ -32,8 +32,15 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public List<Vehicle> getAllVehicles() {
-        return vehicleRepository.findAll();
+    public List<Vehicle> getFreeVehicles() {
+        List<Vehicle> freeVehicles = vehicleRepository.findAll();
+        List<Vehicle> vehicles = new ArrayList<>(freeVehicles);
+        for (Vehicle freeVehicle : vehicles) {
+//            if (freeVehicle.getDriver() != null) {
+//                freeVehicles.remove(freeVehicle);
+//            }
+        }
+        return freeVehicles;
     }
 
     @Override

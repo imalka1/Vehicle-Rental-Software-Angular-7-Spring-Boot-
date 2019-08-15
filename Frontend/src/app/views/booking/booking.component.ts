@@ -15,7 +15,7 @@ import {CustomerService} from "../../services/customer.service";
 import {ReservationDto} from "../../dtos/reservation-dto";
 import {VehicleService} from "../../services/vehicle.service";
 import {VehicleDto} from "../../dtos/vehicle-dto";
-import {Vehicle} from "../../model/vehicle";
+import {Vehicle} from "../../model/Vehicle";
 
 // declare var custom_date_picker: any;
 

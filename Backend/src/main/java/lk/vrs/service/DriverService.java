@@ -6,10 +6,6 @@ import java.util.List;
 
 public interface DriverService {
 
-    Driver addDriver(Driver driver);
-
-    Driver updateDriver(Driver driver);
-
     void deleteDriver(String id);
 
     List<Driver> getAllDrivers(int start, int limit);
@@ -17,4 +13,6 @@ public interface DriverService {
     int getTableRowCount();
 
     Driver searchDriver(String id);
+
+    Driver addDriver(Driver driver);
 }

@@ -1,5 +1,6 @@
 import {User} from "./user";
-import {Vehicle} from "./vehicle";
+import {Vehicle} from "./Vehicle";
+import {DriverVehicle} from "./DriverVehicle";
 
 export class Driver {
   id: string;
@@ -7,6 +8,6 @@ export class Driver {
   driverEmail: string;
   driverContactNumber: string;
   driverPresent: boolean;
-  vehicle: Vehicle = new Vehicle();
+  driverVehicles: Array<DriverVehicle> = new Array<DriverVehicle>();
   user: User = new User();
 }

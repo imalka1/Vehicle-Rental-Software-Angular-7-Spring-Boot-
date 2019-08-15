@@ -26,22 +26,22 @@ public class Reservation {
 
     @OneToOne
     @JoinColumn(nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
     private Place reservationPlaceFrom;
 
     @OneToOne
     @JoinColumn(nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
     private Place reservationPlaceTo;
 
     @OneToOne
     @JoinColumn(nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
     private Vehicle reservationVehicle;
 
     @OneToOne
     @JoinColumn(nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
     private Customer reservationCustomer;
 
     public Date getReservationDateAndTime() {

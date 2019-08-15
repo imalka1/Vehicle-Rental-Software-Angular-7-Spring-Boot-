@@ -10,14 +10,32 @@ INSERT INTO `vehicle_rental_software`.`customer`
 VALUES
 (123,'im@gmail.com','im');
 
+INSERT INTO `vehicle_rental_software`.`user`
+(`user_name`,
+`user_password`,
+`user_role`)
+VALUES
+('imalka','123','admin'),('imalka1','456','admin');
+
+INSERT INTO `vehicle_rental_software`.`driver`
+(`id`,
+`driver_contact_number`,
+`driver_email`,
+`driver_name`,
+`driver_present`,
+`user_id`)
+VALUES
+('95','077','im','ima',true,1),('96','077','imm','imma',true,2);
+
 INSERT INTO `vehicle_rental_software`.`vehicle`
 (
 `vehicle_category`,
 `vehicle_total_passengers`,
 `vehicle_name`,
-`vehicle_reserved`)
+`vehicle_reserved`,
+`driver_id`)
 VALUES
-('car',5,'Benz',true),('car',4,'Toyota',true),('minivan',4,'Mitsubishi',true),('minivan',4,'Skoda',true),('minivan',7,'Nissan',true);
+('car',5,'Benz',false,'95'),('car',4,'Toyota',false,'95'),('minivan',4,'Mitsubishi',false,'96'),('minivan',4,'Skoda',false,'96'),('minivan',7,'Nissan',false,'96');
 
 INSERT INTO `vehicle_rental_software`.`place`
 (
@@ -31,7 +49,7 @@ INSERT INTO `vehicle_rental_software`.`user`
 `user_password`,
 `user_role`)
 VALUES
-('imalka','123','admin'),('imalka1','456','admin');
+('imalka2','123','admin'),('imalka3','456','admin');
 
 INSERT INTO `vehicle_rental_software`.`reservation`
 (
@@ -58,16 +76,13 @@ INSERT INTO `vehicle_rental_software`.`reservation`
 VALUES
 (false,'2019-05-05 02:03','02:03',1,1,0),(true,'2019-05-04','14:05',1,2,0);
 
-SELECT `place`.`id`,
-    `place`.`place_category`,
-    `place`.`place_name`
-FROM `vehicle_rental_software`.`place`;
-
 SELECT `vehicle`.`id`,
     `vehicle`.`vehicle_category`,
     `vehicle`.`vehicle_name`,
+    `vehicle`.`vehicle_reserved`,
     `vehicle`.`vehicle_total_passengers`
 FROM `vehicle_rental_software`.`vehicle`;
+
 
 SELECT `user`.`id`,
     `user`.`user_name`,
@@ -95,6 +110,14 @@ SELECT `customer`.`id`,
     `customer`.`customer_name`
 FROM `vehicle_rental_software`.`customer`;
 
+SELECT `driver`.`id`,
+    `driver`.`driver_contact_number`,
+    `driver`.`driver_email`,
+    `driver`.`driver_name`,
+    `driver`.`driver_present`,
+    `driver`.`user_id`,
+    `driver`.`vehicle_id`
+FROM `vehicle_rental_software`.`driver`;
 
 
 

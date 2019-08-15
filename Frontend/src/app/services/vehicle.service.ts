@@ -3,7 +3,7 @@ import {Place} from "../model/place";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Vehicle} from "../model/vehicle";
+import {Vehicle} from "../model/Vehicle";
 import {CommonService} from "./common.service";
 import {catchError} from "rxjs/operators";
 
@@ -29,8 +29,8 @@ export class VehicleService {
     return this.http.delete<void>(environment.backend_url + URL + "/admin/vehicles/" + vehicle.id, {headers: this.commonService.createAuthorizationHeader()});
   }
 
-  getAllVehicles(): Observable<Array<Vehicle>> {
-    return this.http.get<Array<Vehicle>>(environment.backend_url + URL + "/admin/vehicles", {headers: this.commonService.createAuthorizationHeader()});
+  getFreeVehicles(): Observable<Array<Vehicle>> {
+    return this.http.get<Array<Vehicle>>(environment.backend_url + URL + "/admin/free_vehicles", {headers: this.commonService.createAuthorizationHeader()});
   }
 
   getVehiclesViaCategory(category: string): Observable<Array<Vehicle>> {

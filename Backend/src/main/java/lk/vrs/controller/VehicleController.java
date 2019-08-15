@@ -32,9 +32,9 @@ public class VehicleController {
         vehicleService.deleteVehicle(id);
     }
 
-    @GetMapping(value = "/admin/vehicles")
-    public List<Vehicle> getAllVehicles() {
-        return vehicleService.getAllVehicles();
+    @GetMapping(value = "/admin/free_vehicles")
+    public List<Vehicle> getFreeVehicles() {
+        return vehicleService.getFreeVehicles();
     }
 
     @GetMapping(value = "/vehiclesViaCategory/{category}")

@@ -20,11 +20,11 @@ public class DriverController {
     public Driver addDriver(@RequestBody Driver driver) {
         return driverService.addDriver(driver);
     }
-
-    @PostMapping(value = "/admin/drivers/update")
-    public Driver updateDriver(@RequestBody Driver driver) {
-        return driverService.updateDriver(driver);
-    }
+//
+//    @PostMapping(value = "/admin/drivers/update")
+//    public Driver updateDriver(@RequestBody Driver driver) {
+//        return driverService.updateDriver(driver);
+//    }
 
     @DeleteMapping(value = "/admin/drivers/{id}")
     public void deleteDriver(@PathVariable String id) {

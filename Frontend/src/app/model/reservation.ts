@@ -1,5 +1,5 @@
 import {Place} from "./place";
-import {Vehicle} from "./vehicle";
+import {Vehicle} from "./Vehicle";
 import {Customer} from "./customer";
 import {CreditcardDto} from "../dtos/creditcard-dto";
 

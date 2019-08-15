@@ -13,7 +13,7 @@ public interface VehicleService {
 
     void deleteVehicle(long id);
 
-    List<Vehicle> getAllVehicles();
+    List<Vehicle> getFreeVehicles();
 
     List<Vehicle> getVehiclesViaCategory(String category);
 
