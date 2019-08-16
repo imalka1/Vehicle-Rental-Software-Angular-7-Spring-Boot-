@@ -31,6 +31,9 @@ export class EditDriverComponent implements OnInit {
 
   ngOnInit() {
     this.edit_driverDto.driver.driverPresent = false;
+    for (let i = 0; i < this.edit_driverDto.driver.driverVehicles.length; i++) {
+      this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
+    }
   }
 
   addDriver() {
@@ -64,14 +67,18 @@ export class EditDriverComponent implements OnInit {
   }
 
   addVehicle() {
-    let driverVehicle = new DriverVehicle();
-    // if (this.selectedVehicle != null) {
-    driverVehicle.vehicle = this.selectedVehicle;
-    // }
-    if (this.edit_driverDto.driver.user.id == undefined) {
-      this.edit_driverDto.driver.driverVehicles[0] = driverVehicle;
-    } else {
-      this.edit_driverDto.driver.driverVehicles.unshift(driverVehicle)
+    for (let i = 0; i < this.edit_driverDto.driver.driverVehicles.length; i++) {
+      this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
+    }
+    if (this.selectedVehicle != null) {
+      let driverVehicle = new DriverVehicle();
+      driverVehicle.vehicle = this.selectedVehicle;
+      driverVehicle.onDuty = true;
+      if (this.edit_driverDto.driver.user.id == undefined) {
+        this.edit_driverDto.driver.driverVehicles[0] = driverVehicle;
+      } else {
+        this.edit_driverDto.driver.driverVehicles.unshift(driverVehicle)
+      }
     }
   }
 

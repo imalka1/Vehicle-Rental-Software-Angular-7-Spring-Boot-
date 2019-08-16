@@ -14,16 +14,18 @@ public class DriverVehicle {
     private Date dateOfAssigned;
 
     @ManyToOne
-//    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false)
 //    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnoreProperties("driverVehicles")
     private Driver driver;
 
     @ManyToOne
-//    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false)
 //    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnoreProperties("driverVehicles")
     private Vehicle vehicle;
+
+    private boolean onDuty;
 
     public long getId() {
         return id;
@@ -31,6 +33,14 @@ public class DriverVehicle {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public boolean isOnDuty() {
+        return onDuty;
+    }
+
+    public void setOnDuty(boolean onDuty) {
+        this.onDuty = onDuty;
     }
 
     public Date getDateOfAssigned() {

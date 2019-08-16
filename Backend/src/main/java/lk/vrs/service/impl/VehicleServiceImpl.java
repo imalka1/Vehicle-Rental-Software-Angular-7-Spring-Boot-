@@ -46,15 +46,15 @@ public class VehicleServiceImpl implements VehicleService {
         Set<Vehicle> freeVehicles = new HashSet<>();
         List<Vehicle> vehicles = vehicleRepository.findAll(Sort.by("id").descending());
         for (Vehicle vehicle : vehicles) {
-            Iterator<DriverVehicle> driverVehicleIterator = vehicle.getDriverVehicles().iterator();
-            if (driverVehicleIterator.hasNext()) {
-                DriverVehicle driverVehicle = driverVehicleIterator.next();
-                if (driverVehicle.getVehicle() == null) {
-                    freeVehicles.add(driverVehicle.getVehicle());
-                }
-            } else {
+//            Iterator<DriverVehicle> driverVehicleIterator = vehicle.getDriverVehicles().iterator();
+//            if (driverVehicleIterator.hasNext()) {
+//                DriverVehicle driverVehicle = driverVehicleIterator.next();
+//                if (driverVehicle.getVehicle() == null) {
+//                    freeVehicles.add(driverVehicle.getVehicle());
+//                }
+//            } else {
                 freeVehicles.add(vehicle);
-            }
+//            }
         }
         return freeVehicles;
     }
