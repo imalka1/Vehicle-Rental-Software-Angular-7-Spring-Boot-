@@ -32,23 +32,27 @@ export class DriversComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.driverDtos = new Array<DriverDto>();
     this.loadDrivers();
     this.setTotalSets();
   }
 
   addDriver() {
-    let driverDto: DriverDto = new DriverDto();
-    let driver: Driver = new Driver();
+    // let driverDto: DriverDto = new DriverDto();
+    let driverDto: DriverDto = this.setDriverDto(new Driver());
     driverDto.edit = true;
-    driverDto.driver = driver;
-    driverDto.driver.driverVehicles[0] = new DriverVehicle();
-    driverDto.vehicles = this.vehicles;
-    if (this.vehicles.length > 0) {
-      driverDto.vehicles = this.vehicles;
-    }
-    this.driverDtos.unshift(driverDto);
-    window.scroll(0, 0);
-    this.driverDtos[this.driverDtos.indexOf(driverDto)].driverDtos = this.driverDtos;
+    driverDto.driverVehicle.vehicle=null;
+    driverDto.driver.driverPresent=false;
+    // driverDto.edit = true;
+    // driverDto.driver = driver;
+    // driverDto.driver.driverVehicles[0] = new DriverVehicle();
+    // driverDto.vehicles = this.vehicles;
+    // if (this.vehicles.length > 0) {
+    //   driverDto.vehicles = this.vehicles;
+    // }
+    // this.driverDtos.unshift(driverDto);
+    // window.scroll(0, 0);
+    // this.driverDtos[this.driverDtos.indexOf(driverDto)].driverDtos = this.driverDtos;
   }
 
   searchDriver() {
@@ -84,27 +88,42 @@ export class DriversComponent implements OnInit {
   loadVehicles(drivers) {
     this.vehicleService.getFreeVehicles().subscribe((result) => {
       this.vehicles = result;
-      this.setDriverDtos(drivers);
+      for (let i = 0; i < drivers.length; i++) {
+        console.log(drivers[i])
+        this.setDriverDto(drivers[i]);
+      }
     })
   }
 
-  setDriverDtos(drivers) {
-    this.driverDtos = new Array<DriverDto>();
-    for (let i = 0; i < drivers.length; i++) {
-      let driverDto = new DriverDto();
-      driverDto.driver = drivers[i];
-      driverDto.vehicles = this.vehicles;
-      driverDto.edit = false;
-      // driverDto.vehicles.push(driverDto.driver.vehicle);
-      // for (var j = 0; j < driverDto.vehicles.length; j++) {
-      //   if (driverDto.vehicles[j].id === driverDto.driver.vehicle.id) {
-      //     driverDto.driver.vehicle = driverDto.vehicles[j];
-      //   }
-      // }
-      driverDto.driverDtos = this.driverDtos;
-      this.driverDtos.push(driverDto);
+  setDriverDto(driver) {
+    // for (let i = 0; i < drivers.length; i++) {
+    let driverDto = new DriverDto();
+    driverDto.driverVehicle = new DriverVehicle();
+    driverDto.driver = driver;
+    driverDto.vehicles = this.vehicles;
+    driverDto.edit = false;
+    for (let i = 0; i < driverDto.driver.driverVehicles.length; i++) {
+      if (driverDto.driver.driverVehicles[i].onDuty == true) {
+        for (let j = 0; j < driverDto.vehicles.length; j++) {
+          if (driverDto.driver.driverVehicles[i].vehicle.id === driverDto.vehicles[j].id) {
+            driverDto.driverVehicle.vehicle = driverDto.vehicles[j];
+          }
+        }
+        // console.log(this.driverVehicle)
+      }
+      //   this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
     }
-    console.log(this.driverDtos)
+    // driverDto.vehicles.push(driverDto.driver.vehicle);
+    // for (var j = 0; j < driverDto.vehicles.length; j++) {
+    //   if (driverDto.vehicles[j].id === driverDto.driver.vehicle.id) {
+    //     driverDto.driver.vehicle = driverDto.vehicles[j];
+    //   }
+    // }
+    driverDto.driverDtos = this.driverDtos;
+    this.driverDtos.unshift(driverDto);
+    return driverDto;
+    // }
+    // console.log(this.driverDtos)
   }
 
   setTotalSets() {

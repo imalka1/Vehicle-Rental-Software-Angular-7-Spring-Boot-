@@ -28,7 +28,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public List<Driver> getAllDrivers(int start, int limit) {
-        return driverRepository.findAll(PageRequest.of(start, limit, Sort.by("id").descending())).getContent();
+        return driverRepository.findAll(PageRequest.of(start, limit)).getContent();
     }
 
     @Override

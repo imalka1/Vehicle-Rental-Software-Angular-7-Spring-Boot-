@@ -71,7 +71,19 @@ public class Vehicle {
         this.vehicleCategory = vehicleCategory;
     }
 
-//    public Reservation getReservation() {
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", vehicleName='" + vehicleName + '\'' +
+                ", vehicleTotalPassengers=" + vehicleTotalPassengers +
+                ", vehicleCategory='" + vehicleCategory + '\'' +
+                ", vehicleReserved=" + vehicleReserved +
+                ", driverVehicles=" + driverVehicles +
+                '}';
+    }
+
+    //    public Reservation getReservation() {
 //        return reservation;
 //    }
 //

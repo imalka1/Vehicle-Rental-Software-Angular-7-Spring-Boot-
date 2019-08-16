@@ -140,4 +140,19 @@ public class Reservation {
         this.reservationCustomer = reservationCustomer;
     }
 
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", reservationDateAndTime=" + reservationDateAndTime +
+                ", submissionDateAndTime=" + submissionDateAndTime +
+                ", reservationCompleted=" + reservationCompleted +
+                ", reservationAmount=" + reservationAmount +
+                ", reservationPaymentKey=" + reservationPaymentKey +
+                ", reservationPlaceFrom=" + reservationPlaceFrom +
+                ", reservationPlaceTo=" + reservationPlaceTo +
+                ", reservationVehicle=" + reservationVehicle +
+                ", reservationCustomer=" + reservationCustomer +
+                '}';
+    }
 }

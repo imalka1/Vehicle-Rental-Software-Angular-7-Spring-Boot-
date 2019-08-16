@@ -19,7 +19,8 @@ import {Driver} from "../../../../model/Driver";
 export class EditDriverComponent implements OnInit {
 
   @Input() edit_driverDto: DriverDto;
-  selectedVehicle: Vehicle = null;
+  // selectedVehicle: Vehicle = null;
+  // driverVehicle: DriverVehicle = new DriverVehicle();
 
   constructor(
     private commonService: CommonService,
@@ -30,16 +31,18 @@ export class EditDriverComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.edit_driverDto.driver.driverPresent = false;
-    for (let i = 0; i < this.edit_driverDto.driver.driverVehicles.length; i++) {
-      this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
-    }
+    // this.edit_driverDto.driver.driverPresent = false;
+    // this.driverVehicle.vehicle=null;
+    // for (let i = 0; i < this.edit_driverDto.driver.driverVehicles.length; i++) {
+    //   if (this.edit_driverDto.driver.driverVehicles[i].onDuty == true) {
+    //     this.edit_driverDto.driverVehicle = this.edit_driverDto.driver.driverVehicles[i];
+    //     // console.log(this.driverVehicle)
+    //   }
+    // //   this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
+    // }
   }
 
   addDriver() {
-    // let driverVehicle = new DriverVehicle();
-    // driverVehicle.driver = this.edit_driverDto.driver;
-    // driverVehicle.driver.driverVehicles = this.edit_driverDto.driver.driverVehicles;
     if (this.edit_driverDto.driver.user.id == undefined) {
       this.edit_driverDto.driver.user.userName = this.edit_driverDto.driver.driverEmail;
       this.edit_driverDto.driver.user.userRole = 'driver';
@@ -70,15 +73,9 @@ export class EditDriverComponent implements OnInit {
     for (let i = 0; i < this.edit_driverDto.driver.driverVehicles.length; i++) {
       this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
     }
-    if (this.selectedVehicle != null) {
-      let driverVehicle = new DriverVehicle();
-      driverVehicle.vehicle = this.selectedVehicle;
-      driverVehicle.onDuty = true;
-      if (this.edit_driverDto.driver.user.id == undefined) {
-        this.edit_driverDto.driver.driverVehicles[0] = driverVehicle;
-      } else {
-        this.edit_driverDto.driver.driverVehicles.unshift(driverVehicle)
-      }
+    if (this.edit_driverDto.driverVehicle.vehicle != null) {
+      this.edit_driverDto.driverVehicle.onDuty = true;
+      this.edit_driverDto.driver.driverVehicles.unshift(this.edit_driverDto.driverVehicle)
     }
   }
 
@@ -105,6 +102,15 @@ export class EditDriverComponent implements OnInit {
     this.vehicleService.getFreeVehicles().subscribe((result) => {
       for (var j = 0; j < this.edit_driverDto.driverDtos.length; j++) {
         this.edit_driverDto.driverDtos[j].vehicles = result;
+      }
+      if (this.edit_driverDto.driverVehicle.vehicle != null) {
+        for (let j = 0; j < this.edit_driverDto.vehicles.length; j++) {
+          if (this.edit_driverDto.driverVehicle.vehicle.id === this.edit_driverDto.vehicles[j].id) {
+            this.edit_driverDto.driverVehicle.vehicle = this.edit_driverDto.vehicles[j];
+          }
+        }
+      } else {
+        this.edit_driverDto.driverVehicle.vehicle = null;
       }
       // this.edit_driverDto.vehicles.push(this.edit_driverDto.driver.vehicle);
     })

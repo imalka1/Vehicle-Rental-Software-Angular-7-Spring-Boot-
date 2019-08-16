@@ -69,4 +69,15 @@ public class DriverVehicle {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
+
+    @Override
+    public String toString() {
+        return "DriverVehicle{" +
+                "id=" + id +
+                ", dateOfAssigned=" + dateOfAssigned +
+                ", driver=" + driver +
+                ", vehicle=" + vehicle +
+                ", onDuty=" + onDuty +
+                '}';
+    }
 }

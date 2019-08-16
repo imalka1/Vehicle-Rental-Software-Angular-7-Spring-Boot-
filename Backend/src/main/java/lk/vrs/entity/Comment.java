@@ -40,4 +40,13 @@ public class Comment {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", comment='" + comment + '\'' +
+                ", customer=" + customer +
+                '}';
+    }
 }

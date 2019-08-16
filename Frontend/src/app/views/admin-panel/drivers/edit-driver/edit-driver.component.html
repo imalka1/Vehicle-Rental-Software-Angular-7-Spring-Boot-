@@ -31,13 +31,13 @@
       </div>
       <div class="col-5" style="margin-top: 24px;padding-right: 5px">
         <span style="font-size: 13px">Driver's Vehicle</span>
-        <select name="" class="form-control" [(ngModel)]="selectedVehicle">
+        <select name="" class="form-control" [(ngModel)]="edit_driverDto.driverVehicle.vehicle">
           <option *ngFor="let vehicle of edit_driverDto.vehicles" [ngValue]="vehicle">{{vehicle.vehicleName}}</option>
           <option [ngValue]="null">No vehicle</option>
         </select>
       </div>
       <div class="col-5" style="margin-top: 54px;text-align: center;font-weight: bold">
-        {{edit_driverDto.driver.driverVehicles[0].vehicle!=null?edit_driverDto.driver.driverVehicles[0].vehicle.vehicleName:"No vehicle assigned"}}
+        {{edit_driverDto.driverVehicle!=null?edit_driverDto.driverVehicle.vehicle!=null?edit_driverDto.driverVehicle.vehicle.vehicleName:"No vehicle assigned":"No vehicle assigned"}}
       </div>
       <div class="col-2" style="margin-top: 44px">
         <button class="btn btn-warning" (click)="addVehicle()" style="width: 100%">Add Vehicle</button>

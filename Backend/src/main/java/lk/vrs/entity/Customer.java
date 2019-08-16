@@ -65,6 +65,17 @@ public class Customer {
         this.customerComments = customerComments;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", customerName='" + customerName + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", customerContactNumber='" + customerContactNumber + '\'' +
+                ", customerComments=" + customerComments +
+                '}';
+    }
+
     //    public Reservation getReservation() {
 //        return reservation;
 //    }

@@ -48,7 +48,16 @@ public class Place {
         this.placeCategory = placeCategory;
     }
 
-//    public Reservation getReservationFrom() {
+    @Override
+    public String toString() {
+        return "Place{" +
+                "id=" + id +
+                ", placeName='" + placeName + '\'' +
+                ", placeCategory='" + placeCategory + '\'' +
+                '}';
+    }
+
+    //    public Reservation getReservationFrom() {
 //        return reservationFrom;
 //    }
 //

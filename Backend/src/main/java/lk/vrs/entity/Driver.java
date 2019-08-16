@@ -85,4 +85,17 @@ public class Driver {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id='" + id + '\'' +
+                ", driverName='" + driverName + '\'' +
+                ", driverEmail='" + driverEmail + '\'' +
+                ", driverContactNumber='" + driverContactNumber + '\'' +
+                ", driverPresent=" + driverPresent +
+                ", driverVehicles=" + driverVehicles +
+                ", user=" + user +
+                '}';
+    }
 }

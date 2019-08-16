@@ -6,6 +6,7 @@ import {VehicleService} from "../../../../services/vehicle.service";
 import {DriverService} from "../../../../services/driver.service";
 import {CommonService} from "../../../../services/common.service";
 import {DriverDto} from "../../../../dtos/driver-dto";
+import {DriverVehicle} from "../../../../model/DriverVehicle";
 
 @Component({
   selector: 'app-fixed-driver',
@@ -15,16 +16,21 @@ import {DriverDto} from "../../../../dtos/driver-dto";
 export class FixedDriverComponent implements OnInit {
 
   @Input() fixed_driverDto: DriverDto;
+  driverVehicle: DriverVehicle = new DriverVehicle();
 
   constructor(
-    private commonService: CommonService,
-    private driverService: DriverService,
-    private vehicleService: VehicleService
+    // private commonService: CommonService,
+    // private driverService: DriverService,
+    // private vehicleService: VehicleService
   ) {
   }
 
   ngOnInit() {
-
+    for (let i = 0; i < this.fixed_driverDto.driver.driverVehicles.length; i++) {
+      if (this.fixed_driverDto.driver.driverVehicles[i].onDuty == true) {
+        this.driverVehicle.vehicle = this.fixed_driverDto.driver.driverVehicles[i].vehicle;
+      }
+    }
   }
 
   editDriver() {

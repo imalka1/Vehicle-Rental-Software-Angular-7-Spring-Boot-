@@ -29,7 +29,7 @@
         Driver's Vehicle :
       </div>
       <div class="col-9">
-        {{fixed_driverDto.driver.driverVehicles[0].vehicle!=null?fixed_driverDto.driver.driverVehicles[0].vehicle.vehicleName:"No vehicle assigned"}}
+        {{fixed_driverDto.driverVehicle!=null?fixed_driverDto.driverVehicle.vehicle!=null?fixed_driverDto.driverVehicle.vehicle.vehicleName:"No vehicle assigned":"No vehicle assigned"}}
       </div>
       <div class="col-3" style="font-weight: bold">
         Driver is present (Today) :
