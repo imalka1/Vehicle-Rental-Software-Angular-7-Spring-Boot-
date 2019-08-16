@@ -1,15 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DriverVehicleDto} from "../../../../dtos/driverVehicle-dto";
 import {CommonService} from "../../../../services/common.service";
 import {DriverService} from "../../../../services/driver.service";
-import {User} from "../../../../model/user";
-import {VehicleDto} from "../../../../dtos/vehicle-dto";
 import {Vehicle} from "../../../../model/Vehicle";
 import {VehicleService} from "../../../../services/vehicle.service";
 import {DriverVehicleService} from "../../../../services/driver-vehicle.service";
-import {DriverVehicle} from "../../../../model/DriverVehicle";
 import {DriverDto} from "../../../../dtos/driver-dto";
-import {Driver} from "../../../../model/Driver";
 
 @Component({
   selector: 'app-edit-driver',
@@ -21,8 +16,6 @@ export class EditDriverComponent implements OnInit {
   @Input() edit_driverDto: DriverDto;
   selectedVehicle: Vehicle = null;
 
-  // driverVehicle: DriverVehicle = new DriverVehicle();
-
   constructor(
     private commonService: CommonService,
     private driverVehicleService: DriverVehicleService,
@@ -32,15 +25,7 @@ export class EditDriverComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.edit_driverDto.driver.driverPresent = false;
-    // this.driverVehicle.vehicle=null;
-    // for (let i = 0; i < this.edit_driverDto.driver.driverVehicles.length; i++) {
-    //   if (this.edit_driverDto.driver.driverVehicles[i].onDuty == true) {
-    //     this.edit_driverDto.driverVehicle = this.edit_driverDto.driver.driverVehicles[i];
-    //     // console.log(this.driverVehicle)
-    //   }
-    // //   this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
-    // }
+
   }
 
   addDriver() {
@@ -49,7 +34,7 @@ export class EditDriverComponent implements OnInit {
       this.edit_driverDto.driver.user.userRole = 'driver';
     }
     if (this.edit_driverDto.driver.driverName != undefined && this.edit_driverDto.driver.driverContactNumber != undefined && this.edit_driverDto.driver.driverEmail != undefined && this.edit_driverDto.driver.user.userPassword != undefined) {
-      // if (this.edit_driverDto.driver.id != undefined) {
+      this.edit_driverDto.driverVehicle.dateOfAssigned = null;
       console.log(this.edit_driverDto.driver)
       this.driverService.addDriver(this.edit_driverDto.driver).subscribe((result) => {
         this.edit_driverDto.driver = result;
@@ -58,15 +43,6 @@ export class EditDriverComponent implements OnInit {
       }, (error) => {
         this.commonService.errorHandler(error)
       });
-      // } else {
-      //   this.driverVehicleService.addDriver(this.edit_driverDto.driver).subscribe((result) => {
-      //     this.edit_driverDto.driver.driverVehicles[0] = result;
-      //     this.edit_driverDto.edit = false;
-      //     this.setVehicle();
-      //   }, (error) => {
-      //     this.commonService.errorHandler(error)
-      //   })
-      // }
     }
   }
 
@@ -105,16 +81,6 @@ export class EditDriverComponent implements OnInit {
       for (var j = 0; j < this.edit_driverDto.driverDtos.length; j++) {
         this.edit_driverDto.driverDtos[j].vehicles = result;
       }
-      // if (this.edit_driverDto.driverVehicle.vehicle != null) {
-      //   for (let j = 0; j < this.edit_driverDto.vehicles.length; j++) {
-      //     // if (this.edit_driverDto.driverVehicle.vehicle.id === this.edit_driverDto.vehicles[j].id) {
-      //     this.edit_driverDto.driverVehicle.vehicle = this.edit_driverDto.vehicles[j];
-      //     // }
-      //   }
-      // } else {
-      //   this.edit_driverDto.driverVehicle.vehicle = null;
-      // }
-      // this.edit_driverDto.vehicles.push(this.edit_driverDto.driver.vehicle);
     })
   }
 }

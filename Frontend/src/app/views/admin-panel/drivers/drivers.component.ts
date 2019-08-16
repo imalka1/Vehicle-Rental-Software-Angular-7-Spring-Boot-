@@ -1,9 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PlaceDto} from "../../../dtos/place-dto";
-import {Place} from "../../../model/place";
-import {VehicleDto} from "../../../dtos/vehicle-dto";
 import {Vehicle} from "../../../model/Vehicle";
-import {DriverVehicleDto} from "../../../dtos/driverVehicle-dto";
 import {Driver} from "../../../model/Driver";
 import {DriverService} from "../../../services/driver.service";
 import {VehicleService} from "../../../services/vehicle.service";
@@ -38,21 +34,10 @@ export class DriversComponent implements OnInit {
   }
 
   addDriver() {
-    // let driverDto: DriverDto = new DriverDto();
     let driverDto: DriverDto = this.setDriverDto(new Driver());
     driverDto.edit = true;
-    driverDto.driverVehicle.vehicle=null;
-    driverDto.driver.driverPresent=false;
-    // driverDto.edit = true;
-    // driverDto.driver = driver;
-    // driverDto.driver.driverVehicles[0] = new DriverVehicle();
-    // driverDto.vehicles = this.vehicles;
-    // if (this.vehicles.length > 0) {
-    //   driverDto.vehicles = this.vehicles;
-    // }
-    // this.driverDtos.unshift(driverDto);
-    // window.scroll(0, 0);
-    // this.driverDtos[this.driverDtos.indexOf(driverDto)].driverDtos = this.driverDtos;
+    driverDto.driverVehicle.vehicle = null;
+    driverDto.driver.driverPresent = false;
   }
 
   searchDriver() {
@@ -96,7 +81,6 @@ export class DriversComponent implements OnInit {
   }
 
   setDriverDto(driver) {
-    // for (let i = 0; i < drivers.length; i++) {
     let driverDto = new DriverDto();
     driverDto.driverVehicle = new DriverVehicle();
     driverDto.driver = driver;
@@ -105,26 +89,11 @@ export class DriversComponent implements OnInit {
     for (let i = 0; i < driverDto.driver.driverVehicles.length; i++) {
       if (driverDto.driver.driverVehicles[i].onDuty == true) {
         driverDto.driverVehicle.vehicle = driverDto.driver.driverVehicles[i].vehicle;
-        // for (let j = 0; j < driverDto.vehicles.length; j++) {
-        //   if (driverDto.driver.driverVehicles[i].vehicle.id === driverDto.vehicles[j].id) {
-        //     driverDto.driverVehicle.vehicle = driverDto.driver.driverVehicles[i].vehicle;
-        //   }
-        // }
-        // console.log(this.driverVehicle)
       }
-      //   this.edit_driverDto.driver.driverVehicles[i].onDuty = false;
     }
-    // driverDto.vehicles.push(driverDto.driver.vehicle);
-    // for (var j = 0; j < driverDto.vehicles.length; j++) {
-    //   if (driverDto.vehicles[j].id === driverDto.driver.vehicle.id) {
-    //     driverDto.driver.vehicle = driverDto.vehicles[j];
-    //   }
-    // }
     driverDto.driverDtos = this.driverDtos;
     this.driverDtos.unshift(driverDto);
     return driverDto;
-    // }
-    // console.log(this.driverDtos)
   }
 
   setTotalSets() {

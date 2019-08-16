@@ -48,14 +48,14 @@
           <entry key="class" value="25" />
           <entry key="css" value="16" />
           <entry key="html" value="244" />
-          <entry key="java" value="777" />
+          <entry key="java" value="781" />
           <entry key="jpg" value="5" />
           <entry key="js" value="2" />
           <entry key="json" value="3" />
           <entry key="place-dto" value="3" />
           <entry key="properties" value="22" />
           <entry key="sql" value="1" />
-          <entry key="ts" value="545" />
+          <entry key="ts" value="546" />
           <entry key="xml" value="9" />
           <entry key="yml" value="2" />
         </counts>
@@ -66,12 +66,12 @@
           <entry key="CSS" value="16" />
           <entry key="HTML" value="244" />
           <entry key="Image" value="5" />
-          <entry key="JAVA" value="777" />
+          <entry key="JAVA" value="781" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="2" />
           <entry key="Properties" value="22" />
           <entry key="SQL" value="1" />
-          <entry key="TypeScript" value="548" />
+          <entry key="TypeScript" value="549" />
           <entry key="XML" value="9" />
           <entry key="YAML" value="2" />
           <entry key="tsconfig" value="1" />
@@ -86,7 +86,7 @@
           <entry key="json" value="2" />
           <entry key="place-dto" value="23" />
           <entry key="properties" value="82" />
-          <entry key="ts" value="9103" />
+          <entry key="ts" value="9104" />
           <entry key="xml" value="7" />
           <entry key="yml" value="65" />
         </counts>
@@ -100,7 +100,7 @@
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="90" />
           <entry key="Properties" value="82" />
-          <entry key="TypeScript" value="9126" />
+          <entry key="TypeScript" value="9127" />
           <entry key="XML" value="7" />
           <entry key="YAML" value="65" />
           <entry key="tsconfig" value="1" />
@@ -142,32 +142,61 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/drivers.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+            <state relative-caret-position="-1129">
+              <caret column="48" selection-start-column="48" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1737#1738#0" expanded="true" />
+                <element signature="e#1774#1775#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/edit-driver/edit-driver.component.ts">
+        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/DriverVehicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="115" column="10" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="115" selection-end-column="10" />
+            <state relative-caret-position="391">
+              <caret line="52" column="9" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="52" selection-end-column="9" />
               <folding>
-                <element signature="e#0#55#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/VehicleServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Vehicle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
+            <state relative-caret-position="85">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/edit-driver/edit-driver.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-408">
+              <caret column="55" selection-start-column="55" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/fixed-driver/fixed-driver.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="55" selection-start-column="55" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -248,7 +277,6 @@
         <option value="$PROJECT_DIR$/Frontend/src/app/services/common.service.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/services/driver-vehicle.service.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/model/Driver.ts" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/fixed-driver/fixed-driver.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/model/DriverVehicle.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/dtos/driver-dto.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/dtos/driverVehicle-dto.ts" />
@@ -266,10 +294,11 @@
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Vehicle.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/VehicleService.java" />
         <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/controller/VehicleController.java" />
-        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/VehicleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/drivers.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/edit-driver/edit-driver.component.html" />
+        <option value="$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/VehicleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/fixed-driver/fixed-driver.component.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/edit-driver/edit-driver.component.ts" />
+        <option value="$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/drivers.component.ts" />
       </list>
     </option>
   </component>
@@ -607,7 +636,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565963661986" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565967135010" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Thogakade" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -734,18 +763,18 @@
       <workItem from="1565495463168" duration="20336000" />
       <workItem from="1565576177434" duration="11107000" />
       <workItem from="1565602414751" duration="65422000" />
-      <workItem from="1565803910949" duration="72778000" />
+      <workItem from="1565803910949" duration="74176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="581115000" />
+    <option name="totallyTimeSpent" value="582513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4969072" visible="true" weight="0.14966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4969072" visible="true" weight="0.14966443" />
       <window_info id="Structure" order="1" sideWeight="0.50309277" side_tool="true" weight="0.147651" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -755,7 +784,7 @@
       <window_info id="Web" order="7" sideWeight="0.5017301" side_tool="true" weight="0.10872483" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26666668" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26666668" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28936172" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -997,16 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/fixed-driver/fixed-driver.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="25" column="3" lean-forward="true" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/dtos/driver-dto.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1122,28 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="89" column="18" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1737#1738#0" expanded="true" />
-            <element signature="e#1774#1775#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/DriverVehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Place.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1165,13 +1162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Vehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -1199,23 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/VehicleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/drivers.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/edit-driver/edit-driver.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-327">
@@ -1238,12 +1211,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/service/impl/VehicleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/fixed-driver/fixed-driver.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="55" selection-start-column="55" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Vehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/drivers.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1129">
+          <caret column="48" selection-start-column="48" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/src/app/views/admin-panel/drivers/edit-driver/edit-driver.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="115" column="10" lean-forward="true" selection-start-line="107" selection-start-column="5" selection-end-line="115" selection-end-column="10" />
+        <state relative-caret-position="-408">
+          <caret column="55" selection-start-column="55" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1737#1738#0" expanded="true" />
+            <element signature="e#1774#1775#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/src/main/java/lk/vrs/entity/DriverVehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

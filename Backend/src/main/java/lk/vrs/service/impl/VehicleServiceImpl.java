@@ -35,14 +35,6 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public List<Vehicle> getFreeVehicles() {
-//        List<Vehicle> freeVehicles = vehicleRepository.findAll();
-//        List<Vehicle> vehicles = new ArrayList<>(freeVehicles);
-//        for (Vehicle freeVehicle : vehicles) {
-////            if (freeVehicle.getDriver() != null) {
-////                freeVehicles.remove(freeVehicle);
-////            }
-//        }
-
         List<Vehicle> vehicles = vehicleRepository.findAll();
         ArrayList<Vehicle> tempVehicles = new ArrayList<>(vehicles);
         Set<DriverVehicle> onDutyVehicles = driverVehicleRepository.getOnDutyVehicles();
@@ -53,27 +45,8 @@ public class VehicleServiceImpl implements VehicleService {
                 }
             }
         }
-
-
-//            Set<DriverVehicle> driverVehicles = vehicle.getDriverVehicles();
-//            for (DriverVehicle driverVehicle : driverVehicles) {
-//                if(driverVehicle){
-//
-//                }
-//            }
-//
-//
-//            while (driverVehicleIterator.hasNext()) {
-//                DriverVehicle driverVehicle = driverVehicleIterator.next();
-////                if (driverVehicle.getVehicle() == null) {
-////                    freeVehicles.add(driverVehicle.getVehicle());
-////                }
-//            }
-//                freeVehicles.add(vehicle);
-
-
         return vehicles;
-}
+    }
 
     @Override
     public List<Vehicle> getVehiclesViaCategory(String category) {
