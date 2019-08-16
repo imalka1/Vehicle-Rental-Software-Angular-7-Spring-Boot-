@@ -1,14 +1,11 @@
 package lk.vrs.service.impl;
 
-import lk.vrs.entity.Driver;
 import lk.vrs.entity.DriverVehicle;
-import lk.vrs.entity.Reservation;
 import lk.vrs.entity.Vehicle;
-import lk.vrs.repository.DriverRepository;
+import lk.vrs.repository.DriverVehicleRepository;
 import lk.vrs.repository.VehicleRepository;
 import lk.vrs.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -18,6 +15,8 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Autowired
     private VehicleRepository vehicleRepository;
+    @Autowired
+    private DriverVehicleRepository driverVehicleRepository;
 
     @Override
     public Vehicle addVehicle(Vehicle vehicle) {
@@ -35,7 +34,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public Set<Vehicle> getFreeVehicles() {
+    public List<Vehicle> getFreeVehicles() {
 //        List<Vehicle> freeVehicles = vehicleRepository.findAll();
 //        List<Vehicle> vehicles = new ArrayList<>(freeVehicles);
 //        for (Vehicle freeVehicle : vehicles) {
@@ -43,21 +42,38 @@ public class VehicleServiceImpl implements VehicleService {
 ////                freeVehicles.remove(freeVehicle);
 ////            }
 //        }
-        Set<Vehicle> freeVehicles = new HashSet<>();
-        List<Vehicle> vehicles = vehicleRepository.findAll(Sort.by("id").descending());
-        for (Vehicle vehicle : vehicles) {
-//            Iterator<DriverVehicle> driverVehicleIterator = vehicle.getDriverVehicles().iterator();
-//            if (driverVehicleIterator.hasNext()) {
-//                DriverVehicle driverVehicle = driverVehicleIterator.next();
-//                if (driverVehicle.getVehicle() == null) {
-//                    freeVehicles.add(driverVehicle.getVehicle());
-//                }
-//            } else {
-                freeVehicles.add(vehicle);
-//            }
+
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+        ArrayList<Vehicle> tempVehicles = new ArrayList<>(vehicles);
+        Set<DriverVehicle> onDutyVehicles = driverVehicleRepository.getOnDutyVehicles();
+        for (Vehicle vehicle : tempVehicles) {
+            for (DriverVehicle onDutyVehicle : onDutyVehicles) {
+                if (vehicle.getVehicleName().equals(onDutyVehicle.getVehicle().getVehicleName())) {
+                    vehicles.remove(vehicle);
+                }
+            }
         }
-        return freeVehicles;
-    }
+
+
+//            Set<DriverVehicle> driverVehicles = vehicle.getDriverVehicles();
+//            for (DriverVehicle driverVehicle : driverVehicles) {
+//                if(driverVehicle){
+//
+//                }
+//            }
+//
+//
+//            while (driverVehicleIterator.hasNext()) {
+//                DriverVehicle driverVehicle = driverVehicleIterator.next();
+////                if (driverVehicle.getVehicle() == null) {
+////                    freeVehicles.add(driverVehicle.getVehicle());
+////                }
+//            }
+//                freeVehicles.add(vehicle);
+
+
+        return vehicles;
+}
 
     @Override
     public List<Vehicle> getVehiclesViaCategory(String category) {

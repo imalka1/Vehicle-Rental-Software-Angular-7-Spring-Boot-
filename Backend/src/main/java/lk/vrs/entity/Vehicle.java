@@ -79,7 +79,6 @@ public class Vehicle {
                 ", vehicleTotalPassengers=" + vehicleTotalPassengers +
                 ", vehicleCategory='" + vehicleCategory + '\'' +
                 ", vehicleReserved=" + vehicleReserved +
-                ", driverVehicles=" + driverVehicles +
                 '}';
     }
 

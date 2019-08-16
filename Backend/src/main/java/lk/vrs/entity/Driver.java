@@ -94,7 +94,6 @@ public class Driver {
                 ", driverEmail='" + driverEmail + '\'' +
                 ", driverContactNumber='" + driverContactNumber + '\'' +
                 ", driverPresent=" + driverPresent +
-                ", driverVehicles=" + driverVehicles +
                 ", user=" + user +
                 '}';
     }

@@ -72,7 +72,6 @@ public class Customer {
                 ", customerName='" + customerName + '\'' +
                 ", customerEmail='" + customerEmail + '\'' +
                 ", customerContactNumber='" + customerContactNumber + '\'' +
-                ", customerComments=" + customerComments +
                 '}';
     }
 

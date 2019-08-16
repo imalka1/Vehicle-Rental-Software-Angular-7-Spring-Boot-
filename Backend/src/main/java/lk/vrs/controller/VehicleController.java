@@ -34,7 +34,7 @@ public class VehicleController {
     }
 
     @GetMapping(value = "/admin/free_vehicles")
-    public Set<Vehicle> getFreeVehicles() {
+    public List<Vehicle> getFreeVehicles() {
         return vehicleService.getFreeVehicles();
     }
 

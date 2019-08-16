@@ -14,7 +14,7 @@ public interface VehicleService {
 
     void deleteVehicle(long id);
 
-    Set<Vehicle> getFreeVehicles();
+    List<Vehicle> getFreeVehicles();
 
     List<Vehicle> getVehiclesViaCategory(String category);
 
