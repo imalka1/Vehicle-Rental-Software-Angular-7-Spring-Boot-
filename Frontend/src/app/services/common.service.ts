@@ -52,7 +52,7 @@ export class CommonService {
   }
 
   errorHandler(error: HttpErrorResponse) {
-    console.log(error.error.message)
+    // console.log(error.error.message)
     if (error.error.message == 'JWT Token is incorrect') {
       localStorage.clear();
       this.setLoginOrLogout(false);

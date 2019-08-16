@@ -1,6 +1,7 @@
 package lk.vrs.service.impl;
 
 import lk.vrs.entity.Driver;
+import lk.vrs.entity.DriverVehicle;
 import lk.vrs.repository.DriverRepository;
 import lk.vrs.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DriverServiceImpl implements DriverService {
@@ -24,7 +28,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public List<Driver> getAllDrivers(int start, int limit) {
-         return driverRepository.findAll(PageRequest.of(start,limit,Sort.by("id").descending())).getContent();
+        return driverRepository.findAll(PageRequest.of(start, limit, Sort.by("id").descending())).getContent();
     }
 
     @Override
@@ -38,6 +42,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
+    @Transactional
     public Driver addDriver(Driver driver) {
         return driverRepository.save(driver);
     }

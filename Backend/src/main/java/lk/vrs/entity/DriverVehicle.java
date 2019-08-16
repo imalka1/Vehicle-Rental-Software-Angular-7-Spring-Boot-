@@ -38,6 +38,9 @@ public class DriverVehicle {
     }
 
     public void setDateOfAssigned(Date dateOfAssigned) {
+        if (dateOfAssigned == null) {
+            dateOfAssigned = new Date();
+        }
         this.dateOfAssigned = dateOfAssigned;
     }
 

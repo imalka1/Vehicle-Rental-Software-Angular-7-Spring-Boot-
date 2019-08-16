@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @CrossOrigin
 @RestController
@@ -33,7 +34,7 @@ public class VehicleController {
     }
 
     @GetMapping(value = "/admin/free_vehicles")
-    public List<Vehicle> getFreeVehicles() {
+    public Set<Vehicle> getFreeVehicles() {
         return vehicleService.getFreeVehicles();
     }
 

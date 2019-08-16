@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {CommonService} from "./common.service";
 import {Driver} from "../model/Driver";
@@ -16,7 +16,7 @@ export class DriverVehicleService {
   constructor(private http: HttpClient, private commonService: CommonService) {
   }
 
-  addDriver(driver): Observable<DriverVehicle> {
+  addDriver(driver: DriverVehicle): Observable<DriverVehicle> {
     return this.http.post<DriverVehicle>(environment.backend_url + URL + "/admin/drivers/add", driver, {headers: this.commonService.createAuthorizationHeader()});
   }
 

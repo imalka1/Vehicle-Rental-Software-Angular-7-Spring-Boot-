@@ -5,6 +5,7 @@ import lk.vrs.entity.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public interface VehicleService {
     Vehicle addVehicle(Vehicle vehicle);
@@ -13,7 +14,7 @@ public interface VehicleService {
 
     void deleteVehicle(long id);
 
-    List<Vehicle> getFreeVehicles();
+    Set<Vehicle> getFreeVehicles();
 
     List<Vehicle> getVehiclesViaCategory(String category);
 

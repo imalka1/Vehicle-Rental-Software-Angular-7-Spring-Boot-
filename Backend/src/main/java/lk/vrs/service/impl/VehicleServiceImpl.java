@@ -1,14 +1,17 @@
 package lk.vrs.service.impl;
 
+import lk.vrs.entity.Driver;
+import lk.vrs.entity.DriverVehicle;
 import lk.vrs.entity.Reservation;
 import lk.vrs.entity.Vehicle;
+import lk.vrs.repository.DriverRepository;
 import lk.vrs.repository.VehicleRepository;
 import lk.vrs.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class VehicleServiceImpl implements VehicleService {
@@ -32,13 +35,26 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public List<Vehicle> getFreeVehicles() {
-        List<Vehicle> freeVehicles = vehicleRepository.findAll();
-        List<Vehicle> vehicles = new ArrayList<>(freeVehicles);
-        for (Vehicle freeVehicle : vehicles) {
-//            if (freeVehicle.getDriver() != null) {
-//                freeVehicles.remove(freeVehicle);
-//            }
+    public Set<Vehicle> getFreeVehicles() {
+//        List<Vehicle> freeVehicles = vehicleRepository.findAll();
+//        List<Vehicle> vehicles = new ArrayList<>(freeVehicles);
+//        for (Vehicle freeVehicle : vehicles) {
+////            if (freeVehicle.getDriver() != null) {
+////                freeVehicles.remove(freeVehicle);
+////            }
+//        }
+        Set<Vehicle> freeVehicles = new HashSet<>();
+        List<Vehicle> vehicles = vehicleRepository.findAll(Sort.by("id").descending());
+        for (Vehicle vehicle : vehicles) {
+            Iterator<DriverVehicle> driverVehicleIterator = vehicle.getDriverVehicles().iterator();
+            if (driverVehicleIterator.hasNext()) {
+                DriverVehicle driverVehicle = driverVehicleIterator.next();
+                if (driverVehicle.getVehicle() == null) {
+                    freeVehicles.add(driverVehicle.getVehicle());
+                }
+            } else {
+                freeVehicles.add(vehicle);
+            }
         }
         return freeVehicles;
     }

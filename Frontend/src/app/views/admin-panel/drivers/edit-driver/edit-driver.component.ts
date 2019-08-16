@@ -19,6 +19,7 @@ import {Driver} from "../../../../model/Driver";
 export class EditDriverComponent implements OnInit {
 
   @Input() edit_driverDto: DriverDto;
+  selectedVehicle: Vehicle = null;
 
   constructor(
     private commonService: CommonService,
@@ -33,19 +34,23 @@ export class EditDriverComponent implements OnInit {
   }
 
   addDriver() {
-    let driverVehicle = new DriverVehicle();
-    driverVehicle.driver = this.edit_driverDto.driver;
-    this.edit_driverDto.driver.user.userName = this.edit_driverDto.driver.driverEmail;
-    this.edit_driverDto.driver.user.userRole = 'driver';
+    // let driverVehicle = new DriverVehicle();
+    // driverVehicle.driver = this.edit_driverDto.driver;
+    // driverVehicle.driver.driverVehicles = this.edit_driverDto.driver.driverVehicles;
+    if (this.edit_driverDto.driver.user.id == undefined) {
+      this.edit_driverDto.driver.user.userName = this.edit_driverDto.driver.driverEmail;
+      this.edit_driverDto.driver.user.userRole = 'driver';
+    }
     if (this.edit_driverDto.driver.driverName != undefined && this.edit_driverDto.driver.driverContactNumber != undefined && this.edit_driverDto.driver.driverEmail != undefined && this.edit_driverDto.driver.user.userPassword != undefined) {
       // if (this.edit_driverDto.driver.id != undefined) {
+      console.log(this.edit_driverDto.driver)
       this.driverService.addDriver(this.edit_driverDto.driver).subscribe((result) => {
         this.edit_driverDto.driver = result;
         this.edit_driverDto.edit = false;
         this.setVehicle();
       }, (error) => {
         this.commonService.errorHandler(error)
-      })
+      });
       // } else {
       //   this.driverVehicleService.addDriver(this.edit_driverDto.driver).subscribe((result) => {
       //     this.edit_driverDto.driver.driverVehicles[0] = result;
@@ -58,8 +63,16 @@ export class EditDriverComponent implements OnInit {
     }
   }
 
-  addDriverWithVehicle() {
-
+  addVehicle() {
+    let driverVehicle = new DriverVehicle();
+    // if (this.selectedVehicle != null) {
+    driverVehicle.vehicle = this.selectedVehicle;
+    // }
+    if (this.edit_driverDto.driver.user.id == undefined) {
+      this.edit_driverDto.driver.driverVehicles[0] = driverVehicle;
+    } else {
+      this.edit_driverDto.driver.driverVehicles.unshift(driverVehicle)
+    }
   }
 
   deleteDriver() {

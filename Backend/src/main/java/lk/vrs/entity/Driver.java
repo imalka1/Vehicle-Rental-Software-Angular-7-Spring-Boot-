@@ -72,6 +72,9 @@ public class Driver {
     }
 
     public void setDriverVehicles(Set<DriverVehicle> driverVehicles) {
+        for (DriverVehicle driverVehicle : driverVehicles) {
+            driverVehicle.setDriver(this);
+        }
         this.driverVehicles = driverVehicles;
     }
 

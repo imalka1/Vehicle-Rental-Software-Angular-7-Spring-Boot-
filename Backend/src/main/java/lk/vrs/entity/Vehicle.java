@@ -18,9 +18,9 @@ public class Vehicle {
     private String vehicleCategory;
     private boolean vehicleReserved;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "driver")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vehicle")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnoreProperties("driver")
+    @JsonIgnoreProperties("vehicle")
     private Set<DriverVehicle> driverVehicles;
 
     public Set<DriverVehicle> getDriverVehicles() {

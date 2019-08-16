@@ -9,6 +9,7 @@ import {DriverService} from "../../../services/driver.service";
 import {VehicleService} from "../../../services/vehicle.service";
 import {CommonService} from "../../../services/common.service";
 import {DriverDto} from "../../../dtos/driver-dto";
+import {DriverVehicle} from "../../../model/DriverVehicle";
 
 @Component({
   selector: 'app-drivers',
@@ -40,9 +41,10 @@ export class DriversComponent implements OnInit {
     let driver: Driver = new Driver();
     driverDto.edit = true;
     driverDto.driver = driver;
+    driverDto.driver.driverVehicles[0] = new DriverVehicle();
     driverDto.vehicles = this.vehicles;
     if (this.vehicles.length > 0) {
-      driverDto.driver.driverVehicles[0].vehicle = this.vehicles[0];
+      driverDto.vehicles = this.vehicles;
     }
     this.driverDtos.unshift(driverDto);
     window.scroll(0, 0);
@@ -50,7 +52,6 @@ export class DriversComponent implements OnInit {
   }
 
   searchDriver() {
-    console.log(this.driverId)
     if (this.driverId != undefined && this.driverId != '') {
       this.driverService.searchDriver(this.driverId).subscribe((result) => {
         if (result != undefined) {
