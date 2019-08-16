@@ -18,7 +18,7 @@ public class Driver {
     private boolean driverPresent;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "driver")
-//    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnoreProperties("driver")
     private Set<DriverVehicle> driverVehicles;
 
