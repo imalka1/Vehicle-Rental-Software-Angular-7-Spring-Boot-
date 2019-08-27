@@ -40,11 +40,15 @@
         <div class="row" style="font-weight: bold">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Pickup From</div>
+            <!--<div id="locationField">-->
+              <!--<input id="autocomplete" placeholder="Enter your googlePlace" type="text" class="form-control">-->
+            <!--</div>-->
             <div class="col-sm-12">
-              <select name="" id="" class="form-control" [disabled]="placeDisneyDisable" [(ngModel)]="selectedFrom"
-                      (change)="changeFrom()">
-                <option *ngFor="let place of placesFrom" [ngValue]="place">{{place.placeName}}</option>
-              </select>
+              <app-google-map (setAddress)="getAddress($event)" adressType="geocode"></app-google-map>
+              <!--<select name="" id="" class="form-control" [disabled]="placeDisneyDisable" [(ngModel)]="selectedFrom"-->
+                      <!--(change)="changeFrom()">-->
+                <!--<option *ngFor="let place of placesFrom" [ngValue]="place">{{place.placeName}}</option>-->
+              <!--</select>-->
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
@@ -117,21 +121,22 @@
           </div>
         </div>
         <!--<div class="row" style="margin-top: 25px;font-weight: bold">-->
-          <!--<div class="col-sm-12">-->
-            <!--Category-->
-          <!--</div>-->
+        <!--<div class="col-sm-12">-->
+        <!--Category-->
+        <!--</div>-->
         <!--</div>-->
         <!--<div class="row" style="font-weight: bold;margin-bottom: 50px">-->
-          <!--<div class="col-sm-12">-->
-            <!--<select class="form-control" (change)="changeVehicleCategory()" [(ngModel)]="selectedVehicleCategory">-->
-              <!--<option value="car">Car</option>-->
-              <!--<option value="minivan">Mini Van</option>-->
-            <!--</select>-->
-          <!--</div>-->
+        <!--<div class="col-sm-12">-->
+        <!--<select class="form-control" (change)="changeVehicleCategory()" [(ngModel)]="selectedVehicleCategory">-->
+        <!--<option value="car">Car</option>-->
+        <!--<option value="minivan">Mini Van</option>-->
+        <!--</select>-->
+        <!--</div>-->
         <!--</div>-->
         <div class="row" style="margin-top: 25px">
           <div class="col-sm-12">
-            <div class="row" style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
+            <div class="row"
+                 style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px">
               <div class="col-8" style="border-right: 1px solid black">
                 Vehicle
               </div>
@@ -192,11 +197,13 @@
         <div class="row">
           <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12" style="font-weight: bold">Email</div>
-            <div class="col-sm-12"><input type="text" class="form-control" (keyup)="suggestCustomer()" [(ngModel)]="customer.customerEmail"></div>
+            <div class="col-sm-12"><input type="text" class="form-control" (keyup)="suggestCustomer()"
+                                          [(ngModel)]="customer.customerEmail"></div>
           </div>
           <div class="col-sm-6" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12" style="font-weight: bold">Contact Number</div>
-            <div class="col-sm-12"><input type="text" class="form-control" [(ngModel)]="customer.customerContactNumber"></div>
+            <div class="col-sm-12"><input type="text" class="form-control" [(ngModel)]="customer.customerContactNumber">
+            </div>
           </div>
         </div>
         <div class="row" style="margin-top: 25px;font-weight: bold">
@@ -221,15 +228,16 @@
         </div>
         <div class="row">
           <div class="col-sm-12" style="margin-top: 80px">
-            <button class="btn btn-warning" style="position: absolute;left: 50%;transform: translateX(-50%)" (click)="makeReservation()">Submit
+            <button class="btn btn-warning" style="position: absolute;left: 50%;transform: translateX(-50%)"
+                    (click)="makeReservation()">Submit
               Reservation
             </button>
           </div>
         </div>
         <!--<div class="row">-->
-          <!--<div class="col-sm-12" style="margin-top: 80px">-->
-            <!--<app-payment></app-payment>-->
-          <!--</div>-->
+        <!--<div class="col-sm-12" style="margin-top: 80px">-->
+        <!--<app-payment></app-payment>-->
+        <!--</div>-->
         <!--</div>-->
       </div>
     </div>

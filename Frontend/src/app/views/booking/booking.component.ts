@@ -41,6 +41,7 @@ export class BookingComponent implements OnInit {
   placeDisneyDisable: boolean = false;
   customer: Customer = new Customer();
   vehicles: Array<Vehicle>;
+  googlePlace: any;
 
   constructor(
     private placeService: PlaceService,
@@ -51,6 +52,11 @@ export class BookingComponent implements OnInit {
     private vehicleService: VehicleService,
     private datePipe: DatePipe
   ) {
+  }
+
+  getAddress(googlePlace: object) {
+    this.googlePlace = googlePlace;
+    console.log(this.googlePlace)
   }
 
   ngOnInit() {

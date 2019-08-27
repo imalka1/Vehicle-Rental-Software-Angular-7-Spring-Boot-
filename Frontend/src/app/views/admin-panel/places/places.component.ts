@@ -56,4 +56,8 @@ export class PlacesComponent implements OnInit {
     this.placeDtos.push(placeDto);
     this.placeDtos[this.placeDtos.indexOf(placeDto)].placeDtos = this.placeDtos;
   }
+
+  displayPrice() {
+
+  }
 }

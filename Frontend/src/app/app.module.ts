@@ -8,7 +8,7 @@ import { FooterComponent } from './views/common/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 import { BookingComponent } from './views/booking/booking.component';
 import { SigninComponent } from './views/auth/signin/signin.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DatePipe} from "@angular/common";
 import { DateComponent } from './views/booking/date/date.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -24,6 +24,8 @@ import { ViewBookingsComponent } from './views/admin-panel/bookings/view-booking
 import { DriversComponent } from './views/admin-panel/drivers/drivers.component';
 import { EditDriverComponent } from './views/admin-panel/drivers/edit-driver/edit-driver.component';
 import { FixedDriverComponent } from './views/admin-panel/drivers/fixed-driver/fixed-driver.component';
+import { GoogleMapComponent } from './views/google-map/google-map.component';
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
   declarations: [
@@ -45,13 +47,19 @@ import { FixedDriverComponent } from './views/admin-panel/drivers/fixed-driver/f
     ViewBookingsComponent,
     DriversComponent,
     EditDriverComponent,
-    FixedDriverComponent
+    FixedDriverComponent,
+    GoogleMapComponent
   ],
   imports: [
+    // AgmCoreModule.forRoot({
+    //   apiKey: "AIzaSyCHmY6hmHn8__TO-Swq9iYIM1QhYodd7fQ",
+    //   libraries: ["places"]
+    // }),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     DatePipe

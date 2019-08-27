@@ -6,6 +6,20 @@
         Places
       </div>
     </div>
+    <div class="row" style="margin-top: 25px;font-weight: bold;border-bottom: 1px solid #afafaf;padding-bottom: 25px">
+      <div class="col-sm-2" style="margin-top: 5px">
+        Cost per kilometer :
+      </div>
+      <div class="col-sm-4">
+        <input class="form-control" type="number" step=".01" min="0" value="0" (input)="displayPrice()">
+      </div>
+      <div class="col-sm-3" style="margin-top: 5px;text-align: center">
+        <span>12.00</span>
+      </div>
+      <div class="col-sm-3">
+        <button class="btn" style="width: 100%">Update price</button>
+      </div>
+    </div>
     <div class="row" style="margin-top: 25px;font-weight: bold">
       <div class="col-sm-12">
         Category
