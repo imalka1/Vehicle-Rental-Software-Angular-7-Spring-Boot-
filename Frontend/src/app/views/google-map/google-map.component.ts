@@ -62,6 +62,7 @@ export class GoogleMapComponent implements OnInit {
         googlePlace.place = place.name;
         googlePlace.bounds = bounds;
         this.invokeEvent(googlePlace);
+        this.calculateDistance();
       }
 
     });
@@ -69,6 +70,13 @@ export class GoogleMapComponent implements OnInit {
 
   invokeEvent(googlePlace) {
     this.setAddress.emit(googlePlace);
+  }
+
+  calculateDistance() {
+    const mexicoCity = new google.maps.LatLng(19.432608, -99.133209);
+    const jacksonville = new google.maps.LatLng(40.730610, -73.935242);
+    const distance = google.maps.geometry.spherical.computeDistanceBetween(mexicoCity, jacksonville);
+    console.log(distance)
   }
 
   //

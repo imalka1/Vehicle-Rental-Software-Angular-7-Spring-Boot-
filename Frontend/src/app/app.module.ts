@@ -26,6 +26,7 @@ import { EditDriverComponent } from './views/admin-panel/drivers/edit-driver/edi
 import { FixedDriverComponent } from './views/admin-panel/drivers/fixed-driver/fixed-driver.component';
 import { GoogleMapComponent } from './views/google-map/google-map.component';
 import {AgmCoreModule} from "@agm/core";
+import { CarouselComponent } from './views/common/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +49,13 @@ import {AgmCoreModule} from "@agm/core";
     DriversComponent,
     EditDriverComponent,
     FixedDriverComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    CarouselComponent
   ],
   imports: [
     // AgmCoreModule.forRoot({
     //   apiKey: "AIzaSyCHmY6hmHn8__TO-Swq9iYIM1QhYodd7fQ",
-    //   libraries: ["places"]
+    //   libraries: ["geometry"]
     // }),
     BrowserModule,
     AppRoutingModule,

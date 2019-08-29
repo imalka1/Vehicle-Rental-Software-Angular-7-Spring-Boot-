@@ -18,6 +18,7 @@ import {VehicleDto} from "../../dtos/vehicle-dto";
 import {Vehicle} from "../../model/Vehicle";
 
 // declare var custom_date_picker: any;
+declare const google: any;
 
 @Component({
   selector: 'app-booking',
@@ -194,31 +195,48 @@ export class BookingComponent implements OnInit {
   }
 
   makeReservation() {
-    let cardDto: CreditcardDto = new CreditcardDto();
-    let reservationDto: ReservationDto = new ReservationDto();
+    // let cardDto: CreditcardDto = new CreditcardDto();
+    // let reservationDto: ReservationDto = new ReservationDto();
+    //
+    // reservationDto.reservationCustomer = this.customer;
+    // reservationDto.reservationPlaceFrom = this.selectedFrom;
+    // reservationDto.reservationPlaceTo = this.selectedTo;
+    // // reservation.reservationDateAndTime = this.currentDate + 'T' + this.currentTime+':00.000+0300';
+    // reservationDto.reservationDateAndTime = this.currentDate + ' ' + this.currentTime;
+    // // reservation.reservationTime = this.currentTime;
+    // console.log(reservationDto.reservationDateAndTime)
+    //
+    // cardDto.reservationDTO = reservationDto;
+    // this.reservationService.makeReservation(cardDto).subscribe((result) => {
+    //   let paymentDto: PaymentDto = result;
+    //   // console.log(sku.sku)
+    //   stripe.redirectToCheckout({
+    //     items: [{sku: paymentDto.sku, quantity: 1}],
+    //     successUrl: environment.frontend_url + '/head/booking?success=' + paymentDto.reservation.reservationPaymentKey,
+    //     cancelUrl: environment.frontend_url + '/head/booking',
+    //   }).then(function (result) {
+    //     // If `redirectToCheckout` fails due to a browser or network
+    //     // error, display the localized error message to your customer
+    //     // using `result.error.message`.
+    //   });
+    // });
 
-    reservationDto.reservationCustomer = this.customer;
-    reservationDto.reservationPlaceFrom = this.selectedFrom;
-    reservationDto.reservationPlaceTo = this.selectedTo;
-    // reservation.reservationDateAndTime = this.currentDate + 'T' + this.currentTime+':00.000+0300';
-    reservationDto.reservationDateAndTime = this.currentDate + ' ' + this.currentTime;
-    // reservation.reservationTime = this.currentTime;
-    console.log(reservationDto.reservationDateAndTime)
+    const mexicoCity = new google.maps.LatLng(6.053519, 80.220978);
+    const jacksonville = new google.maps.LatLng(6.927079, 79.861244);
+    const distance = google.maps.geometry.spherical.computeDistanceBetween(mexicoCity, jacksonville);
 
-    cardDto.reservationDTO = reservationDto;
-    this.reservationService.makeReservation(cardDto).subscribe((result) => {
-      let paymentDto: PaymentDto = result;
-      // console.log(sku.sku)
-      stripe.redirectToCheckout({
-        items: [{sku: paymentDto.sku, quantity: 1}],
-        successUrl: environment.frontend_url + '/head/booking?success=' + paymentDto.reservation.reservationPaymentKey,
-        cancelUrl: environment.frontend_url + '/head/booking',
-      }).then(function (result) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer
-        // using `result.error.message`.
-      });
+    var request = {
+      origin: 'Collins St, Melbourne, Australia',
+      destination: 'MCG Melbourne, Australia',
+      travelMode:google.maps.TravelMode.DRIVING
+    };
+
+    new google.maps.DirectionsService().route(request,function (response, status) {
+      console.log(response)
     });
+
+    // console.log(distance/1000)
+    console.log((distance/1000).toFixed(1))
   }
 
   submitReservation() {

@@ -11,6 +11,7 @@ import {VehiclesComponent} from "./views/admin-panel/vehicles/vehicles.component
 import {BookingsComponent} from "./views/admin-panel/bookings/bookings.component";
 import {ViewBookingsComponent} from "./views/admin-panel/bookings/view-bookings/view-bookings.component";
 import {DriversComponent} from "./views/admin-panel/drivers/drivers.component";
+import {CarouselComponent} from "./views/common/carousel/carousel.component";
 
 const routes: Routes = [
   {
@@ -51,16 +52,18 @@ const routes: Routes = [
     component: HeaderComponent,
     children: [
       {
-        path: 'signin',
-        component: SigninComponent
-      },
-      {
-        path: 'main',
-        component: HomeComponent
-      },
-      {
-        path: 'booking',
-        component: BookingComponent
+        path: 'carousel',
+        component: CarouselComponent,
+        children: [
+          {
+            path: 'main',
+            component: HomeComponent
+          },
+          {
+            path: 'booking',
+            component: BookingComponent
+          }
+        ]
       }
     ]
   },
@@ -79,7 +82,7 @@ const routes: Routes = [
   //     }
   //   ]
   // },
-  {path: '', pathMatch: "full", redirectTo: '/head/main'},
+  {path: '', pathMatch: "full", redirectTo: '/head/carousel/main'},
 ];
 
 @NgModule({
