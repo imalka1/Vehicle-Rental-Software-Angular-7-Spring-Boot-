@@ -53,10 +53,10 @@ import { CarouselComponent } from './views/common/carousel/carousel.component';
     CarouselComponent
   ],
   imports: [
-    // AgmCoreModule.forRoot({
-    //   apiKey: "AIzaSyCHmY6hmHn8__TO-Swq9iYIM1QhYodd7fQ",
-    //   libraries: ["geometry"]
-    // }),
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyBjKRweni7QSt1dWrc9izjXd7OHC9GYew4",
+      libraries: ["geometry","places"]
+    }),
     BrowserModule,
     AppRoutingModule,
     FormsModule,

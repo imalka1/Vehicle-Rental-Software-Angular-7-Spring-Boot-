@@ -1,9 +1,11 @@
-<!--<div class="iconsInline">-->
-  <!--<i class="fa fa-map-marker fa-2x"></i>-->
-<!--</div>-->
-<div class="iconsInline">
-  <input class="input form-control" type="text" [(ngModel)]="autocompleteInput" #addresstext placeholder="Your Location">
+<div class="row">
+  <div class="col-11">
+    <input class="input form-control" type="text" [(ngModel)]="locationText" #addressText>
+  </div>
+  <div class="col-1" style="padding-left: 25px;cursor: pointer" (click)="setCurrentLocation()">
+    <i class="fa fa-map-marker fa-2x"></i>
+  </div>
 </div>
 <!--<div class="form-group">-->
-  <!--<input placeholder="search for location" type="text" class="form-control" #search [formControl]="searchControl">-->
+<!--<input placeholder="search for location" type="text" class="form-control" #search [formControl]="searchControl">-->
 <!--</div>-->

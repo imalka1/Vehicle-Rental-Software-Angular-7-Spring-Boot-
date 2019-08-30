@@ -38,44 +38,106 @@
             Pickup Details (Private)
           </div>
         </div>
-        <div class="row" style="font-weight: bold">
+
+        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport'">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Pickup From</div>
-            <!--<div id="locationField">-->
-              <!--<input id="autocomplete" placeholder="Enter your googlePlace" type="text" class="form-control">-->
-            <!--</div>-->
             <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddress($event)" adressType="geocode"></app-google-map>
-              <!--<select name="" id="" class="form-control" [disabled]="placeDisneyDisable" [(ngModel)]="selectedFrom"-->
-                      <!--(change)="changeFrom()">-->
-                <!--<option *ngFor="let place of placesFrom" [ngValue]="place">{{place.placeName}}</option>-->
-              <!--</select>-->
+              <app-google-map (setAddress)="getAddressFrom($event)" locationText="My Location"></app-google-map>
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="exchangeFromTo()"></i></div>
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x" (click)="exchangeFromTo()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Drop To</div>
-            <div class="col-sm-12" *ngIf="selectedCategory=='Airport'">
-              <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()">
-                <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
-              </select>
-            </div>
-            <div class="col-sm-12" *ngIf="selectedCategory=='Disneyland'">
-              <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()"
-                      [disabled]="!placeDisneyDisable">
-                <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
-              </select>
-            </div>
-            <div class="col-sm-12" *ngIf="selectedCategory=='Private'">
+            <div class="col-sm-12">
               <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()">
                 <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
               </select>
             </div>
           </div>
         </div>
+
+        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland'">
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Pickup From</div>
+            <div class="col-sm-12">
+              <app-google-map (setAddress)="getAddressFrom($event)" locationText="My Location"></app-google-map>
+            </div>
+          </div>
+          <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x" (click)="exchangeFromTo()"></i></div>
+          </div>
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Drop To</div>
+            <div class="col-sm-12">
+              <input type="text" value="Disneyland" disabled class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Private'">
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Pickup From</div>
+            <div class="col-sm-12">
+              <app-google-map (setAddress)="getAddressFrom($event)" locationText="My Location"></app-google-map>
+            </div>
+          </div>
+          <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x" (click)="exchangeFromTo()"></i></div>
+          </div>
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Drop To</div>
+            <div class="col-sm-12">
+              <app-google-map (setAddress)="getAddressTo($event)"></app-google-map>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 25px">
+          <div class="col-sm-12" style="font-weight: bold">
+            Select Route <span style="font-weight: normal"> (Allow highways <input type="checkbox" (input)="allowHighways()">)</span>
+          </div>
+          <div class="col-sm-12">
+            <div class="row"
+                 style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px;font-size: 14px">
+              <div class="col-7" style="border-right: 1px solid black">
+                Route
+              </div>
+              <div class="col-2" style="text-align: center;border-right: 1px solid black">
+                Distance
+              </div>
+              <div class="col-2" style="text-align: center;border-right: 1px solid black">
+                Duration
+              </div>
+              <div class="col-1" style="text-align: center">
+                Select
+              </div>
+            </div>
+            <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
+            <div class="row" style="border-bottom: 1px solid black;padding: 10px;font-size: 14px" *ngFor="let mapRoute of googleMapRoutes; trackBy: trackByFn">
+              <div class="col-7" style="border-right: 1px solid black">
+                {{mapRoute[0]}}
+              </div>
+              <div class="col-2" style="text-align: center;border-right: 1px solid black">
+                {{mapRoute[1]}}
+              </div>
+              <div class="col-2" style="text-align: center;border-right: 1px solid black">
+                {{mapRoute[2]}}
+              </div>
+              <div class="col-1" style="text-align: center">
+                <input type="radio" name="vehicle">
+              </div>
+            </div>
+            <!--</ng-container>-->
+          </div>
+        </div>
+
+        <hr
+          style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+        <!--</div>-->
         <div class="row" style="font-weight: bold">
           <div class="col-sm-4" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Vehicle Category</div>

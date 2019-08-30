@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PlaceService} from "../../services/place.service";
 import {Place} from "../../model/place";
 import {PlaceDto} from "../../dtos/place-dto";
@@ -16,6 +16,7 @@ import {ReservationDto} from "../../dtos/reservation-dto";
 import {VehicleService} from "../../services/vehicle.service";
 import {VehicleDto} from "../../dtos/vehicle-dto";
 import {Vehicle} from "../../model/Vehicle";
+import {GooglePlace} from "../google-map/googlePlace";
 
 // declare var custom_date_picker: any;
 declare const google: any;
@@ -42,7 +43,10 @@ export class BookingComponent implements OnInit {
   placeDisneyDisable: boolean = false;
   customer: Customer = new Customer();
   vehicles: Array<Vehicle>;
-  googlePlace: any;
+
+  placeLatLong: Array<number> = new Array<number>();
+  allowHighway: boolean = true;
+  googleMapRoutes: Array<object> = new Array<object>();
 
   constructor(
     private placeService: PlaceService,
@@ -51,13 +55,9 @@ export class BookingComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private reservationService: ReservationService,
     private vehicleService: VehicleService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private ref: ChangeDetectorRef
   ) {
-  }
-
-  getAddress(googlePlace: object) {
-    this.googlePlace = googlePlace;
-    console.log(this.googlePlace)
   }
 
   ngOnInit() {
@@ -65,8 +65,7 @@ export class BookingComponent implements OnInit {
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
     this.changeVehicleCategory();
-
-    this.submitReservation();
+    // this.submitReservation();
   }
 
   changePassengers() {
@@ -80,13 +79,13 @@ export class BookingComponent implements OnInit {
     this.placeDisneyDisable = false;
     if (this.selectedCategory == 'Airport') {
 
-      this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
-        this.setPlaceDtos(result);
-        for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placesFrom.push(this.placeDtos[i].place);
-        }
-        this.selectedFrom = this.placeDtos[0].place;
-      });
+      // this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
+      //   this.setPlaceDtos(result);
+      //   for (let i = 0; i < this.placeDtos.length; i++) {
+      //     this.placesFrom.push(this.placeDtos[i].place);
+      //   }
+      //   this.selectedFrom = this.placeDtos[0].place;
+      // });
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         this.setPlaceDtos(result);
         for (let i = 0; i < this.placeDtos.length; i++) {
@@ -98,35 +97,36 @@ export class BookingComponent implements OnInit {
 
     } else if (this.selectedCategory == 'Disneyland') {
 
-      this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
-        this.setPlaceDtos(result);
-        for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placesFrom.push(this.placeDtos[i].place);
-        }
-        this.selectedFrom = this.placeDtos[0].place;
-      });
+      // this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
+      //   this.setPlaceDtos(result);
+      //   for (let i = 0; i < this.placeDtos.length; i++) {
+      //     this.placesFrom.push(this.placeDtos[i].place);
+      //   }
+      //   this.selectedFrom = this.placeDtos[0].place;
+      // });
 
       this.placeService.getPlacesViaCategory('Disneyland').subscribe((result) => {
         let place: Place = new Place();
         place.placeName = result[0].placeName;
         this.placesTo.push(place);
         this.selectedTo = place;
+        // this.placeDisneyDisable=true;
       });
-
-    } else if (this.selectedCategory == 'Private') {
-
-      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.setPlaceDtos(result);
-        for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placesFrom.push(this.placeDtos[i].place);
-          this.placesTo.push(this.placeDtos[i].place);
-        }
-        this.selectedFrom = this.placeDtos[0].place;
-        this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
-        this.selectedTo = this.placesTo[0];
-      });
-
     }
+    // } else if (this.selectedCategory == 'Private') {
+    //
+    //   this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
+    //     this.setPlaceDtos(result);
+    //     for (let i = 0; i < this.placeDtos.length; i++) {
+    //       this.placesFrom.push(this.placeDtos[i].place);
+    //       this.placesTo.push(this.placeDtos[i].place);
+    //     }
+    //     this.selectedFrom = this.placeDtos[0].place;
+    //     this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
+    //     this.selectedTo = this.placesTo[0];
+    //   });
+    //
+    // }
   }
 
   changeVehicleCategory() {
@@ -158,20 +158,20 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  changeFrom() {
-    this.placesTo = new Array<Place>();
-    for (let i = 0; i < this.placeDtos.length; i++) {
-      this.placesTo.push(this.placeDtos[i].place);
-    }
-    this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
-    if (this.selectedFrom == this.selectedTo) {
-      this.selectedTo = this.placesTo[0];
-    }
-  }
-
-  changeTo() {
-
-  }
+  // changeFrom() {
+  //   this.placesTo = new Array<Place>();
+  //   for (let i = 0; i < this.placeDtos.length; i++) {
+  //     this.placesTo.push(this.placeDtos[i].place);
+  //   }
+  //   this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
+  //   if (this.selectedFrom == this.selectedTo) {
+  //     this.selectedTo = this.placesTo[0];
+  //   }
+  // }
+  //
+  // changeTo() {
+  //
+  // }
 
   exchangeFromTo() {
     if (this.selectedCategory == 'Airport') {
@@ -240,18 +240,25 @@ export class BookingComponent implements OnInit {
     // // console.log(distance/1000)
     // console.log((distance/1000).toFixed(1))
 
-    new google.maps.DirectionsService().route(
-      {
-        origin: 'Colombo, Sri Lanka',
-        destination: 'Galle, Sri Lanka',
-        travelMode: google.maps.TravelMode.DRIVING,
-        provideRouteAlternatives: true,
-        avoidHighways: true,
-        
-      },
-      function(response, status) {
-        console.log(response)
-      });
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition((position) => {
+    //     new google.maps.DirectionsService().route(
+    //       {
+    //         origin: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+    //         // destination: new google.maps.LatLng(6.927079, 79.861244),
+    //         destination: 'Colombo, SriLanka',
+    //         travelMode: google.maps.TravelMode.DRIVING,
+    //         provideRouteAlternatives: true,
+    //         avoidHighways: true,
+    //
+    //       },
+    //       function(response, status) {
+    //         console.log(response)
+    //       });
+    //   });
+    // }
+
+
   }
 
   submitReservation() {
@@ -279,4 +286,60 @@ export class BookingComponent implements OnInit {
       }
     })
   }
+
+  getAddressFrom(googlePlace: GooglePlace) {
+    this.placeLatLong[0] = googlePlace.bounds[0];
+    this.placeLatLong[1] = googlePlace.bounds[1];
+    this.setRoutes();
+  }
+
+  getAddressTo(googlePlace: GooglePlace) {
+    this.placeLatLong[2] = googlePlace.bounds[0];
+    this.placeLatLong[3] = googlePlace.bounds[1];
+    this.setRoutes();
+  }
+
+  setRoutes() {
+    if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
+      var self = this;
+      new google.maps.DirectionsService().route(
+        {
+          origin: new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]),
+          destination: new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]),
+          travelMode: google.maps.TravelMode.DRIVING,
+          provideRouteAlternatives: true,
+          avoidHighways: this.allowHighway,
+        },
+        (response, status) => {
+          if (status == google.maps.DirectionsStatus.OK) {
+            self.setPlaces(response);
+            self.ref.detectChanges();
+          }
+        });
+
+    }
+  }
+
+  setPlaces(response) {
+    this.googleMapRoutes = new Array();
+    let routes = response.routes;
+    for (let i = 0; i < routes.length; i++) {
+      let mapRoute = new Array();
+      mapRoute[0] = routes[i].summary;
+      mapRoute[1] = routes[i].legs[0].distance.text;
+      mapRoute[2] = routes[i].legs[0].duration.text;
+      this.googleMapRoutes.push(mapRoute);
+    }
+    console.log(this.googleMapRoutes)
+  }
+
+  allowHighways() {
+    if (this.allowHighway) {
+      this.allowHighway = false;
+    } else {
+      this.allowHighway = true;
+    }
+    this.setRoutes();
+  }
+
 }
