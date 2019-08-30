@@ -73,8 +73,8 @@ export class GoogleMapComponent implements OnInit {
   }
 
   calculateDistance() {
-    const mexicoCity = new google.maps.LatLng(19.432608, -99.133209);
-    const jacksonville = new google.maps.LatLng(40.730610, -73.935242);
+    const mexicoCity = new google.maps.LatLng(6.053519, 80.220978);
+    const jacksonville = new google.maps.LatLng(6.927079, 79.861244);
     const distance = google.maps.geometry.spherical.computeDistanceBetween(mexicoCity, jacksonville);
     console.log(distance)
   }

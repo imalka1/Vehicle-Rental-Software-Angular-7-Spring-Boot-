@@ -221,22 +221,37 @@ export class BookingComponent implements OnInit {
     //   });
     // });
 
-    const mexicoCity = new google.maps.LatLng(6.053519, 80.220978);
-    const jacksonville = new google.maps.LatLng(6.927079, 79.861244);
-    const distance = google.maps.geometry.spherical.computeDistanceBetween(mexicoCity, jacksonville);
+    // const mexicoCity = new google.maps.LatLng(6.053519, 80.220978);
+    // const jacksonville = new google.maps.LatLng(6.927079, 79.861244);
+    // const distance = google.maps.geometry.spherical.computeDistanceBetween(mexicoCity, jacksonville);
+    //
+    // var request = {
+    //   // origin: 'Collins St, Melbourne, Australia',
+    //   // destination: 'MCG Melbourne, Australia',
+    //   origin: 'Jaffna, Sri Lanka',
+    //   destination: 'Galle, Sri Lanka',
+    //   travelMode:google.maps.TravelMode.DRIVING
+    // };
+    //
+    // new google.maps.DirectionsService().route(request,function (response, status) {
+    //   console.log(response)
+    // });
+    //
+    // // console.log(distance/1000)
+    // console.log((distance/1000).toFixed(1))
 
-    var request = {
-      origin: 'Collins St, Melbourne, Australia',
-      destination: 'MCG Melbourne, Australia',
-      travelMode:google.maps.TravelMode.DRIVING
-    };
-
-    new google.maps.DirectionsService().route(request,function (response, status) {
-      console.log(response)
-    });
-
-    // console.log(distance/1000)
-    console.log((distance/1000).toFixed(1))
+    new google.maps.DirectionsService().route(
+      {
+        origin: 'Colombo, Sri Lanka',
+        destination: 'Galle, Sri Lanka',
+        travelMode: google.maps.TravelMode.DRIVING,
+        provideRouteAlternatives: true,
+        avoidHighways: true,
+        
+      },
+      function(response, status) {
+        console.log(response)
+      });
   }
 
   submitReservation() {
