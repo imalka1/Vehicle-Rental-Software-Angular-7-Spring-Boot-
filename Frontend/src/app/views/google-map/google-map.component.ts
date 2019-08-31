@@ -38,6 +38,7 @@ export class GoogleMapComponent implements OnInit {
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
+
       let bounds = new Array();
       let googlePlace: GooglePlace = new GooglePlace();
       let autocomplete = new google.maps.places.Autocomplete(this.addressText.nativeElement);
@@ -50,8 +51,7 @@ export class GoogleMapComponent implements OnInit {
           // if (place.geometry === undefined || place.geometry === null) {
           //   return;
           // }
-
-          if (this.locationText != undefined) {
+          // if (this.locationText != undefined) {
             if (this.locationText == 'My Location') {
               if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -59,7 +59,6 @@ export class GoogleMapComponent implements OnInit {
                   bounds[1] = position.coords.longitude;
                   googlePlace.place = 'My Location';
                   googlePlace.bounds = bounds;
-                  googlePlace.fromOrTo = this.fromOrTo;
                   this.invokeEvent(googlePlace);
                 });
               }
@@ -70,11 +69,10 @@ export class GoogleMapComponent implements OnInit {
                 bounds[1] = place.geometry.location.lng();
                 googlePlace.place = place.name;
                 googlePlace.bounds = bounds;
-                googlePlace.fromOrTo = this.fromOrTo;
                 this.invokeEvent(googlePlace);
               }
             }
-          }
+          // }
         });
       });
       if (this.locationText != undefined) {
@@ -85,7 +83,6 @@ export class GoogleMapComponent implements OnInit {
               bounds[1] = position.coords.longitude;
               googlePlace.place = 'My Location';
               googlePlace.bounds = bounds;
-              googlePlace.fromOrTo = this.fromOrTo;
               this.invokeEvent(googlePlace);
             });
           }
@@ -106,7 +103,6 @@ export class GoogleMapComponent implements OnInit {
             bounds[1] = position.coords.longitude;
             googlePlace.place = 'My Location';
             googlePlace.bounds = bounds;
-            googlePlace.fromOrTo = this.fromOrTo;
             this.invokeEvent(googlePlace);
           });
         }

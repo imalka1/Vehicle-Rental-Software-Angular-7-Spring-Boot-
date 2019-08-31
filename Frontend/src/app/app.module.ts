@@ -27,6 +27,7 @@ import { FixedDriverComponent } from './views/admin-panel/drivers/fixed-driver/f
 import { GoogleMapComponent } from './views/google-map/google-map.component';
 import {AgmCoreModule} from "@agm/core";
 import { CarouselComponent } from './views/common/carousel/carousel.component';
+import {AgmDirectionModule} from "agm-direction";
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CarouselComponent } from './views/common/carousel/carousel.component';
       apiKey: "AIzaSyBjKRweni7QSt1dWrc9izjXd7OHC9GYew4",
       libraries: ["geometry","places"]
     }),
+    AgmDirectionModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

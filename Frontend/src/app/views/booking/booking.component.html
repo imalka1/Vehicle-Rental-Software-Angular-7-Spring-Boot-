@@ -47,7 +47,8 @@
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x" (click)="exchangeFromTo()"></i></div>
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
+                                                                 (click)="exchangeFromTo()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Drop To</div>
@@ -67,7 +68,8 @@
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x" (click)="exchangeFromTo()"></i></div>
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
+                                                                 (click)="exchangeFromTo()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Drop To</div>
@@ -85,7 +87,8 @@
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x" (click)="exchangeFromTo()"></i></div>
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
+                                                                 (click)="exchangeFromTo()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Drop To</div>
@@ -97,7 +100,8 @@
 
         <div class="row" style="margin-top: 25px">
           <div class="col-sm-12" style="font-weight: bold">
-            Select Route <span style="font-weight: normal"> (Allow highways <input type="checkbox" (input)="allowHighways()">)</span>
+            Select Route <span style="font-weight: normal"> (Allow highways <input type="checkbox"
+                                                                                   (input)="allowHighways()">)</span>
           </div>
           <div class="col-sm-12">
             <div class="row"
@@ -116,7 +120,8 @@
               </div>
             </div>
             <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
-            <div class="row" style="border-bottom: 1px solid black;padding: 10px;font-size: 14px" *ngFor="let mapRoute of googleMapRoutes; trackBy: trackByFn">
+            <div class="row" style="border-bottom: 1px solid black;padding: 10px;font-size: 14px"
+                 *ngFor="let mapRoute of googleMapRoutes">
               <div class="col-7" style="border-right: 1px solid black">
                 {{mapRoute[0]}}
               </div>
@@ -127,11 +132,32 @@
                 {{mapRoute[2]}}
               </div>
               <div class="col-1" style="text-align: center">
-                <input type="radio" name="vehicle">
+                <input type="radio" name="googleDirection">
               </div>
             </div>
             <!--</ng-container>-->
           </div>
+        </div>
+
+        <hr
+          style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+        <div class="row" style="margin-top: 50px">
+          <!--<agm-map style="height: 400px">-->
+            <!--&lt;!&ndash;<agm-marker [latitude]="6.053519" [longitude]="80.220978"></agm-marker>&ndash;&gt;-->
+            <!--&lt;!&ndash;<agm-marker [latitude]="6.927079" [longitude]="79.861244"></agm-marker>&ndash;&gt;-->
+            <!--&lt;!&ndash;<agm-direction [origin]="{ lat: 6.053519, lng: 80.220978 }"&ndash;&gt;-->
+                           <!--&lt;!&ndash;[destination]="{ lat: 6.927079, lng: 79.861244 }"&ndash;&gt;-->
+                           <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;</agm-direction>&ndash;&gt;-->
+            <!--<ng-container>-->
+              <!--<agm-polyline *ngFor="let polyline of polylines"  [strokeColor]="polyline.strokeColor">-->
+                <!--<agm-polyline-point *ngFor="let point of polyline.path" [latitude]="point.latitude" [longitude]="point.longitude">-->
+                <!--</agm-polyline-point>-->
+              <!--</agm-polyline>-->
+            <!--</ng-container>-->
+          <!--</agm-map>-->
+          <div id="map" style="height: 400px"></div>
         </div>
 
         <hr

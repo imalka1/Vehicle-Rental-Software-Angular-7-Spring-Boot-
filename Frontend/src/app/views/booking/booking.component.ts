@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PlaceService} from "../../services/place.service";
 import {Place} from "../../model/place";
 import {PlaceDto} from "../../dtos/place-dto";
@@ -17,16 +17,17 @@ import {VehicleService} from "../../services/vehicle.service";
 import {VehicleDto} from "../../dtos/vehicle-dto";
 import {Vehicle} from "../../model/Vehicle";
 import {GooglePlace} from "../google-map/googlePlace";
+import {MapsAPILoader} from "@agm/core";
 
 // declare var custom_date_picker: any;
-declare const google: any;
+// declare const google: any;
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
-export class BookingComponent implements OnInit {
+export class BookingComponent implements OnInit, AfterViewInit {
 
   currentDate: string;
   currentTime: string;
@@ -47,6 +48,8 @@ export class BookingComponent implements OnInit {
   placeLatLong: Array<number> = new Array<number>();
   allowHighway: boolean = true;
   googleMapRoutes: Array<object> = new Array<object>();
+  polylines = new Array<object>();
+  map;
 
   constructor(
     private placeService: PlaceService,
@@ -56,11 +59,20 @@ export class BookingComponent implements OnInit {
     private reservationService: ReservationService,
     private vehicleService: VehicleService,
     private datePipe: DatePipe,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private mapsAPILoader: MapsAPILoader,
   ) {
   }
 
   ngOnInit() {
+    this.mapsAPILoader.load().then(() => {
+        this.map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: 6.053519, lng: 80.220978},
+          // mapTypeId: 'terrain'
+        });
+      }
+    );
     this.currentDate = this.datePipe.transform((new Date()), 'yyyy-MM-dd');
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
@@ -317,6 +329,8 @@ export class BookingComponent implements OnInit {
           }
         });
 
+    } else {
+      this.googleMapRoutes = new Array();
     }
   }
 
@@ -328,9 +342,52 @@ export class BookingComponent implements OnInit {
       mapRoute[0] = routes[i].summary;
       mapRoute[1] = routes[i].legs[0].distance.text;
       mapRoute[2] = routes[i].legs[0].duration.text;
+      // console.log(google.maps.geometry.encoding.decodePath(routes[i].overview_polyline))
       this.googleMapRoutes.push(mapRoute);
+
+      let polyline = new google.maps.Polyline({
+        path: google.maps.geometry.encoding.decodePath(routes[i].overview_polyline),
+        map: this.map,
+        strokeColor: '#2148ff'
+      });
+      let bounds = new google.maps.LatLngBounds();
+      for (let i = 0; i < polyline.getPath().getLength(); i++) {
+        bounds.extend(polyline.getPath().getAt(i));
+      }
+      this.map.fitBounds(bounds);
+      var marker = new google.maps.Marker({
+        position: {lat: 6.053519, lng: 80.220978},
+        map: this.map,
+        title: 'Hello World!'
+      });
+      marker.setMap(this.map);
+      //   let path =google.maps.geometry.encoding.decodePath(routes[i].overview_polyline)
+      //   let bounds = new google.maps.LatLngBounds();
+      //   for (let i = 0; i < path.length; i++) {
+      //     bounds.extend(path[i]);
+      //   }
+      //   console.log(bounds)
+      //   var flightPlanCoordinates = [
+      //     {lat: 37.772, lng: -122.214},
+      //     {lat: 21.291, lng: -157.821},
+      //     {lat: -18.142, lng: 178.431},
+      //     {lat: -27.467, lng: 153.027}
+      //   ];
+      //   let polyline = new google.maps.Polyline({
+      //     path: flightPlanCoordinates,
+      //     strokeColor: '#FF0000',
+      //     strokeOpacity: 0.8,
+      //     strokeWeight: 2,
+      //     fillColor: '#FF0000',
+      //     fillOpacity: 0.35
+      //     // strokeColor: "#0000FF",
+      //     // strokeOpacity: 1.0,
+      //     // strokeWeight: 2
+      //   });
+      //   polyline.setMap(map);
+      //   this.polylines.push(polyline)
     }
-    console.log(this.googleMapRoutes)
+    // console.log(response)
   }
 
   allowHighways() {
@@ -342,4 +399,7 @@ export class BookingComponent implements OnInit {
     this.setRoutes();
   }
 
+  ngAfterViewInit(): void {
+
+  }
 }
