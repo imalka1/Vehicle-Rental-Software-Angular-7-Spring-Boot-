@@ -27,7 +27,7 @@ import {MapsAPILoader} from "@agm/core";
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
-export class BookingComponent implements OnInit, AfterViewInit {
+export class BookingComponent implements OnInit {
 
   currentDate: string;
   currentTime: string;
@@ -48,8 +48,8 @@ export class BookingComponent implements OnInit, AfterViewInit {
   placeLatLong: Array<number> = new Array<number>();
   allowHighway: boolean = true;
   googleMapRoutes: Array<object> = new Array<object>();
-  polylines = new Array<object>();
-  map;
+  selectedRoute = new Array<object>();
+  map: any;
 
   constructor(
     private placeService: PlaceService,
@@ -67,7 +67,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.mapsAPILoader.load().then(() => {
         this.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 3,
+          zoom: 9,
           center: {lat: 6.053519, lng: 80.220978},
           // mapTypeId: 'terrain'
         });
@@ -314,17 +314,19 @@ export class BookingComponent implements OnInit, AfterViewInit {
   setRoutes() {
     if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
       var self = this;
+      let origin = new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]);
+      let destination = new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]);
       new google.maps.DirectionsService().route(
         {
-          origin: new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]),
-          destination: new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]),
+          origin: origin,
+          destination: destination,
           travelMode: google.maps.TravelMode.DRIVING,
           provideRouteAlternatives: true,
           avoidHighways: this.allowHighway,
         },
         (response, status) => {
           if (status == google.maps.DirectionsStatus.OK) {
-            self.setPlaces(response);
+            self.setPlaces(response, origin, destination);
             self.ref.detectChanges();
           }
         });
@@ -334,7 +336,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
     }
   }
 
-  setPlaces(response) {
+  setPlaces(response, origin, destination) {
     this.googleMapRoutes = new Array();
     let routes = response.routes;
     for (let i = 0; i < routes.length; i++) {
@@ -342,50 +344,16 @@ export class BookingComponent implements OnInit, AfterViewInit {
       mapRoute[0] = routes[i].summary;
       mapRoute[1] = routes[i].legs[0].distance.text;
       mapRoute[2] = routes[i].legs[0].duration.text;
-      // console.log(google.maps.geometry.encoding.decodePath(routes[i].overview_polyline))
+      mapRoute[3] = routes[i].overview_polyline;
+      mapRoute[4] = origin;
+      mapRoute[5] = destination;
+
       this.googleMapRoutes.push(mapRoute);
 
-      let polyline = new google.maps.Polyline({
-        path: google.maps.geometry.encoding.decodePath(routes[i].overview_polyline),
-        map: this.map,
-        strokeColor: '#2148ff'
-      });
-      let bounds = new google.maps.LatLngBounds();
-      for (let i = 0; i < polyline.getPath().getLength(); i++) {
-        bounds.extend(polyline.getPath().getAt(i));
-      }
-      this.map.fitBounds(bounds);
-      var marker = new google.maps.Marker({
-        position: {lat: 6.053519, lng: 80.220978},
-        map: this.map,
-        title: 'Hello World!'
-      });
-      marker.setMap(this.map);
-      //   let path =google.maps.geometry.encoding.decodePath(routes[i].overview_polyline)
-      //   let bounds = new google.maps.LatLngBounds();
-      //   for (let i = 0; i < path.length; i++) {
-      //     bounds.extend(path[i]);
-      //   }
-      //   console.log(bounds)
-      //   var flightPlanCoordinates = [
-      //     {lat: 37.772, lng: -122.214},
-      //     {lat: 21.291, lng: -157.821},
-      //     {lat: -18.142, lng: 178.431},
-      //     {lat: -27.467, lng: 153.027}
-      //   ];
-      //   let polyline = new google.maps.Polyline({
-      //     path: flightPlanCoordinates,
-      //     strokeColor: '#FF0000',
-      //     strokeOpacity: 0.8,
-      //     strokeWeight: 2,
-      //     fillColor: '#FF0000',
-      //     fillOpacity: 0.35
-      //     // strokeColor: "#0000FF",
-      //     // strokeOpacity: 1.0,
-      //     // strokeWeight: 2
-      //   });
-      //   polyline.setMap(map);
-      //   this.polylines.push(polyline)
+
+      // this.map.fitBounds(bounds);
+
+      // marker1.setMap(this.map);
     }
     // console.log(response)
   }
@@ -399,7 +367,34 @@ export class BookingComponent implements OnInit, AfterViewInit {
     this.setRoutes();
   }
 
-  ngAfterViewInit(): void {
+  changeRoute(mapRoute) {
+    console.log(mapRoute)
+    this.mapsAPILoader.load().then(() => {
+        this.map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 9,
+          center: {lat: 6.053519, lng: 80.220978},
+          // mapTypeId: 'terrain'
+        });
+        
+        new google.maps.Polyline({
+          path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
+          map: this.map,
+          strokeColor: '#2148ff'
+        });
+
+        new google.maps.Marker({
+          position: mapRoute[4],
+          map: this.map,
+          // title: 'Hello World!'
+        });
+
+        new google.maps.Marker({
+          position: mapRoute[5],
+          map: this.map,
+          // title: 'Hello World!'
+        });
+      }
+    );
 
   }
 }
