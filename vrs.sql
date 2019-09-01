@@ -43,7 +43,7 @@ INSERT INTO `vehicle_rental_software`.`place`
 `place_category`,
 `place_name`)
 VALUES
-(7.180272,79.884080,'Airport','Katunayaka'),(6.293070, 81.123698,'Airport','Mattala'),(7.301311, 80.387188,'Disneyland','Disneyland');
+(7.180272,79.884080,'Airport','Katunayaka'),(6.293070, 81.123698,'Airport','Mattala'),(9.661750, 80.024650,'Disneyland','Disneyland');
 
 
 INSERT INTO `vehicle_rental_software`.`user`

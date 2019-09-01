@@ -74,7 +74,7 @@
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Drop To</div>
             <div class="col-sm-12">
-              <input type="text" value="Disneyland" disabled class="form-control">
+              <input type="text" value="{{selectedTo.placeName}}" disabled class="form-control">
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@
                 {{mapRoute[2]}}
               </div>
               <div class="col-1" style="text-align: center">
-                <input type="radio"  name="googleDirection" (change)="changeRoute(mapRoute)">
+                <input type="radio"  name="googleDirection" (change)="changeRouteOnMap(mapRoute)">
               </div>
             </div>
             <!--</ng-container>-->

@@ -83,15 +83,14 @@ export class BookingComponent implements OnInit {
     // this.submitReservation();
   }
 
-  changePassengers() {
-    this.totalPassengers = this.adults + this.children;
-    this.changeVehicleCategory();
-  }
-
   changeCategory() {
+    this.googleMapRoutes = new Array();
+    this.placeLatLong = new Array<number>()
     this.placesFrom = new Array<Place>();
     this.placesTo = new Array<Place>();
-    this.placeDisneyDisable = false;
+    this.selectedTo = new Place();
+    this.changeRouteOnMap(null);
+    // this.placeDisneyDisable = false;
     if (this.selectedCategory == 'Airport') {
 
       // this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
@@ -102,16 +101,17 @@ export class BookingComponent implements OnInit {
       //   this.selectedFrom = this.placeDtos[0].place;
       // });
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        this.setPlaceDtos(result);
-        for (let i = 0; i < this.placeDtos.length; i++) {
-          this.placeDtos[i].place.placeName = this.placeDtos[i].place.placeName + ' (Airport)';
-          this.placesTo.push(this.placeDtos[i].place);
+        let places: Array<Place> = result;
+        // this.setPlaceDtos(result);
+        for (let i = 0; i < places.length; i++) {
+          places[i].placeName = places[i].placeName + ' (Airport)';
+          this.placesTo.push(places[i]);
         }
-        this.selectedTo = this.placeDtos[0].place;
+        this.selectedTo = this.placesTo[0];
+        this.changePlace();
       });
 
     } else if (this.selectedCategory == 'Disneyland') {
-
       // this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
       //   this.setPlaceDtos(result);
       //   for (let i = 0; i < this.placeDtos.length; i++) {
@@ -120,12 +120,12 @@ export class BookingComponent implements OnInit {
       //   this.selectedFrom = this.placeDtos[0].place;
       // });
 
-      this.placeService.getPlacesViaCategory('Disneyland').subscribe((result) => {
-        let place: Place = new Place();
-        place.placeName = result[0].placeName;
+      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
+        let place: Place = result[0];
         this.placesTo.push(place);
         this.selectedTo = place;
-        // this.placeDisneyDisable=true;
+        console.log(place)
+        this.changePlace();
       });
     }
     // } else if (this.selectedCategory == 'Private') {
@@ -144,34 +144,16 @@ export class BookingComponent implements OnInit {
     // }
   }
 
-  changeVehicleCategory() {
-    let vehicle: Vehicle = new Vehicle();
-    vehicle.vehicleCategory = this.selectedVehicleCategory;
-    vehicle.vehicleTotalPassengers = this.totalPassengers;
-    if (this.selectedVehicleCategory == 'car') {
+  // setPlaceDtos(places: Array<Place>) {
+  //   this.placeDtos = new Array<PlaceDto>();
+  //   for (let i = 0; i < places.length; i++) {
+  //     let placeDto = new PlaceDto();
+  //     placeDto.place = places[i];
+  //     placeDto.placeDtos = this.placeDtos;
+  //     this.placeDtos.push(placeDto);
+  //   }
+  // }
 
-      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
-        this.vehicles = result;
-      });
-
-    } else if (this.selectedVehicleCategory == 'minivan') {
-
-      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
-        this.vehicles = result;
-      });
-
-    }
-  }
-
-  setPlaceDtos(places: Array<Place>) {
-    this.placeDtos = new Array<PlaceDto>();
-    for (let i = 0; i < places.length; i++) {
-      let placeDto = new PlaceDto();
-      placeDto.place = places[i];
-      placeDto.placeDtos = this.placeDtos;
-      this.placeDtos.push(placeDto);
-    }
-  }
 
   // changeFrom() {
   //   this.placesTo = new Array<Place>();
@@ -207,6 +189,120 @@ export class BookingComponent implements OnInit {
     this.placesTo = placesTemp;
     this.selectedFrom = this.placesFrom[0];
     this.selectedTo = this.placesTo[0];
+  }
+
+  getAddressFrom(googlePlace: GooglePlace) {
+    console.log(googlePlace)
+    this.placeLatLong[0] = googlePlace.bounds[0];
+    this.placeLatLong[1] = googlePlace.bounds[1];
+    this.setRoutes();
+  }
+
+  getAddressTo(googlePlace: GooglePlace) {
+    this.placeLatLong[2] = googlePlace.bounds[0];
+    this.placeLatLong[3] = googlePlace.bounds[1];
+    this.setRoutes();
+  }
+
+  setRoutes() {
+    if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
+      var self = this;
+      let origin = new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]);
+      let destination = new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]);
+      new google.maps.DirectionsService().route(
+        {
+          origin: origin,
+          destination: destination,
+          travelMode: google.maps.TravelMode.DRIVING,
+          provideRouteAlternatives: true,
+          avoidHighways: this.allowHighway,
+        },
+        (response, status) => {
+          if (status == google.maps.DirectionsStatus.OK) {
+            self.setPlaces(response, origin, destination);
+            self.ref.detectChanges();
+          }
+        });
+    }
+  }
+
+  setPlaces(response, origin, destination) {
+    this.googleMapRoutes = new Array();
+    let routes = response.routes;
+    for (let i = 0; i < routes.length; i++) {
+      let mapRoute = new Array();
+      mapRoute[0] = routes[i].summary;
+      mapRoute[1] = routes[i].legs[0].distance.text;
+      mapRoute[2] = routes[i].legs[0].duration.text;
+      mapRoute[3] = routes[i].overview_polyline;
+      mapRoute[4] = origin;
+      mapRoute[5] = destination;
+
+      this.googleMapRoutes.push(mapRoute);
+    }
+    // console.log(response)
+  }
+
+  changeRouteOnMap(mapRoute) {
+    if (this.polyline != undefined && this.marker1 != undefined && this.marker2 != undefined) {
+      this.polyline.setMap(null);
+      this.marker1.setMap(null);
+      this.marker2.setMap(null);
+    }
+
+    if (mapRoute != null) {
+      this.polyline = new google.maps.Polyline({
+        path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
+        map: this.map,
+        strokeColor: '#2148ff'
+      });
+
+      this.marker1 = new google.maps.Marker({
+        position: mapRoute[4],
+        map: this.map,
+        // title: 'Hello World!'
+      });
+
+      this.marker2 = new google.maps.Marker({
+        position: mapRoute[5],
+        map: this.map,
+        // title: 'Hello World!'
+      });
+    }
+  }
+
+  changePlace() {
+    this.placeLatLong[2] = this.selectedTo.latitude;
+    this.placeLatLong[3] = this.selectedTo.longtitude;
+    this.setRoutes();
+  }
+
+  allowHighways() {
+    if (this.allowHighway) {
+      this.allowHighway = false;
+    } else {
+      this.allowHighway = true;
+    }
+    this.setRoutes();
+  }
+
+  changeVehicleCategory() {
+    let vehicle: Vehicle = new Vehicle();
+    vehicle.vehicleCategory = this.selectedVehicleCategory;
+    vehicle.vehicleTotalPassengers = this.totalPassengers;
+    if (this.selectedVehicleCategory == 'car') {
+
+      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
+        this.vehicles = result;
+      });
+
+    } else if (this.selectedVehicleCategory == 'minivan') {
+
+      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
+        this.vehicles = result;
+      });
+
+    }
   }
 
   makeReservation() {
@@ -302,101 +398,8 @@ export class BookingComponent implements OnInit {
     })
   }
 
-  getAddressFrom(googlePlace: GooglePlace) {
-    this.placeLatLong[0] = googlePlace.bounds[0];
-    this.placeLatLong[1] = googlePlace.bounds[1];
-    this.setRoutes();
-  }
-
-  getAddressTo(googlePlace: GooglePlace) {
-    this.placeLatLong[2] = googlePlace.bounds[0];
-    this.placeLatLong[3] = googlePlace.bounds[1];
-    this.setRoutes();
-  }
-
-  setRoutes() {
-    if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
-      var self = this;
-      let origin = new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]);
-      let destination = new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]);
-      new google.maps.DirectionsService().route(
-        {
-          origin: origin,
-          destination: destination,
-          travelMode: google.maps.TravelMode.DRIVING,
-          provideRouteAlternatives: true,
-          avoidHighways: this.allowHighway,
-        },
-        (response, status) => {
-          if (status == google.maps.DirectionsStatus.OK) {
-            self.setPlaces(response, origin, destination);
-            self.ref.detectChanges();
-          }
-        });
-
-    } else {
-      this.googleMapRoutes = new Array();
-    }
-  }
-
-  setPlaces(response, origin, destination) {
-    this.googleMapRoutes = new Array();
-    let routes = response.routes;
-    for (let i = 0; i < routes.length; i++) {
-      let mapRoute = new Array();
-      mapRoute[0] = routes[i].summary;
-      mapRoute[1] = routes[i].legs[0].distance.text;
-      mapRoute[2] = routes[i].legs[0].duration.text;
-      mapRoute[3] = routes[i].overview_polyline;
-      mapRoute[4] = origin;
-      mapRoute[5] = destination;
-
-      this.googleMapRoutes.push(mapRoute);
-    }
-    console.log(response)
-  }
-
-  allowHighways() {
-    if (this.allowHighway) {
-      this.allowHighway = false;
-    } else {
-      this.allowHighway = true;
-    }
-    this.setRoutes();
-  }
-
-  changeRoute(mapRoute) {
-    console.log(mapRoute)
-    if (this.polyline != undefined && this.marker1 != undefined && this.marker2 != undefined) {
-      this.polyline.setMap(null);
-      this.marker1.setMap(null);
-      this.marker2.setMap(null);
-    }
-
-
-    this.polyline = new google.maps.Polyline({
-      path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
-      map: this.map,
-      strokeColor: '#2148ff'
-    });
-
-    this.marker1 = new google.maps.Marker({
-      position: mapRoute[4],
-      map: this.map,
-      // title: 'Hello World!'
-    });
-
-    this.marker2 = new google.maps.Marker({
-      position: mapRoute[5],
-      map: this.map,
-      // title: 'Hello World!'
-    });
-
-  }
-
-  changePlace() {
-    this.placeLatLong[2] = this.selectedTo.latitude;
-    this.placeLatLong[3] = this.selectedTo.longtitude;
-    this.setRoutes();
+  changePassengers() {
+    this.totalPassengers = this.adults + this.children;
+    this.changeVehicleCategory();
   }
 }
