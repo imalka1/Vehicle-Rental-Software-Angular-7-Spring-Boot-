@@ -49,6 +49,9 @@ export class BookingComponent implements OnInit {
   allowHighway: boolean = true;
   googleMapRoutes: Array<object> = new Array<object>();
   selectedRoute = new Array<object>();
+  polyline: any;
+  marker1: any;
+  marker2: any;
   map: any;
 
   constructor(
@@ -181,7 +184,7 @@ export class BookingComponent implements OnInit {
   //   }
   // }
   //
-  // changeTo() {
+  // changePlace() {
   //
   // }
 
@@ -349,13 +352,8 @@ export class BookingComponent implements OnInit {
       mapRoute[5] = destination;
 
       this.googleMapRoutes.push(mapRoute);
-
-
-      // this.map.fitBounds(bounds);
-
-      // marker1.setMap(this.map);
     }
-    // console.log(response)
+    console.log(response)
   }
 
   allowHighways() {
@@ -369,32 +367,36 @@ export class BookingComponent implements OnInit {
 
   changeRoute(mapRoute) {
     console.log(mapRoute)
-    this.mapsAPILoader.load().then(() => {
-        this.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 9,
-          center: {lat: 6.053519, lng: 80.220978},
-          // mapTypeId: 'terrain'
-        });
-        
-        new google.maps.Polyline({
-          path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
-          map: this.map,
-          strokeColor: '#2148ff'
-        });
+    if (this.polyline != undefined && this.marker1 != undefined && this.marker2 != undefined) {
+      this.polyline.setMap(null);
+      this.marker1.setMap(null);
+      this.marker2.setMap(null);
+    }
 
-        new google.maps.Marker({
-          position: mapRoute[4],
-          map: this.map,
-          // title: 'Hello World!'
-        });
 
-        new google.maps.Marker({
-          position: mapRoute[5],
-          map: this.map,
-          // title: 'Hello World!'
-        });
-      }
-    );
+    this.polyline = new google.maps.Polyline({
+      path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
+      map: this.map,
+      strokeColor: '#2148ff'
+    });
 
+    this.marker1 = new google.maps.Marker({
+      position: mapRoute[4],
+      map: this.map,
+      // title: 'Hello World!'
+    });
+
+    this.marker2 = new google.maps.Marker({
+      position: mapRoute[5],
+      map: this.map,
+      // title: 'Hello World!'
+    });
+
+  }
+
+  changePlace() {
+    this.placeLatLong[2] = this.selectedTo.latitude;
+    this.placeLatLong[3] = this.selectedTo.longtitude;
+    this.setRoutes();
   }
 }

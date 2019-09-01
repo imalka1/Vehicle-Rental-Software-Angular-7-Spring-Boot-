@@ -110,7 +110,7 @@ export class ViewBookingsComponent implements OnInit {
     }
   }
 
-  changeTo() {
+  changePlace() {
 
   }
 

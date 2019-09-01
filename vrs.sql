@@ -32,17 +32,19 @@ INSERT INTO `vehicle_rental_software`.`vehicle`
 `vehicle_category`,
 `vehicle_total_passengers`,
 `vehicle_name`,
-`vehicle_reserved`,
-`driver_id`)
+`vehicle_reserved`)
 VALUES
-('car',5,'Benz',false,'95'),('car',4,'Toyota',false,'95'),('minivan',4,'Mitsubishi',false,'96'),('minivan',4,'Skoda',false,'96'),('minivan',7,'Nissan',false,'96');
+('car',5,'Benz',false),('car',4,'Toyota',false),('minivan',4,'Mitsubishi',false),('minivan',4,'Skoda',false),('minivan',7,'Nissan',false);
 
 INSERT INTO `vehicle_rental_software`.`place`
 (
+`latitude`,
+`longtitude`,
 `place_category`,
 `place_name`)
 VALUES
-('Airport','Colombo'),('Airport','Galle'),('Private','Matara'),('Private','Malabe'),('Private','Hambantota'),('Disneyland','Disneyland');
+(7.180272,79.884080,'Airport','Katunayaka'),(6.293070, 81.123698,'Airport','Mattala'),(7.301311, 80.387188,'Disneyland','Disneyland');
+
 
 INSERT INTO `vehicle_rental_software`.`user`
 (`user_name`,

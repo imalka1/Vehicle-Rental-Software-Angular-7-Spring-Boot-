@@ -64,6 +64,10 @@ const routes: Routes = [
             component: BookingComponent
           }
         ]
+      },
+      {
+        path: 'signin',
+        component: SigninComponent
       }
     ]
   },

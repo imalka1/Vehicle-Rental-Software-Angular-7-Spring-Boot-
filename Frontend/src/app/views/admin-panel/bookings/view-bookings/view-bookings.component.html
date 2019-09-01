@@ -52,18 +52,18 @@
       <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
         <div class="col-sm-12">Drop To</div>
         <div class="col-sm-12" *ngIf="selectedCategory=='airport'">
-          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()">
+          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changePlace()">
             <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
           </select>
         </div>
         <div class="col-sm-12" *ngIf="selectedCategory=='disneyland'">
-          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()"
+          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changePlace()"
                   [disabled]="!placeDisneyDisable">
             <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
           </select>
         </div>
         <div class="col-sm-12" *ngIf="selectedCategory=='private'">
-          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changeTo()">
+          <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changePlace()">
             <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
           </select>
         </div>
