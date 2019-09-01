@@ -41,9 +41,8 @@
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport'">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Pickup From</div>
             <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressFrom($event)" locationText="My Location"></app-google-map>
+              <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
@@ -62,9 +61,8 @@
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland'">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Pickup From</div>
             <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressFrom($event)" locationText="My Location"></app-google-map>
+              <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
@@ -81,9 +79,8 @@
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Private'">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Pickup From</div>
             <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressFrom($event)" locationText="My Location"></app-google-map>
+              <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
             </div>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
@@ -91,9 +88,8 @@
                                                                  (click)="exchangeFromTo()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Drop To</div>
             <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressTo($event)"></app-google-map>
+              <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
             </div>
           </div>
         </div>

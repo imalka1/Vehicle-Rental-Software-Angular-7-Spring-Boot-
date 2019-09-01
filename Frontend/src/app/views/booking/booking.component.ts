@@ -205,6 +205,7 @@ export class BookingComponent implements OnInit {
   }
 
   setRoutes() {
+    this.googleMapRoutes = new Array();
     if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
       var self = this;
       let origin = new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]);
@@ -227,7 +228,6 @@ export class BookingComponent implements OnInit {
   }
 
   setPlaces(response, origin, destination) {
-    this.googleMapRoutes = new Array();
     let routes = response.routes;
     for (let i = 0; i < routes.length; i++) {
       let mapRoute = new Array();

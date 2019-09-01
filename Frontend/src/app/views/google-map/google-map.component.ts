@@ -21,7 +21,8 @@ declare const google: any;
   styleUrls: ['./google-map.component.css']
 })
 export class GoogleMapComponent implements OnInit {
-  @Input() locationText: string;
+  @Input() headText:string;
+  locationText: string;
   @Input() fromOrTo: string;
   @Output() setAddress: EventEmitter<any> = new EventEmitter();
   @ViewChild('addressText') addressText: any;
@@ -75,19 +76,19 @@ export class GoogleMapComponent implements OnInit {
           // }
         });
       });
-      if (this.locationText != undefined) {
-        if (this.locationText == 'My Location') {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-              bounds[0] = position.coords.latitude;
-              bounds[1] = position.coords.longitude;
-              googlePlace.place = 'My Location';
-              googlePlace.bounds = bounds;
-              this.invokeEvent(googlePlace);
-            });
-          }
-        }
-      }
+      // if (this.locationText != undefined) {
+      //   if (this.locationText == 'My Location') {
+      //     if (navigator.geolocation) {
+      //       navigator.geolocation.getCurrentPosition((position) => {
+      //         bounds[0] = position.coords.latitude;
+      //         bounds[1] = position.coords.longitude;
+      //         googlePlace.place = 'My Location';
+      //         googlePlace.bounds = bounds;
+      //         this.invokeEvent(googlePlace);
+      //       });
+      //     }
+      //   }
+      // }
     });
   }
 
