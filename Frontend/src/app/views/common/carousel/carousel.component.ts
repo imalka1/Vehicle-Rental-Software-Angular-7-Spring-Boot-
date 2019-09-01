@@ -13,7 +13,5 @@ export class CarouselComponent implements OnInit {
   ngOnInit() {
   }
 
-  getRouter(){
-    return this.router;
-  }
+
 }

@@ -39,119 +39,152 @@
           </div>
         </div>
 
-        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport'">
+        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && !swaped">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
-            </div>
+            <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
           </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
+          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
             <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="exchangeFromTo()"></i></div>
+                                                                 (click)="swapePlaces()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Drop To</div>
             <div class="col-sm-12">
-              <select name="" class="form-control" [(ngModel)]="selectedTo" (change)="changePlace()">
+              <select name="" class="form-control" [(ngModel)]="selectedPlace" (change)="changePlace()">
                 <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
               </select>
             </div>
           </div>
         </div>
 
-        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland'">
+        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && swaped">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Pickup From</div>
             <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
+              <select name="" class="form-control" [(ngModel)]="selectedPlace" (change)="changePlace()">
+                <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
+              </select>
             </div>
           </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
+          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
             <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="exchangeFromTo()"></i></div>
+                                                                 (click)="swapePlaces()"></i></div>
+          </div>
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
+          </div>
+        </div>
+
+        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && !swaped">
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
+          </div>
+          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
+                                                                 (click)="swapePlaces()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
             <div class="col-sm-12">Drop To</div>
             <div class="col-sm-12">
-              <input type="text" value="{{selectedTo.placeName}}" disabled class="form-control">
+              <input type="text" value="{{selectedPlace.placeName}}" disabled class="form-control">
             </div>
+          </div>
+        </div>
+
+        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && swaped">
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <div class="col-sm-12">Pickup From</div>
+            <div class="col-sm-12">
+              <input type="text" value="{{selectedPlace.placeName}}" disabled class="form-control">
+            </div>
+          </div>
+          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
+                                                                 (click)="swapePlaces()"></i></div>
+          </div>
+          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
+            <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
           </div>
         </div>
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Private'">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
-            </div>
+            <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
           </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 32px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="exchangeFromTo()"></i></div>
+          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
+            <div class="col-sm-12" style="text-align: center"><i class="fa fa-arrow-right fa-2x"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">
-              <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
-            </div>
+            <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
           </div>
         </div>
 
-        <div class="row" style="margin-top: 25px">
-          <div class="col-sm-12" style="font-weight: bold">
-            Select Route <span style="font-weight: normal"> (Show highways <input type="checkbox"
-                                                                                   (input)="allowHighways()">)</span>
-          </div>
+        <div class="row" style="margin-top: 40px;font-weight: bold">
+          <div class="col-sm-12">Transfer Type</div>
           <div class="col-sm-12">
-            <div class="row"
-                 style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px;font-size: 14px">
-              <div class="col-7" style="border-right: 1px solid black">
-                Route
-              </div>
-              <div class="col-2" style="text-align: center;border-right: 1px solid black">
-                Distance
-              </div>
-              <div class="col-2" style="text-align: center;border-right: 1px solid black">
-                Duration
-              </div>
-              <div class="col-1" style="text-align: center">
-                Select
-              </div>
-            </div>
-            <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
-            <div class="row" style="border-bottom: 1px solid black;padding: 10px;font-size: 14px"
-                 *ngFor="let mapRoute of googleMapRoutes">
-              <div class="col-7" style="border-right: 1px solid black">
-                {{mapRoute[0]}}
-              </div>
-              <div class="col-2" style="text-align: center;border-right: 1px solid black">
-                {{mapRoute[1]}}
-              </div>
-              <div class="col-2" style="text-align: center;border-right: 1px solid black">
-                {{mapRoute[2]}}
-              </div>
-              <div class="col-1" style="text-align: center">
-                <input type="radio"  name="googleDirection" (change)="changeRouteOnMap(mapRoute)">
-              </div>
-            </div>
-            <!--</ng-container>-->
+            <select name="" class="form-control">
+              <option value="">One way</option>
+              <option value="">One way and return</option>
+            </select>
           </div>
         </div>
+
+        <div class="row" style="margin-top: 75px">
+          <div class="col-sm-12" style="font-weight: bold">
+            Select Route <span style="font-weight: normal"> (Show highways <input type="checkbox"
+                                                                                  (input)="allowHighways()">)</span>
+          </div>
+        </div>
+        <div class="row"
+             style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px;font-size: 14px">
+          <div class="col-7" style="border-right: 1px solid black">
+            Route
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            Distance
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            Duration
+          </div>
+          <div class="col-1" style="text-align: center">
+            Select
+          </div>
+        </div>
+        <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
+        <div class="row" style="border-bottom: 1px solid black;padding: 10px;font-size: 14px"
+             *ngFor="let mapRoute of googleMapRoutes">
+          <div class="col-7" style="border-right: 1px solid black">
+            {{mapRoute[0]}}
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            {{mapRoute[1]}}
+          </div>
+          <div class="col-2" style="text-align: center;border-right: 1px solid black">
+            {{mapRoute[2]}}
+          </div>
+          <div class="col-1" style="text-align: center">
+            <input type="radio" name="googleDirection" (change)="changeRouteOnMap(mapRoute)">
+          </div>
+        </div>
+        <!--</ng-container>-->
 
         <hr
           style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
 
         <div class="row" style="margin-top: 50px">
           <!--<agm-map style="height: 400px">-->
-            <!--&lt;!&ndash;<agm-marker [latitude]="6.053519" [longitude]="80.220978"></agm-marker>&ndash;&gt;-->
-            <!--&lt;!&ndash;<agm-marker [latitude]="6.927079" [longitude]="79.861244"></agm-marker>&ndash;&gt;-->
-            <!--&lt;!&ndash;<agm-direction [origin]="{ lat: 6.053519, lng: 80.220978 }"&ndash;&gt;-->
-                           <!--&lt;!&ndash;[destination]="{ lat: 6.927079, lng: 79.861244 }"&ndash;&gt;-->
-                           <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;</agm-direction>&ndash;&gt;-->
-            <!--<ng-container>-->
-              <!--<agm-polyline *ngFor="let polyline of polylines"  [strokeColor]="polyline.strokeColor">-->
-                <!--<agm-polyline-point *ngFor="let point of polyline.path" [latitude]="point.latitude" [longitude]="point.longitude">-->
-                <!--</agm-polyline-point>-->
-              <!--</agm-polyline>-->
-            <!--</ng-container>-->
+          <!--&lt;!&ndash;<agm-marker [latitude]="6.053519" [longitude]="80.220978"></agm-marker>&ndash;&gt;-->
+          <!--&lt;!&ndash;<agm-marker [latitude]="6.927079" [longitude]="79.861244"></agm-marker>&ndash;&gt;-->
+          <!--&lt;!&ndash;<agm-direction [origin]="{ lat: 6.053519, lng: 80.220978 }"&ndash;&gt;-->
+          <!--&lt;!&ndash;[destination]="{ lat: 6.927079, lng: 79.861244 }"&ndash;&gt;-->
+          <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+          <!--&lt;!&ndash;</agm-direction>&ndash;&gt;-->
+          <!--<ng-container>-->
+          <!--<agm-polyline *ngFor="let polyline of polylines"  [strokeColor]="polyline.strokeColor">-->
+          <!--<agm-polyline-point *ngFor="let point of polyline.path" [latitude]="point.latitude" [longitude]="point.longitude">-->
+          <!--</agm-polyline-point>-->
+          <!--</agm-polyline>-->
+          <!--</ng-container>-->
           <!--</agm-map>-->
           <div id="map" style="height: 450px"></div>
         </div>

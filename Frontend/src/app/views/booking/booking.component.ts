@@ -33,7 +33,7 @@ export class BookingComponent implements OnInit {
   currentTime: string;
   selectedCategory: string = 'Airport';
   selectedFrom: Place;
-  selectedTo: Place;
+  selectedPlace: Place;
   selectedVehicleCategory: string = 'car';
   placeDtos: Array<PlaceDto>;
   totalPassengers: number = 0;
@@ -48,7 +48,7 @@ export class BookingComponent implements OnInit {
   placeLatLong: Array<number> = new Array<number>();
   allowHighway: boolean = true;
   googleMapRoutes: Array<object> = new Array<object>();
-  selectedRoute = new Array<object>();
+  swaped: boolean = false;
   polyline: any;
   marker1: any;
   marker2: any;
@@ -85,10 +85,10 @@ export class BookingComponent implements OnInit {
 
   changeCategory() {
     this.googleMapRoutes = new Array();
-    this.placeLatLong = new Array<number>()
+    this.placeLatLong = new Array<number>();
     this.placesFrom = new Array<Place>();
     this.placesTo = new Array<Place>();
-    this.selectedTo = new Place();
+    this.selectedPlace = new Place();
     this.changeRouteOnMap(null);
     // this.placeDisneyDisable = false;
     if (this.selectedCategory == 'Airport') {
@@ -107,7 +107,7 @@ export class BookingComponent implements OnInit {
           places[i].placeName = places[i].placeName + ' (Airport)';
           this.placesTo.push(places[i]);
         }
-        this.selectedTo = this.placesTo[0];
+        this.selectedPlace = this.placesTo[0];
         this.changePlace();
       });
 
@@ -123,7 +123,7 @@ export class BookingComponent implements OnInit {
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         let place: Place = result[0];
         this.placesTo.push(place);
-        this.selectedTo = place;
+        this.selectedPlace = place;
         console.log(place)
         this.changePlace();
       });
@@ -138,7 +138,7 @@ export class BookingComponent implements OnInit {
     //     }
     //     this.selectedFrom = this.placeDtos[0].place;
     //     this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
-    //     this.selectedTo = this.placesTo[0];
+    //     this.selectedPlace = this.placesTo[0];
     //   });
     //
     // }
@@ -161,8 +161,8 @@ export class BookingComponent implements OnInit {
   //     this.placesTo.push(this.placeDtos[i].place);
   //   }
   //   this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
-  //   if (this.selectedFrom == this.selectedTo) {
-  //     this.selectedTo = this.placesTo[0];
+  //   if (this.selectedFrom == this.selectedPlace) {
+  //     this.selectedPlace = this.placesTo[0];
   //   }
   // }
   //
@@ -170,29 +170,34 @@ export class BookingComponent implements OnInit {
   //
   // }
 
-  exchangeFromTo() {
-    if (this.selectedCategory == 'Airport') {
-      this.swapPlaces();
-    } else if (this.selectedCategory == 'Disneyland') {
-      this.swapPlaces();
-      if (this.placeDisneyDisable) {
-        this.placeDisneyDisable = false;
-      } else {
-        this.placeDisneyDisable = true;
-      }
+  swapePlaces() {
+    if (this.swaped) {
+      this.swaped = false;
+    } else {
+      this.swaped = true;
     }
+    this.changePlace();
+    // if (this.selectedCategory == 'Airport') {
+    //   this.swapPlaces();
+    // } else if (this.selectedCategory == 'Disneyland') {
+    //   this.swapPlaces();
+    //   if (this.placeDisneyDisable) {
+    //     this.placeDisneyDisable = false;
+    //   } else {
+    //     this.placeDisneyDisable = true;
+    //   }
+    // }
   }
 
-  swapPlaces() {
-    let placesTemp = this.placesFrom;
-    this.placesFrom = this.placesTo;
-    this.placesTo = placesTemp;
-    this.selectedFrom = this.placesFrom[0];
-    this.selectedTo = this.placesTo[0];
-  }
+  // swapPlaces() {
+  //   let placesTemp = this.placesFrom;
+  //   this.placesFrom = this.placesTo;
+  //   this.placesTo = placesTemp;
+  //   this.selectedFrom = this.placesFrom[0];
+  //   this.selectedPlace = this.placesTo[0];
+  // }
 
   getAddressFrom(googlePlace: GooglePlace) {
-    console.log(googlePlace)
     this.placeLatLong[0] = googlePlace.bounds[0];
     this.placeLatLong[1] = googlePlace.bounds[1];
     this.setRoutes();
@@ -207,23 +212,25 @@ export class BookingComponent implements OnInit {
   setRoutes() {
     this.googleMapRoutes = new Array();
     if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
-      var self = this;
-      let origin = new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]);
-      let destination = new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]);
-      new google.maps.DirectionsService().route(
-        {
-          origin: origin,
-          destination: destination,
-          travelMode: google.maps.TravelMode.DRIVING,
-          provideRouteAlternatives: true,
-          avoidHighways: this.allowHighway,
-        },
-        (response, status) => {
-          if (status == google.maps.DirectionsStatus.OK) {
-            self.setPlaces(response, origin, destination);
-            self.ref.detectChanges();
-          }
-        });
+      if (this.placeLatLong[0] != this.placeLatLong[2] && this.placeLatLong[1] != this.placeLatLong[3]) {
+        var self = this;
+        let origin = new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]);
+        let destination = new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]);
+        new google.maps.DirectionsService().route(
+          {
+            origin: origin,
+            destination: destination,
+            travelMode: google.maps.TravelMode.DRIVING,
+            provideRouteAlternatives: true,
+            avoidHighways: this.allowHighway,
+          },
+          (response, status) => {
+            if (status == google.maps.DirectionsStatus.OK) {
+              self.setPlaces(response, origin, destination);
+              self.ref.detectChanges();
+            }
+          });
+      }
     }
   }
 
@@ -272,8 +279,13 @@ export class BookingComponent implements OnInit {
   }
 
   changePlace() {
-    this.placeLatLong[2] = this.selectedTo.latitude;
-    this.placeLatLong[3] = this.selectedTo.longtitude;
+    if (this.swaped) {
+      this.placeLatLong[0] = this.selectedPlace.latitude;
+      this.placeLatLong[1] = this.selectedPlace.longtitude;
+    } else {
+      this.placeLatLong[2] = this.selectedPlace.latitude;
+      this.placeLatLong[3] = this.selectedPlace.longtitude;
+    }
     this.setRoutes();
   }
 
@@ -306,70 +318,31 @@ export class BookingComponent implements OnInit {
   }
 
   makeReservation() {
-    // let cardDto: CreditcardDto = new CreditcardDto();
-    // let reservationDto: ReservationDto = new ReservationDto();
-    //
-    // reservationDto.reservationCustomer = this.customer;
-    // reservationDto.reservationPlaceFrom = this.selectedFrom;
-    // reservationDto.reservationPlaceTo = this.selectedTo;
-    // // reservation.reservationDateAndTime = this.currentDate + 'T' + this.currentTime+':00.000+0300';
-    // reservationDto.reservationDateAndTime = this.currentDate + ' ' + this.currentTime;
-    // // reservation.reservationTime = this.currentTime;
-    // console.log(reservationDto.reservationDateAndTime)
-    //
-    // cardDto.reservationDTO = reservationDto;
-    // this.reservationService.makeReservation(cardDto).subscribe((result) => {
-    //   let paymentDto: PaymentDto = result;
-    //   // console.log(sku.sku)
-    //   stripe.redirectToCheckout({
-    //     items: [{sku: paymentDto.sku, quantity: 1}],
-    //     successUrl: environment.frontend_url + '/head/booking?success=' + paymentDto.reservation.reservationPaymentKey,
-    //     cancelUrl: environment.frontend_url + '/head/booking',
-    //   }).then(function (result) {
-    //     // If `redirectToCheckout` fails due to a browser or network
-    //     // error, display the localized error message to your customer
-    //     // using `result.error.message`.
-    //   });
-    // });
+    let cardDto: CreditcardDto = new CreditcardDto();
+    let reservationDto: ReservationDto = new ReservationDto();
 
-    // const mexicoCity = new google.maps.LatLng(6.053519, 80.220978);
-    // const jacksonville = new google.maps.LatLng(6.927079, 79.861244);
-    // const distance = google.maps.geometry.spherical.computeDistanceBetween(mexicoCity, jacksonville);
-    //
-    // var request = {
-    //   // origin: 'Collins St, Melbourne, Australia',
-    //   // destination: 'MCG Melbourne, Australia',
-    //   origin: 'Jaffna, Sri Lanka',
-    //   destination: 'Galle, Sri Lanka',
-    //   travelMode:google.maps.TravelMode.DRIVING
-    // };
-    //
-    // new google.maps.DirectionsService().route(request,function (response, status) {
-    //   console.log(response)
-    // });
-    //
-    // // console.log(distance/1000)
-    // console.log((distance/1000).toFixed(1))
+    reservationDto.reservationCustomer = this.customer;
+    reservationDto.reservationPlaceFrom = this.selectedFrom;
+    reservationDto.reservationPlaceTo = this.selectedPlace;
+    // reservation.reservationDateAndTime = this.currentDate + 'T' + this.currentTime+':00.000+0300';
+    reservationDto.reservationDateAndTime = this.currentDate + ' ' + this.currentTime;
+    // reservation.reservationTime = this.currentTime;
+    console.log(reservationDto.reservationDateAndTime)
 
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition((position) => {
-    //     new google.maps.DirectionsService().route(
-    //       {
-    //         origin: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-    //         // destination: new google.maps.LatLng(6.927079, 79.861244),
-    //         destination: 'Colombo, SriLanka',
-    //         travelMode: google.maps.TravelMode.DRIVING,
-    //         provideRouteAlternatives: true,
-    //         avoidHighways: true,
-    //
-    //       },
-    //       function(response, status) {
-    //         console.log(response)
-    //       });
-    //   });
-    // }
-
-
+    cardDto.reservationDTO = reservationDto;
+    this.reservationService.makeReservation(cardDto).subscribe((result) => {
+      let paymentDto: PaymentDto = result;
+      // console.log(sku.sku)
+      stripe.redirectToCheckout({
+        items: [{sku: paymentDto.sku, quantity: 1}],
+        successUrl: environment.frontend_url + '/head/booking?success=' + paymentDto.reservation.reservationPaymentKey,
+        cancelUrl: environment.frontend_url + '/head/booking',
+      }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      });
+    });
   }
 
   submitReservation() {
