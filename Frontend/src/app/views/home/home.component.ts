@@ -13,14 +13,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  // isDoctor() {
-  //   if (this.router.url == '/') {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
   getRouter(){
     return this.router;
   }

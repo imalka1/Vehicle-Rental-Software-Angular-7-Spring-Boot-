@@ -19,9 +19,6 @@ import {Vehicle} from "../../model/Vehicle";
 import {GooglePlace} from "../google-map/googlePlace";
 import {MapsAPILoader} from "@agm/core";
 
-// declare var custom_date_picker: any;
-// declare const google: any;
-
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -31,18 +28,19 @@ export class BookingComponent implements OnInit {
 
   currentDate: string;
   currentTime: string;
+
   selectedCategory: string = 'Airport';
   selectedFrom: Place;
   selectedPlace: Place;
-  selectedVehicleCategory: string = 'car';
   placeDtos: Array<PlaceDto>;
   totalPassengers: number = 0;
   adults: number = 0;
   children: number = 0;
   placesFrom: Array<Place>;
   placesTo: Array<Place>;
-  placeDisneyDisable: boolean = false;
   customer: Customer = new Customer();
+
+  selectedVehicleCategory: string = 'car';
   vehicles: Array<Vehicle>;
 
   placeLatLong: Array<number> = new Array<number>();
@@ -90,16 +88,8 @@ export class BookingComponent implements OnInit {
     this.placesTo = new Array<Place>();
     this.selectedPlace = new Place();
     this.changeRouteOnMap(null);
-    // this.placeDisneyDisable = false;
     if (this.selectedCategory == 'Airport') {
 
-      // this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
-      //   this.setPlaceDtos(result);
-      //   for (let i = 0; i < this.placeDtos.length; i++) {
-      //     this.placesFrom.push(this.placeDtos[i].place);
-      //   }
-      //   this.selectedFrom = this.placeDtos[0].place;
-      // });
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         let places: Array<Place> = result;
         // this.setPlaceDtos(result);
@@ -112,13 +102,6 @@ export class BookingComponent implements OnInit {
       });
 
     } else if (this.selectedCategory == 'Disneyland') {
-      // this.placeService.getPlacesViaCategory('Private').subscribe((result) => {
-      //   this.setPlaceDtos(result);
-      //   for (let i = 0; i < this.placeDtos.length; i++) {
-      //     this.placesFrom.push(this.placeDtos[i].place);
-      //   }
-      //   this.selectedFrom = this.placeDtos[0].place;
-      // });
 
       this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
         let place: Place = result[0];
@@ -128,47 +111,7 @@ export class BookingComponent implements OnInit {
         this.changePlace();
       });
     }
-    // } else if (this.selectedCategory == 'Private') {
-    //
-    //   this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-    //     this.setPlaceDtos(result);
-    //     for (let i = 0; i < this.placeDtos.length; i++) {
-    //       this.placesFrom.push(this.placeDtos[i].place);
-    //       this.placesTo.push(this.placeDtos[i].place);
-    //     }
-    //     this.selectedFrom = this.placeDtos[0].place;
-    //     this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
-    //     this.selectedPlace = this.placesTo[0];
-    //   });
-    //
-    // }
   }
-
-  // setPlaceDtos(places: Array<Place>) {
-  //   this.placeDtos = new Array<PlaceDto>();
-  //   for (let i = 0; i < places.length; i++) {
-  //     let placeDto = new PlaceDto();
-  //     placeDto.place = places[i];
-  //     placeDto.placeDtos = this.placeDtos;
-  //     this.placeDtos.push(placeDto);
-  //   }
-  // }
-
-
-  // changeFrom() {
-  //   this.placesTo = new Array<Place>();
-  //   for (let i = 0; i < this.placeDtos.length; i++) {
-  //     this.placesTo.push(this.placeDtos[i].place);
-  //   }
-  //   this.placesTo.splice(this.placesTo.indexOf(this.selectedFrom), 1);
-  //   if (this.selectedFrom == this.selectedPlace) {
-  //     this.selectedPlace = this.placesTo[0];
-  //   }
-  // }
-  //
-  // changePlace() {
-  //
-  // }
 
   swapePlaces() {
     if (this.swaped) {
@@ -177,25 +120,7 @@ export class BookingComponent implements OnInit {
       this.swaped = true;
     }
     this.changePlace();
-    // if (this.selectedCategory == 'Airport') {
-    //   this.swapPlaces();
-    // } else if (this.selectedCategory == 'Disneyland') {
-    //   this.swapPlaces();
-    //   if (this.placeDisneyDisable) {
-    //     this.placeDisneyDisable = false;
-    //   } else {
-    //     this.placeDisneyDisable = true;
-    //   }
-    // }
   }
-
-  // swapPlaces() {
-  //   let placesTemp = this.placesFrom;
-  //   this.placesFrom = this.placesTo;
-  //   this.placesTo = placesTemp;
-  //   this.selectedFrom = this.placesFrom[0];
-  //   this.selectedPlace = this.placesTo[0];
-  // }
 
   getAddressFrom(googlePlace: GooglePlace) {
     this.placeLatLong[0] = googlePlace.bounds[0];
@@ -261,7 +186,8 @@ export class BookingComponent implements OnInit {
       this.polyline = new google.maps.Polyline({
         path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
         map: this.map,
-        strokeColor: '#2148ff'
+        strokeColor: '#2d7fff',
+        strokeWeight: 4
       });
 
       this.marker1 = new google.maps.Marker({
