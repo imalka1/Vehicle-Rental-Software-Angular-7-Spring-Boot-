@@ -87,7 +87,7 @@
           <entry key="json" value="5" />
           <entry key="place-dto" value="23" />
           <entry key="properties" value="82" />
-          <entry key="ts" value="11623" />
+          <entry key="ts" value="11627" />
           <entry key="xml" value="7" />
           <entry key="yml" value="65" />
         </counts>
@@ -101,7 +101,7 @@
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="98" />
           <entry key="Properties" value="82" />
-          <entry key="TypeScript" value="11646" />
+          <entry key="TypeScript" value="11650" />
           <entry key="XML" value="7" />
           <entry key="YAML" value="65" />
           <entry key="tsconfig" value="4" />
@@ -495,7 +495,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567409827180" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567411235796" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Thogakade" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -631,12 +631,12 @@
       <workItem from="1566812776416" duration="31822000" />
       <workItem from="1566972020632" duration="24582000" />
       <workItem from="1567155043134" duration="79000" />
-      <workItem from="1567155376015" duration="68076000" />
+      <workItem from="1567155376015" duration="68869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="722567000" />
+    <option name="totallyTimeSpent" value="723360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
