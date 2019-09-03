@@ -186,7 +186,7 @@ export class BookingComponent implements OnInit {
       this.polyline = new google.maps.Polyline({
         path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
         map: this.map,
-        strokeColor: '#308dff',
+        strokeColor: '#4872ff',
         strokeWeight: 5,
         strokeOpacity: 0.7,
       });
