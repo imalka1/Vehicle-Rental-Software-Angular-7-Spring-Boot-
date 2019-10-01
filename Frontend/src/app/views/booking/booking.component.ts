@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit, Output, ViewChild} from '@angular/core';
 import {PlaceService} from "../../services/place.service";
 import {Place} from "../../model/place";
 import {PlaceDto} from "../../dtos/place-dto";
@@ -9,16 +9,13 @@ import {environment} from "../../../environments/environment";
 import {PaymentService} from "../../services/payment.service";
 import {ActivatedRoute} from "@angular/router";
 import {ReservationService} from "../../services/reservation.service";
-import {Reservation} from "../../model/reservation";
 import {Customer} from "../../model/customer";
 import {CustomerService} from "../../services/customer.service";
 import {ReservationDto} from "../../dtos/reservation-dto";
 import {VehicleService} from "../../services/vehicle.service";
-import {VehicleDto} from "../../dtos/vehicle-dto";
 import {Vehicle} from "../../model/Vehicle";
-import {GooglePlace} from "../pickup_details/google-map/googlePlace";
-import {MapsAPILoader} from "@agm/core";
 import {PlaceField} from "../pickup_details/place-field/placeField";
+import {GoogleMapService} from "../pickup_details/google-map/google-map.service";
 
 @Component({
   selector: 'app-booking',
@@ -44,14 +41,10 @@ export class BookingComponent implements OnInit {
   selectedVehicleCategory: string = 'car';
   vehicles: Array<Vehicle>;
 
+  googleMapRoutes: Array<object> = new Array<object>();
   placeLatLong: Array<number> = new Array<number>();
   allowHighway: boolean = true;
-  googleMapRoutes: Array<object> = new Array<object>();
   swaped: boolean = false;
-  polyline: any;
-  marker1: any;
-  marker2: any;
-  map: any;
 
   constructor(
     private placeService: PlaceService,
@@ -61,20 +54,12 @@ export class BookingComponent implements OnInit {
     private reservationService: ReservationService,
     private vehicleService: VehicleService,
     private datePipe: DatePipe,
+    private googleMapService: GoogleMapService,
     private ref: ChangeDetectorRef,
-    private mapsAPILoader: MapsAPILoader,
   ) {
   }
 
   ngOnInit() {
-    this.mapsAPILoader.load().then(() => {
-        this.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 9,
-          center: {lat: 6.053519, lng: 80.220978},
-          // mapTypeId: 'terrain'
-        });
-      }
-    );
     this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
@@ -83,13 +68,12 @@ export class BookingComponent implements OnInit {
   }
 
   changeCategory() {
-    this.googleMapRoutes = new Array();
     this.placeLatLong = new Array<number>();
     this.placesFrom = new Array<Place>();
     this.placesTo = new Array<Place>();
     this.selectedPlaceTo = new Place();
-    this.swaped=false;
-    this.changeRouteOnMap(null);
+    this.swaped = false;
+    this.googleMapService.changeRouteOnMap(null);
 
   }
 
@@ -99,6 +83,7 @@ export class BookingComponent implements OnInit {
     } else {
       this.swaped = true;
     }
+    this.googleMapRoutes = new Array<object>();
   }
 
   getAddressFrom(placeField: PlaceField) {
@@ -109,7 +94,7 @@ export class BookingComponent implements OnInit {
       this.placeLatLong[2] = placeField.bounds[0];
       this.placeLatLong[3] = placeField.bounds[1];
     }
-    this.setRoutes();
+    this.googleMapService.setRoutes(this.placeLatLong);
   }
 
   getAddressTo(placeField: PlaceField) {
@@ -120,79 +105,11 @@ export class BookingComponent implements OnInit {
       this.placeLatLong[2] = placeField.bounds[0];
       this.placeLatLong[3] = placeField.bounds[1];
     }
-    this.setRoutes();
-  }
-
-  setRoutes() {
-    // console.log(this.placeLatLong)
-    this.googleMapRoutes = new Array();
-    if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
-      if (this.placeLatLong[0] != this.placeLatLong[2] && this.placeLatLong[1] != this.placeLatLong[3]) {
-        var self = this;
-        let origin = new google.maps.LatLng(this.placeLatLong[0], this.placeLatLong[1]);
-        let destination = new google.maps.LatLng(this.placeLatLong[2], this.placeLatLong[3]);
-        new google.maps.DirectionsService().route(
-          {
-            origin: origin,
-            destination: destination,
-            travelMode: google.maps.TravelMode.DRIVING,
-            provideRouteAlternatives: true,
-            avoidHighways: this.allowHighway,
-          },
-          (response, status) => {
-            if (status == google.maps.DirectionsStatus.OK) {
-              self.setPlaces(response, origin, destination);
-              self.ref.detectChanges();
-            }
-          });
-      }
-    }
-  }
-
-  setPlaces(response, origin, destination) {
-    let routes = response.routes;
-    for (let i = 0; i < routes.length; i++) {
-      let mapRoute = new Array();
-      mapRoute[0] = routes[i].summary;
-      mapRoute[1] = routes[i].legs[0].distance.text;
-      mapRoute[2] = routes[i].legs[0].duration.text;
-      mapRoute[3] = routes[i].overview_polyline;
-      mapRoute[4] = origin;
-      mapRoute[5] = destination;
-
-      this.googleMapRoutes.push(mapRoute);
-    }
-    // console.log(response)
+    this.googleMapService.setRoutes(this.placeLatLong);
   }
 
   changeRouteOnMap(mapRoute) {
-    if (this.polyline != undefined && this.marker1 != undefined && this.marker2 != undefined) {
-      this.polyline.setMap(null);
-      this.marker1.setMap(null);
-      this.marker2.setMap(null);
-    }
-
-    if (mapRoute != null) {
-      this.polyline = new google.maps.Polyline({
-        path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
-        map: this.map,
-        strokeColor: '#4872ff',
-        strokeWeight: 5,
-        strokeOpacity: 0.7,
-      });
-
-      this.marker1 = new google.maps.Marker({
-        position: mapRoute[4],
-        map: this.map,
-        // title: 'Hello World!'
-      });
-
-      this.marker2 = new google.maps.Marker({
-        position: mapRoute[5],
-        map: this.map,
-        // title: 'Hello World!'
-      });
-    }
+    this.googleMapService.changeRouteOnMap(mapRoute);
   }
 
   allowHighways() {
@@ -201,7 +118,12 @@ export class BookingComponent implements OnInit {
     } else {
       this.allowHighway = true;
     }
-    this.setRoutes();
+    this.googleMapService.setAllow(this.allowHighway);
+  }
+
+  setGoogleMapRoutes(googleMapRoutes) {
+    this.googleMapRoutes = googleMapRoutes;
+    this.ref.detectChanges();
   }
 
   changeVehicleCategory() {

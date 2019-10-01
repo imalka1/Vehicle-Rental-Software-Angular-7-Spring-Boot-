@@ -28,6 +28,7 @@ import {AgmCoreModule} from "@agm/core";
 import { CarouselComponent } from './views/common/carousel/carousel.component';
 import {AgmDirectionModule} from "agm-direction";
 import { PlaceFieldComponent } from './views/pickup_details/place-field/place-field.component';
+import { GoogleMapComponent } from './views/pickup_details/google-map/google-map.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PlaceFieldComponent } from './views/pickup_details/place-field/place-fi
     EditDriverComponent,
     FixedDriverComponent,
     CarouselComponent,
-    PlaceFieldComponent
+    PlaceFieldComponent,
+    GoogleMapComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

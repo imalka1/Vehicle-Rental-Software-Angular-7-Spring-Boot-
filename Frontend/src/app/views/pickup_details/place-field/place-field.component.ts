@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
 import {MapsAPILoader} from "@agm/core";
-import {GooglePlace} from "../google-map/googlePlace";
 import {Place} from "../../../model/place";
 import {PlaceDto} from "../../../dtos/place-dto";
 import {PlaceService} from "../../../services/place.service";
@@ -24,7 +23,7 @@ export class PlaceFieldComponent implements OnInit {
 
   selectedPlace: Place = new Place();
   places: Array<Place> = new Array<Place>();
-  @Output() selectedPlaceOut: EventEmitter<any> = new EventEmitter();
+  // @Output() selectedPlaceOut: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
