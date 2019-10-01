@@ -1,0 +1,17 @@
+<div class="col-sm-12">{{headText}}
+  <!--<span style="font-size: 13px;padding-left: 3px;cursor: pointer" (click)="setCurrentLocation()">(Click to my location <i class="fa fa-map-marker" style="padding-left: 3px"></i>)</span>-->
+</div>
+
+<div class="col-sm-12" *ngIf="selectedCategory=='GoogleMap'">
+  <input class="input form-control" type="text" [(ngModel)]="locationText" #addressText>
+</div>
+
+<div class="col-sm-12" *ngIf="selectedCategory=='Airport' && componentCategory=='select_field'">
+  <select name="" class="form-control" [(ngModel)]="selectedPlace" (change)="changePlace()">
+    <option *ngFor="let place of places" [ngValue]="place">{{place.placeName}}</option>
+  </select>
+</div>
+
+<div class="col-sm-12" *ngIf="selectedCategory=='Disneyland' && componentCategory=='disabled_field'">
+  <input type="text" value="{{selectedPlace.placeName}}" disabled class="form-control">
+</div>

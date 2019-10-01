@@ -16,8 +16,9 @@ import {ReservationDto} from "../../dtos/reservation-dto";
 import {VehicleService} from "../../services/vehicle.service";
 import {VehicleDto} from "../../dtos/vehicle-dto";
 import {Vehicle} from "../../model/Vehicle";
-import {GooglePlace} from "../google-map/googlePlace";
+import {GooglePlace} from "../pickup_details/google-map/googlePlace";
 import {MapsAPILoader} from "@agm/core";
+import {PlaceField} from "../pickup_details/place-field/placeField";
 
 @Component({
   selector: 'app-booking',
@@ -30,8 +31,8 @@ export class BookingComponent implements OnInit {
   currentTime: string;
 
   selectedCategory: string = 'Airport';
-  selectedFrom: Place;
-  selectedPlace: Place;
+  selectedPlaceFrom: Place;
+  selectedPlaceTo: Place;
   placeDtos: Array<PlaceDto>;
   totalPassengers: number = 0;
   adults: number = 0;
@@ -74,7 +75,7 @@ export class BookingComponent implements OnInit {
         });
       }
     );
-    this.currentDate = this.datePipe.transform((new Date()), 'yyyy-MM-dd');
+    this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
     this.changeVehicleCategory();
@@ -86,31 +87,10 @@ export class BookingComponent implements OnInit {
     this.placeLatLong = new Array<number>();
     this.placesFrom = new Array<Place>();
     this.placesTo = new Array<Place>();
-    this.selectedPlace = new Place();
+    this.selectedPlaceTo = new Place();
+    this.swaped=false;
     this.changeRouteOnMap(null);
-    if (this.selectedCategory == 'Airport') {
 
-      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        let places: Array<Place> = result;
-        // this.setPlaceDtos(result);
-        for (let i = 0; i < places.length; i++) {
-          places[i].placeName = places[i].placeName + ' (Airport)';
-          this.placesTo.push(places[i]);
-        }
-        this.selectedPlace = this.placesTo[0];
-        this.changePlace();
-      });
-
-    } else if (this.selectedCategory == 'Disneyland') {
-
-      this.placeService.getPlacesViaCategory(this.selectedCategory).subscribe((result) => {
-        let place: Place = result[0];
-        this.placesTo.push(place);
-        this.selectedPlace = place;
-        console.log(place)
-        this.changePlace();
-      });
-    }
   }
 
   swapePlaces() {
@@ -119,22 +99,32 @@ export class BookingComponent implements OnInit {
     } else {
       this.swaped = true;
     }
-    this.changePlace();
   }
 
-  getAddressFrom(googlePlace: GooglePlace) {
-    this.placeLatLong[0] = googlePlace.bounds[0];
-    this.placeLatLong[1] = googlePlace.bounds[1];
+  getAddressFrom(placeField: PlaceField) {
+    if (!this.swaped) {
+      this.placeLatLong[0] = placeField.bounds[0];
+      this.placeLatLong[1] = placeField.bounds[1];
+    } else {
+      this.placeLatLong[2] = placeField.bounds[0];
+      this.placeLatLong[3] = placeField.bounds[1];
+    }
     this.setRoutes();
   }
 
-  getAddressTo(googlePlace: GooglePlace) {
-    this.placeLatLong[2] = googlePlace.bounds[0];
-    this.placeLatLong[3] = googlePlace.bounds[1];
+  getAddressTo(placeField: PlaceField) {
+    if (this.swaped) {
+      this.placeLatLong[0] = placeField.bounds[0];
+      this.placeLatLong[1] = placeField.bounds[1];
+    } else {
+      this.placeLatLong[2] = placeField.bounds[0];
+      this.placeLatLong[3] = placeField.bounds[1];
+    }
     this.setRoutes();
   }
 
   setRoutes() {
+    // console.log(this.placeLatLong)
     this.googleMapRoutes = new Array();
     if (this.placeLatLong[0] != undefined && this.placeLatLong[1] != undefined && this.placeLatLong[2] != undefined && this.placeLatLong[3] != undefined) {
       if (this.placeLatLong[0] != this.placeLatLong[2] && this.placeLatLong[1] != this.placeLatLong[3]) {
@@ -205,17 +195,6 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  changePlace() {
-    if (this.swaped) {
-      this.placeLatLong[0] = this.selectedPlace.latitude;
-      this.placeLatLong[1] = this.selectedPlace.longtitude;
-    } else {
-      this.placeLatLong[2] = this.selectedPlace.latitude;
-      this.placeLatLong[3] = this.selectedPlace.longtitude;
-    }
-    this.setRoutes();
-  }
-
   allowHighways() {
     if (this.allowHighway) {
       this.allowHighway = false;
@@ -249,8 +228,8 @@ export class BookingComponent implements OnInit {
     let reservationDto: ReservationDto = new ReservationDto();
 
     reservationDto.reservationCustomer = this.customer;
-    reservationDto.reservationPlaceFrom = this.selectedFrom;
-    reservationDto.reservationPlaceTo = this.selectedPlace;
+    reservationDto.reservationPlaceFrom = this.selectedPlaceFrom;
+    reservationDto.reservationPlaceTo = this.selectedPlaceTo;
     // reservation.reservationDateAndTime = this.currentDate + 'T' + this.currentTime+':00.000+0300';
     reservationDto.reservationDateAndTime = this.currentDate + ' ' + this.currentTime;
     // reservation.reservationTime = this.currentTime;

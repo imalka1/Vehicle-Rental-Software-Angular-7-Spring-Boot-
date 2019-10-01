@@ -24,10 +24,10 @@ import { ViewBookingsComponent } from './views/admin-panel/bookings/view-booking
 import { DriversComponent } from './views/admin-panel/drivers/drivers.component';
 import { EditDriverComponent } from './views/admin-panel/drivers/edit-driver/edit-driver.component';
 import { FixedDriverComponent } from './views/admin-panel/drivers/fixed-driver/fixed-driver.component';
-import { GoogleMapComponent } from './views/google-map/google-map.component';
 import {AgmCoreModule} from "@agm/core";
 import { CarouselComponent } from './views/common/carousel/carousel.component';
 import {AgmDirectionModule} from "agm-direction";
+import { PlaceFieldComponent } from './views/pickup_details/place-field/place-field.component';
 
 @NgModule({
   declarations: [
@@ -50,8 +50,8 @@ import {AgmDirectionModule} from "agm-direction";
     DriversComponent,
     EditDriverComponent,
     FixedDriverComponent,
-    GoogleMapComponent,
-    CarouselComponent
+    CarouselComponent,
+    PlaceFieldComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

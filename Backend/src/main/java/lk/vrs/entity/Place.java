@@ -14,7 +14,7 @@ public class Place {
     private String placeName;
     private String placeCategory;
     private double latitude;
-    private double longtitude;
+    private double longitude;
 
 //    @OneToOne(mappedBy = "reservationPlaceFrom")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
@@ -58,12 +58,12 @@ public class Place {
         this.latitude = latitude;
     }
 
-    public double getLongtitude() {
-        return longtitude;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setLongtitude(double longtitude) {
-        this.longtitude = longtitude;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Place {
                 ", placeName='" + placeName + '\'' +
                 ", placeCategory='" + placeCategory + '\'' +
                 ", latitude=" + latitude +
-                ", longtitude=" + longtitude +
+                ", longitude=" + longitude +
                 '}';
     }
 

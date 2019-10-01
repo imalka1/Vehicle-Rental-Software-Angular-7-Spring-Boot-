@@ -41,81 +41,65 @@
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && !swaped">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
+            <app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
             <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
                                                                  (click)="swapePlaces()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Drop To</div>
-            <div class="col-sm-12">
-              <select name="" class="form-control" [(ngModel)]="selectedPlace" (change)="changePlace()">
-                <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
-              </select>
-            </div>
+            <app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="Airport" componentCategory="select_field"></app-place-field>
           </div>
         </div>
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && swaped">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Pickup From</div>
-            <div class="col-sm-12">
-              <select name="" class="form-control" [(ngModel)]="selectedPlace" (change)="changePlace()">
-                <option *ngFor="let place of placesTo" [ngValue]="place">{{place.placeName}}</option>
-              </select>
-            </div>
+            <app-place-field (setAddress)="getAddressTo($event)" headText="Pickup From" selectedCategory="Airport" componentCategory="select_field"></app-place-field>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
             <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
                                                                  (click)="swapePlaces()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
+            <app-place-field (setAddress)="getAddressFrom($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>
           </div>
         </div>
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && !swaped">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
+            <app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
             <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
                                                                  (click)="swapePlaces()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Drop To</div>
-            <div class="col-sm-12">
-              <input type="text" value="{{selectedPlace.placeName}}" disabled class="form-control">
-            </div>
+            <app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="Disneyland" componentCategory="disabled_field"></app-place-field>
           </div>
         </div>
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && swaped">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <div class="col-sm-12">Pickup From</div>
-            <div class="col-sm-12">
-              <input type="text" value="{{selectedPlace.placeName}}" disabled class="form-control">
-            </div>
+            <app-place-field (setAddress)="getAddressTo($event)" headText="Pickup From" selectedCategory="Disneyland" componentCategory="disabled_field"></app-place-field>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
             <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
                                                                  (click)="swapePlaces()"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
+            <app-place-field (setAddress)="getAddressFrom($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>
           </div>
         </div>
 
         <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Private'">
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-google-map (setAddress)="getAddressFrom($event)" headText="Pickup From"></app-google-map>
+            <app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>
           </div>
           <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
             <div class="col-sm-12" style="text-align: center"><i class="fa fa-arrow-right fa-2x"></i></div>
           </div>
           <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-google-map (setAddress)="getAddressTo($event)" headText="Drop To"></app-google-map>
+            <app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>
           </div>
         </div>
 

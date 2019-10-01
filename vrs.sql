@@ -39,7 +39,7 @@ VALUES
 INSERT INTO `vehicle_rental_software`.`place`
 (
 `latitude`,
-`longtitude`,
+`longitude`,
 `place_category`,
 `place_name`)
 VALUES

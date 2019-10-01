@@ -3,5 +3,5 @@ export class Place {
   placeName: string;
   placeCategory: string;
   latitude: number;
-  longtitude: number;
+  longitude: number;
 }
