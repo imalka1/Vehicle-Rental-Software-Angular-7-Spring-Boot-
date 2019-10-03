@@ -1,8 +1,7 @@
 import {Component, EventEmitter, Input, NgZone, OnInit, Output, ViewChild} from '@angular/core';
 import {MapsAPILoader} from "@agm/core";
-import {Place} from "../../../model/place";
-import {PlaceDto} from "../../../dtos/place-dto";
-import {PlaceService} from "../../../services/place.service";
+import {Place} from "../../../../model/place";
+import {PlaceService} from "../../../../services/place.service";
 import {PlaceField} from "./placeField";
 
 @Component({

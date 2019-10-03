@@ -14,8 +14,9 @@ import {CustomerService} from "../../services/customer.service";
 import {ReservationDto} from "../../dtos/reservation-dto";
 import {VehicleService} from "../../services/vehicle.service";
 import {Vehicle} from "../../model/Vehicle";
-import {PlaceField} from "../pickup_details/place-field/placeField";
-import {GoogleMapService} from "../pickup_details/google-map/google-map.service";
+import {PlaceField} from "./place-book/place-field/placeField";
+import {GoogleMapService} from "./place-book/google-map/google-map.service";
+import {PlaceBookService} from "./place-book/place-book.service";
 
 @Component({
   selector: 'app-booking',
@@ -34,17 +35,13 @@ export class BookingComponent implements OnInit {
   totalPassengers: number = 0;
   adults: number = 0;
   children: number = 0;
-  placesFrom: Array<Place>;
-  placesTo: Array<Place>;
+  // placesFrom: Array<Place>;
+  // placesTo: Array<Place>;
   customer: Customer = new Customer();
 
   selectedVehicleCategory: string = 'car';
   vehicles: Array<Vehicle>;
 
-  googleMapRoutes: Array<object> = new Array<object>();
-  placeLatLong: Array<number> = new Array<number>();
-  allowHighway: boolean = true;
-  swaped: boolean = false;
 
   constructor(
     private placeService: PlaceService,
@@ -55,7 +52,7 @@ export class BookingComponent implements OnInit {
     private vehicleService: VehicleService,
     private datePipe: DatePipe,
     private googleMapService: GoogleMapService,
-    private ref: ChangeDetectorRef,
+    private placeBookService: PlaceBookService
   ) {
   }
 
@@ -68,63 +65,64 @@ export class BookingComponent implements OnInit {
   }
 
   changeCategory() {
-    this.placeLatLong = new Array<number>();
-    this.placesFrom = new Array<Place>();
-    this.placesTo = new Array<Place>();
-    this.selectedPlaceTo = new Place();
-    this.swaped = false;
+    this.placeBookService.changeSelectedCategory(this.selectedCategory)
     this.googleMapService.changeRouteOnMap(null);
 
   }
 
-  swapePlaces() {
-    if (this.swaped) {
-      this.swaped = false;
-    } else {
-      this.swaped = true;
-    }
-    this.googleMapRoutes = new Array<object>();
+  // swapePlaces() {
+  //   if (this.swaped) {
+  //     this.swaped = false;
+  //   } else {
+  //     this.swaped = true;
+  //   }
+  //   this.googleMapRoutes = new Array<object>();
+  // }
+  //
+  // getAddressFrom(placeField: PlaceField) {
+  //   if (!this.swaped) {
+  //     this.placeLatLong[0] = placeField.bounds[0];
+  //     this.placeLatLong[1] = placeField.bounds[1];
+  //   } else {
+  //     this.placeLatLong[2] = placeField.bounds[0];
+  //     this.placeLatLong[3] = placeField.bounds[1];
+  //   }
+  //   this.googleMapService.setRoutes(this.placeLatLong);
+  // }
+  //
+  // getAddressTo(placeField: PlaceField) {
+  //   if (this.swaped) {
+  //     this.placeLatLong[0] = placeField.bounds[0];
+  //     this.placeLatLong[1] = placeField.bounds[1];
+  //   } else {
+  //     this.placeLatLong[2] = placeField.bounds[0];
+  //     this.placeLatLong[3] = placeField.bounds[1];
+  //   }
+  //   this.googleMapService.setRoutes(this.placeLatLong);
+  // }
+  //
+  // changeRouteOnMap(mapRoute) {
+  //   this.googleMapService.changeRouteOnMap(mapRoute);
+  // }
+  //
+  // allowHighways() {
+  //   if (this.allowHighway) {
+  //     this.allowHighway = false;
+  //   } else {
+  //     this.allowHighway = true;
+  //   }
+  //   this.googleMapService.setAllow(this.allowHighway);
+  // }
+  //
+  // setGoogleMapRoutes(googleMapRoutes) {
+  //   this.googleMapRoutes = googleMapRoutes;
+  //   this.ref.detectChanges();
+  // }
+
+  setPlaceLatLong(placeLatLong: Array<number>) {
+    console.log(placeLatLong)
   }
 
-  getAddressFrom(placeField: PlaceField) {
-    if (!this.swaped) {
-      this.placeLatLong[0] = placeField.bounds[0];
-      this.placeLatLong[1] = placeField.bounds[1];
-    } else {
-      this.placeLatLong[2] = placeField.bounds[0];
-      this.placeLatLong[3] = placeField.bounds[1];
-    }
-    this.googleMapService.setRoutes(this.placeLatLong);
-  }
-
-  getAddressTo(placeField: PlaceField) {
-    if (this.swaped) {
-      this.placeLatLong[0] = placeField.bounds[0];
-      this.placeLatLong[1] = placeField.bounds[1];
-    } else {
-      this.placeLatLong[2] = placeField.bounds[0];
-      this.placeLatLong[3] = placeField.bounds[1];
-    }
-    this.googleMapService.setRoutes(this.placeLatLong);
-  }
-
-  changeRouteOnMap(mapRoute) {
-    this.googleMapService.changeRouteOnMap(mapRoute);
-  }
-
-  allowHighways() {
-    if (this.allowHighway) {
-      this.allowHighway = false;
-    } else {
-      this.allowHighway = true;
-    }
-    this.googleMapService.setAllow(this.allowHighway);
-  }
-
-  setGoogleMapRoutes(googleMapRoutes) {
-    this.googleMapRoutes = googleMapRoutes;
-    this.ref.detectChanges();
-  }
 
   changeVehicleCategory() {
     let vehicle: Vehicle = new Vehicle();

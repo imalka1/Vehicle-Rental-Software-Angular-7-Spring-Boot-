@@ -27,8 +27,10 @@ import { FixedDriverComponent } from './views/admin-panel/drivers/fixed-driver/f
 import {AgmCoreModule} from "@agm/core";
 import { CarouselComponent } from './views/common/carousel/carousel.component';
 import {AgmDirectionModule} from "agm-direction";
-import { PlaceFieldComponent } from './views/pickup_details/place-field/place-field.component';
-import { GoogleMapComponent } from './views/pickup_details/google-map/google-map.component';
+import { PlaceFieldComponent } from './views/booking/place-book/place-field/place-field.component';
+import { GoogleMapComponent } from './views/booking/place-book/google-map/google-map.component';
+import { PlaceBookComponent } from './views/booking/place-book/place-book.component';
+import { VehicleBookComponent } from './views/booking/vehicle-book/vehicle-book.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { GoogleMapComponent } from './views/pickup_details/google-map/google-map
     FixedDriverComponent,
     CarouselComponent,
     PlaceFieldComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    PlaceBookComponent,
+    VehicleBookComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

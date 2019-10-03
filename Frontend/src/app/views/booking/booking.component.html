@@ -27,135 +27,136 @@
         <hr
           style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
 
-        <div class="row" style="font-size: 25px;color: #86867f">
-          <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='Airport'">
-            Pickup Details (Airport)
-          </div>
-          <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='Disneyland'">
-            Pickup Details (Disneyland)
-          </div>
-          <div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='Private'">
-            Pickup Details (Private)
-          </div>
-        </div>
+        <!--<div class="row" style="font-size: 25px;color: #86867f">-->
+          <!--<div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='Airport'">-->
+            <!--Pickup Details (Airport)-->
+          <!--</div>-->
+          <!--<div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='Disneyland'">-->
+            <!--Pickup Details (Disneyland)-->
+          <!--</div>-->
+          <!--<div class="col-sm-12" style="font-size: 25px" *ngIf="selectedCategory=='Private'">-->
+            <!--Pickup Details (Private)-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && !swaped">
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>
-          </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="swapePlaces()"></i></div>
-          </div>
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="Airport" componentCategory="select_field"></app-place-field>
-          </div>
-        </div>
+        <!--<div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && !swaped">-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>-->
+          <!--</div>-->
+          <!--<div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">-->
+            <!--<div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"-->
+                                                                 <!--(click)="swapePlaces()"></i></div>-->
+          <!--</div>-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="Airport" componentCategory="select_field"></app-place-field>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && swaped">
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressTo($event)" headText="Pickup From" selectedCategory="Airport" componentCategory="select_field"></app-place-field>
-          </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="swapePlaces()"></i></div>
-          </div>
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressFrom($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>
-          </div>
-        </div>
+        <!--<div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Airport' && swaped">-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressTo($event)" headText="Pickup From" selectedCategory="Airport" componentCategory="select_field"></app-place-field>-->
+          <!--</div>-->
+          <!--<div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">-->
+            <!--<div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"-->
+                                                                 <!--(click)="swapePlaces()"></i></div>-->
+          <!--</div>-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressFrom($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && !swaped">
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>
-          </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="swapePlaces()"></i></div>
-          </div>
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="Disneyland" componentCategory="disabled_field"></app-place-field>
-          </div>
-        </div>
+        <!--<div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && !swaped">-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>-->
+          <!--</div>-->
+          <!--<div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">-->
+            <!--<div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"-->
+                                                                 <!--(click)="swapePlaces()"></i></div>-->
+          <!--</div>-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="Disneyland" componentCategory="disabled_field"></app-place-field>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && swaped">
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressTo($event)" headText="Pickup From" selectedCategory="Disneyland" componentCategory="disabled_field"></app-place-field>
-          </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"
-                                                                 (click)="swapePlaces()"></i></div>
-          </div>
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressFrom($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>
-          </div>
-        </div>
+        <!--<div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Disneyland' && swaped">-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressTo($event)" headText="Pickup From" selectedCategory="Disneyland" componentCategory="disabled_field"></app-place-field>-->
+          <!--</div>-->
+          <!--<div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">-->
+            <!--<div class="col-sm-12" style="text-align: center"><i class="fa fa-exchange fa-2x"-->
+                                                                 <!--(click)="swapePlaces()"></i></div>-->
+          <!--</div>-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressFrom($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Private'">
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>
-          </div>
-          <div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">
-            <div class="col-sm-12" style="text-align: center"><i class="fa fa-arrow-right fa-2x"></i></div>
-          </div>
-          <div class="col-sm-5" style="padding: 0px;margin-top: 25px">
-            <app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>
-          </div>
-        </div>
+        <!--<div class="row" style="font-weight: bold" *ngIf="selectedCategory=='Private'">-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressFrom($event)" headText="Pickup From" selectedCategory="GoogleMap"></app-place-field>-->
+          <!--</div>-->
+          <!--<div class="col-sm-2" style="padding: 0px;margin-top: 40px;cursor: pointer;">-->
+            <!--<div class="col-sm-12" style="text-align: center"><i class="fa fa-arrow-right fa-2x"></i></div>-->
+          <!--</div>-->
+          <!--<div class="col-sm-5" style="padding: 0px;margin-top: 25px">-->
+            <!--<app-place-field (setAddress)="getAddressTo($event)" headText="Drop To" selectedCategory="GoogleMap"></app-place-field>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row" style="margin-top: 40px;font-weight: bold">
-          <div class="col-sm-12">Transfer Type</div>
-          <div class="col-sm-12">
-            <select name="" class="form-control">
-              <option value="">One way</option>
-              <option value="">One way and return</option>
-            </select>
-          </div>
-        </div>
+        <!--<div class="row" style="margin-top: 40px;font-weight: bold">-->
+          <!--<div class="col-sm-12">Transfer Type</div>-->
+          <!--<div class="col-sm-12">-->
+            <!--<select name="" class="form-control">-->
+              <!--<option value="">One way</option>-->
+              <!--<option value="">One way and return</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="row" style="margin-top: 75px">
-          <div class="col-sm-12" style="font-weight: bold">
-            Select Route <span style="font-weight: normal"> (Show highways <input type="checkbox"
-                                                                                  (input)="allowHighways()">)</span>
-          </div>
-        </div>
-        <div class="row"
-             style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px;font-size: 14px">
-          <div class="col-7" style="border-right: 1px solid black">
-            Route
-          </div>
-          <div class="col-2" style="text-align: center;border-right: 1px solid black">
-            Distance
-          </div>
-          <div class="col-2" style="text-align: center;border-right: 1px solid black">
-            Duration
-          </div>
-          <div class="col-1" style="text-align: center">
-            Select
-          </div>
-        </div>
-        <!--<ng-container *ngFor="let vehicleDto of vehicleDtos">-->
-        <div class="row" style="border-bottom: 1px solid black;padding: 10px;font-size: 14px"
-             *ngFor="let mapRoute of googleMapRoutes">
-          <div class="col-7" style="border-right: 1px solid black">
-            {{mapRoute[0]}}
-          </div>
-          <div class="col-2" style="text-align: center;border-right: 1px solid black">
-            {{mapRoute[1]}}
-          </div>
-          <div class="col-2" style="text-align: center;border-right: 1px solid black">
-            {{mapRoute[2]}}
-          </div>
-          <div class="col-1" style="text-align: center">
-            <input type="radio" name="googleDirection" (change)="changeRouteOnMap(mapRoute)">
-          </div>
-        </div>
-        <!--</ng-container>-->
+        <!--<div class="row" style="margin-top: 75px">-->
+          <!--<div class="col-sm-12" style="font-weight: bold">-->
+            <!--Select Route <span style="font-weight: normal"> (Show highways <input type="checkbox"-->
+                                                                                  <!--(input)="allowHighways()">)</span>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row"-->
+             <!--style="border-bottom: 1px solid black;border-top: 1px solid black;font-weight: bold;padding: 10px;font-size: 14px">-->
+          <!--<div class="col-7" style="border-right: 1px solid black">-->
+            <!--Route-->
+          <!--</div>-->
+          <!--<div class="col-2" style="text-align: center;border-right: 1px solid black">-->
+            <!--Distance-->
+          <!--</div>-->
+          <!--<div class="col-2" style="text-align: center;border-right: 1px solid black">-->
+            <!--Duration-->
+          <!--</div>-->
+          <!--<div class="col-1" style="text-align: center">-->
+            <!--Select-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<ng-container *ngFor="let vehicleDto of vehicleDtos">&ndash;&gt;-->
+        <!--<div class="row" style="border-bottom: 1px solid black;padding: 10px;font-size: 14px"-->
+             <!--*ngFor="let mapRoute of googleMapRoutes">-->
+          <!--<div class="col-7" style="border-right: 1px solid black">-->
+            <!--{{mapRoute[0]}}-->
+          <!--</div>-->
+          <!--<div class="col-2" style="text-align: center;border-right: 1px solid black">-->
+            <!--{{mapRoute[1]}}-->
+          <!--</div>-->
+          <!--<div class="col-2" style="text-align: center;border-right: 1px solid black">-->
+            <!--{{mapRoute[2]}}-->
+          <!--</div>-->
+          <!--<div class="col-1" style="text-align: center">-->
+            <!--<input type="radio" name="googleDirection" (change)="changeRouteOnMap(mapRoute)">-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;</ng-container>&ndash;&gt;-->
 
-        <hr
-          style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+        <!--<hr-->
+          <!--style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">-->
 
-        <app-google-map (googleMapRoutesOut)="setGoogleMapRoutes($event)"></app-google-map>
+        <!--<app-google-map (googleMapRoutesOut)="setGoogleMapRoutes($event)"></app-google-map>-->
+        <app-place-book (placeLatLongOut)="setPlaceLatLong($event)" (placeTo)="setPlaceTo($event)"></app-place-book>
 
         <hr
           style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
