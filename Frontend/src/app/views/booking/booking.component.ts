@@ -35,8 +35,6 @@ export class BookingComponent implements OnInit {
   totalPassengers: number = 0;
   adults: number = 0;
   children: number = 0;
-  // placesFrom: Array<Place>;
-  // placesTo: Array<Place>;
   customer: Customer = new Customer();
 
   selectedVehicleCategory: string = 'car';
@@ -69,55 +67,6 @@ export class BookingComponent implements OnInit {
     this.googleMapService.changeRouteOnMap(null);
 
   }
-
-  // swapePlaces() {
-  //   if (this.swaped) {
-  //     this.swaped = false;
-  //   } else {
-  //     this.swaped = true;
-  //   }
-  //   this.googleMapRoutes = new Array<object>();
-  // }
-  //
-  // getAddressFrom(placeField: PlaceField) {
-  //   if (!this.swaped) {
-  //     this.placeLatLong[0] = placeField.bounds[0];
-  //     this.placeLatLong[1] = placeField.bounds[1];
-  //   } else {
-  //     this.placeLatLong[2] = placeField.bounds[0];
-  //     this.placeLatLong[3] = placeField.bounds[1];
-  //   }
-  //   this.googleMapService.setRoutes(this.placeLatLong);
-  // }
-  //
-  // getAddressTo(placeField: PlaceField) {
-  //   if (this.swaped) {
-  //     this.placeLatLong[0] = placeField.bounds[0];
-  //     this.placeLatLong[1] = placeField.bounds[1];
-  //   } else {
-  //     this.placeLatLong[2] = placeField.bounds[0];
-  //     this.placeLatLong[3] = placeField.bounds[1];
-  //   }
-  //   this.googleMapService.setRoutes(this.placeLatLong);
-  // }
-  //
-  // changeRouteOnMap(mapRoute) {
-  //   this.googleMapService.changeRouteOnMap(mapRoute);
-  // }
-  //
-  // allowHighways() {
-  //   if (this.allowHighway) {
-  //     this.allowHighway = false;
-  //   } else {
-  //     this.allowHighway = true;
-  //   }
-  //   this.googleMapService.setAllow(this.allowHighway);
-  // }
-  //
-  // setGoogleMapRoutes(googleMapRoutes) {
-  //   this.googleMapRoutes = googleMapRoutes;
-  //   this.ref.detectChanges();
-  // }
 
   setPlaceLatLong(placeLatLong: Array<number>) {
     console.log(placeLatLong)
