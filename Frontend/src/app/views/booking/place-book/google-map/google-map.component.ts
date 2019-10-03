@@ -20,18 +20,7 @@ export class GoogleMapComponent implements OnInit {
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    // private ref: ChangeDetectorRef,
-    private googleMapService: GoogleMapService
   ) {
-    googleMapService.setRoutesVar.subscribe((placeLatLong) => {
-      this.setRoutes(placeLatLong)
-    })
-    googleMapService.changeRouteOnMapVar.subscribe((placeLatLong) => {
-      this.changeRouteOnMap(placeLatLong)
-    })
-    googleMapService.setAllowVar.subscribe((placeLatLong) => {
-      this.setAllow(placeLatLong)
-    })
   }
 
   ngOnInit() {

@@ -12,11 +12,7 @@ import {ReservationService} from "../../services/reservation.service";
 import {Customer} from "../../model/customer";
 import {CustomerService} from "../../services/customer.service";
 import {ReservationDto} from "../../dtos/reservation-dto";
-import {VehicleService} from "../../services/vehicle.service";
 import {Vehicle} from "../../model/Vehicle";
-import {PlaceField} from "./place-book/place-field/placeField";
-import {GoogleMapService} from "./place-book/google-map/google-map.service";
-import {PlaceBookService} from "./place-book/place-book.service";
 
 @Component({
   selector: 'app-booking',
@@ -25,6 +21,7 @@ import {PlaceBookService} from "./place-book/place-book.service";
 })
 export class BookingComponent implements OnInit {
 
+  @ViewChild('app_place_book') appPlaceBook;
   currentDate: string;
   currentTime: string;
 
@@ -32,25 +29,16 @@ export class BookingComponent implements OnInit {
   selectedPlaceFrom: Place;
   selectedPlaceTo: Place;
   placeDtos: Array<PlaceDto>;
-  totalPassengers: number = 0;
-  adults: number = 0;
-  children: number = 0;
   customer: Customer = new Customer();
-
-  selectedVehicleCategory: string = 'car';
-  vehicles: Array<Vehicle>;
-
-
+  vehicle: Vehicle;
+  
   constructor(
     private placeService: PlaceService,
     private customerService: CustomerService,
     private paymentService: PaymentService,
     private activatedRoute: ActivatedRoute,
     private reservationService: ReservationService,
-    private vehicleService: VehicleService,
     private datePipe: DatePipe,
-    private googleMapService: GoogleMapService,
-    private placeBookService: PlaceBookService
   ) {
   }
 
@@ -58,38 +46,20 @@ export class BookingComponent implements OnInit {
     this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
     this.changeCategory();
-    this.changeVehicleCategory();
     // this.submitReservation();
   }
 
   changeCategory() {
-    this.placeBookService.changeSelectedCategory(this.selectedCategory)
-    this.googleMapService.changeRouteOnMap(null);
-
+    this.appPlaceBook.changeSelectedCategory(this.selectedCategory)
+    this.appPlaceBook.changeRouteOnMap(null);
   }
 
   setPlaceLatLong(placeLatLong: Array<number>) {
     console.log(placeLatLong)
   }
 
-
-  changeVehicleCategory() {
-    let vehicle: Vehicle = new Vehicle();
-    vehicle.vehicleCategory = this.selectedVehicleCategory;
-    vehicle.vehicleTotalPassengers = this.totalPassengers;
-    if (this.selectedVehicleCategory == 'car') {
-
-      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
-        this.vehicles = result;
-      });
-
-    } else if (this.selectedVehicleCategory == 'minivan') {
-
-      this.vehicleService.getVehiclesViaCategoryForReservation(vehicle).subscribe((result) => {
-        this.vehicles = result;
-      });
-
-    }
+  setVehicle(vehicle: Vehicle) {
+    console.log(vehicle)
   }
 
   makeReservation() {
@@ -144,10 +114,5 @@ export class BookingComponent implements OnInit {
         this.customer.customerContactNumber = '';
       }
     })
-  }
-
-  changePassengers() {
-    this.totalPassengers = this.adults + this.children;
-    this.changeVehicleCategory();
   }
 }

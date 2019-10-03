@@ -1,8 +1,5 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {PlaceField} from "./place-field/placeField";
-import {GoogleMapService} from "./google-map/google-map.service";
-import {PlaceBookService} from "./place-book.service";
-import {Place} from "../../../model/place";
 
 @Component({
   selector: 'app-place-book',
@@ -11,6 +8,7 @@ import {Place} from "../../../model/place";
 })
 export class PlaceBookComponent implements OnInit {
 
+  @ViewChild('app_google_map') appGoogleMap;
   @Output() placeLatLongOut: EventEmitter<Array<number>> = new EventEmitter();
   selectedCategory: string;
   googleMapRoutes: Array<object> = new Array<object>();
@@ -19,17 +17,16 @@ export class PlaceBookComponent implements OnInit {
   swaped: boolean = false;
 
   constructor(
-    private placeBookService: PlaceBookService,
-    private googleMapService: GoogleMapService,
     private ref: ChangeDetectorRef
   ) {
-    this.placeBookService.selectedCategory.subscribe((category) => {
-      this.selectedCategory = category;
-    })
   }
 
   ngOnInit() {
 
+  }
+
+  changeSelectedCategory(category) {
+    this.selectedCategory = category;
   }
 
   swapePlaces() {
@@ -50,7 +47,7 @@ export class PlaceBookComponent implements OnInit {
       this.placeLatLong[3] = placeField.bounds[1];
     }
     this.placeLatLongOut.emit(this.placeLatLong);
-    this.googleMapService.setRoutes(this.placeLatLong);
+    this.appGoogleMap.setRoutes(this.placeLatLong);
   }
 
   getAddressTo(placeField: PlaceField) {
@@ -62,11 +59,11 @@ export class PlaceBookComponent implements OnInit {
       this.placeLatLong[3] = placeField.bounds[1];
     }
     this.placeLatLongOut.emit(this.placeLatLong);
-    this.googleMapService.setRoutes(this.placeLatLong);
+    this.appGoogleMap.setRoutes(this.placeLatLong);
   }
 
   changeRouteOnMap(mapRoute) {
-    this.googleMapService.changeRouteOnMap(mapRoute);
+    this.appGoogleMap.changeRouteOnMap(mapRoute);
   }
 
   allowHighways() {
@@ -75,7 +72,7 @@ export class PlaceBookComponent implements OnInit {
     } else {
       this.allowHighway = true;
     }
-    this.googleMapService.setAllow(this.allowHighway);
+    this.appGoogleMap.setAllow(this.allowHighway);
   }
 
   setGoogleMapRoutes(googleMapRoutes) {
