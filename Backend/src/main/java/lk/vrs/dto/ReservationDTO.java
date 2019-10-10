@@ -12,8 +12,10 @@ public class ReservationDTO {
     private String reservationDateAndTime;
     private String submissionDateAndTime;
     private boolean reservationCompleted;
-    private Place reservationPlaceFrom;
-    private Place reservationPlaceTo;
+    private double reservationPlaceFromLat;
+    private double reservationPlaceFromLong;
+    private double reservationPlaceToLat;
+    private double reservationPlaceToLong;
     private Vehicle reservationVehicle;
     private Customer reservationCustomer;
     private double reservationAmount;
@@ -89,20 +91,36 @@ public class ReservationDTO {
         this.reservationCompleted = reservationCompleted;
     }
 
-    public Place getReservationPlaceFrom() {
-        return reservationPlaceFrom;
+    public double getReservationPlaceFromLat() {
+        return reservationPlaceFromLat;
     }
 
-    public void setReservationPlaceFrom(Place reservationPlaceFrom) {
-        this.reservationPlaceFrom = reservationPlaceFrom;
+    public void setReservationPlaceFromLat(double reservationPlaceFromLat) {
+        this.reservationPlaceFromLat = reservationPlaceFromLat;
     }
 
-    public Place getReservationPlaceTo() {
-        return reservationPlaceTo;
+    public double getReservationPlaceFromLong() {
+        return reservationPlaceFromLong;
     }
 
-    public void setReservationPlaceTo(Place reservationPlaceTo) {
-        this.reservationPlaceTo = reservationPlaceTo;
+    public void setReservationPlaceFromLong(double reservationPlaceFromLong) {
+        this.reservationPlaceFromLong = reservationPlaceFromLong;
+    }
+
+    public double getReservationPlaceToLat() {
+        return reservationPlaceToLat;
+    }
+
+    public void setReservationPlaceToLat(double reservationPlaceToLat) {
+        this.reservationPlaceToLat = reservationPlaceToLat;
+    }
+
+    public double getReservationPlaceToLong() {
+        return reservationPlaceToLong;
+    }
+
+    public void setReservationPlaceToLong(double reservationPlaceToLong) {
+        this.reservationPlaceToLong = reservationPlaceToLong;
     }
 
     public Vehicle getReservationVehicle() {

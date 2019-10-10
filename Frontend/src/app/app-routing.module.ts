@@ -62,7 +62,15 @@ const routes: Routes = [
           {
             path: 'booking',
             component: BookingComponent
-          }
+          },
+          // {
+          //   path: 'booking/:success',
+          //   component: BookingComponent
+          // },
+          // {
+          //   path: '/:success',
+          //   component: BookingComponent
+          // }
         ]
       },
       {
@@ -71,21 +79,6 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'head',
-  //   component: HeaderComponent,
-  //   canActivate: [LoginGuard],
-  //   children: [
-  //     {
-  //       path: 'clinics',
-  //       component: ClinicsComponent
-  //     },
-  //     {
-  //       path: 'patients',
-  //       component: PatientsComponent
-  //     }
-  //   ]
-  // },
   {path: '', pathMatch: "full", redirectTo: '/head/carousel/main'},
 ];
 

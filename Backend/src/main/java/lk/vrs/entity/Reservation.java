@@ -24,15 +24,10 @@ public class Reservation {
     private double reservationAmount;
     private int reservationPaymentKey;
 
-    @OneToOne
-    @JoinColumn(nullable = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Place reservationPlaceFrom;
-
-    @OneToOne
-    @JoinColumn(nullable = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Place reservationPlaceTo;
+    private double reservationPlaceFromLat;
+    private double reservationPlaceFromLong;
+    private double reservationPlaceToLat;
+    private double reservationPlaceToLong;
 
     @OneToOne
     @JoinColumn(nullable = false)
@@ -108,20 +103,36 @@ public class Reservation {
         this.reservationCompleted = reservationCompleted;
     }
 
-    public Place getReservationPlaceFrom() {
-        return reservationPlaceFrom;
+    public double getReservationPlaceFromLat() {
+        return reservationPlaceFromLat;
     }
 
-    public void setReservationPlaceFrom(Place reservationPlaceFrom) {
-        this.reservationPlaceFrom = reservationPlaceFrom;
+    public void setReservationPlaceFromLat(double reservationPlaceFromLat) {
+        this.reservationPlaceFromLat = reservationPlaceFromLat;
     }
 
-    public Place getReservationPlaceTo() {
-        return reservationPlaceTo;
+    public double getReservationPlaceFromLong() {
+        return reservationPlaceFromLong;
     }
 
-    public void setReservationPlaceTo(Place reservationPlaceTo) {
-        this.reservationPlaceTo = reservationPlaceTo;
+    public void setReservationPlaceFromLong(double reservationPlaceFromLong) {
+        this.reservationPlaceFromLong = reservationPlaceFromLong;
+    }
+
+    public double getReservationPlaceToLat() {
+        return reservationPlaceToLat;
+    }
+
+    public void setReservationPlaceToLat(double reservationPlaceToLat) {
+        this.reservationPlaceToLat = reservationPlaceToLat;
+    }
+
+    public double getReservationPlaceToLong() {
+        return reservationPlaceToLong;
+    }
+
+    public void setReservationPlaceToLong(double reservationPlaceToLong) {
+        this.reservationPlaceToLong = reservationPlaceToLong;
     }
 
     public Vehicle getReservationVehicle() {
@@ -149,8 +160,10 @@ public class Reservation {
                 ", reservationCompleted=" + reservationCompleted +
                 ", reservationAmount=" + reservationAmount +
                 ", reservationPaymentKey=" + reservationPaymentKey +
-                ", reservationPlaceFrom=" + reservationPlaceFrom +
-                ", reservationPlaceTo=" + reservationPlaceTo +
+                ", reservationPlaceFromLat=" + reservationPlaceFromLat +
+                ", reservationPlaceFromLong=" + reservationPlaceFromLong +
+                ", reservationPlaceToLat=" + reservationPlaceToLat +
+                ", reservationPlaceToLong=" + reservationPlaceToLong +
                 ", reservationVehicle=" + reservationVehicle +
                 ", reservationCustomer=" + reservationCustomer +
                 '}';

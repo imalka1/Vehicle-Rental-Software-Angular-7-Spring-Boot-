@@ -9,8 +9,10 @@ export class ReservationDto {
   reservationDate: string;
   reservationTime: string;
   reservationCompleted: boolean;
-  reservationPlaceFrom: Place;
-  reservationPlaceTo: Place;
+  reservationPlaceFromLat: number;
+  reservationPlaceFromLong: number;
+  reservationPlaceToLat: number;
+  reservationPlaceToLong: number;
   reservationVehicle: Vehicle;
   reservationCustomer: Customer;
   reservationAmount: number;

@@ -48,8 +48,10 @@ public class ReservationServiceImpl implements ReservationService {
             reservationDTO.setReservationDate(new SimpleDateFormat("yyyy-MM-dd").format(reservationDate.getReservationDateAndTime()));
             reservationDTO.setReservationTime(new SimpleDateFormat("KK:mm a").format(reservationDate.getReservationDateAndTime()));
             reservationDTO.setReservationCompleted(reservationDate.isReservationCompleted());
-            reservationDTO.setReservationPlaceFrom(reservationDate.getReservationPlaceFrom());
-            reservationDTO.setReservationPlaceTo(reservationDate.getReservationPlaceTo());
+            reservationDTO.setReservationPlaceFromLat(reservationDate.getReservationPlaceFromLat());
+            reservationDTO.setReservationPlaceFromLong(reservationDate.getReservationPlaceFromLong());
+            reservationDTO.setReservationPlaceToLat(reservationDate.getReservationPlaceToLat());
+            reservationDTO.setReservationPlaceToLong(reservationDate.getReservationPlaceToLong());
             reservationDTO.setReservationVehicle(reservationDate.getReservationVehicle());
             reservationDTOS.add(reservationDTO);
         }
@@ -71,8 +73,10 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setSubmissionDateAndTime(new Date());
         reservation.setReservationCompleted(creditcardDTO.getReservationDTO().getReservationCompleted());
         reservation.setReservationAmount(creditcardDTO.getReservationDTO().getReservationAmount());
-        reservation.setReservationPlaceFrom(creditcardDTO.getReservationDTO().getReservationPlaceFrom());
-        reservation.setReservationPlaceTo(creditcardDTO.getReservationDTO().getReservationPlaceTo());
+        reservation.setReservationPlaceFromLat(creditcardDTO.getReservationDTO().getReservationPlaceFromLat());
+        reservation.setReservationPlaceFromLong(creditcardDTO.getReservationDTO().getReservationPlaceFromLong());
+        reservation.setReservationPlaceToLat(creditcardDTO.getReservationDTO().getReservationPlaceToLat());
+        reservation.setReservationPlaceToLong(creditcardDTO.getReservationDTO().getReservationPlaceToLong());
         Vehicle vehicle = vehicleRepository.findById((long) 1).get();
         vehicle.setVehicleReserved(true);
         reservation.setReservationVehicle(vehicle);
@@ -94,8 +98,10 @@ public class ReservationServiceImpl implements ReservationService {
         attributesParams.put("name", "Reservation");
         skuParams.put("attributes", attributesParams);
         Map<String, Object> metaDataParams = new HashMap<String, Object>();
-        metaDataParams.put("from", creditcardDTO.getReservationDTO().getReservationPlaceFrom().getPlaceName());
-        metaDataParams.put("to", creditcardDTO.getReservationDTO().getReservationPlaceTo().getPlaceName());
+        metaDataParams.put("fromLat", creditcardDTO.getReservationDTO().getReservationPlaceFromLat());
+        metaDataParams.put("fromLong", creditcardDTO.getReservationDTO().getReservationPlaceFromLong());
+        metaDataParams.put("toLat", creditcardDTO.getReservationDTO().getReservationPlaceToLat());
+        metaDataParams.put("toLong", creditcardDTO.getReservationDTO().getReservationPlaceToLong());
         metaDataParams.put("date time", creditcardDTO.getReservationDTO().getReservationDateAndTime());
         metaDataParams.put("total", "5");
         skuParams.put("metadata", metaDataParams);

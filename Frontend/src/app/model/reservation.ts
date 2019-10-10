@@ -8,8 +8,10 @@ export class Reservation {
   reservationDateAndTime: string;
   // reservationTime: string;
   reservationCompleted: string;
-  reservationPlaceFrom: Place;
-  reservationPlaceTo: Place;
+  reservationPlaceFromLat: number;
+  reservationPlaceFromLong: number;
+  reservationPlaceToLat: number;
+  reservationPlaceToLong: number;
   reservationVehicle: Vehicle;
   reservationCustomer: Customer;
   reservationAmount: number;
