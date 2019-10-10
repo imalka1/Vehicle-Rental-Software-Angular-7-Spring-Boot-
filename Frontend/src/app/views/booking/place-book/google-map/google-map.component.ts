@@ -1,6 +1,5 @@
 import {ChangeDetectorRef, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MapsAPILoader} from "@agm/core";
-import {GoogleMapService} from "./google-map.service";
 
 @Component({
   selector: 'app-google-map',

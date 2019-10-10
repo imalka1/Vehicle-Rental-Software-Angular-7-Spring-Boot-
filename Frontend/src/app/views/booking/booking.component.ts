@@ -31,7 +31,7 @@ export class BookingComponent implements OnInit {
   placeDtos: Array<PlaceDto>;
   customer: Customer = new Customer();
   vehicle: Vehicle;
-  
+
   constructor(
     private placeService: PlaceService,
     private customerService: CustomerService,
@@ -52,6 +52,21 @@ export class BookingComponent implements OnInit {
   changeCategory() {
     this.appPlaceBook.changeSelectedCategory(this.selectedCategory)
     this.appPlaceBook.changeRouteOnMap(null);
+  }
+
+  suggestCustomer() {
+    this.customerService.getCustomerViaEmail(this.customer.customerEmail).subscribe((result) => {
+      let customer: Customer = result;
+      if (customer != null) {
+        this.customer.id = customer.id;
+        this.customer.customerName = customer.customerName;
+        this.customer.customerContactNumber = customer.customerContactNumber;
+      } else {
+        this.customer.id = undefined;
+        this.customer.customerName = '';
+        this.customer.customerContactNumber = '';
+      }
+    })
   }
 
   setPlaceLatLong(placeLatLong: Array<number>) {
@@ -101,18 +116,5 @@ export class BookingComponent implements OnInit {
     });
   }
 
-  suggestCustomer() {
-    this.customerService.getCustomerViaEmail(this.customer.customerEmail).subscribe((result) => {
-      let customer: Customer = result;
-      if (customer != null) {
-        this.customer.id = customer.id;
-        this.customer.customerName = customer.customerName;
-        this.customer.customerContactNumber = customer.customerContactNumber;
-      } else {
-        this.customer.id = undefined;
-        this.customer.customerName = '';
-        this.customer.customerContactNumber = '';
-      }
-    })
-  }
+
 }
