@@ -11,12 +11,20 @@
 
 <ion-content>
     <div class="row" style="font-size: 20px;margin: 10px;margin-top: 25px;border: 1px solid #767676;padding: 10px">
-        <div class="col-5" style="text-align: center">Galle</div>
+        <div class="col-5" style="text-align: center;font-weight: bold">Galle</div>
         <div class="col-2" style="text-align: center"><i class="fa fa-arrow-right"></i></div>
-        <div class="col-5" style="text-align: center">Colombo</div>
-        <div class="col-5" style="text-align: center;margin-top: 20px">2019-10-10</div>
-        <div class="col-2" style="text-align: center;margin-top: 20px">@</div>
-        <div class="col-5" style="text-align: center;margin-top: 20px">12:30 PM</div>
+        <div class="col-5" style="text-align: center;font-weight: bold">Colombo</div>
+        <div class="col-5" style="text-align: center;margin-top: 20px;font-size: 15px">2019-10-10</div>
+        <div class="col-2" style="text-align: center;margin-top: 20px;font-size: 15px">@</div>
+        <div class="col-5" style="text-align: center;margin-top: 20px;font-size: 15px">12:30 PM</div>
     </div>
-    <app-google-map></app-google-map>
+    <div class="row" style="font-size: 15px;margin: 10px;margin-top: 25px;border: 1px solid #767676;padding: 10px">
+        <div class="col-3" style="font-weight: bold">Route : </div>
+        <div class="col-9">Colombo Rd/Colombo - Galle - Hambantota - Wellawaya Rd/Colombo - Galle Main Rd/A2</div>
+        <div class="col-3" style="font-weight: bold">Distance : </div>
+        <div class="col-9">197 km</div>
+        <div class="col-3" style="font-weight: bold">Duration : </div>
+        <div class="col-9">5 hours 44 mins</div>
+    </div>
+    <app-google-map #app_google_map></app-google-map>
 </ion-content>

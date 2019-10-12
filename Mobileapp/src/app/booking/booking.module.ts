@@ -19,15 +19,15 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
+        // AgmCoreModule.forRoot({
+        //     apiKey: "AIzaSyBjKRweni7QSt1dWrc9izjXd7OHC9GYew4",
+        //     libraries: ["geometry", "places"]
+        // }),
+        AgmDirectionModule,
         CommonModule,
         FormsModule,
         IonicModule,
-        RouterModule.forChild(routes),
-        AgmCoreModule.forRoot({
-            apiKey: "AIzaSyBjKRweni7QSt1dWrc9izjXd7OHC9GYew4",
-            libraries: ["geometry", "places"]
-        }),
-        AgmDirectionModule
+        RouterModule.forChild(routes)
     ],
     declarations: [BookingPage,GoogleMapComponent]
 })

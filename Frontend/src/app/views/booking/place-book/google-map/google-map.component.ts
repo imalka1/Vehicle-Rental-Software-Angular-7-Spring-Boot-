@@ -86,6 +86,7 @@ export class GoogleMapComponent implements OnInit {
     }
 
     if (mapRoute != null) {
+      console.log(mapRoute)
       this.polyline = new google.maps.Polyline({
         path: google.maps.geometry.encoding.decodePath(mapRoute[3]),
         map: this.map,
