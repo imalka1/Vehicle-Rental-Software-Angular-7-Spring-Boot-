@@ -1,0 +1,7 @@
+{
+  "name": "Mobileapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

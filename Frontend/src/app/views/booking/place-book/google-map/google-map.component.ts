@@ -6,6 +6,7 @@ import {MapsAPILoader} from "@agm/core";
   templateUrl: './google-map.component.html',
   styleUrls: ['./google-map.component.css']
 })
+
 export class GoogleMapComponent implements OnInit {
 
   map: any;
