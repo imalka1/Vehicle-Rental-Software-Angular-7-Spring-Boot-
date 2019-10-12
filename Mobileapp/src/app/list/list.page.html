@@ -4,21 +4,21 @@
             <ion-menu-button style="--color: black"></ion-menu-button>
         </ion-buttons>
         <ion-title>
-            List
+            Trips
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let item of items" (click)="selectRoute()">
+        <ion-item *ngFor="let item of items" (click)="selectRoute()" style="font-size: 13px">
             <!--<ion-icon [name]="item.icon" slot="start"></ion-icon>-->
             <!--<div class="item-note" slot="start">-->
             <!--{{item.number}}-->
             <!--</div>-->
             {{item.number}}<span style="margin-left: 20px;font-weight: bold">{{item.title}}</span>
             <div class="item-note" slot="end">
-                {{item.note}}
+                <i class="fa fa-circle" style="color: #009c00"></i>
             </div>
         </ion-item>
     </ion-list>

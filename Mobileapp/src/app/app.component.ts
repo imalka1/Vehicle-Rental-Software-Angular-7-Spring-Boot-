@@ -10,23 +10,28 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
     styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-    public appPages = [
+    // public appPages = [
         // {
         //     title: 'Home',
         //     url: '/home',
         //     icon: 'home'
         // },
-        {
-            title: 'Trips',
-            url: '/list',
-            icon: 'list'
-        },
+        // {
+        //     title: 'Trips',
+        //     url: '/list',
+        //     icon: 'list'
+        // },
+        // {
+        //     title: 'Logout',
+        //     url: '/home',
+        //     icon: ''
+        // },
         // {
         //     title: 'Routes',
         //     url: '/booking',
         //     icon: 'list'
         // }
-    ];
+    // ];
 
     constructor(
         private platform: Platform,

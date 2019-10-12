@@ -40,7 +40,6 @@ export class ListPage implements OnInit {
     ngOnInit() {
         this.items.push({
             title: 'Galle -> Colombo',
-            note: '2010-10-10',
             number: '1)'
         });
     }

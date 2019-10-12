@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-booking',
@@ -9,7 +10,7 @@ export class BookingPage implements OnInit {
 
     @ViewChild('app_google_map', {static: true}) appGoogleMap;
 
-    constructor() {
+    constructor(private router:Router) {
     }
 
     ngOnInit() {
@@ -18,5 +19,8 @@ export class BookingPage implements OnInit {
         // ]);
     }
 
+    endTrip(){
+        this.router.navigate(['/list'])
+    }
 
 }
