@@ -33,19 +33,29 @@ export class ListPage implements OnInit {
 
     public items: Array<object> = new Array<object>();
 
-    constructor(private router: Router){
+    constructor(private router: Router) {
 
     }
 
     ngOnInit() {
-        this.items.push({
-            title: 'Galle -> Colombo',
-            number: '1)'
-        });
+        this.items.push(
+            {
+                title: 'Matara - Colombo',
+                number: '1)',
+                completed: true
+            },
+            {
+                title: 'Galle - Colombo',
+                number: '2)',
+                completed: false
+            }
+        );
     }
 
-    selectRoute(){
-        this.router.navigate(['/booking'])
+    selectRoute(item) {
+        if(!item.completed){
+            this.router.navigate(['/booking'])
+        }
     }
 
     // add back when alpha.4 is out

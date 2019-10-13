@@ -11,14 +11,11 @@
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let item of items" (click)="selectRoute()" style="font-size: 13px">
-            <!--<ion-icon [name]="item.icon" slot="start"></ion-icon>-->
-            <!--<div class="item-note" slot="start">-->
-            <!--{{item.number}}-->
-            <!--</div>-->
-            {{item.number}}<span style="margin-left: 20px;font-weight: bold">{{item.title}}</span>
+        <ion-item *ngFor="let item of items" (click)="selectRoute(item)" style="font-size: 13px">
+            {{item.number}}<span style="margin-left: 15px;font-weight: bold">{{item.title}}</span>
             <div class="item-note" slot="end">
-                <i class="fa fa-circle" style="color: #009c00"></i>
+                <i *ngIf="!item.completed" class="fa fa-circle" style="color: #00a800"></i>
+                <i *ngIf="item.completed" class="fa fa-circle" style="color: #a59c9b"></i>
             </div>
         </ion-item>
     </ion-list>

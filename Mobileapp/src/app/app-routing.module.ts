@@ -4,7 +4,7 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'booking',
+        redirectTo: 'auth',
         pathMatch: 'full'
     },
     {
@@ -19,7 +19,10 @@ const routes: Routes = [
         path: 'booking',
         loadChildren: './booking/booking.module#BookingPageModule'
     },
-    {path: 'auth', loadChildren: './auth/auth.module#AuthPageModule'}
+    {
+        path: 'auth',
+        loadChildren: './auth/auth.module#AuthPageModule'
+    }
 ];
 
 @NgModule({
