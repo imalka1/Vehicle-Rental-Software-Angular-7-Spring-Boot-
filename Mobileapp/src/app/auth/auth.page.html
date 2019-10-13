@@ -1,29 +1,31 @@
 <ion-header>
-  <ion-toolbar style="--background: #FFCB05">
-    <!--<ion-buttons slot="start">-->
-    <!--<ion-menu-button></ion-menu-button>-->
-    <!--</ion-buttons>-->
-    <ion-title style="text-align: center">
-      Vehicle Rental Software
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar style="--background: #FFCB05">
+        <!--<ion-buttons slot="start">-->
+        <!--<ion-menu-button></ion-menu-button>-->
+        <!--</ion-buttons>-->
+        <ion-title style="text-align: center">
+            Vehicle Rental Software
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="row" style="margin: 30px;margin-top: 80px">
-    <div class="col-12" style="margin-top: 30px;font-weight: bold;font-size: 20px">
-      Sign In
+    <div class="row" style="margin: 30px;margin-top: 80px">
+        <div class="col-12" style="margin-top: 30px;font-weight: bold;font-size: 20px">
+            Sign In
+        </div>
+        <div class="col-12" style="margin-top: 30px">
+            <input type="text" class="form-control" placeholder="Username" style="border-radius: 20px">
+        </div>
+        <div class="col-12" style="margin-top: 30px">
+            <input type="password" class="form-control" placeholder="Password" style="border-radius: 20px">
+        </div>
+        <div class="col-12" style="margin-top: 30px">
+            <button class="btn btn-yellow" style="position: relative;width: 100%;border-radius: 20px" (click)="login()">
+                Login
+            </button>
+        </div>
     </div>
-    <div class="col-12" style="margin-top: 30px">
-      <input type="text" class="form-control" placeholder="Username" style="border-radius: 20px">
-    </div>
-    <div class="col-12" style="margin-top: 30px">
-      <input type="password" class="form-control" placeholder="Password" style="border-radius: 20px">
-    </div>
-    <div class="col-12" style="margin-top: 30px">
-      <button class="btn btn-yellow" style="position: relative;width: 100%;border-radius: 20px" (click)="login()">Login</button>
-    </div>
-  </div>
 </ion-content>
 
 <!--<ion-content>-->
