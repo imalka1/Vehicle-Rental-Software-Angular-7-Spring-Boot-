@@ -54,7 +54,7 @@ export class ListPage implements OnInit {
 
     selectRoute(item) {
         if(!item.completed){
-            this.router.navigate(['/booking'])
+            this.router.navigate(['/admin/booking'])
         }
     }
 

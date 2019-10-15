@@ -12,7 +12,7 @@
 <ion-content>
     <ion-list>
         <ion-item *ngFor="let item of items" (click)="selectRoute(item)" style="font-size: 13px">
-            {{item.number}}<span style="margin-left: 15px;font-weight: bold">{{item.title}}</span>
+            {{item.number}}<span style="margin-left: 5px;font-weight: bold">{{item.title}}</span>
             <div class="item-note" slot="end">
                 <i *ngIf="!item.completed" class="fa fa-circle" style="color: #00a800"></i>
                 <i *ngIf="item.completed" class="fa fa-circle" style="color: #a59c9b"></i>

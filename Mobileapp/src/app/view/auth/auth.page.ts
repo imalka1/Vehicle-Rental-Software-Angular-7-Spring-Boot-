@@ -12,7 +12,7 @@ export class AuthPage implements OnInit {
     }
 
     login() {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/admin/home'])
     }
 
     ngOnInit() {
