@@ -8,14 +8,13 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {HeaderComponent} from "./view/header/header.component";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginGuardService} from "./service/login-guard.service";
+import {DatePipe} from "@angular/common";
 
 @NgModule({
     declarations: [
-        AppComponent,
-        HeaderComponent
+        AppComponent
     ],
     entryComponents: [],
     imports: [
@@ -28,7 +27,8 @@ import {LoginGuardService} from "./service/login-guard.service";
         StatusBar,
         SplashScreen,
         LoginGuardService,
-        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+        DatePipe
     ],
     bootstrap: [AppComponent]
 })

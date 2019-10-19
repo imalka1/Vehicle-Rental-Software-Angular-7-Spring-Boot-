@@ -11,8 +11,7 @@ import java.util.Set;
 @Entity
 public class Vehicle {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String id;
     private String vehicleName;
     private Integer vehicleTotalPassengers;
     private String vehicleCategory;
@@ -39,11 +38,11 @@ public class Vehicle {
         this.vehicleReserved = vehicleReserved;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

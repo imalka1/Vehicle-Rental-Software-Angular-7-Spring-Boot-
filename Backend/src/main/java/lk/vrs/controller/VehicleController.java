@@ -43,6 +43,11 @@ public class VehicleController {
         return vehicleService.getVehiclesViaCategory(category);
     }
 
+    @GetMapping(value = "/admin/vehicleViaUser/{user}")
+    public Vehicle getVehicleViaUser(@PathVariable String user) {
+        return vehicleService.getVehicleViaUser(user);
+    }
+
     @PostMapping(value = "/vehiclesViaCategoryForReservation")
     public List<Vehicle> getVehiclesViaCategoryForReservation(@RequestBody Vehicle vehicle) {
         return vehicleService.getVehiclesViaCategoryForReservation(vehicle);

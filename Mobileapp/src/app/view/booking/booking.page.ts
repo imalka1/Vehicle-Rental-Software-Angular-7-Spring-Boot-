@@ -20,7 +20,7 @@ export class BookingPage implements OnInit {
     }
 
     endTrip(){
-        this.router.navigate(['/admin/list'])
+        this.router.navigate(['/list'])
     }
 
 }

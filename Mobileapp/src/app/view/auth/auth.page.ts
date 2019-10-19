@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {LoginService} from "../../service/login.service";
+import {CommonService} from "../../service/common.service";
+import {Token} from "../../dtos/token";
+import {User} from "../../model/user";
 
 @Component({
     selector: 'app-auth',
@@ -8,11 +12,22 @@ import {Router} from "@angular/router";
 })
 export class AuthPage implements OnInit {
 
-    constructor(private router: Router) {
+    user: User = new User();
+
+    constructor(private router: Router, private loginService: LoginService, private commonService: CommonService) {
     }
 
-    login() {
-        this.router.navigate(['/admin/home'])
+    accLogin() {
+        this.user.userRole = 'driver';
+        this.loginService.accLogin(this.user).subscribe((result) => {
+            let token: Token = result;
+            if (token.token != 'errorLogin') {
+                localStorage.setItem('token', 'Token ' + token.token);
+                localStorage.setItem('user', token.userId);
+                this.router.navigate(['/home']);
+                this.commonService.setLoginOrLogout(true);
+            }
+        });
     }
 
     ngOnInit() {

@@ -12,14 +12,14 @@ import java.util.Set;
 public class Driver {
     @Id
     private String id;
-    private String driverName;
-    private String driverEmail;
+    //    private String driverName;
+//    private String driverEmail;
     private String driverContactNumber;
     private boolean driverPresent;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "driver")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnoreProperties("driver")
+    @JsonIgnoreProperties(value = "driver", allowSetters = true)
     private Set<DriverVehicle> driverVehicles;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -43,21 +43,21 @@ public class Driver {
         this.driverPresent = driverPresent;
     }
 
-    public String getDriverName() {
-        return driverName;
-    }
-
-    public void setDriverName(String driverName) {
-        this.driverName = driverName;
-    }
-
-    public String getDriverEmail() {
-        return driverEmail;
-    }
-
-    public void setDriverEmail(String driverEmail) {
-        this.driverEmail = driverEmail;
-    }
+//    public String getDriverName() {
+//        return driverName;
+//    }
+//
+//    public void setDriverName(String driverName) {
+//        this.driverName = driverName;
+//    }
+//
+//    public String getDriverEmail() {
+//        return driverEmail;
+//    }
+//
+//    public void setDriverEmail(String driverEmail) {
+//        this.driverEmail = driverEmail;
+//    }
 
     public String getDriverContactNumber() {
         return driverContactNumber;
@@ -90,10 +90,9 @@ public class Driver {
     public String toString() {
         return "Driver{" +
                 "id='" + id + '\'' +
-                ", driverName='" + driverName + '\'' +
-                ", driverEmail='" + driverEmail + '\'' +
                 ", driverContactNumber='" + driverContactNumber + '\'' +
                 ", driverPresent=" + driverPresent +
+                ", driverVehicles=" + driverVehicles +
                 ", user=" + user +
                 '}';
     }

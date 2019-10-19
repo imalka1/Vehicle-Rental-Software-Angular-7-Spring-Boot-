@@ -1,5 +1,6 @@
 package lk.vrs.repository;
 
+import lk.vrs.entity.DriverVehicle;
 import lk.vrs.entity.Reservation;
 import lk.vrs.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,5 +16,8 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
     @Query(value = "FROM Vehicle WHERE vehicleCategory=?1 AND vehicleTotalPassengers=?2 AND vehicleReserved=false")
     List<Vehicle> getVehiclesViaCategoryForReservation(String category, int totalPassengers);
+
+    @Query(value = "FROM DriverVehicle WHERE driver.user.id=?1 AND onDuty=true")
+    DriverVehicle getVehicleViaUser(long user);
 
 }

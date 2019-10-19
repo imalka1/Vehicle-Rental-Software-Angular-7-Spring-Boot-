@@ -30,12 +30,12 @@ export class EditDriverComponent implements OnInit {
 
   addDriver() {
     if (this.edit_driverDto.driver.user.id == undefined) {
-      this.edit_driverDto.driver.user.userName = this.edit_driverDto.driver.driverEmail;
+      this.edit_driverDto.driver.user.userName = this.edit_driverDto.driver.user.userEmail;
       this.edit_driverDto.driver.user.userRole = 'driver';
     }
-    if (this.edit_driverDto.driver.driverName != undefined && this.edit_driverDto.driver.driverContactNumber != undefined && this.edit_driverDto.driver.driverEmail != undefined && this.edit_driverDto.driver.user.userPassword != undefined) {
+    if (this.edit_driverDto.driver.user.userName != undefined && this.edit_driverDto.driver.driverContactNumber != undefined && this.edit_driverDto.driver.user.userEmail != undefined && this.edit_driverDto.driver.user.userPassword != undefined) {
       this.edit_driverDto.driverVehicle.dateOfAssigned = null;
-      console.log(this.edit_driverDto.driver)
+      // console.log(this.edit_driverDto.driver)
       this.driverService.addDriver(this.edit_driverDto.driver).subscribe((result) => {
         this.edit_driverDto.driver = result;
         this.edit_driverDto.edit = false;

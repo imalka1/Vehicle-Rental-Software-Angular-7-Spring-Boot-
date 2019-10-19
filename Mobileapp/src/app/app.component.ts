@@ -3,6 +3,10 @@ import {Component} from '@angular/core';
 import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {Router} from "@angular/router";
+import {LoginService} from "./service/login.service";
+import {HttpClient} from "@angular/common/http";
+import {CommonService} from "./service/common.service";
 
 @Component({
     selector: 'app-root',
@@ -36,7 +40,10 @@ export class AppComponent {
     constructor(
         private platform: Platform,
         private splashScreen: SplashScreen,
-        private statusBar: StatusBar
+        private statusBar: StatusBar,
+        private loginService: LoginService,
+        private commonService: CommonService,
+        private router: Router
     ) {
         this.initializeApp();
     }
@@ -46,5 +53,16 @@ export class AppComponent {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });
+    }
+
+    accLogout() {
+        if (this.commonService.isLoggedIn()) {
+            this.loginService.accLogout().subscribe((result) => {
+                    localStorage.clear();
+                    this.commonService.setLoginOrLogout(false);
+                    this.router.navigate(['/auth'])
+                }
+            )
+        }
     }
 }

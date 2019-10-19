@@ -42,6 +42,7 @@ public class UserController {
         TokenDTO tokenDTO = new TokenDTO();
         if (userObj != null) {
             tokenDTO.setToken(jwtGenerator.generate(userObj));
+            tokenDTO.setUserId(userObj.getId() + "");
         } else {
             tokenDTO.setToken("errorLogin");
         }

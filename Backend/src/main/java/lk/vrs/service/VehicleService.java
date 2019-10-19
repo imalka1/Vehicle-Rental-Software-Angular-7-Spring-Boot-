@@ -20,4 +20,5 @@ public interface VehicleService {
 
     List<Vehicle> getVehiclesViaCategoryForReservation(Vehicle vehicle);
 
+    Vehicle getVehicleViaUser(String user);
 }

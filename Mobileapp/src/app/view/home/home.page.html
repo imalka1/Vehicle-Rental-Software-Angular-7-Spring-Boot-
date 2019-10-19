@@ -12,15 +12,16 @@
 <ion-content>
     <div class="row" style="margin: 10px;margin-top: 30px">
         <div class="col-12" style="font-size: 15px;text-align: center">
-            Date : 2019-10-10
+            Date : {{currentDate}}
         </div>
     </div>
     <div class="row" style="margin: 30px;margin-top: 80px">
         <div class="col-12" style="margin-top: 30px;font-weight: bold;font-size: 20px;text-align: center">
             Vehicle
         </div>
-        <div class="col-12" style="margin-top: 30px;font-size: 30px;text-align: center">
-            CBA 9922
+        <div class="col-12"
+             [ngStyle]="{ 'margin-top': '30px' ,'text-align':' center','font-size':vehicle!=null?'30px':'20px'}">
+            {{vehicle!=null?vehicle.id:'No vehicles assigned'}}
         </div>
     </div>
 </ion-content>

@@ -13,28 +13,27 @@ VALUES
 INSERT INTO `vehicle_rental_software`.`user`
 (`user_name`,
 `user_password`,
+`user_email`,
 `user_role`)
 VALUES
-('imalka','123','admin'),('imalka1','456','admin');
+('imalka','123','im','admin'),('imalka1','456','imm','driver'),('imalka2','123','im','driver');
 
 INSERT INTO `vehicle_rental_software`.`driver`
 (`id`,
 `driver_contact_number`,
-`driver_email`,
-`driver_name`,
 `driver_present`,
 `user_id`)
 VALUES
-('95','077','im','ima',true,1),('96','077','imm','imma',true,2);
+('95','077',true,2),('96','077',true,3);
 
 INSERT INTO `vehicle_rental_software`.`vehicle`
-(
+(`id`,
 `vehicle_category`,
 `vehicle_total_passengers`,
 `vehicle_name`,
 `vehicle_reserved`)
 VALUES
-('car',5,'Benz',false),('car',4,'Toyota',false),('minivan',4,'Mitsubishi',false),('minivan',4,'Skoda',false),('minivan',7,'Nissan',false);
+('CBA-1111','car',5,'Benz',false),('CBA-2222','car',4,'Toyota',false),('CBA-3333','minivan',4,'Mitsubishi',false),('CBA-4444','minivan',4,'Skoda',false),('CBA-5555','minivan',7,'Nissan',false);
 
 INSERT INTO `vehicle_rental_software`.`place`
 (
@@ -44,14 +43,6 @@ INSERT INTO `vehicle_rental_software`.`place`
 `place_name`)
 VALUES
 (7.180272,79.884080,'Airport','Katunayaka'),(6.293070, 81.123698,'Airport','Mattala'),(9.661750, 80.024650,'Disneyland','Disneyland');
-
-
-INSERT INTO `vehicle_rental_software`.`user`
-(`user_name`,
-`user_password`,
-`user_role`)
-VALUES
-('imalka2','123','admin'),('imalka3','456','admin');
 
 INSERT INTO `vehicle_rental_software`.`reservation`
 (
@@ -112,16 +103,18 @@ SELECT `customer`.`id`,
     `customer`.`customer_name`
 FROM `vehicle_rental_software`.`customer`;
 
+SELECT `driver_vehicle`.`id`,
+    `driver_vehicle`.`date_of_assigned`,
+    `driver_vehicle`.`on_duty`,
+    `driver_vehicle`.`driver_id`,
+    `driver_vehicle`.`vehicle_id`
+FROM `vehicle_rental_software`.`driver_vehicle`;
+
 SELECT `driver`.`id`,
     `driver`.`driver_contact_number`,
-    `driver`.`driver_email`,
-    `driver`.`driver_name`,
     `driver`.`driver_present`,
-    `driver`.`user_id`,
-    `driver`.`vehicle_id`
+    `driver`.`user_id`
 FROM `vehicle_rental_software`.`driver`;
-
-
 
 
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {LoginService} from "../../service/login.service";
 
 @Component({
     selector: 'app-list',
@@ -53,10 +54,11 @@ export class ListPage implements OnInit {
     }
 
     selectRoute(item) {
-        if(!item.completed){
-            this.router.navigate(['/admin/booking'])
+        if (!item.completed) {
+            this.router.navigate(['/booking'])
         }
     }
+
 
     // add back when alpha.4 is out
     // navigate(item) {

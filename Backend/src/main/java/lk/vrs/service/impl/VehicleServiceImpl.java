@@ -58,4 +58,13 @@ public class VehicleServiceImpl implements VehicleService {
         return vehicleRepository.getVehiclesViaCategoryForReservation(vehicle.getVehicleCategory(), vehicle.getVehicleTotalPassengers());
     }
 
+    @Override
+    public Vehicle getVehicleViaUser(String user) {
+        DriverVehicle vehicleViaUser = vehicleRepository.getVehicleViaUser(Long.parseLong(user));
+        if (vehicleViaUser != null) {
+            return vehicleViaUser.getVehicle();
+        }
+        return null;
+    }
+
 }
