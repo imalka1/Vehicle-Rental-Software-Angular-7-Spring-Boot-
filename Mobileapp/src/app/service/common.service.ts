@@ -32,7 +32,7 @@ export class CommonService {
         if (error.error.message == 'JWT Token is incorrect') {
             localStorage.clear();
             this.setLoginOrLogout(false);
-            this.router.navigate(['/head/main'])
+            this.router.navigate(['/auth'])
         }
         return throwError(error.message || "Server Error")
     }
