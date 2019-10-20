@@ -3,25 +3,37 @@
         <ion-buttons slot="start">
             <ion-menu-button style="--color: black"></ion-menu-button>
         </ion-buttons>
-        <ion-title style="text-align: center">
+        <ion-title style="text-align: center;padding: 0px">
             Vehicle Rental Software
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="row" style="margin: 10px;margin-top: 30px">
+    <div class="row" style="margin: 10px;margin-top: 60px">
         <div class="col-12" style="font-size: 15px;text-align: center">
             Date : {{currentDate}}
         </div>
     </div>
-    <div class="row" style="margin: 30px;margin-top: 80px">
-        <div class="col-12" style="margin-top: 30px;font-weight: bold;font-size: 20px;text-align: center">
-            Vehicle
-        </div>
+    <div class="row" style="margin: 30px;margin-top: 50px;border: 2px solid #EABB04;border-radius: 50px">
         <div class="col-12"
-             [ngStyle]="{ 'margin-top': '30px' ,'text-align':' center','font-size':vehicle!=null?'30px':'20px'}">
-            {{vehicle!=null?vehicle.id:'No vehicles assigned'}}
+             [ngStyle]="{'text-align':' center','font-size':vehicle!=null?'20px':'15px','padding':'10px'}">
+            <span style="font-weight: bold;margin-right: 5px">Vehicle : </span>{{vehicle!=null?vehicle.id:'No vehicle has been assigned'}}
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;margin-top: 100px">
+        <div class="col-12" style="font-size: 14px">
+            <span style="font-weight: bold;margin-right: 5px">Vehicle Model : </span>{{vehicle!=null?vehicle.vehicleName:'No vehicle has been assigned'}}
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;margin-top: 30px">
+        <div class="col-12" style="font-size: 14px">
+            <span style="font-weight: bold;margin-right: 5px">Vehicle Category : </span>{{vehicle!=null?vehicle.vehicleCategory:'No vehicle has been assigned'}}
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;margin-top: 30px">
+        <div class="col-12" style="font-size: 14px">
+            <span style="font-weight: bold;margin-right: 5px">Total Passengers : </span>{{vehicle!=null?vehicle.vehicleTotalPassengers:'No vehicle has been assigned'}}
         </div>
     </div>
 </ion-content>

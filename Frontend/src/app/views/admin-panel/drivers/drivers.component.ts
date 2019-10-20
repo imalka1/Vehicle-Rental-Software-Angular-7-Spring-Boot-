@@ -56,6 +56,8 @@ export class DriversComponent implements OnInit {
           driverDto.driverDtos = this.driverDtos;
           this.driverDtos.push(driverDto);
         }
+      }, (error) => {
+        this.commonService.errorHandler(error)
       })
     } else {
       this.loadDrivers();
@@ -67,6 +69,8 @@ export class DriversComponent implements OnInit {
       if (result != undefined) {
         this.loadVehicles(result);
       }
+    }, (error) => {
+      this.commonService.errorHandler(error)
     })
   }
 
@@ -77,6 +81,8 @@ export class DriversComponent implements OnInit {
         console.log(drivers[i])
         this.setDriverDto(drivers[i]);
       }
+    }, (error) => {
+      this.commonService.errorHandler(error)
     })
   }
 
