@@ -1,4 +1,4 @@
-<section id="about" class="section-padding" style="padding-top: 120px">
+<section id="about" class="section-padding" style="padding-top: 100px">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -40,18 +40,22 @@
 
             <app-place-book #app_place_book (placeLatLongOut)="setPlaceLatLong($event)"></app-place-book>
 
+            <app-vehicle-book (vehicleOut)="setVehicle($event)"></app-vehicle-book>
+
           </div>
         </div>
 
-        <hr
-          style="margin-top: 50px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+        <!--<hr-->
+          <!--style="margin-top: 50px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">-->
 
         <div class="page-heading" style="margin-top: 100px">
-          <div class="col-sm-12" style="margin-bottom: 50px">
-            <div *ngIf="getRouter().url=='/head/carousel/main'" style="background-color: rgba(255,255,255,0)">
-              <a routerLink="/head/carousel/booking" class="btn btn-default btn-lg btn-padding"
-                 style="background-color: #FFCB05">Book Now</a>
-            </div>
+          <div class="col-sm-12">
+            <!--<div *ngIf="getRouter().url=='/head/carousel/main'" style="background-color: rgba(255,255,255,0)">-->
+              <!--<a routerLink="/head/carousel/booking" class="btn btn-default btn-lg btn-padding"-->
+                 <!--style="background-color: #FFCB05">Book Now</a>-->
+            <!--</div>-->
+            <a routerLink="/head/carousel/booking" class="btn btn-default btn-lg btn-padding"
+               style="background-color: #FFCB05">Book Now</a>
           </div>
 
         </div><!-- end page-heading -->

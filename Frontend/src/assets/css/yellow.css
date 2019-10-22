@@ -1095,7 +1095,7 @@ p{
    ----------------------------------------------------- */
 
 #about{
-	background:linear-gradient(rgba(246, 246, 246,0.85), rgba(201, 201, 201, 0.85));
+	background:linear-gradient(rgba(246, 246, 246,0.85), rgba(223, 223, 223, 0.85));
   /*background:linear-gradient(rgba(246, 246, 246, 0.92), rgba(246, 246, 246, 0.95)),url('../images/cover/bmw.jpg');*/
   background-size:cover;
 	background-position:50% 70%;
