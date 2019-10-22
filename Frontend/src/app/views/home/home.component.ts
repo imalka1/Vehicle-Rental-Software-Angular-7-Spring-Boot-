@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,9 +8,24 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('app_place_book') appPlaceBook;
+  selectedCategory: string = 'Airport';
+  placeLatLong: Array<number>;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.changeCategory();
+  }
+
+  changeCategory() {
+    this.appPlaceBook.changeSelectedCategory(this.selectedCategory)
+    this.appPlaceBook.changeRouteOnMap(null);
+  }
+
+  setPlaceLatLong(placeLatLong: Array<number>) {
+    this.placeLatLong = placeLatLong;
+    console.log(placeLatLong)
   }
 
   getRouter(){

@@ -21,11 +21,11 @@ import {Vehicle} from "../../model/Vehicle";
 })
 export class BookingComponent implements OnInit {
 
-  @ViewChild('app_place_book') appPlaceBook;
+
   currentDate: string;
   currentTime: string;
 
-  selectedCategory: string = 'Airport';
+  selectedCategory: string;
   // selectedPlaceFrom: Place;
   // selectedPlaceTo: Place;
   placeDtos: Array<PlaceDto>;
@@ -47,14 +47,11 @@ export class BookingComponent implements OnInit {
   ngOnInit() {
     this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.currentTime = this.datePipe.transform(new Date(), 'HH:mm');
-    this.changeCategory();
+
     this.submitReservation();
   }
 
-  changeCategory() {
-    this.appPlaceBook.changeSelectedCategory(this.selectedCategory)
-    this.appPlaceBook.changeRouteOnMap(null);
-  }
+
 
   suggestCustomer() {
     this.customerService.getCustomerViaEmail(this.customer.customerEmail).subscribe((result) => {
@@ -71,14 +68,11 @@ export class BookingComponent implements OnInit {
     })
   }
 
-  setPlaceLatLong(placeLatLong: Array<number>) {
-    this.placeLatLong = placeLatLong;
-    console.log(placeLatLong)
-  }
 
-  setVehicle(vehicle: Vehicle) {
-    console.log(vehicle)
-  }
+
+  // setVehicle(vehicle: Vehicle) {
+  //   console.log(vehicle)
+  // }
 
   makeReservation() {
     let cardDto: CreditcardDto = new CreditcardDto();
