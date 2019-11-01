@@ -1,8 +1,0 @@
-{
-  "name": "Mobileapp",
-  "integrations": {
-    "cordova": {},
-    "capacitor": {}
-  },
-  "type": "angular"
-}
