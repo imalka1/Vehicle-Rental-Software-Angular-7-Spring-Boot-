@@ -14,9 +14,17 @@
 <%--</div>--%>
 <%--</div>--%>
 
-<section id="about" style="padding-top: 100px;padding-bottom: 100px">
+<section id="about" style="padding-top: 60px;padding-bottom: 80px">
     <div class="container" style="font-size: 16px">
-        <div class="row" style="font-weight: bold">
+        <div class="row" style="font-size: 25px;text-align: center;font-weight: bold">
+            <div class="col-12">
+                Book Your Taxi Now
+            </div>
+        </div>
+
+        <hr style="margin-top: 50px;margin-bottom: 10px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+        <div class="row" style="font-weight: bold;padding-top: 50px">
             <div class="col-4" style="padding: 5px">
                 Pickup From
             </div>
