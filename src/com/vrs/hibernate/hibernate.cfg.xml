@@ -9,5 +9,6 @@
     <property name="hibernate.hbm2ddl.auto">update</property>
 
     <mapping class="com.vrs.entity.User"/>
+    <mapping class="com.vrs.entity.Place"/>
 </session-factory>
 </hibernate-configuration>
