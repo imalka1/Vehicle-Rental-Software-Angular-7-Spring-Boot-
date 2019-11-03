@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Trip</div>
                             <div class="col-12">
@@ -73,7 +73,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Pickup Date</div>
                             <div class="col-12">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Pickup Time</div>
                             <div class="col-12">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Adults</div>
                             <div class="col-12">
@@ -100,7 +100,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Children</div>
                             <div class="col-12">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Infants</div>
                             <div class="col-12">
@@ -118,7 +118,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">No of passengers</div>
                             <div class="col-12">

@@ -48,14 +48,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="495" />
-          <entry key="jsp" value="1467" />
+          <entry key="jsp" value="1483" />
           <entry key="xml" value="105" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="495" />
-          <entry key="JSP" value="1467" />
+          <entry key="JSP" value="1483" />
           <entry key="XML" value="105" />
         </counts>
       </usages-collector>
@@ -78,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="129" column="18" lean-forward="true" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+            <state relative-caret-position="306">
+              <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
               <folding>
                 <element signature="e#257#317#0#HTML" expanded="true" />
                 <element signature="e#502#569#0#HTML" expanded="true" />
@@ -88,7 +88,9 @@
                 <element signature="e#778#799#0#HTML" expanded="true" />
                 <element signature="e#895#953#0#HTML" expanded="true" />
                 <element signature="e#1575#1595#0#HTML" expanded="true" />
+                <element signature="e#3041#3065#0#HTML" expanded="true" />
                 <element signature="e#2585#2605#0#HTML" expanded="true" />
+                <element signature="e#3659#3683#0#HTML" expanded="true" />
                 <element signature="e#2954#2974#0#HTML" expanded="true" />
                 <element signature="e#3318#3338#0#HTML" expanded="true" />
                 <element signature="e#3301#3321#0#HTML" expanded="true" />
@@ -328,7 +330,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572809183650" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572810771792" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/txw2-2.3.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -489,12 +491,12 @@
       <workItem from="1572628104117" duration="3951000" />
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
-      <workItem from="1572672009636" duration="27532000" />
+      <workItem from="1572672009636" duration="28240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37622000" />
+    <option name="totallyTimeSpent" value="38330000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -689,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="129" column="18" lean-forward="true" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+        <state relative-caret-position="306">
+          <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
           <folding>
             <element signature="e#257#317#0#HTML" expanded="true" />
             <element signature="e#502#569#0#HTML" expanded="true" />
@@ -699,7 +701,9 @@
             <element signature="e#778#799#0#HTML" expanded="true" />
             <element signature="e#895#953#0#HTML" expanded="true" />
             <element signature="e#1575#1595#0#HTML" expanded="true" />
+            <element signature="e#3041#3065#0#HTML" expanded="true" />
             <element signature="e#2585#2605#0#HTML" expanded="true" />
+            <element signature="e#3659#3683#0#HTML" expanded="true" />
             <element signature="e#2954#2974#0#HTML" expanded="true" />
             <element signature="e#3318#3338#0#HTML" expanded="true" />
             <element signature="e#3301#3321#0#HTML" expanded="true" />

@@ -4,7 +4,7 @@
 
 <section id="about" style="padding-top: 60px;padding-bottom: 80px">
     <div class="container" style="font-size: 16px">
-        <div class="row" style="font-size: 25px;text-align: center;font-weight: bold">
+        <div class="row" style="font-size: 25px;text-align: center;font-weight: bold;margin-top: 20px">
             <div class="col-5">
                 Book Your Taxi Now
             </div>
