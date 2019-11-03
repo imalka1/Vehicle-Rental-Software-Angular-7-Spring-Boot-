@@ -8,44 +8,48 @@
     <meta charset="utf-8">
     <!--<meta name="viewport" content="width=1300px">-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" href="assets/images/favicon.html" type="image/x-icon">
+    <link rel="icon" href="${pageContext.request.contextPath}/assets/images/favicon.html" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i%7CPlayfair+Display:400,400i,700,700i,900,900i"
+          rel="stylesheet">
 
     <!-- Bootstrap Stylesheet -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <!-- Font Awesome Stylesheet -->
-    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/font-awesome.min.css">
 
     <!-- Custom Stylesheets -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" id="cpswitch" href="../assets/css/yellow.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" id="cpswitch" href="${pageContext.request.contextPath}/assets/css/yellow.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/responsive.css">
 
     <!-- Owl Carousel Stylesheet -->
-    <link rel="stylesheet" href="../assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="../assets/css/owl.theme.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/owl.theme.css">
 
     <!-- Flex Slider Stylesheet -->
-    <link rel="stylesheet" href="../assets/css/flexslider.css" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flexslider.css" type="text/css"/>
 
     <!--Date-Picker Stylesheet-->
-    <link rel="stylesheet" href="../assets/css/datepicker.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/datepicker.css">
 
     <!-- Magnific Gallery -->
-    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
 
     <!-- Color Panel -->
-    <link rel="stylesheet" href="../assets/css/jquery.colorpanel.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.colorpanel.css">
 
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 
+    <%-------------------------------------------------Jquery---------------------------------------------------------%>
+    <script src="${pageContext.request.contextPath}/assets/js/jquery-3.4.1.min.js"></script>
+
     <style>
-        body{
-            min-width:500px;
+        body {
+            min-width: 500px;
         }
     </style>
 
