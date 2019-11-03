@@ -4,7 +4,7 @@
     }
 </style>
 <div class="home-container" style="z-index: 99999">
-    <div id="header-bottom" class="headerMain">
+    <div id="header-bottom" class="headerMain" style="position: fixed">
         <nav class="navbar navbar-default transparent-nav navbar-custom black-menu" id="mynavbar" style="padding: 10px 0">
             <div class="container">
 

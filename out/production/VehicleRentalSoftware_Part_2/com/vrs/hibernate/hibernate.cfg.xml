@@ -10,5 +10,8 @@
 
     <mapping class="com.vrs.entity.User"/>
     <mapping class="com.vrs.entity.Place"/>
+    <mapping class="com.vrs.entity.Customer"/>
+    <mapping class="com.vrs.entity.Comment"/>
+    <mapping class="com.vrs.entity.Reservation"/>
 </session-factory>
 </hibernate-configuration>
