@@ -48,14 +48,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="495" />
-          <entry key="jsp" value="1483" />
+          <entry key="jsp" value="1491" />
           <entry key="xml" value="105" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="495" />
-          <entry key="JSP" value="1483" />
+          <entry key="JSP" value="1491" />
           <entry key="XML" value="105" />
         </counts>
       </usages-collector>
@@ -75,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
+              <caret line="120" column="66" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
               <folding>
                 <element signature="e#257#317#0#HTML" expanded="true" />
                 <element signature="e#502#569#0#HTML" expanded="true" />
@@ -92,10 +92,15 @@
                 <element signature="e#2585#2605#0#HTML" expanded="true" />
                 <element signature="e#3659#3683#0#HTML" expanded="true" />
                 <element signature="e#2954#2974#0#HTML" expanded="true" />
+                <element signature="e#4106#4130#0#HTML" expanded="true" />
                 <element signature="e#3318#3338#0#HTML" expanded="true" />
+                <element signature="e#4553#4577#0#HTML" expanded="true" />
                 <element signature="e#3301#3321#0#HTML" expanded="true" />
+                <element signature="e#5019#5043#0#HTML" expanded="true" />
                 <element signature="e#3660#3680#0#HTML" expanded="true" />
+                <element signature="e#5487#5511#0#HTML" expanded="true" />
                 <element signature="e#4021#4041#0#HTML" expanded="true" />
+                <element signature="e#5954#5978#0#HTML" expanded="true" />
                 <element signature="e#5777#5815#0#HTML" expanded="true" />
                 <element signature="e#6295#6366#0#HTML" expanded="true" />
                 <element signature="e#6387#6446#0#HTML" expanded="true" />
@@ -138,9 +143,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -222,8 +236,8 @@
         <option value="$PROJECT_DIR$/src/com/vrs/hibernate/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/com/vrs/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/web/view/nav_bar.jsp" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/web/view/customer/booking.jsp" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
       </list>
     </option>
   </component>
@@ -330,7 +344,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572810771792" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572811314715" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/txw2-2.3.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -491,15 +505,16 @@
       <workItem from="1572628104117" duration="3951000" />
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
-      <workItem from="1572672009636" duration="28240000" />
+      <workItem from="1572672009636" duration="28891000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38330000" />
+    <option name="totallyTimeSpent" value="38981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20604026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -686,13 +701,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="75" column="66" selection-start-line="75" selection-start-column="66" selection-end-line="75" selection-end-column="66" />
+          <caret line="120" column="66" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
           <folding>
             <element signature="e#257#317#0#HTML" expanded="true" />
             <element signature="e#502#569#0#HTML" expanded="true" />
@@ -705,10 +717,15 @@
             <element signature="e#2585#2605#0#HTML" expanded="true" />
             <element signature="e#3659#3683#0#HTML" expanded="true" />
             <element signature="e#2954#2974#0#HTML" expanded="true" />
+            <element signature="e#4106#4130#0#HTML" expanded="true" />
             <element signature="e#3318#3338#0#HTML" expanded="true" />
+            <element signature="e#4553#4577#0#HTML" expanded="true" />
             <element signature="e#3301#3321#0#HTML" expanded="true" />
+            <element signature="e#5019#5043#0#HTML" expanded="true" />
             <element signature="e#3660#3680#0#HTML" expanded="true" />
+            <element signature="e#5487#5511#0#HTML" expanded="true" />
             <element signature="e#4021#4041#0#HTML" expanded="true" />
+            <element signature="e#5954#5978#0#HTML" expanded="true" />
             <element signature="e#5777#5815#0#HTML" expanded="true" />
             <element signature="e#6295#6366#0#HTML" expanded="true" />
             <element signature="e#6387#6446#0#HTML" expanded="true" />
@@ -746,6 +763,18 @@
             <element signature="e#1672#1714#0#HTML" expanded="true" />
             <element signature="e#7359#7384#0#HTML" expanded="true" />
             <element signature="e#2156#2181#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

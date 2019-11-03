@@ -18,6 +18,71 @@
                     </div>
                 </div>
             </div>
+            <%--<div class="row" style="font-weight: bold;padding-top: 50px">--%>
+                <%--<div class="col-sm-4">--%>
+                    <%--<div class="row" style="padding: 5px">--%>
+                        <%--<div class="col-12">Pickup From</div>--%>
+                        <%--<div class="col-12">--%>
+                            <%--<select class="form-control" id="placeFrom">--%>
+                                <%--<%--%>
+                                    <%--{--%>
+                                        <%--List<Place> allPlaces = new PlaceService().getAllPlaces();--%>
+                                        <%--for (Place place : allPlaces) {--%>
+                                <%--%>--%>
+                                <%--<option value="<%= place.getId()%>"><%= place.getPlaceName()%>--%>
+                                <%--</option>--%>
+                                <%--<%--%>
+                                        <%--}--%>
+                                    <%--}--%>
+                                <%--%>--%>
+                            <%--</select>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+
+                <%--</div>--%>
+
+                <%--<div class="col-sm-4">--%>
+                    <%--<div class="row" style="padding: 5px">--%>
+                        <%--<div class="col-12">Drop To</div>--%>
+                        <%--<div class="col-12">--%>
+                            <%--<select class="form-control" id="placeTo">--%>
+                                <%--<%--%>
+                                    <%--{--%>
+                                        <%--List<Place> allPlaces = new PlaceService().getAllPlaces();--%>
+                                        <%--for (Place place : allPlaces) {--%>
+                                <%--%>--%>
+                                <%--<option value="<%= place.getId()%>"><%= place.getPlaceName()%>--%>
+                                <%--</option>--%>
+                                <%--<%--%>
+                                        <%--}--%>
+                                    <%--}--%>
+                                <%--%>--%>
+                            <%--</select>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+
+                <%--<div class="col-sm-2">--%>
+                    <%--<div class="row" style="padding: 5px">--%>
+                        <%--<div class="col-12">No of passengers</div>--%>
+                        <%--<div class="col-12">--%>
+                            <%--<input type="number" class="form-control" min="1" value="1" id="noOfPassengers">--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+
+                <%--<div class="col-sm-2">--%>
+                    <%--<div class="row" style="padding: 5px">--%>
+                        <%--<div class="col-12">Trip</div>--%>
+                        <%--<div class="col-12">--%>
+                            <%--<select name="" class="form-control" id="trip">--%>
+                                <%--<option value="1">One way</option>--%>
+                                <%--<option value="2">Round trip</option>--%>
+                            <%--</select>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
     </div>
 </section>
