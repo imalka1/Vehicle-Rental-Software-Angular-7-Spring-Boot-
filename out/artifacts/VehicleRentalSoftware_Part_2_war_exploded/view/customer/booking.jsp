@@ -5,11 +5,11 @@
 <jsp:include page="../nav_bar.jsp"/>
 <jsp:include page="../carousel.jsp"/>
 
-<section id="about" style="padding-top: 60px;padding-bottom: 80px">
+<section id="about" style="padding-top: 80px;padding-bottom: 80px">
     <div class="container" style="font-size: 16px">
         <div class="row" style="font-size: 25px;text-align: center;font-weight: bold">
             <div class="col-12">
-                <span style="padding: 18px;border-radius: 50px;border: 1px solid #FFCB05">Book Your Taxi Now</span>
+                <span style="padding: 18px;border-radius: 50px;border: 1px solid #FFCB05">Booking Details</span>
             </div>
         </div>
 

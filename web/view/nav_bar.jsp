@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar1">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                        <li class="dropdown"><a href="${pageContext.request.contextPath}/index.jsp" class="dropdown-toggle" data-toggle="dropdown">Home</a>
                         </li>
 
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Bookings</a>
