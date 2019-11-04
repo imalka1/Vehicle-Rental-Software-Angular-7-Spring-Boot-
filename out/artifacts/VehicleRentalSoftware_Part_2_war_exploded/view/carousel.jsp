@@ -1,6 +1,6 @@
-<div class="flexslider" id="slider" style="height: 500px">
+<div class="flexslider" id="slider">
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height: 500px">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
         <ol class="carousel-indicators">

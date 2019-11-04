@@ -47,6 +47,19 @@
     <%-------------------------------------------------Jquery---------------------------------------------------------%>
     <script src="${pageContext.request.contextPath}/assets/js/jquery-3.4.1.min.js"></script>
 
+    <%--<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/jquery.colorpanel.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/jquery.magnific-popup.min.js"></script>--%>
+    <script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/jquery.flexslider.js"></script>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/bootstrap-datepicker.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/owl.carousel.min.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/custom-gallery.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/custom-navigation.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/custom-date-picker.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/custom-flex.js"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/assets/js/custom-owl.js"></script>--%>
+
     <style>
         body {
             min-width: 500px;

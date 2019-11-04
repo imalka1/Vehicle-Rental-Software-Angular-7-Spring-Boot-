@@ -5,6 +5,11 @@
 <jsp:include page="../nav_bar.jsp"/>
 <jsp:include page="../carousel.jsp"/>
 
+<input type="hidden" id="pickUpFromIndex" value="<%= request.getParameter("placeFromId")%>">
+<input type="hidden" id="dropToIndex" value="<%= request.getParameter("placeToId")%>">
+<input type="hidden" id="noOfPassengersIndex" value="<%= request.getParameter("noOfPassengers")%>">
+<input type="hidden" id="tripIndex" value="<%= request.getParameter("trip")%>">
+
 <section id="about" style="padding-top: 80px;padding-bottom: 80px">
     <div class="container" style="font-size: 16px">
         <div class="row" style="font-size: 25px;text-align: center;font-weight: bold">
@@ -120,29 +125,57 @@
                 </div>
             </div>
 
-            <div class="col-sm-5" style="border: 1px solid #b8b8b8;padding-left: 5px">
-                <div class="col-sm-12" style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">Taxi Details</div>
-                <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup From</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Pickup From</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Drop To</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Drop To</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Trip</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Trip</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Date</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Pickup Date</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Time</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Pickup Time</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Adults</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Adults</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Children</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Children</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Infants</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">Infants</div>
-                <div class="col-sm-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">No of passengers</div>
-                <div class="col-sm-6" style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">No of passengers</div>
-                <div class="col-sm-6" style="padding: 5px;font-size: 30px">Total Cost</div>
-                <div class="col-sm-6" style="padding: 5px;font-size: 30px;text-align: right;font-weight: normal">120</div>
+            <div class="col-sm-5">
+                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px">
+                    <div class="col-sm-12"
+                         style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">Taxi Details
+                    </div>
+                    <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup From</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldPickUpFrom"></div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Drop To</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldDropTo"></div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Trip</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldTrip"></div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Date</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldPickupDate">Pickup Date
+                    </div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Time</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldPickupTime">Pickup Time
+                    </div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Adults</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldAdults">0
+                    </div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Children</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldChildren">0
+                    </div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Infants</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldInfants">0
+                    </div>
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">No of passengers</div>
+                    <div class="col-6"
+                         style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
+                         id="fieldNoOfPassengers"></div>
+                    <div class="col-6" style="padding: 5px;font-size: 30px">Total Cost</div>
+                    <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right;font-weight: normal">120
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -198,5 +231,7 @@
         </div>
     </div>
 </section>
+
+<script src="${pageContext.request.contextPath}/controller/customer/booking.js"></script>
 
 <jsp:include page="../footer.jsp"/>
