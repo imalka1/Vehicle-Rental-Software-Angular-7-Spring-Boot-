@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+
 <jsp:include page="../header.jsp"/>
 <jsp:include page="../nav_bar.jsp"/>
 <jsp:include page="../carousel.jsp"/>

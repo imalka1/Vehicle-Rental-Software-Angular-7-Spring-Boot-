@@ -38,7 +38,7 @@
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Contact</a>
                         </li>
 
-                        <li><a style="cursor: pointer">Login</a></li>
+                        <li id="btnLogin"><a style="cursor: pointer">Login</a></li>
 
                     </ul>
                 </div><!-- end navbar collapse -->
@@ -51,5 +51,9 @@
 <script>
     $('#btnHome').click(function () {
         document.location.href = "${pageContext.request.contextPath}/index.jsp";
+    })
+
+    $('#btnLogin').click(function () {
+        document.location.href = "${pageContext.request.contextPath}/view/admin/login.jsp";
     })
 </script>
