@@ -9,7 +9,7 @@
     List<Place> allPlaces = new PlaceService().getAllPlaces();
 %>
 
-<section id="about" style="padding-top: 60px;padding-bottom: 80px">
+<section id="about" style="padding-top: 60px;padding-bottom: 60px">
     <div class="container" style="font-size: 16px">
         <%--<div class="row" style="font-size: 25px;text-align: center;font-weight: bold;margin-top: 20px">--%>
         <%--<div class="col-5">--%>
@@ -86,11 +86,17 @@
                 </div>
             </div>
         </div>
-        <div class="page-heading">
-            <div class="col-sm-12" style="margin-top: 70px">
+        <div class="row" style="margin-top: 80px">
+            <div class="col-sm-6" style="font-size: 30px;font-weight: bold;text-align: center;margin-top: 5px">
+                <span style="padding: 20px;border: 1px solid #c4c4c4;border-radius: 40px"><span style="margin-right: 20px">Total Cost</span> &euro;120</span>
+            </div>
+            <div class="col-sm-6" style="text-align: center">
                 <a id="btnBookNow" class="btn btn-default btn-lg btn-padding" style="background-color: #FFCB05">Book
                     Your Taxi Now</a>
             </div>
+        </div>
+        <div class="page-heading">
+
         </div>
     </div>
     <%--</div>--%>
