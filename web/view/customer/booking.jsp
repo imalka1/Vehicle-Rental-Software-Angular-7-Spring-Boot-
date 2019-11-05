@@ -107,7 +107,7 @@
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Adults</div>
                             <div class="col-12">
-                                <input type="number" class="form-control" min="0" value="0" id="noOfPassengers">
+                                <input type="number" class="form-control" min="0" value="0" id="adults">
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Children</div>
                             <div class="col-12">
-                                <input type="number" class="form-control" min="0" value="0" id="noOfPassengers">
+                                <input type="number" class="form-control" min="0" value="0" id="children">
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Infants</div>
                             <div class="col-12">
-                                <input type="number" class="form-control" min="0" value="0" id="noOfPassengers">
+                                <input type="number" class="form-control" min="0" value="0" id="infants">
                             </div>
                         </div>
                     </div>
