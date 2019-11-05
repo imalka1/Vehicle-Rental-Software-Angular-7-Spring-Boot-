@@ -24,7 +24,7 @@
     <div class="container" style="font-size: 16px">
         <div class="row" style="font-size: 25px;text-align: center;font-weight: bold">
             <div class="col-12">
-                <span style="padding: 18px;border-radius: 50px;border: 1px solid #FFCB05">Booking Details</span>
+                <span style="padding: 18px;border-radius: 50px;border: 2px solid #FFCB05">Booking Details</span>
             </div>
         </div>
 
@@ -193,7 +193,7 @@
 
         <div class="row" style="font-size: 25px;text-align: center;font-weight: bold;margin-top: 80px">
             <div class="col-12">
-                <span style="padding: 18px;border-radius: 50px;border: 1px solid #FFCB05">Customer Details</span>
+                <span style="padding: 18px;border-radius: 50px;border: 2px solid #FFCB05">Customer Details</span>
             </div>
         </div>
 

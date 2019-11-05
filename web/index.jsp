@@ -88,7 +88,7 @@
         </div>
         <div class="row" style="margin-top: 80px">
             <div class="col-sm-6" style="font-size: 30px;font-weight: bold;text-align: center;margin-top: 5px">
-                <span style="padding: 20px;border: 1px solid #c4c4c4;border-radius: 40px"><span style="margin-right: 20px">Total Cost</span> &euro;120</span>
+                <span style="padding: 25px;border: 2px solid #c4c4c4;border-radius: 50px"><span style="margin-right: 20px">Total Cost</span> &euro;120</span>
             </div>
             <div class="col-sm-6" style="text-align: center">
                 <a id="btnBookNow" class="btn btn-default btn-lg btn-padding" style="background-color: #FFCB05">Book
