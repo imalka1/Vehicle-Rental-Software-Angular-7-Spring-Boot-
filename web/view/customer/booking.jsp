@@ -28,9 +28,9 @@
             </div>
         </div>
 
-        <hr style="margin-top: 50px;margin-bottom: 10px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+        <%--<hr style="margin-top: 50px;margin-bottom: 10px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">--%>
 
-        <div class="row" style="font-weight: bold;padding-top: 50px">
+        <div class="row" style="font-weight: bold;padding-top: 90px">
             <div class="col-sm-7" style="padding: 20px">
                 <div class="row">
                     <div class="col-sm-6">
@@ -189,16 +189,15 @@
             </div>
         </div>
 
-        <div class="row" style="font-size: 25px;text-align: center;font-weight: bold;margin-top: 90px">
+        <hr style="margin-top: 60px;margin-bottom: 10px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+
+        <div class="row" style="font-size: 25px;text-align: center;font-weight: bold;margin-top: 80px">
             <div class="col-12">
                 <span style="padding: 18px;border-radius: 50px;border: 1px solid #FFCB05">Customer Details</span>
             </div>
         </div>
 
-        <hr style="margin-top: 50px;margin-bottom: 10px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
-
-
-        <div class="row" style="font-weight: bold;padding-top: 50px">
+        <div class="row" style="font-weight: bold;padding-top: 70px">
             <div class="col-sm-6">
                 <div class="row" style="padding: 10px">
                     <div class="col-12" style="font-weight: bold">Email</div>
