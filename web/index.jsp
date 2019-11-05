@@ -5,6 +5,10 @@
 <jsp:include page="view/nav_bar.jsp"/>
 <jsp:include page="view/carousel.jsp"/>
 
+<%
+    List<Place> allPlaces = new PlaceService().getAllPlaces();
+%>
+
 <section id="about" style="padding-top: 60px;padding-bottom: 80px">
     <div class="container" style="font-size: 16px">
         <%--<div class="row" style="font-size: 25px;text-align: center;font-weight: bold;margin-top: 20px">--%>
@@ -23,9 +27,9 @@
                     <div class="col-12">Pickup From</div>
                     <div class="col-12">
                         <select class="form-control" id="placeFrom">
+                            <option value="0">Pickup From</option>
                             <%
                                 {
-                                    List<Place> allPlaces = new PlaceService().getAllPlaces();
                                     for (Place place : allPlaces) {
                             %>
                             <option value="<%= place.getId()%>"><%= place.getPlaceName()%>
@@ -45,9 +49,9 @@
                     <div class="col-12">Drop To</div>
                     <div class="col-12">
                         <select class="form-control" id="placeTo">
+                            <option value="0">Drop To</option>
                             <%
                                 {
-                                    List<Place> allPlaces = new PlaceService().getAllPlaces();
                                     for (Place place : allPlaces) {
                             %>
                             <option value="<%= place.getId()%>"><%= place.getPlaceName()%>

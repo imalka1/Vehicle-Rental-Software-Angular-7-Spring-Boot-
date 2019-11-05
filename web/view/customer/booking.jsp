@@ -11,6 +11,8 @@
 <%
     String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     String currentTime = new SimpleDateFormat("HH:mm").format(new Date());
+
+    List<Place> allPlaces = new PlaceService().getAllPlaces();
 %>
 
 <input type="hidden" id="pickUpFromIndex" value="<%= request.getParameter("placeFromId")%>">
@@ -36,9 +38,9 @@
                             <div class="col-12">Pickup From</div>
                             <div class="col-12">
                                 <select class="form-control" id="placeFrom">
+                                    <option value="0">Pickup From</option>
                                     <%
                                         {
-                                            List<Place> allPlaces = new PlaceService().getAllPlaces();
                                             for (Place place : allPlaces) {
                                     %>
                                     <option value="<%= place.getId()%>"><%= place.getPlaceName()%>
@@ -58,9 +60,9 @@
                             <div class="col-12">Drop To</div>
                             <div class="col-12">
                                 <select class="form-control" id="placeTo">
+                                    <option value="0">Drop To</option>
                                     <%
                                         {
-                                            List<Place> allPlaces = new PlaceService().getAllPlaces();
                                             for (Place place : allPlaces) {
                                     %>
                                     <option value="<%= place.getId()%>"><%= place.getPlaceName()%>

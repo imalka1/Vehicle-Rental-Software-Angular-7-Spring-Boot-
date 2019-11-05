@@ -3,11 +3,11 @@ $(window).on("load", function () {
 });
 
 $('#placeFrom').change(function () {
-    $('#fieldPickUpFrom').html($('#placeFrom option:selected').html());
+    setPlaces()
 });
 
 $('#placeTo').change(function () {
-    $('#fieldDropTo').html($('#placeTo option:selected').html());
+    setPlaces()
 });
 
 $('#trip').change(function () {
@@ -24,22 +24,22 @@ $('#pickupTime').change(function () {
     );
 });
 
-$('#adults').bind("keyup change", function(e) {
-    if($('#adults').val()!==''){
+$('#adults').bind("keyup change", function (e) {
+    if ($('#adults').val() !== '') {
         $('#adults').val(parseInt($('#adults').val()) - checkNoOfPassengers());
         $('#fieldAdults').html($('#adults').val());
     }
 });
 
-$('#children').bind("keyup change", function(e) {
-    if($('#children').val()!=='') {
+$('#children').bind("keyup change", function (e) {
+    if ($('#children').val() !== '') {
         $('#children').val(parseInt($('#children').val()) - checkNoOfPassengers());
         $('#fieldChildren').html($('#children').val());
     }
 });
 
-$('#infants').bind("keyup change", function(e) {
-    if($('#infants').val()!=='') {
+$('#infants').bind("keyup change", function (e) {
+    if ($('#infants').val() !== '') {
         $('#infants').val(parseInt($('#infants').val()) - checkNoOfPassengers());
         $('#fieldInfants').html($('#infants').val());
     }
@@ -49,10 +49,9 @@ function autoFill() {
     $('#placeFrom').val($('#pickUpFromIndex').val());
     $('#placeTo').val($('#dropToIndex').val());
     $('#trip').val($('#tripIndex').val());
+    setPlaces()
 
     $('#fieldNoOfPassengers').html($('#noOfPassengersIndex').val());
-    $('#fieldPickUpFrom').html($('#placeFrom option:selected').html());
-    $('#fieldDropTo').html($('#placeTo option:selected').html());
     $('#fieldTrip').html($('#trip option:selected').html());
     $('#fieldPickupDate').html($('#pickupDate').val());
     $('#fieldPickupTime').html(
@@ -77,5 +76,24 @@ function checkNoOfPassengers() {
         return 0;
     } else {
         return parseInt($('#adults').val()) + parseInt($('#children').val()) + parseInt($('#infants').val()) - parseInt($('#fieldNoOfPassengers').html());
+    }
+}
+
+function setPlaces() {
+    if ($('#placeFrom option:selected').html() === $('#placeTo option:selected').html()) {
+        $('#fieldDropTo').html('No selected')
+        $('#fieldPickUpFrom').html('No selected')
+    } else {
+        $('#fieldDropTo').html(
+            $('#placeTo').val() === '0' ?
+                'No selected' :
+                $('#placeTo option:selected').html()
+        );
+
+        $('#fieldPickUpFrom').html(
+            $('#placeFrom').val() === '0' ?
+                'No selected' :
+                $('#placeFrom option:selected').html()
+        );
     }
 }
