@@ -1,9 +1,16 @@
 <%@ page import="com.vrs.service.PlaceService" %>
 <%@ page import="com.vrs.entity.Place" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <jsp:include page="../header.jsp"/>
 <jsp:include page="../nav_bar.jsp"/>
 <jsp:include page="../carousel.jsp"/>
+
+<%
+    String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+    String currentTime = new SimpleDateFormat("HH:mm").format(new Date());
+%>
 
 <input type="hidden" id="pickUpFromIndex" value="<%= request.getParameter("placeFromId")%>">
 <input type="hidden" id="dropToIndex" value="<%= request.getParameter("placeToId")%>">
@@ -82,7 +89,7 @@
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Pickup Date</div>
                             <div class="col-12">
-                                <input type="date" class="form-control" id="pickupDate">
+                                <input type="date" class="form-control" id="pickupDate" value="<%= currentDate%>" min="<%= currentDate%>">
                             </div>
                         </div>
                     </div>
@@ -91,7 +98,7 @@
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Pickup Time</div>
                             <div class="col-12">
-                                <input type="time" class="form-control" id="pickupTime">
+                                <input type="time" class="form-control" id="pickupTime" value="<%= currentTime%>">
                             </div>
                         </div>
                     </div>
@@ -173,7 +180,7 @@
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldNoOfPassengers"></div>
                     <div class="col-6" style="padding: 5px;font-size: 30px">Total Cost</div>
-                    <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right;font-weight: normal">120
+                    <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right;font-weight: normal">&euro;120
                     </div>
                 </div>
             </div>
