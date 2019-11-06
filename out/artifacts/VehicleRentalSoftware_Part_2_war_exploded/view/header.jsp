@@ -70,3 +70,4 @@
 
 <body>
 
+<input type="hidden" id="contextPath" value="<%= request.getContextPath()%>">

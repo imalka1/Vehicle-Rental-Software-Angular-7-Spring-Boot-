@@ -13,5 +13,6 @@
     <mapping class="com.vrs.entity.Customer"/>
     <mapping class="com.vrs.entity.Comment"/>
     <mapping class="com.vrs.entity.Reservation"/>
+    <mapping class="com.vrs.entity.Passenger"/>
 </session-factory>
 </hibernate-configuration>

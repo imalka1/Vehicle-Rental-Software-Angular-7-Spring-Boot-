@@ -183,7 +183,7 @@
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldNoOfPassengers"></div>
                     <div class="col-6" style="padding: 5px;font-size: 30px">Total Cost</div>
-                    <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right;font-weight: normal">&euro;120
+                    <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right">&euro;<span id="priceText"></span>
                     </div>
                 </div>
             </div>

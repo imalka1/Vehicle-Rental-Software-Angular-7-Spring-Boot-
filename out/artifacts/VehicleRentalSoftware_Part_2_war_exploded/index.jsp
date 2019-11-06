@@ -1,6 +1,7 @@
 <%@ page import="com.vrs.service.PlaceService" %>
 <%@ page import="com.vrs.entity.Place" %>
 <%@ page import="java.util.List" %>
+
 <jsp:include page="view/header.jsp"/>
 <jsp:include page="view/nav_bar.jsp"/>
 <jsp:include page="view/carousel.jsp"/>
@@ -88,24 +89,53 @@
         </div>
         <div class="row" style="margin-top: 80px">
             <div class="col-sm-6" style="font-size: 30px;font-weight: bold;text-align: center;margin-top: 5px">
-                <span style="padding: 25px;border: 2px solid #c4c4c4;border-radius: 50px"><span style="margin-right: 20px">Total Cost</span> &euro;120</span>
+                <span style="padding: 25px;border: 2px solid #c4c4c4;border-radius: 50px">
+                    <span style="margin-right: 20px">Total Cost</span> &euro;<span id="priceText"></span>
+                </span>
             </div>
             <div class="col-sm-6" style="text-align: center">
                 <a id="btnBookNow" class="btn btn-default btn-lg btn-padding" style="background-color: #FFCB05">Book
                     Your Taxi Now</a>
             </div>
         </div>
-        <div class="page-heading">
+        <%--<div class="page-heading">--%>
 
-        </div>
+        <%--</div>--%>
     </div>
     <%--</div>--%>
 </section>
 
 <script>
+
+    $(window).on("load", function () {
+        getPassengersPrice();
+    });
+
+    $('#noOfPassengers').bind("keyup change", function (e) {
+        getPassengersPrice();
+    });
+
     $('#btnBookNow').click(function () {
         document.location.href = "${pageContext.request.contextPath}/view/customer/booking.jsp?placeFromId=" + $('#placeFrom').val() + "&placeToId=" + $('#placeTo').val() + "&noOfPassengers=" + $('#noOfPassengers').val() + "&trip=" + $('#trip').val();
     })
+
+    function getPassengersPrice() {
+        $.ajax(
+            {
+                type: "post",
+                url: window.location.origin + $('#contextPath').val() + "/get_passengers_price",
+                data: {
+                    passengersCount: $('#noOfPassengers').val()
+                },
+                success: function (response) {
+                    $('#priceText').html(JSON.parse(response).toFixed(2));
+                },
+                error: function () {
+
+                }
+            }
+        );
+    }
 </script>
 
 <jsp:include page="view/footer.jsp"/>

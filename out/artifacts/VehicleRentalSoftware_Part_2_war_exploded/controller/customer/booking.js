@@ -1,5 +1,6 @@
 $(window).on("load", function () {
     autoFill();
+    getPassengersPrice();
 });
 
 $('#placeFrom').change(function () {
@@ -96,4 +97,22 @@ function setPlaces() {
                 $('#placeFrom option:selected').html()
         );
     }
+}
+
+function getPassengersPrice() {
+    $.ajax(
+        {
+            type: "post",
+            url: window.location.origin + $('#contextPath').val() + "/get_passengers_price",
+            data: {
+                passengersCount: $('#noOfPassengersIndex').val()
+            },
+            success: function (response) {
+                $('#priceText').html(JSON.parse(response).toFixed(2));
+            },
+            error: function () {
+
+            }
+        }
+    );
 }
