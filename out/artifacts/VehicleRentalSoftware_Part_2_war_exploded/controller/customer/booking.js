@@ -68,9 +68,11 @@ $('#noOfPassengers').bind("keyup change", function (e) {
     if ($('#noOfPassengers').val() !== '') {
         $('#fieldNoOfPassengers').html($('#noOfPassengers').val());
     } else {
-        $('#fieldNoOfPassengers').html(0);
+        $('#noOfPassengers').val(0);
     }
+    $('#fieldNoOfPassengers').html($('#noOfPassengers').val());
     getPassengersPrice();
+    validateInputs();
 });
 
 function initialFill() {
