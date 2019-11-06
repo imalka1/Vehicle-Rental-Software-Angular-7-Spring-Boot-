@@ -89,7 +89,7 @@
         </div>
         <div class="row" style="margin-top: 80px">
             <div class="col-sm-6" style="font-size: 30px;font-weight: bold;text-align: center;margin-top: 5px">
-                <span style="padding: 25px;border: 2px solid #c4c4c4;border-radius: 50px">
+                <span style="padding: 20px;border: 4px solid #c4c4c4;border-radius: 50px">
                     <span style="margin-right: 20px">Total Cost</span> &euro;<span id="priceText"></span>
                 </span>
             </div>
@@ -109,6 +109,15 @@
 
     $(window).on("load", function () {
         getPassengersPrice();
+        validateInputs();
+    });
+
+    $('#placeFrom').change(function () {
+        validateInputs();
+    });
+
+    $('#placeTo').change(function () {
+        validateInputs();
     });
 
     $('#noOfPassengers').bind("keyup change", function (e) {
@@ -119,6 +128,20 @@
         document.location.href = "${pageContext.request.contextPath}/view/customer/booking.jsp?placeFromId=" + $('#placeFrom').val() + "&placeToId=" + $('#placeTo').val() + "&noOfPassengers=" + $('#noOfPassengers').val() + "&trip=" + $('#trip').val();
     })
 
+    function validateInputs() {
+        if (
+            $('#placeFrom option:selected').val() !== '0' &&
+            $('#placeTo option:selected').val() !== '0' &&
+            $('#placeFrom option:selected').val() !== $('#placeTo option:selected').val()
+        ) {
+            $('#priceText').html(totalCost);
+        } else {
+            $('#priceText').html('0.00');
+        }
+    }
+
+    var totalCost = 0.00;
+
     function getPassengersPrice() {
         $.ajax(
             {
@@ -128,7 +151,8 @@
                     passengersCount: $('#noOfPassengers').val()
                 },
                 success: function (response) {
-                    $('#priceText').html(JSON.parse(response).toFixed(2));
+                    totalCost = JSON.parse(response).toFixed(2);
+                    validateInputs();
                 },
                 error: function () {
 

@@ -1,16 +1,13 @@
 $(window).on("load", function () {
     initialFill();
-    getPassengersPrice();
 });
 
 $('#placeFrom').change(function () {
     setPlaces();
-    validateInputs();
 });
 
 $('#placeTo').change(function () {
     setPlaces();
-    validateInputs();
 });
 
 $('#trip').change(function () {
@@ -81,7 +78,6 @@ function initialFill() {
     $('#placeTo').val($('#dropToIndex').val());
     $('#trip').val($('#tripIndex').val());
     $('#noOfPassengers').val($('#noOfPassengersIndex').val());
-    setPlaces()
 
     $('#fieldNoOfPassengers').html($('#noOfPassengersIndex').val());
     $('#fieldTrip').html($('#trip option:selected').html());
@@ -89,6 +85,8 @@ function initialFill() {
     $('#fieldPickupTime').html(
         convertAmPm()
     );
+    setPlaces();
+    getPassengersPrice();
 }
 
 function convertAmPm() {
@@ -112,7 +110,7 @@ function checkNoOfPassengers() {
 }
 
 function setPlaces() {
-    if ($('#placeFrom option:selected').html() === $('#placeTo option:selected').html()) {
+    if ($('#placeFrom option:selected').val() === $('#placeTo option:selected').val()) {
         $('#fieldDropTo').html('Not selected')
         $('#fieldPickUpFrom').html('Not selected')
     } else {
@@ -128,6 +126,7 @@ function setPlaces() {
                 $('#placeFrom option:selected').html()
         );
     }
+    validateInputs();
 }
 
 function validateInputs() {
