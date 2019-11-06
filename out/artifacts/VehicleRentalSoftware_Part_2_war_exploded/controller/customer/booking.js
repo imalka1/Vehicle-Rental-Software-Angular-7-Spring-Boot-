@@ -46,10 +46,18 @@ $('#infants').bind("keyup change", function (e) {
     }
 });
 
+$('#noOfPassengers').bind("keyup change", function (e) {
+    if ($('#noOfPassengers').val() !== '') {
+        $('#fieldNoOfPassengers').html($('#noOfPassengers').val());
+        getPassengersPrice();
+    }
+});
+
 function autoFill() {
     $('#placeFrom').val($('#pickUpFromIndex').val());
     $('#placeTo').val($('#dropToIndex').val());
     $('#trip').val($('#tripIndex').val());
+    $('#noOfPassengers').val($('#noOfPassengersIndex').val());
     setPlaces()
 
     $('#fieldNoOfPassengers').html($('#noOfPassengersIndex').val());
@@ -105,7 +113,7 @@ function getPassengersPrice() {
             type: "post",
             url: window.location.origin + $('#contextPath').val() + "/get_passengers_price",
             data: {
-                passengersCount: $('#noOfPassengersIndex').val()
+                passengersCount: $('#noOfPassengers').val()
             },
             success: function (response) {
                 $('#priceText').html(JSON.parse(response).toFixed(2));

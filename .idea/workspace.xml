@@ -48,16 +48,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="826" />
-          <entry key="js" value="638" />
-          <entry key="jsp" value="2387" />
+          <entry key="js" value="653" />
+          <entry key="jsp" value="2533" />
           <entry key="xml" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="826" />
-          <entry key="JSP" value="2387" />
-          <entry key="JavaScript" value="638" />
+          <entry key="JSP" value="2533" />
+          <entry key="JavaScript" value="653" />
           <entry key="XML" value="107" />
         </counts>
       </usages-collector>
@@ -65,11 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="185" column="92" selection-start-line="185" selection-start-column="92" selection-end-line="185" selection-end-column="92" />
+            <state relative-caret-position="287">
+              <caret line="120" column="96" selection-start-line="120" selection-start-column="96" selection-end-line="120" selection-end-column="96" />
               <folding>
                 <element signature="e#132#178#0#HTML" expanded="true" />
                 <element signature="e#207#230#0#HTML" expanded="true" />
@@ -77,18 +77,22 @@
                 <element signature="e#502#569#0#HTML" expanded="true" />
                 <element signature="e#577#620#0#HTML" expanded="true" />
                 <element signature="e#856#877#0#HTML" expanded="true" />
-                <element signature="e#895#953#0#HTML" expanded="true" />
-                <element signature="e#1575#1595#0#HTML" expanded="true" />
+                <element signature="e#1920#1940#0#HTML" expanded="true" />
+                <element signature="e#2943#2963#0#HTML" expanded="true" />
                 <element signature="e#3041#3065#0#HTML" expanded="true" />
-                <element signature="e#2585#2605#0#HTML" expanded="true" />
+                <element signature="e#3980#4018#0#HTML" expanded="true" />
                 <element signature="e#3659#3683#0#HTML" expanded="true" />
-                <element signature="e#2954#2974#0#HTML" expanded="true" />
+                <element signature="e#4604#4642#0#HTML" expanded="true" />
                 <element signature="e#4648#4672#0#HTML" expanded="true" />
-                <element signature="e#4715#4753#0#HTML" expanded="true" />
+                <element signature="e#5146#5184#0#HTML" expanded="true" />
+                <element signature="e#5528#5611#0#HTML" expanded="true" />
+                <element signature="e#5626#5664#0#HTML" expanded="true" />
+                <element signature="e#5752#5778#0#HTML" expanded="true" />
+                <element signature="e#5784#5831#0#HTML" expanded="true" />
                 <element signature="e#5095#5119#0#HTML" expanded="true" />
-                <element signature="e#5162#5200#0#HTML" expanded="true" />
+                <element signature="e#6170#6208#0#HTML" expanded="true" />
                 <element signature="e#5561#5585#0#HTML" expanded="true" />
-                <element signature="e#5628#5666#0#HTML" expanded="true" />
+                <element signature="e#6634#6672#0#HTML" expanded="true" />
                 <element signature="e#6029#6053#0#HTML" expanded="true" />
                 <element signature="e#6096#6134#0#HTML" expanded="true" />
                 <element signature="e#6564#6610#0#HTML" expanded="true" />
@@ -133,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+            <state relative-caret-position="100">
+              <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -232,8 +236,8 @@
         <option value="$PROJECT_DIR$/src/com/vrs/dao/PassengerDAO.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/passenger/GetPassengersPrice.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/web/controller/customer/booking.js" />
         <option value="$PROJECT_DIR$/web/view/customer/booking.jsp" />
+        <option value="$PROJECT_DIR$/web/controller/customer/booking.js" />
       </list>
     </option>
   </component>
@@ -360,7 +364,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573025601513" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573035620355" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/json/json-simple-1.1.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -523,17 +527,17 @@
       <workItem from="1572628104117" duration="3951000" />
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
-      <workItem from="1572672009636" duration="61920000" />
+      <workItem from="1572672009636" duration="66131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72010000" />
+    <option name="totallyTimeSpent" value="76221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20604026" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20604026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -544,7 +548,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3319149" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3319149" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -788,17 +792,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="185" column="92" selection-start-line="185" selection-start-column="92" selection-end-line="185" selection-end-column="92" />
+        <state relative-caret-position="287">
+          <caret line="120" column="96" selection-start-line="120" selection-start-column="96" selection-end-line="120" selection-end-column="96" />
           <folding>
             <element signature="e#132#178#0#HTML" expanded="true" />
             <element signature="e#207#230#0#HTML" expanded="true" />
@@ -806,18 +803,22 @@
             <element signature="e#502#569#0#HTML" expanded="true" />
             <element signature="e#577#620#0#HTML" expanded="true" />
             <element signature="e#856#877#0#HTML" expanded="true" />
-            <element signature="e#895#953#0#HTML" expanded="true" />
-            <element signature="e#1575#1595#0#HTML" expanded="true" />
+            <element signature="e#1920#1940#0#HTML" expanded="true" />
+            <element signature="e#2943#2963#0#HTML" expanded="true" />
             <element signature="e#3041#3065#0#HTML" expanded="true" />
-            <element signature="e#2585#2605#0#HTML" expanded="true" />
+            <element signature="e#3980#4018#0#HTML" expanded="true" />
             <element signature="e#3659#3683#0#HTML" expanded="true" />
-            <element signature="e#2954#2974#0#HTML" expanded="true" />
+            <element signature="e#4604#4642#0#HTML" expanded="true" />
             <element signature="e#4648#4672#0#HTML" expanded="true" />
-            <element signature="e#4715#4753#0#HTML" expanded="true" />
+            <element signature="e#5146#5184#0#HTML" expanded="true" />
+            <element signature="e#5528#5611#0#HTML" expanded="true" />
+            <element signature="e#5626#5664#0#HTML" expanded="true" />
+            <element signature="e#5752#5778#0#HTML" expanded="true" />
+            <element signature="e#5784#5831#0#HTML" expanded="true" />
             <element signature="e#5095#5119#0#HTML" expanded="true" />
-            <element signature="e#5162#5200#0#HTML" expanded="true" />
+            <element signature="e#6170#6208#0#HTML" expanded="true" />
             <element signature="e#5561#5585#0#HTML" expanded="true" />
-            <element signature="e#5628#5666#0#HTML" expanded="true" />
+            <element signature="e#6634#6672#0#HTML" expanded="true" />
             <element signature="e#6029#6053#0#HTML" expanded="true" />
             <element signature="e#6096#6134#0#HTML" expanded="true" />
             <element signature="e#6564#6610#0#HTML" expanded="true" />
@@ -858,6 +859,13 @@
             <element signature="e#11814#11839#0#HTML" expanded="true" />
             <element signature="e#12177#12201#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
         </state>
       </provider>
     </entry>

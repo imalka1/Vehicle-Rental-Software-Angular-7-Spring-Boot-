@@ -9,6 +9,14 @@
 <jsp:include page="../carousel.jsp"/>
 
 <%
+
+    if (request.getParameter("placeFromId") == null && request.getParameter("placeToId") == null && request.getParameter("noOfPassengers") == null && request.getParameter("trip") == null) {
+
+%>
+<jsp:forward page="../../index.jsp"/>
+<%
+    }
+
     String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     String currentTime = new SimpleDateFormat("HH:mm").format(new Date());
 
@@ -92,7 +100,8 @@
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12">Pickup Date</div>
                             <div class="col-12">
-                                <input type="date" class="form-control" id="pickupDate" value="<%= currentDate%>" min="<%= currentDate%>">
+                                <input type="date" class="form-control" id="pickupDate" value="<%= currentDate%>"
+                                       min="<%= currentDate%>">
                             </div>
                         </div>
                     </div>
@@ -102,6 +111,15 @@
                             <div class="col-12">Pickup Time</div>
                             <div class="col-12">
                                 <input type="time" class="form-control" id="pickupTime" value="<%= currentTime%>">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="margin-top: 20px">
+                        <div class="row" style="padding: 5px;padding-top: 20px">
+                            <div class="col-12" style="text-align: center">No of passengers</div>
+                            <div class="col-sm-4" style="float: none;margin: 0 auto;padding: 0px">
+                                <input type="number" class="form-control" min="0" value="0" id="noOfPassengers">
                             </div>
                         </div>
                     </div>
@@ -132,6 +150,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -183,7 +202,8 @@
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldNoOfPassengers"></div>
                     <div class="col-6" style="padding: 5px;font-size: 30px">Total Cost</div>
-                    <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right">&euro;<span id="priceText"></span>
+                    <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right">&euro;<span
+                            id="priceText"></span>
                     </div>
                 </div>
             </div>
