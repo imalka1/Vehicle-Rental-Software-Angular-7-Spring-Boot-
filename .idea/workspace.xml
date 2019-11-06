@@ -48,16 +48,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="826" />
-          <entry key="js" value="1005" />
-          <entry key="jsp" value="2667" />
+          <entry key="js" value="1072" />
+          <entry key="jsp" value="2730" />
           <entry key="xml" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="826" />
-          <entry key="JSP" value="2667" />
-          <entry key="JavaScript" value="1005" />
+          <entry key="JSP" value="2730" />
+          <entry key="JavaScript" value="1072" />
           <entry key="XML" value="107" />
         </counts>
       </usages-collector>
@@ -68,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="208" column="18" lean-forward="true" selection-start-line="208" selection-start-column="18" selection-end-line="208" selection-end-column="18" />
+            <state relative-caret-position="296">
+              <caret line="180" column="41" selection-start-line="180" selection-start-column="41" selection-end-line="180" selection-end-column="41" />
               <folding>
                 <element signature="e#132#178#0#HTML" expanded="true" />
                 <element signature="e#207#230#0#HTML" expanded="true" />
@@ -98,8 +98,8 @@
                 <element signature="e#6564#6610#0#HTML" expanded="true" />
                 <element signature="e#6680#6758#0#HTML" expanded="true" />
                 <element signature="e#6823#6895#0#HTML" expanded="true" />
-                <element signature="e#6936#6989#0#HTML" expanded="true" />
-                <element signature="e#7072#7163#0#HTML" expanded="true" />
+                <element signature="e#7927#8002#0#HTML" expanded="true" />
+                <element signature="e#8089#8206#0#HTML" expanded="true" />
                 <element signature="e#7256#7309#0#HTML" expanded="true" />
                 <element signature="e#7388#7479#0#HTML" expanded="true" />
                 <element signature="e#7568#7621#0#HTML" expanded="true" />
@@ -140,8 +140,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="84" column="31" lean-forward="true" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+            <state relative-caret-position="109">
+              <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -244,8 +244,8 @@
         <option value="$PROJECT_DIR$/src/com/vrs/dao/PassengerDAO.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/passenger/GetPassengersPrice.java" />
         <option value="$PROJECT_DIR$/web/view/nav_bar.jsp" />
-        <option value="$PROJECT_DIR$/web/view/customer/booking.jsp" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/view/customer/booking.jsp" />
         <option value="$PROJECT_DIR$/web/controller/customer/booking.js" />
       </list>
     </option>
@@ -373,7 +373,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573049830637" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573056924264" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/json/json-simple-1.1.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -536,12 +536,12 @@
       <workItem from="1572628104117" duration="3951000" />
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
-      <workItem from="1572672009636" duration="75214000" />
+      <workItem from="1572672009636" duration="78233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85304000" />
+    <option name="totallyTimeSpent" value="88323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -781,10 +781,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="89" column="50" lean-forward="true" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="e#3665#3671#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="208" column="18" lean-forward="true" selection-start-line="208" selection-start-column="18" selection-end-line="208" selection-end-column="18" />
+        <state relative-caret-position="296">
+          <caret line="180" column="41" selection-start-line="180" selection-start-column="41" selection-end-line="180" selection-end-column="41" />
           <folding>
             <element signature="e#132#178#0#HTML" expanded="true" />
             <element signature="e#207#230#0#HTML" expanded="true" />
@@ -813,8 +830,8 @@
             <element signature="e#6564#6610#0#HTML" expanded="true" />
             <element signature="e#6680#6758#0#HTML" expanded="true" />
             <element signature="e#6823#6895#0#HTML" expanded="true" />
-            <element signature="e#6936#6989#0#HTML" expanded="true" />
-            <element signature="e#7072#7163#0#HTML" expanded="true" />
+            <element signature="e#7927#8002#0#HTML" expanded="true" />
+            <element signature="e#8089#8206#0#HTML" expanded="true" />
             <element signature="e#7256#7309#0#HTML" expanded="true" />
             <element signature="e#7388#7479#0#HTML" expanded="true" />
             <element signature="e#7568#7621#0#HTML" expanded="true" />
@@ -851,27 +868,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="89" column="50" lean-forward="true" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="e#3665#3671#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="84" column="31" lean-forward="true" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+        <state relative-caret-position="109">
+          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -130,7 +130,7 @@ function setPlaces() {
 }
 
 function validateInputs() {
-    if (parseInt($('#noOfPassengers').val()) < parseInt($('#adults').val()) + parseInt($('#children').val()) + parseInt($('#infants').val())) {
+    if ($('#noOfPassengers').val() !== 0 && parseInt($('#noOfPassengers').val()) < parseInt($('#adults').val()) + parseInt($('#children').val()) + parseInt($('#infants').val())) {
         $('#adults').val(0);
         $('#children').val(0);
         $('#infants').val(0);
@@ -138,6 +138,7 @@ function validateInputs() {
         $('#fieldChildren').html(0);
         $('#fieldInfants').html(0);
     }
+
     if (
         $('#fieldPickUpFrom').html() !== 'Not selected' &&
         $('#fieldDropTo').html() !== 'Not selected' &&
@@ -148,6 +149,36 @@ function validateInputs() {
         $('#priceText').html(totalCost);
     } else {
         $('#priceText').html('0.00');
+    }
+
+    if ($('#fieldPickUpFrom').html() !== 'Not selected') {
+        $('.clsPlaceFrom').css('color', '');
+    } else {
+        $('.clsPlaceFrom').css('color', 'red');
+    }
+
+    if ($('#fieldDropTo').html() !== 'Not selected') {
+        $('.clsPlaceTo').css('color', '');
+    } else {
+        $('.clsPlaceTo').css('color', 'red');
+    }
+
+    if ($('#fieldPickupDate').html() !== 'Not selected') {
+        $('.clsDate').css('color', '');
+    } else {
+        $('.clsDate').css('color', 'red');
+    }
+
+    if ($('#fieldPickupTime').html() !== 'Not selected') {
+        $('.clsTime').css('color', '');
+    } else {
+        $('.clsTime').css('color', 'red');
+    }
+
+    if ($('#fieldNoOfPassengers').html() !== '0' && parseInt($('#fieldNoOfPassengers').html()) === parseInt($('#fieldAdults').html()) + parseInt($('#fieldChildren').html()) + parseInt($('#fieldInfants').html())) {
+        $('.clsPassengers').css('color', '');
+    } else {
+        $('.clsPassengers').css('color', 'red');
     }
 }
 

@@ -160,45 +160,45 @@
                          style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">Taxi Details
                     </div>
                     <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup From</div>
-                    <div class="col-6"
+                    <div class="col-6 clsPlaceFrom" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup From</div>
+                    <div class="col-6 clsPlaceFrom"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldPickUpFrom"></div>
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Drop To</div>
-                    <div class="col-6"
+                    <div class="col-6 clsPlaceTo" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Drop To</div>
+                    <div class="col-6 clsPlaceTo"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldDropTo"></div>
                     <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Trip</div>
                     <div class="col-6"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldTrip"></div>
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Date</div>
-                    <div class="col-6"
+                    <div class="col-6 clsDate" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Date</div>
+                    <div class="col-6 clsDate"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldPickupDate">Pickup Date
                     </div>
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Time</div>
-                    <div class="col-6"
+                    <div class="col-6 clsTime" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup Time</div>
+                    <div class="col-6 clsTime"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldPickupTime">Pickup Time
                     </div>
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Adults</div>
-                    <div class="col-6"
+                    <div class="col-6 clsPassengers" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Adults</div>
+                    <div class="col-6 clsPassengers"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldAdults">0
                     </div>
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Children</div>
-                    <div class="col-6"
+                    <div class="col-6 clsPassengers" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Children</div>
+                    <div class="col-6 clsPassengers"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldChildren">0
                     </div>
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Infants</div>
-                    <div class="col-6"
+                    <div class="col-6 clsPassengers" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Infants</div>
+                    <div class="col-6 clsPassengers"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldInfants">0
                     </div>
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">No of passengers</div>
-                    <div class="col-6"
+                    <div class="col-6 clsPassengers" style="padding: 5px;border-bottom: 1px solid #e2e2e2">No of passengers</div>
+                    <div class="col-6 clsPassengers"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldNoOfPassengers"></div>
                     <div class="col-6" style="padding: 5px;font-size: 30px">Total Cost</div>
