@@ -118,7 +118,7 @@
                     <div class="col-sm-12" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
                             <div class="col-12" style="text-align: center">No of passengers</div>
-                            <div class="col-sm-4" style="float: none;margin: 0 auto;padding: 0px">
+                            <div class="col-sm-4" style="float: none;margin: 0 auto;padding-left: 5px;padding-right: 5px">
                                 <input type="number" class="form-control" min="0" value="0" id="noOfPassengers">
                             </div>
                         </div>

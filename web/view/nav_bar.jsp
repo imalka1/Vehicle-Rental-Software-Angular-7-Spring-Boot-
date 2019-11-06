@@ -1,11 +1,16 @@
+<%
+    HttpSession sessionLogin = request.getSession(false);
+%>
+
 <style>
-    .headerMain{
+    .headerMain {
         background-color: rgba(0, 0, 0, 0.404)
     }
 </style>
 <div class="home-container" style="z-index: 99999">
     <div id="header-bottom" class="headerMain" style="position: fixed">
-        <nav class="navbar navbar-default transparent-nav navbar-custom black-menu" id="mynavbar" style="padding: 10px 0">
+        <nav class="navbar navbar-default transparent-nav navbar-custom black-menu" id="mynavbar"
+             style="padding: 10px 0">
             <div class="container">
 
                 <div class="navbar-header">
@@ -23,17 +28,24 @@
                         <li class="dropdown" id="btnHome"><a class="dropdown-toggle" data-toggle="dropdown">Home</a>
                         </li>
 
+                        <%
+                            if (sessionLogin.getAttribute("accountType") != null) {
+                        %>
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Bookings</a>
                         </li>
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">Admin Panel<span><i
-                                class="fa fa-angle-down"></i></span></a>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">Admin
+                            Panel<span><i
+                                    class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
                                 <li><a style="cursor: pointer">Drivers</a></li>
                                 <li><a style="cursor: pointer">Places</a></li>
                                 <li><a style="cursor: pointer">Vehicles</a></li>
                             </ul>
                         </li>
+                        <%
+                            }
+                        %>
 
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Contact</a>
                         </li>
@@ -46,7 +58,8 @@
             </div><!-- end container -->
         </nav><!-- end navbar -->
     </div><!-- end header-bottom -->
-</div><!-- end home-container -->
+</div>
+<!-- end home-container -->
 
 <script>
     $('#btnHome').click(function () {

@@ -1,14 +1,16 @@
 $(window).on("load", function () {
-    autoFill();
+    initialFill();
     getPassengersPrice();
 });
 
 $('#placeFrom').change(function () {
-    setPlaces()
+    setPlaces();
+    validateInputs();
 });
 
 $('#placeTo').change(function () {
-    setPlaces()
+    setPlaces();
+    validateInputs();
 });
 
 $('#trip').change(function () {
@@ -16,44 +18,65 @@ $('#trip').change(function () {
 });
 
 $('#pickupDate').change(function () {
-    $('#fieldPickupDate').html($('#pickupDate').val());
+    if ($('#pickupDate').val() !== '') {
+        $('#fieldPickupDate').html($('#pickupDate').val());
+    } else {
+        $('#fieldPickupDate').html('Not selected');
+    }
+    validateInputs();
 });
 
 $('#pickupTime').change(function () {
-    $('#fieldPickupTime').html(
-        convertAmPm()
-    );
+    if ($('#pickupTime').val() !== '') {
+        $('#fieldPickupTime').html(
+            convertAmPm()
+        );
+    } else {
+        $('#fieldPickupTime').html('Not selected');
+    }
+    validateInputs();
 });
 
 $('#adults').bind("keyup change", function (e) {
     if ($('#adults').val() !== '') {
         $('#adults').val(parseInt($('#adults').val()) - checkNoOfPassengers());
-        $('#fieldAdults').html($('#adults').val());
+    } else {
+        $('#adults').val(0)
     }
+    $('#fieldAdults').html($('#adults').val());
+    validateInputs();
 });
 
 $('#children').bind("keyup change", function (e) {
     if ($('#children').val() !== '') {
         $('#children').val(parseInt($('#children').val()) - checkNoOfPassengers());
-        $('#fieldChildren').html($('#children').val());
+    } else {
+        $('#children').val(0)
     }
+    $('#fieldChildren').html($('#children').val());
+    validateInputs();
 });
 
 $('#infants').bind("keyup change", function (e) {
     if ($('#infants').val() !== '') {
         $('#infants').val(parseInt($('#infants').val()) - checkNoOfPassengers());
-        $('#fieldInfants').html($('#infants').val());
+    } else {
+        $('#infants').val(0)
     }
+    $('#fieldInfants').html($('#infants').val());
+    validateInputs();
 });
 
 $('#noOfPassengers').bind("keyup change", function (e) {
     if ($('#noOfPassengers').val() !== '') {
         $('#fieldNoOfPassengers').html($('#noOfPassengers').val());
-        getPassengersPrice();
+    } else {
+        $('#fieldNoOfPassengers').html(0);
     }
+    getPassengersPrice();
 });
 
-function autoFill() {
+function initialFill() {
     $('#placeFrom').val($('#pickUpFromIndex').val());
     $('#placeTo').val($('#dropToIndex').val());
     $('#trip').val($('#tripIndex').val());
@@ -90,22 +113,46 @@ function checkNoOfPassengers() {
 
 function setPlaces() {
     if ($('#placeFrom option:selected').html() === $('#placeTo option:selected').html()) {
-        $('#fieldDropTo').html('No selected')
-        $('#fieldPickUpFrom').html('No selected')
+        $('#fieldDropTo').html('Not selected')
+        $('#fieldPickUpFrom').html('Not selected')
     } else {
         $('#fieldDropTo').html(
             $('#placeTo').val() === '0' ?
-                'No selected' :
+                'Not selected' :
                 $('#placeTo option:selected').html()
         );
 
         $('#fieldPickUpFrom').html(
             $('#placeFrom').val() === '0' ?
-                'No selected' :
+                'Not selected' :
                 $('#placeFrom option:selected').html()
         );
     }
 }
+
+function validateInputs() {
+    if (parseInt($('#noOfPassengers').val()) < parseInt($('#adults').val()) + parseInt($('#children').val()) + parseInt($('#infants').val())) {
+        $('#adults').val(0);
+        $('#children').val(0);
+        $('#infants').val(0);
+        $('#fieldAdults').html(0);
+        $('#fieldChildren').html(0);
+        $('#fieldInfants').html(0);
+    }
+    if (
+        $('#fieldPickUpFrom').html() !== 'Not selected' &&
+        $('#fieldDropTo').html() !== 'Not selected' &&
+        $('#fieldPickupDate').html() !== 'Not selected' &&
+        $('#fieldPickupTime').html() !== 'Not selected' &&
+        (parseInt($('#fieldNoOfPassengers').html()) === parseInt($('#fieldAdults').html()) + parseInt($('#fieldChildren').html()) + parseInt($('#fieldInfants').html()))
+    ) {
+        $('#priceText').html(totalCost);
+    } else {
+        $('#priceText').html('0.00');
+    }
+}
+
+var totalCost = 0.00;
 
 function getPassengersPrice() {
     $.ajax(
@@ -113,10 +160,11 @@ function getPassengersPrice() {
             type: "post",
             url: window.location.origin + $('#contextPath').val() + "/get_passengers_price",
             data: {
-                passengersCount: $('#noOfPassengers').val()
+                passengersCount: $('#fieldNoOfPassengers').html()
             },
             success: function (response) {
-                $('#priceText').html(JSON.parse(response).toFixed(2));
+                totalCost = JSON.parse(response).toFixed(2);
+                validateInputs();
             },
             error: function () {
 
