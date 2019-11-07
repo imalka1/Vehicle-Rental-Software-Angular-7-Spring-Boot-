@@ -230,5 +230,5 @@ $('#customerEmail').keyup(function () {
 })
 
 function validateSubmitButton(){
-    
+
 }

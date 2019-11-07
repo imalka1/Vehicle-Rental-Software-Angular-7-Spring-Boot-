@@ -2,9 +2,12 @@ package com.vrs.dao;
 
 import com.vrs.entity.Place;
 import com.vrs.hibernate.HibernateUtil;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlaceDAO {
@@ -12,11 +15,17 @@ public class PlaceDAO {
 
     public List<Place> getAllPlaces() {
         Session session = sessionFactory.openSession();
-        session.getTransaction().begin();
-        List places = session.createQuery("from Place")
-                .list();
-        session.getTransaction().commit();
-        session.close();
+        List places = new ArrayList();
+        try {
+            session.getTransaction().begin();
+            places = session.createQuery("from Place")
+                    .list();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
         return places;
     }
 }

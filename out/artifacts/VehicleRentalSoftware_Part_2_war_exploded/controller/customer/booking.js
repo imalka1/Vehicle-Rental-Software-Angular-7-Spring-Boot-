@@ -216,7 +216,8 @@ $('#customerEmail').keyup(function () {
                     customerEmail: $('#customerEmail').val()
                 },
                 success: function (response) {
-                    var obj=JSON.parse(response);
+                    var obj = JSON.parse(response);
+                    $('#customerId').val(obj.CustomerId)
                     $('#customerName').val(obj.CustomerName)
                     $('#customerContact').val(obj.CustomerContactNo)
                 },
@@ -227,3 +228,7 @@ $('#customerEmail').keyup(function () {
         );
     }
 })
+
+function validateSubmitButton(){
+
+}

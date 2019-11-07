@@ -15,6 +15,7 @@ import java.io.IOException;
 public class GetCustomerViaEmail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         Customer customer = new CustomerDAO().getCustomerViaEmail(req.getParameter("customerEmail"));
         JSONObject customerJson = new JSONObject();//---Creates a JSON object {}
 

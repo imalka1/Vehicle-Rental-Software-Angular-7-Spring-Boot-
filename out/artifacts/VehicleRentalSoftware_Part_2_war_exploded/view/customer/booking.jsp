@@ -117,7 +117,7 @@
 
                     <div class="col-sm-12" style="margin-top: 20px">
                         <div class="row" style="padding: 5px;padding-top: 20px">
-                            <div class="col-12" style="text-align: center">No of passengers</div>
+                            <div class="col-sm-4" style="float: none;margin: 0 auto;padding-left: 5px;padding-right: 5px">No of passengers</div>
                             <div class="col-sm-4" style="float: none;margin: 0 auto;padding-left: 5px;padding-right: 5px">
                                 <input type="number" class="form-control" min="0" value="0" id="noOfPassengers">
                             </div>
@@ -216,6 +216,8 @@
                 <span style="padding: 18px;border-radius: 50px;border: 3px solid #FFCB05">Customer Details</span>
             </div>
         </div>
+
+        <input type="hidden" id="customerId">
 
         <div class="row" style="font-weight: bold;padding-top: 70px">
             <div class="col-sm-6">
