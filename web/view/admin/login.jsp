@@ -9,7 +9,7 @@
                 <div class="col-sm-12">
                     <div class="custom-form">
                         <h3>Login</h3>
-                        <form class="text-left">
+                        <form action="${pageContext.request.contextPath}/login" method="post">
 
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Username" name="username">

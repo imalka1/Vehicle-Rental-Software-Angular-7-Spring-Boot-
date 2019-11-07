@@ -13,13 +13,13 @@ public class UserDAO {
 
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-    public boolean checkUser(String email, String password) {
+    public boolean checkUser(User user) {
         Session session = sessionFactory.openSession();
         try {
             session.getTransaction().begin();
             List users = session.createQuery("from User where userEmail=?1 and userPassword=?2")
-                    .setParameter(1, email)
-                    .setParameter(2, password)
+                    .setParameter(1, user.getUserEmail())
+                    .setParameter(2, user.getUserPassword())
                     .list();
             session.getTransaction().commit();
             if (users.size() > 0) {
