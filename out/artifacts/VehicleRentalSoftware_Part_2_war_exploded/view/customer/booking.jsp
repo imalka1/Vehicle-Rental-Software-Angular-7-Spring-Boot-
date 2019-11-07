@@ -220,16 +220,16 @@
         <div class="row" style="font-weight: bold;padding-top: 70px">
             <div class="col-sm-6">
                 <div class="row" style="padding: 10px">
-                    <div class="col-12" style="font-weight: bold">Email</div>
+                    <div class="col-12" style="font-weight: bold">Email <span style="font-size: 13px">(Your email will suggest other details)</span></div>
                     <div class="col-12">
-                        <input type="text" class="form-control"></div>
+                        <input type="text" class="form-control" id="customerEmail"></div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="row" style="padding: 10px">
                     <div class="col-12" style="font-weight: bold">Contact Number</div>
                     <div class="col-12">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="customerContact">
                     </div>
                 </div>
             </div>
@@ -237,7 +237,7 @@
                 <div class="row" style="padding: 10px">
                     <div class="col-12" style="font-weight: bold">Your Name</div>
                     <div class="col-12">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="customerName">
                     </div>
                 </div>
             </div>

@@ -204,3 +204,31 @@ function getPassengersPrice() {
         }
     );
 }
+
+$('#customerEmail').keyup(function () {
+    var regex = /^([a-z])([a-z0-9])*([._-]([a-z0-9])+)*@+([a-z])*([._-]([a-z0-9])+)*([.]([a-z])+)+$/;
+    if (regex.test($('#customerEmail').val())) {
+        $.ajax(
+            {
+                type: "post",
+                url: window.location.origin + $('#contextPath').val() + "/get_customer_via_email",
+                data: {
+                    customerEmail: $('#customerEmail').val()
+                },
+                success: function (response) {
+                    var obj = JSON.parse(response);
+                    $('#customerId').val(obj.CustomerId)
+                    $('#customerName').val(obj.CustomerName)
+                    $('#customerContact').val(obj.CustomerContactNo)
+                },
+                error: function () {
+
+                }
+            }
+        );
+    }
+})
+
+function validateSubmitButton(){
+    
+}
