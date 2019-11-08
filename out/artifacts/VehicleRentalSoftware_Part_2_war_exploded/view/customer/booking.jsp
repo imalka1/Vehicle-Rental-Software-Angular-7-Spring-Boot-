@@ -255,8 +255,8 @@
         <div class="row">
             <div class="page-heading">
                 <div class="col-sm-12" style="margin-top: 50px">
-                    <a class="btn btn-default btn-lg btn-padding"
-                       style="background-color: #FFCB05">Submit Reservation</a>
+                    <button class="btn btn-default btn-lg btn-padding" id="btnSubmitReservation"
+                       style="background-color: #FFCB05">Submit Reservation</button>
                 </div>
             </div>
         </div>

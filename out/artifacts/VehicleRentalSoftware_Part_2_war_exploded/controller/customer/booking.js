@@ -1,5 +1,6 @@
 $(window).on("load", function () {
     initialFill();
+    validateSubmitButton();
 });
 
 $('#placeFrom').change(function () {
@@ -182,6 +183,18 @@ function validateInputs() {
     } else {
         $('.clsPassengers').css('color', 'red');
     }
+
+    if (
+        $('.clsPlaceTo').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsPlaceFrom').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsPassengers').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsDate').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsTime').css('color') === 'rgb(255, 0, 0)'
+    ) {
+        $('#btnSubmitReservation').prop("disabled", true);
+    } else {
+        $('#btnSubmitReservation').prop("disabled", false);
+    }
 }
 
 var totalCost = 0.00;
@@ -229,6 +242,6 @@ $('#customerEmail').keyup(function () {
     }
 })
 
-function validateSubmitButton(){
+function validateSubmitButton() {
 
 }
