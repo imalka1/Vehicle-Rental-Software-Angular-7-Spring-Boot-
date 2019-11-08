@@ -48,7 +48,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="1460" />
-          <entry key="js" value="1210" />
+          <entry key="js" value="1330" />
           <entry key="jsp" value="2896" />
           <entry key="xml" value="107" />
         </counts>
@@ -57,7 +57,7 @@
         <counts>
           <entry key="JAVA" value="1460" />
           <entry key="JSP" value="2896" />
-          <entry key="JavaScript" value="1210" />
+          <entry key="JavaScript" value="1330" />
           <entry key="XML" value="107" />
         </counts>
       </usages-collector>
@@ -65,16 +65,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
+            <state relative-caret-position="196">
+              <caret line="250" column="8" selection-start-line="250" selection-start-column="8" selection-end-line="250" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
@@ -133,8 +133,8 @@
         <option value="$PROJECT_DIR$/web/view/admin/login.jsp" />
         <option value="$PROJECT_DIR$/src/com/vrs/dao/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/user/LoginController.java" />
-        <option value="$PROJECT_DIR$/web/controller/customer/booking.js" />
         <option value="$PROJECT_DIR$/web/view/customer/booking.jsp" />
+        <option value="$PROJECT_DIR$/web/controller/customer/booking.js" />
       </list>
     </option>
   </component>
@@ -285,7 +285,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573187082850" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573191186566" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/json/json-simple-1.1.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -448,12 +448,12 @@
       <workItem from="1572628104117" duration="3951000" />
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
-      <workItem from="1572672009636" duration="95124000" />
+      <workItem from="1572672009636" duration="97951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105214000" />
+    <option name="totallyTimeSpent" value="108041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -780,17 +780,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="257" column="95" selection-start-line="257" selection-start-column="95" selection-end-line="257" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="250" column="8" selection-start-line="250" selection-start-column="8" selection-end-line="250" selection-end-column="8" />
         </state>
       </provider>
     </entry>

@@ -76,6 +76,41 @@ $('#noOfPassengers').bind("keyup change", function (e) {
     validateInputs();
 });
 
+$('#customerEmail').keyup(function () {
+    var regex = /^([a-z])([a-z0-9])*([._-]([a-z0-9])+)*@+([a-z])*([._-]([a-z0-9])+)*([.]([a-z])+)+$/;
+    if (regex.test($('#customerEmail').val())) {
+        $.ajax(
+            {
+                type: "post",
+                url: window.location.origin + $('#contextPath').val() + "/get_customer_via_email",
+                data: {
+                    customerEmail: $('#customerEmail').val()
+                },
+                success: function (response) {
+                    var obj = JSON.parse(response);
+                    $('#customerId').val(obj.CustomerId)
+                    $('#customerName').val(obj.CustomerName)
+                    $('#customerContact').val(obj.CustomerContactNo)
+                    validateSubmitButton();
+                },
+                error: function () {
+
+                }
+            }
+        );
+    }else{
+        validateSubmitButton();
+    }
+})
+
+$('#customerName').keyup(function () {
+    validateSubmitButton();
+});
+
+$('#customerContact').keyup(function () {
+    validateSubmitButton();
+});
+
 function initialFill() {
     $('#placeFrom').val($('#pickUpFromIndex').val());
     $('#placeTo').val($('#dropToIndex').val());
@@ -184,17 +219,7 @@ function validateInputs() {
         $('.clsPassengers').css('color', 'red');
     }
 
-    if (
-        $('.clsPlaceTo').css('color') === 'rgb(255, 0, 0)' ||
-        $('.clsPlaceFrom').css('color') === 'rgb(255, 0, 0)' ||
-        $('.clsPassengers').css('color') === 'rgb(255, 0, 0)' ||
-        $('.clsDate').css('color') === 'rgb(255, 0, 0)' ||
-        $('.clsTime').css('color') === 'rgb(255, 0, 0)'
-    ) {
-        $('#btnSubmitReservation').prop("disabled", true);
-    } else {
-        $('#btnSubmitReservation').prop("disabled", false);
-    }
+    validateSubmitButton();
 }
 
 var totalCost = 0.00;
@@ -218,30 +243,19 @@ function getPassengersPrice() {
     );
 }
 
-$('#customerEmail').keyup(function () {
-    var regex = /^([a-z])([a-z0-9])*([._-]([a-z0-9])+)*@+([a-z])*([._-]([a-z0-9])+)*([.]([a-z])+)+$/;
-    if (regex.test($('#customerEmail').val())) {
-        $.ajax(
-            {
-                type: "post",
-                url: window.location.origin + $('#contextPath').val() + "/get_customer_via_email",
-                data: {
-                    customerEmail: $('#customerEmail').val()
-                },
-                success: function (response) {
-                    var obj = JSON.parse(response);
-                    $('#customerId').val(obj.CustomerId)
-                    $('#customerName').val(obj.CustomerName)
-                    $('#customerContact').val(obj.CustomerContactNo)
-                },
-                error: function () {
-
-                }
-            }
-        );
-    }
-})
-
 function validateSubmitButton() {
-
+    if (
+        ($('.clsPlaceTo').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsPlaceFrom').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsPassengers').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsDate').css('color') === 'rgb(255, 0, 0)' ||
+        $('.clsTime').css('color') === 'rgb(255, 0, 0)') ||
+        $('#customerEmail').val().length === 0 ||
+        $('#customerContact').val().length === 0 ||
+        $('#customerName').val().length === 0
+    ) {
+        $('#btnSubmitReservation').prop("disabled", true);
+    } else {
+        $('#btnSubmitReservation').prop("disabled", false);
+    }
 }
