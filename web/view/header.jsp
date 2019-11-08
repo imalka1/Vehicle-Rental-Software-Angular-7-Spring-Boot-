@@ -46,6 +46,8 @@
 
     <%-------------------------------------------------Jquery---------------------------------------------------------%>
     <script src="${pageContext.request.contextPath}/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/jquery.validate.js"></script>
+
 
     <%--<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>--%>
     <%--<script src="${pageContext.request.contextPath}/assets/js/jquery.colorpanel.js"></script>--%>
