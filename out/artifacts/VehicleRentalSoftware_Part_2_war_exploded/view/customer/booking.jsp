@@ -276,17 +276,18 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-sm-12" style="margin-top: 50px;font-size: 14px;text-align: center">
+                    <span style="font-weight: bold">Note : </span>
+                    (Please complete all fields to submit, your submission will enable after you complete all fields. Comments are not compulsory)
+                </div>
+            </div>
+            <div class="row">
                 <div class="page-heading">
                     <div class="col-sm-12" style="margin-top: 50px">
                         <button class="btn btn-default btn-lg btn-padding" id="btnSubmitReservation" type="submit"
                                 style="background-color: #FFCB05">Submit Reservation
                         </button>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12" style="margin-top: 50px;font-size: 13px;text-align: center">
-                    <span style="font-weight: bold">Note : </span>(Please complete all fields to submit, your submission will enable after you complete all fields)
                 </div>
             </div>
         </div>

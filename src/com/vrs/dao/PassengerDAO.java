@@ -14,12 +14,13 @@ public class PassengerDAO {
 
     public double getPassengersPrice(int passengersCount) {
         Session session = sessionFactory.openSession();
+        Transaction tx;
         try {
-            session.getTransaction().begin();
+            tx = session.beginTransaction();
             List passengers = session.createQuery("from Passenger where passengersCount=?1")
                     .setParameter(1, passengersCount)
                     .list();
-            session.getTransaction().commit();
+            tx.commit();
             if (passengers.size() > 0) {
                 Passenger passenger = (Passenger) passengers.get(0);
                 return passenger.getPassengersPrice();

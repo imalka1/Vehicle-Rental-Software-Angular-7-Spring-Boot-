@@ -15,17 +15,34 @@ public class PlaceDAO {
 
     public List<Place> getAllPlaces() {
         Session session = sessionFactory.openSession();
+        Transaction tx;
         List places = new ArrayList();
         try {
-            session.getTransaction().begin();
+            tx = session.beginTransaction();
             places = session.createQuery("from Place")
                     .list();
-            session.getTransaction().commit();
+            tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
         return places;
+    }
+
+    public Place getPlace(long id) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        Place place = null;
+        try {
+            tx = session.beginTransaction();
+            place = session.get(Place.class, id);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return place;
     }
 }

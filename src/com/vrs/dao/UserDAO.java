@@ -15,13 +15,14 @@ public class UserDAO {
 
     public boolean checkUser(User user) {
         Session session = sessionFactory.openSession();
+        Transaction tx;
         try {
-            session.getTransaction().begin();
+            tx = session.beginTransaction();
             List users = session.createQuery("from User where userEmail=?1 and userPassword=?2")
                     .setParameter(1, user.getUserEmail())
                     .setParameter(2, user.getUserPassword())
                     .list();
-            session.getTransaction().commit();
+            tx.commit();
             if (users.size() > 0) {
                 return true;
             }

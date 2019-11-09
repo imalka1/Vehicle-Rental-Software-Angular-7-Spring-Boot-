@@ -14,10 +14,11 @@ public class Customer {
     private String customerName;
     private String customerEmail;
     private String customerContactNumber;
+    private String customerComments;
 
-    @OneToMany(mappedBy = "customer")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<Comment> customerComments;
+//    @OneToMany(mappedBy = "customer")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Set<Comment> customerComments;
 
 //    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationCustomer")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
@@ -56,11 +57,11 @@ public class Customer {
         this.customerContactNumber = customerContactNumber;
     }
 
-    public Set<Comment> getCustomerComments() {
+    public String getCustomerComments() {
         return customerComments;
     }
 
-    public void setCustomerComments(Set<Comment> customerComments) {
+    public void setCustomerComments(String customerComments) {
         this.customerComments = customerComments;
     }
 
@@ -71,6 +72,7 @@ public class Customer {
                 ", customerName='" + customerName + '\'' +
                 ", customerEmail='" + customerEmail + '\'' +
                 ", customerContactNumber='" + customerContactNumber + '\'' +
+                ", customerComments='" + customerComments + '\'' +
                 '}';
     }
 

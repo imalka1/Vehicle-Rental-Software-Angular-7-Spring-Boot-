@@ -24,7 +24,7 @@ public class GetCustomerViaEmail extends HttpServlet {
             customerJson.put("CustomerName", customer.getCustomerName());
             customerJson.put("CustomerContactNo", customer.getCustomerContactNumber());
         } else {
-            customerJson.put("CustomerId", "");
+            customerJson.put("CustomerId", 0);
             customerJson.put("CustomerName", "");
             customerJson.put("CustomerContactNo", "");
         }
