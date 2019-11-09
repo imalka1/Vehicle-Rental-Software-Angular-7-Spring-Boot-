@@ -14,7 +14,6 @@ public class Reservation {
     private int reservationAdults;
     private int reservationChildren;
     private int reservationInfants;
-    private double reservationAmount;
 
     @OneToOne
     @JoinColumn(nullable = false)
@@ -87,14 +86,6 @@ public class Reservation {
         this.reservationInfants = reservationInfants;
     }
 
-    public double getReservationAmount() {
-        return reservationAmount;
-    }
-
-    public void setReservationAmount(double reservationAmount) {
-        this.reservationAmount = reservationAmount;
-    }
-
     public Customer getReservationCustomer() {
         return reservationCustomer;
     }
@@ -129,7 +120,6 @@ public class Reservation {
                 ", reservationAdults=" + reservationAdults +
                 ", reservationChildren=" + reservationChildren +
                 ", reservationInfants=" + reservationInfants +
-                ", reservationAmount=" + reservationAmount +
                 ", reservationCustomer=" + reservationCustomer +
                 ", reservationPlaceFrom=" + reservationPlaceFrom +
                 ", reservationPlaceTo=" + reservationPlaceTo +

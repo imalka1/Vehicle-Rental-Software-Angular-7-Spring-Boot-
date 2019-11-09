@@ -32,20 +32,4 @@ public class CustomerDAO {
         }
         return null;
     }
-
-    public Customer getCustomer(long id) {
-        Session session = sessionFactory.openSession();
-        Transaction tx;
-        Customer customer = null;
-        try {
-            tx = session.beginTransaction();
-            customer = session.get(Customer.class, id);
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return customer;
-    }
 }

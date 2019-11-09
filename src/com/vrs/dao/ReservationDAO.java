@@ -28,4 +28,20 @@ public class ReservationDAO {
         }
         return reservation;
     }
+
+    public Reservation getReservation(long id) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        Reservation reservation = null;
+        try {
+            tx = session.beginTransaction();
+            reservation = session.get(Reservation.class, id);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return reservation;
+    }
 }
