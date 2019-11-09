@@ -6,9 +6,16 @@
 <jsp:include page="../nav_bar.jsp"/>
 <jsp:include page="../carousel.jsp"/>
 
-<div class="row" style="font-weight: bold;padding-top: 90px;padding-bottom: 90px">
+<div class="row" style="padding-top: 50px">
+    <div class="col-sm-12" style="text-align: center">
+        <span style="font-weight: bold">Note :- </span>
+        (Your reservation is completed. Please check your email)
+    </div>
+</div>
+
+<div class="row" style="font-weight: bold;padding-top: 40px;padding-bottom: 90px">
     <div class="col-sm-5" style="float: none;margin: 0 auto;">
-        <div class="row" style="border: 1px solid #b8b8b8;padding: 5px">
+        <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;font-size: 15px;color: #4b4b4b">
 
             <%
                 if (Integer.parseInt(request.getParameter("reservationId")) != 0) {
@@ -16,7 +23,7 @@
             %>
 
             <div class="col-sm-12"
-                 style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">Taxi Details
+                 style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 28px;color: black">Taxi Details
             </div>
             <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
             <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Reservation ID
@@ -72,8 +79,8 @@
             <div class="col-6"
                  style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"><%= reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants()%>
             </div>
-            <div class="col-6" style="padding: 5px;font-size: 30px">Total Cost</div>
-            <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right">
+            <div class="col-6" style="padding: 5px;font-size: 32px;color: black">Total Cost</div>
+            <div class="col-6" style="padding: 5px;font-size: 32px;text-align: right;color: black">
                 &euro;<span><%= new GetPassengersPriceController().getPrice(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants())%></span>
             </div>
 
