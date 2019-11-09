@@ -8,7 +8,7 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private int trip;
+    private int reservationTrip;
     private Date reservationDateAndTime;
     private boolean reservationCompleted;
     private int reservationAdults;
@@ -39,12 +39,12 @@ public class Reservation {
         this.id = id;
     }
 
-    public int getTrip() {
-        return trip;
+    public int getReservationTrip() {
+        return reservationTrip;
     }
 
-    public void setTrip(int trip) {
-        this.trip = trip;
+    public void setReservationTrip(int reservationTrip) {
+        this.reservationTrip = reservationTrip;
     }
 
     public Date getReservationDateAndTime() {
@@ -123,7 +123,7 @@ public class Reservation {
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
-                ", trip=" + trip +
+                ", reservationTrip=" + reservationTrip +
                 ", reservationDateAndTime=" + reservationDateAndTime +
                 ", reservationCompleted=" + reservationCompleted +
                 ", reservationAdults=" + reservationAdults +

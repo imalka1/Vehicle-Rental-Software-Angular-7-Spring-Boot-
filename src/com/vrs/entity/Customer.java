@@ -9,10 +9,8 @@ import java.util.Set;
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String customerName;
     private String customerEmail;
+    private String customerName;
     private String customerContactNumber;
     private String customerComments;
 
@@ -24,14 +22,6 @@ public class Customer {
 //    @OnDelete(action = OnDeleteAction.CASCADE)
 ////    @JsonIgnore
 //    private Reservation reservation;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getCustomerName() {
         return customerName;
@@ -68,15 +58,14 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
+                "customerEmail='" + customerEmail + '\'' +
                 ", customerName='" + customerName + '\'' +
-                ", customerEmail='" + customerEmail + '\'' +
                 ", customerContactNumber='" + customerContactNumber + '\'' +
                 ", customerComments='" + customerComments + '\'' +
                 '}';
     }
 
-    //    public Reservation getReservation() {
+//    public Reservation getReservation() {
 //        return reservation;
 //    }
 //

@@ -88,7 +88,6 @@ $('#customerEmail').keyup(function () {
                 },
                 success: function (response) {
                     var obj = JSON.parse(response);
-                    $('#customerId').val(obj.CustomerId)
                     $('#customerName').val(obj.CustomerName)
                     $('#customerContact').val(obj.CustomerContactNo)
                     validateSubmitButton();

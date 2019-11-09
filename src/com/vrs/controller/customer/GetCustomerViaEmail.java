@@ -20,11 +20,9 @@ public class GetCustomerViaEmail extends HttpServlet {
         JSONObject customerJson = new JSONObject();//---Creates a JSON object {}
 
         if (customer != null) {
-            customerJson.put("CustomerId", customer.getId());
             customerJson.put("CustomerName", customer.getCustomerName());
             customerJson.put("CustomerContactNo", customer.getCustomerContactNumber());
         } else {
-            customerJson.put("CustomerId", 0);
             customerJson.put("CustomerName", "");
             customerJson.put("CustomerContactNo", "");
         }

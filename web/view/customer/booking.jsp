@@ -239,8 +239,6 @@
                 </div>
             </div>
 
-            <input type="hidden" id="customerId" name="customerId">
-
             <div class="row" style="font-weight: bold;padding-top: 70px">
                 <div class="col-sm-6">
                     <div class="row" style="padding: 10px">
