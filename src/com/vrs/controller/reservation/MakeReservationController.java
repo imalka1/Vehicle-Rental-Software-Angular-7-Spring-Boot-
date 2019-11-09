@@ -18,37 +18,31 @@ import java.io.IOException;
 public class MakeReservationController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int placeFrom = Integer.parseInt(req.getParameter("placeFrom"));
-        int placeTo = Integer.parseInt(req.getParameter("placeTo"));
-        int trip = Integer.parseInt(req.getParameter("trip"));
 
         int adults = Integer.parseInt(req.getParameter("adults"));
         int children = Integer.parseInt(req.getParameter("children"));
         int infants = Integer.parseInt(req.getParameter("infants"));
 
         int customerId = Integer.parseInt(req.getParameter("customerId"));
-        String customerEmail = req.getParameter("customerEmail");
-        String customerContact = req.getParameter("customerContact");
-        String customerName = req.getParameter("customerName");
-        String customerComments = req.getParameter("customerComments");
 
-        Place placeFromObj = new PlaceDAO().getPlace(placeFrom);
-        Place placeToObj = new PlaceDAO().getPlace(placeTo);
+        Place placeFrom = new PlaceDAO().getPlace(Integer.parseInt(req.getParameter("placeFrom")));
+        Place placeTo = new PlaceDAO().getPlace(Integer.parseInt(req.getParameter("placeTo")));
 
         Customer customer;
         if (customerId == 0) {
             customer = new Customer();
-            customer.setCustomerEmail(customerEmail);
-            customer.setCustomerContactNumber(customerContact);
-            customer.setCustomerName(customerName);
-            customer.setCustomerComments(customerComments);
+            customer.setCustomerEmail(req.getParameter("customerEmail"));
+            customer.setCustomerContactNumber(req.getParameter("customerContact"));
+            customer.setCustomerName(req.getParameter("customerName"));
+            customer.setCustomerComments(req.getParameter("customerComments"));
         } else {
             customer = new CustomerDAO().getCustomer(customerId);
         }
 
         Reservation reservation = new Reservation();
-        reservation.setReservationPlaceFrom(placeFromObj);
-        reservation.setReservationPlaceTo(placeToObj);
+        reservation.setReservationPlaceFrom(placeFrom);
+        reservation.setReservationPlaceTo(placeTo);
         reservation.setReservationCustomer(customer);
+        reservation.setTrip(Integer.parseInt(req.getParameter("trip")));
     }
 }
