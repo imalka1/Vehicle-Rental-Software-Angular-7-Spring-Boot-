@@ -166,9 +166,9 @@
                 </div>
 
                 <div class="col-sm-5">
-                    <div class="row" style="border: 1px solid #b8b8b8;padding: 5px">
+                    <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;color: #4b4b4b">
                         <div class="col-sm-12"
-                             style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">Taxi Details
+                             style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px;color: black">Taxi Details
                         </div>
                         <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
                         <div class="col-6 clsPlaceFrom" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup
@@ -223,8 +223,8 @@
                         <div class="col-6 clsPassengers"
                              style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                              id="fieldNoOfPassengers"></div>
-                        <div class="col-6" style="padding: 5px;font-size: 30px">Total Cost</div>
-                        <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right">&euro;<span
+                        <div class="col-6" style="padding: 5px;font-size: 30px;color: black">Total Cost</div>
+                        <div class="col-6" style="padding: 5px;font-size: 30px;text-align: right;color: black">&euro;<span
                                 id="priceText"></span>
                         </div>
                     </div>
@@ -242,7 +242,7 @@
             <div class="row" style="font-weight: bold;padding-top: 70px">
                 <div class="col-sm-6">
                     <div class="row" style="padding: 10px">
-                        <div class="col-12" style="font-weight: bold">Email <span style="font-size: 13px">(Your email will suggest other details)</span>
+                        <div class="col-12" style="font-weight: bold">Email <span style="font-size: 13px">(If you was a customer. Your email will suggest other details)</span>
                         </div>
                         <div class="col-12">
                             <input type="text" class="form-control" id="customerEmail" name="customerEmail"></div>
