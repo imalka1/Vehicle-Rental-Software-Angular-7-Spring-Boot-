@@ -22,7 +22,6 @@ VALUES
 
 SELECT `reservation`.`id`,
     `reservation`.`reservationAdults`,
-    `reservation`.`reservationAmount`,
     `reservation`.`reservationChildren`,
     `reservation`.`reservationCompleted`,
     `reservation`.`reservationDateAndTime`,
