@@ -29,7 +29,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="3" />
-          <entry key="java" value="69" />
+          <entry key="java" value="74" />
           <entry key="js" value="10" />
           <entry key="jsp" value="44" />
           <entry key="tld" value="1" />
@@ -39,7 +39,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="JAVA" value="69" />
+          <entry key="JAVA" value="74" />
           <entry key="JSP" value="44" />
           <entry key="JavaScript" value="10" />
           <entry key="XML" value="14" />
@@ -48,16 +48,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="java" value="2692" />
+          <entry key="java" value="3086" />
           <entry key="js" value="1424" />
-          <entry key="jsp" value="3733" />
+          <entry key="jsp" value="3758" />
           <entry key="xml" value="153" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2692" />
-          <entry key="JSP" value="3733" />
+          <entry key="JAVA" value="3086" />
+          <entry key="JSP" value="3758" />
           <entry key="JavaScript" value="1424" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="XML" value="153" />
@@ -70,9 +70,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="37" />
+            <state relative-caret-position="85">
+              <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
               <folding>
+                <element signature="e#1175#1221#0#HTML" expanded="true" />
+                <element signature="e#1361#1384#0#HTML" expanded="true" />
                 <element signature="e#1839#1882#0#HTML" expanded="true" />
                 <element signature="e#6110#6134#0#HTML" expanded="true" />
                 <element signature="e#6181#6219#0#HTML" expanded="true" />
@@ -83,25 +85,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/vrs/controller/reservation/MakeReservationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="98" column="120" selection-start-line="98" selection-start-column="120" selection-end-line="98" selection-end-column="120" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5218#5219#0" expanded="true" />
-                <element signature="e#5263#5264#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/customer/success_page.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="42" column="20" lean-forward="true" selection-start-line="41" selection-start-column="85" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="1972">
+              <caret line="116" column="10" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
               <folding>
+                <element signature="e#554#600#0#HTML" expanded="true" />
                 <element signature="e#381#406#0#HTML" expanded="true" />
                 <element signature="e#409#435#0#HTML" expanded="true" />
                 <element signature="e#625#689#0#HTML" expanded="true" />
@@ -110,9 +99,11 @@
                 <element signature="e#932#1023#0#HTML" expanded="true" />
                 <element signature="e#469#541#0#HTML" expanded="true" />
                 <element signature="e#1054#1137#0#HTML" expanded="true" />
+                <element signature="e#2026#2079#0#HTML" expanded="true" />
                 <element signature="e#599#652#0#HTML" expanded="true" />
                 <element signature="e#4598#4647#0#HTML" expanded="true" />
                 <element signature="e#4696#4763#0#HTML" expanded="true" />
+                <element signature="e#4356#4362#1#HTML" expanded="true" />
                 <element signature="e#4572#4650#0#HTML" expanded="true" />
               </folding>
             </state>
@@ -205,8 +196,9 @@
         <option value="$PROJECT_DIR$/src/com/vrs/controller/passenger/GetPassengersPrice.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/user/Test.java" />
-        <option value="$PROJECT_DIR$/web/view/customer/success_page.jsp" />
+        <option value="$PROJECT_DIR$/src/com/vrs/service/EmailService.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/reservation/MakeReservationController.java" />
+        <option value="$PROJECT_DIR$/web/view/customer/success_page.jsp" />
       </list>
     </option>
   </component>
@@ -321,6 +313,13 @@
             <path>
               <item name="VehicleRentalSoftware_Part_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="VehicleRentalSoftware_Part_2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vrs" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleRentalSoftware_Part_2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleRentalSoftware_Part_2" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -371,7 +370,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573378369391" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573404922935" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/email/javax.mail-1.6.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -564,15 +563,16 @@
       <workItem from="1572628104117" duration="3951000" />
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
-      <workItem from="1572672009636" duration="144150000" />
+      <workItem from="1572672009636" duration="153044000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154240000" />
+    <option name="totallyTimeSpent" value="163134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20604026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -865,6 +865,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vrs/entity/Reservation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1481">
+          <caret line="121" column="62" selection-start-line="121" selection-start-column="62" selection-end-line="121" selection-end-column="62" />
+          <folding>
+            <element signature="e#986#987#0" expanded="true" />
+            <element signature="e#1024#1025#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_51/src.zip!/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vrs/controller/passenger/GetPassengersPriceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -877,8 +895,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vrs/controller/user/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="25" column="11" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="25" selection-end-column="11" />
+        <state relative-caret-position="62">
+          <caret line="33" column="47" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vrs/service/EmailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-294">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vrs/controller/reservation/MakeReservationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="84" column="25" lean-forward="true" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -887,9 +925,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="37" />
+        <state relative-caret-position="85">
+          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
           <folding>
+            <element signature="e#1175#1221#0#HTML" expanded="true" />
+            <element signature="e#1361#1384#0#HTML" expanded="true" />
             <element signature="e#1839#1882#0#HTML" expanded="true" />
             <element signature="e#6110#6134#0#HTML" expanded="true" />
             <element signature="e#6181#6219#0#HTML" expanded="true" />
@@ -898,22 +938,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vrs/entity/Reservation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1481">
-          <caret line="121" column="62" selection-start-line="121" selection-start-column="62" selection-end-line="121" selection-end-column="62" />
-          <folding>
-            <element signature="e#986#987#0" expanded="true" />
-            <element signature="e#1024#1025#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/success_page.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="42" column="20" lean-forward="true" selection-start-line="41" selection-start-column="85" selection-end-line="42" selection-end-column="20" />
+        <state relative-caret-position="1972">
+          <caret line="116" column="10" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
           <folding>
+            <element signature="e#554#600#0#HTML" expanded="true" />
             <element signature="e#381#406#0#HTML" expanded="true" />
             <element signature="e#409#435#0#HTML" expanded="true" />
             <element signature="e#625#689#0#HTML" expanded="true" />
@@ -922,22 +952,12 @@
             <element signature="e#932#1023#0#HTML" expanded="true" />
             <element signature="e#469#541#0#HTML" expanded="true" />
             <element signature="e#1054#1137#0#HTML" expanded="true" />
+            <element signature="e#2026#2079#0#HTML" expanded="true" />
             <element signature="e#599#652#0#HTML" expanded="true" />
             <element signature="e#4598#4647#0#HTML" expanded="true" />
             <element signature="e#4696#4763#0#HTML" expanded="true" />
+            <element signature="e#4356#4362#1#HTML" expanded="true" />
             <element signature="e#4572#4650#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vrs/controller/reservation/MakeReservationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="98" column="120" selection-start-line="98" selection-start-column="120" selection-end-line="98" selection-end-column="120" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5218#5219#0" expanded="true" />
-            <element signature="e#5263#5264#0" expanded="true" />
           </folding>
         </state>
       </provider>
