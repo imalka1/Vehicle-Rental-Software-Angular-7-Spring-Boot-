@@ -20,7 +20,7 @@ public class LoginController extends HttpServlet {
         if (new UserDAO().checkUser(user)) {
             resp.sendRedirect("index.jsp");
         } else {
-            resp.sendRedirect("index.jsp?error=error");
+            resp.sendRedirect("login.jsp?error=error");
         }
     }
 }
