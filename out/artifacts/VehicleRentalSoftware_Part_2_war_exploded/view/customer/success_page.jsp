@@ -2,6 +2,10 @@
 <%@ page import="com.vrs.entity.Reservation" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.vrs.controller.passenger.GetPassengersPriceController" %>
+<%@ page import="javax.crypto.Cipher" %>
+<%@ page import="java.security.Key" %>
+<%@ page import="javax.crypto.spec.SecretKeySpec" %>
+<%@ page import="java.util.Base64" %>
 <jsp:include page="../header.jsp"/>
 <jsp:include page="../nav_bar.jsp"/>
 <jsp:include page="../carousel.jsp"/>
@@ -17,13 +21,16 @@
     <div class="col-sm-5" style="float: none;margin: 0 auto;">
         <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;font-size: 15px;color: #4b4b4b">
 
+
             <%
-                if (Integer.parseInt(request.getParameter("reservationId")) != 0) {
-                    Reservation reservation = new GetReservationController().getReservation(Integer.parseInt(request.getParameter("reservationId")));
+                if (!request.getParameter("reservation").equals("0")) {
+                    String reservationId = new String(Base64.getUrlDecoder().decode(request.getParameter("reservation")));
+                    Reservation reservation = new GetReservationController().getReservation(Integer.parseInt(reservationId));
             %>
 
             <div class="col-sm-12"
-                 style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 28px;color: black">Taxi Details
+                 style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 28px;color: black">Taxi
+                Details
             </div>
             <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
             <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Reservation ID
