@@ -70,20 +70,20 @@
                 </table>
                 <div class="row" style="text-align: center;margin-top: 50px">
                     <div class="col-4">
-                        <i class="fa fa-arrow-left fa-2x"></i>
+                        <i class="fa fa-arrow-left fa-2x" id="pageLeft" style="cursor: pointer"></i>
                     </div>
                     <div class="col-4" style="font-size: 20px;font-weight: bold" id="pagination">
 
                     </div>
                     <div class="col-4">
-                        <i class="fa fa-arrow-right fa-2x"></i>
+                        <i class="fa fa-arrow-right fa-2x" id="pageRight" style="cursor: pointer"></i>
                     </div>
                 </div>
             </div>
             <div class="col-sm-5" style="font-size: 15px">
                 <div class="row">
                     <div class="col-sm-6 text-center">
-                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="btnChangeReservationCategory">Complete Reservation</button>
+                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="btnChangeReservationComplete">Complete Reservation</button>
                     </div>
                     <div class="col-sm-6 text-center">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="btnRemoveReservation">Remove Reservation</button>
