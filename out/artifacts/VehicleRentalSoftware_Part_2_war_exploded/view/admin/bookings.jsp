@@ -38,21 +38,20 @@
                             Date :
                         </div>
                         <div class="col-9" style="padding-left: 5px">
-                            <input type="date" class="form-control" value="<%= currentDate%>"
-                                   min="<%= currentDate%>">
+                            <input type="date" class="form-control" value="<%= currentDate%>">
                         </div>
                     </div>
                     <div class="col-sm-6" style="border: 1px solid #dfdfdf;padding-bottom: 7px">
                     <%--<div class="col-sm-7">--%>
                         <div class="col-1" style="text-align: right;margin-top: 5px;color: #636363">
-                            <i class="fa fa-arrow-left" style="cursor: pointer"></i>
+                            <i class="fa fa-arrow-left" style="cursor: pointer" id="reservationsLeft"></i>
                         </div>
                         <div class="col-10"
                              style="text-align: center;font-size: 14px;font-weight: bold;margin-top: 6px;color: #636363">
-                            Pending / Completed Reservations
+                            <span id="reservationsText"></span>
                         </div>
                         <div class="col-1" style="text-align: left;margin-top: 5px;color: #636363">
-                            <i class="fa fa-arrow-right" style="cursor: pointer"></i>
+                            <i class="fa fa-arrow-right" style="cursor: pointer" id="reservationsRight"></i>
                         </div>
                     </div>
                 </div>
@@ -65,7 +64,7 @@
                         <th width="7%" style="text-align: center">View</th>
                     </tr>
                     </thead>
-                    <tbody style="text-align: center">
+                    <tbody style="text-align: center" id="reservationsBody">
                     <tr>
                         <td>2019-02-02</td>
                         <td>11:00 PM</td>
@@ -199,5 +198,7 @@
         </div>
     </div>
 </section>
+
+<script src="${pageContext.request.contextPath}/controller/admin/bookingsController.js"></script>
 
 <jsp:include page="../footer.jsp"/>

@@ -292,6 +292,6 @@
     </form>
 </section>
 
-<script src="${pageContext.request.contextPath}/controller/customer/booking.js"></script>
+<script src="${pageContext.request.contextPath}/controller/customer/bookingController.js"></script>
 
 <jsp:include page="../footer.jsp"/>

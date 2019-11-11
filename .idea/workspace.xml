@@ -30,8 +30,8 @@
         <counts>
           <entry key="css" value="3" />
           <entry key="java" value="128" />
-          <entry key="js" value="10" />
-          <entry key="jsp" value="59" />
+          <entry key="js" value="12" />
+          <entry key="jsp" value="60" />
           <entry key="tld" value="1" />
           <entry key="xml" value="15" />
         </counts>
@@ -40,8 +40,8 @@
         <counts>
           <entry key="CSS" value="3" />
           <entry key="JAVA" value="128" />
-          <entry key="JSP" value="59" />
-          <entry key="JavaScript" value="10" />
+          <entry key="JSP" value="60" />
+          <entry key="JavaScript" value="12" />
           <entry key="XML" value="16" />
         </counts>
       </usages-collector>
@@ -49,16 +49,16 @@
         <counts>
           <entry key="dummy" value="56" />
           <entry key="java" value="3691" />
-          <entry key="js" value="1424" />
-          <entry key="jsp" value="5081" />
+          <entry key="js" value="1631" />
+          <entry key="jsp" value="5151" />
           <entry key="xml" value="153" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="3691" />
-          <entry key="JSP" value="5081" />
-          <entry key="JavaScript" value="1424" />
+          <entry key="JSP" value="5151" />
+          <entry key="JavaScript" value="1631" />
           <entry key="PLAIN_TEXT" value="56" />
           <entry key="XML" value="153" />
         </counts>
@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/view/admin/bookings.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="119" column="99" selection-start-line="119" selection-start-column="99" selection-end-line="119" selection-end-column="99" />
+            <state relative-caret-position="233">
+              <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
               <folding>
                 <element signature="e#529#573#0#HTML" expanded="true" />
                 <element signature="e#600#641#0#HTML" expanded="true" />
@@ -97,11 +97,29 @@
                 <element signature="e#5127#5198#0#HTML" expanded="true" />
                 <element signature="e#5321#5412#0#HTML" expanded="true" />
                 <element signature="e#5529#5567#0#HTML" expanded="true" />
-                <element signature="e#5662#5722#0#HTML" expanded="true" />
+                <element signature="e#5716#5791#0#HTML" expanded="true" />
                 <element signature="e#5883#5961#0#HTML" expanded="true" />
                 <element signature="e#2335#2426#0#HTML" expanded="true" />
                 <element signature="e#6799#6884#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/controller/customer/bookingController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="3" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/controller/admin/bookingsController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-102">
+              <caret column="16" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -112,9 +130,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Tag Library Descriptor" />
-        <option value="JavaScript File" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -129,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/assets/js/jquery-3.4.1.min.js" />
         <option value="$PROJECT_DIR$/web/view/carousel.jsp" />
         <option value="$PROJECT_DIR$/web/view/admin/login'.jsp" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/place/GetAllPlaces.java" />
@@ -179,6 +196,7 @@
         <option value="$PROJECT_DIR$/src/com/vrs/entity/Customer.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/service/ReservationService.java" />
         <option value="$PROJECT_DIR$/web/view/customer/booking.jsp" />
+        <option value="$PROJECT_DIR$/web/controller/admin/bookingsController.js" />
         <option value="$PROJECT_DIR$/web/view/admin/bookings.jsp" />
       </list>
     </option>
@@ -352,7 +370,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573494907804" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573502335364" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/email/javax.mail-1.6.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -545,15 +563,16 @@
       <workItem from="1572628104117" duration="3951000" />
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
-      <workItem from="1572672009636" duration="184210000" />
+      <workItem from="1572672009636" duration="186112000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194300000" />
+    <option name="totallyTimeSpent" value="196202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20604026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -599,9 +618,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/assets/js/custom-owl.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/css/flexslider.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-408" />
@@ -698,13 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="165" selection-start-line="165" selection-end-line="165" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/controller/customer/booking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="89" column="51" selection-start-line="89" selection-start-column="51" selection-end-line="89" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -1083,21 +1092,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/view/customer/booking.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="36" column="22" lean-forward="true" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-          <folding>
-            <element signature="e#1362#1422#0#HTML" expanded="true" />
-            <element signature="e#1840#1883#0#HTML" expanded="true" />
-            <element signature="e#1923#1944#0#HTML" expanded="true" />
-            <element signature="e#8706#8767#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="301">
+          <caret line="294" selection-start-line="294" selection-end-line="294" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controller/customer/bookingController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controller/admin/bookingsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/view/admin/bookings.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="119" column="99" selection-start-line="119" selection-start-column="99" selection-end-line="119" selection-end-column="99" />
+        <state relative-caret-position="233">
+          <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
           <folding>
             <element signature="e#529#573#0#HTML" expanded="true" />
             <element signature="e#600#641#0#HTML" expanded="true" />
@@ -1123,7 +1140,7 @@
             <element signature="e#5127#5198#0#HTML" expanded="true" />
             <element signature="e#5321#5412#0#HTML" expanded="true" />
             <element signature="e#5529#5567#0#HTML" expanded="true" />
-            <element signature="e#5662#5722#0#HTML" expanded="true" />
+            <element signature="e#5716#5791#0#HTML" expanded="true" />
             <element signature="e#5883#5961#0#HTML" expanded="true" />
             <element signature="e#2335#2426#0#HTML" expanded="true" />
             <element signature="e#6799#6884#0#HTML" expanded="true" />
