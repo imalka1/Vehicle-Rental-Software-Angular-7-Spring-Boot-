@@ -28,11 +28,11 @@
 </style>
 
 <section id="about" style="padding-top: 50px;padding-bottom: 90px">
-    <div class="container-fluid" style="margin-left: 20px;margin-right: 20px">
+    <div class="container-fluid" style="margin-left: 10px;margin-right: 10px">
         <div class="row" style="margin-top: 70px;font-size: 15px">
             <div class="col-sm-7">
                 <div class="row" style="font-size: 15px;margin-bottom: 30px;padding-right: 16px">
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <div class="col-3"
                              style="text-align: right;margin-top: 5px;font-weight: bold;color: #636363">
                             Date :
@@ -42,7 +42,7 @@
                                    min="<%= currentDate%>">
                         </div>
                     </div>
-                    <div class="col-sm-7" style="border: 1px solid #dfdfdf;padding-bottom: 7px">
+                    <div class="col-sm-6" style="border: 1px solid #dfdfdf;padding-bottom: 7px">
                     <%--<div class="col-sm-7">--%>
                         <div class="col-1" style="text-align: right;margin-top: 5px;color: #636363">
                             <i class="fa fa-arrow-left" style="cursor: pointer"></i>
@@ -61,8 +61,8 @@
                     <tr>
                         <th width="15%" style="text-align: center">Date</th>
                         <th width="15%" style="text-align: center">Time</th>
-                        <th width="60%" style="text-align: center">Reservation Number</th>
-                        <th width="10%" style="text-align: center">View</th>
+                        <th width="63%" style="text-align: center">Reservation Number</th>
+                        <th width="7%" style="text-align: center">View</th>
                     </tr>
                     </thead>
                     <tbody style="text-align: center">
@@ -75,10 +75,13 @@
                     </tbody>
                 </table>
                 <div class="row" style="text-align: center;margin-top: 50px">
-                    <div class="col-6">
+                    <div class="col-4">
                         <i class="fa fa-arrow-left fa-2x"></i>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4" style="font-size: 20px;font-weight: bold">
+                        8 / 10
+                    </div>
+                    <div class="col-4">
                         <i class="fa fa-arrow-right fa-2x"></i>
                     </div>
                 </div>
