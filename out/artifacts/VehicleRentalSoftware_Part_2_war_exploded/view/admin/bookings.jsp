@@ -31,7 +31,7 @@
     <div class="container-fluid" style="margin-left: 10px;margin-right: 10px">
         <div class="row" style="margin-top: 70px;font-size: 15px">
             <div class="col-sm-7">
-                <div class="row" style="font-size: 15px;margin-bottom: 30px;padding-right: 16px">
+                <div class="row" style="margin-bottom: 30px;padding-right: 16px">
                     <div class="col-sm-6">
                         <div class="col-3"
                              style="text-align: right;margin-top: 5px;font-weight: bold;color: #636363">
@@ -68,7 +68,7 @@
                     <tr>
                         <td>2019-02-02</td>
                         <td>11:00 PM</td>
-                        <td style="text-align: left;font-weight: bold">R123</td>
+                        <td style="text-align: left">R123</td>
                         <td style="cursor: pointer"><i class="fa fa-search"></i></td>
                     </tr>
                     </tbody>
@@ -127,6 +127,12 @@
                         Taxi Details
                     </div>
                     <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Reservation Number
+                    </div>
+                    <div class="col-7"
+                         style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
+                         id="fieldReservationId">Not selected
+                    </div>
                     <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Pickup
                         From
                     </div>
