@@ -32,7 +32,8 @@
                         <%
                             if (sessionLogin.getAttribute("accountType") != null) {
                         %>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Bookings</a>
+                        <li class="dropdown"><a href="${pageContext.request.contextPath}/view/admin/bookings.jsp"
+                                                class="dropdown-toggle">Bookings</a>
                         </li>
 
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">Admin
