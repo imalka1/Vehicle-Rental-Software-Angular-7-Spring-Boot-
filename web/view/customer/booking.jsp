@@ -29,7 +29,7 @@
 <input type="hidden" id="tripIndex" value="<%= request.getParameter("trip")%>">
 
 <section id="about" style="padding-top: 80px;padding-bottom: 80px">
-    <form action="${pageContext.request.contextPath}/makeReservation" method="post" name="makeReservatio">
+    <form action="${pageContext.request.contextPath}/make_reservation" method="post" name="makeReservatio">
         <div class="container" style="font-size: 16px">
             <div class="row" style="font-size: 25px;text-align: center;font-weight: bold">
                 <div class="col-12">

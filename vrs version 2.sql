@@ -27,6 +27,15 @@ INSERT INTO `vehicle_rental_software`.`customer`
 VALUES
 (123,'im@gmail.com','im');
 
+INSERT INTO `vehicle_rental_software`.`rentalsystem`
+(
+`address`,
+`emailAddress`,
+`telNumber`)
+VALUES
+('No 123, Abc Road, Japan','vehicles@gmail.com','012-1234567');
+
+
 SELECT `reservation`.`id`,
     `reservation`.`reservationAdults`,
     `reservation`.`reservationChildren`,

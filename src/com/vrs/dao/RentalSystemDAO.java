@@ -1,6 +1,7 @@
 package com.vrs.dao;
 
-import com.vrs.entity.User;
+import com.vrs.entity.Place;
+import com.vrs.entity.RentalSystem;
 import com.vrs.hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,36 +10,25 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO {
-
+public class RentalSystemDAO {
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-    public boolean checkUser(User user) {
+    public RentalSystem getRentalSystem() {
         Session session = sessionFactory.openSession();
         Transaction tx;
         try {
             tx = session.beginTransaction();
-            List users = session.createQuery("from User where userEmail=?1 and userPassword=?2")
-                    .setParameter(1, user.getUserEmail())
-                    .setParameter(2, user.getUserPassword())
+            List rentalSystem = session.createQuery("from RentalSystem")
                     .list();
             tx.commit();
-            if (users.size() > 0) {
-                return true;
+            if (rentalSystem.size() > 0) {
+                return (RentalSystem) rentalSystem.get(0);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-        return false;
+        return null;
     }
-
-//    public static void main(String[] args) {
-//        List<User> allUsers = new UserDAO().getAllUsers();
-//        for (User allUser : allUsers) {
-//            RentalSystem.out.println(allUser);
-//        }
-//
-//    }
 }

@@ -1,6 +1,6 @@
 package com.vrs.service;
 
-import com.vrs.controller.passenger.GetPassengersPriceController;
+import com.vrs.controller.passenger.PassengerController;
 import com.vrs.entity.Reservation;
 
 import javax.mail.*;
@@ -43,7 +43,7 @@ public class EmailService {
                     "<span style='font-weight:bold'>Children</span><span> - " + savedRegistration.getReservationChildren() + "</span><br>" +
                     "<span style='font-weight:bold'>Infants</span><span> - " + savedRegistration.getReservationInfants() + "</span><br>" +
                     "<span style='font-weight:bold'>No of passengers</span><span> - " + (savedRegistration.getReservationAdults() + savedRegistration.getReservationChildren() + savedRegistration.getReservationInfants()) + "</span><br>" +
-                    "<span style='font-weight:bold;font-size:24px'>Total Cost</span><span style='font-weight:bold;font-size:24px'> - &euro;" + new GetPassengersPriceController().getPrice(savedRegistration.getReservationAdults() + savedRegistration.getReservationChildren() + savedRegistration.getReservationInfants()) + "</span>" +
+                    "<span style='font-weight:bold;font-size:24px'>Total Cost</span><span style='font-weight:bold;font-size:24px'> - &euro;" + new PassengerController().getPrice(savedRegistration.getReservationAdults() + savedRegistration.getReservationChildren() + savedRegistration.getReservationInfants()) + "</span>" +
                     "</div>";
 
             msg.setContent(htmlMessage, "text/html");

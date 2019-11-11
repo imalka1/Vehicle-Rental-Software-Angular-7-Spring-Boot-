@@ -3,7 +3,7 @@ package com.vrs.entity;
 import javax.persistence.*;
 
 @Entity
-public class Personal {
+public class RentalSystem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -45,7 +45,7 @@ public class Personal {
 
     @Override
     public String toString() {
-        return "Personal{" +
+        return "RentalSystem{" +
                 "id=" + id +
                 ", address='" + address + '\'' +
                 ", telNumber='" + telNumber + '\'' +

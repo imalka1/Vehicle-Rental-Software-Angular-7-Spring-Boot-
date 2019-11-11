@@ -1,4 +1,9 @@
-<!--========== FOOTER ==========-->
+<%@ page import="com.vrs.controller.rental_system.RentalSystemController" %>
+<%@ page import="com.vrs.entity.RentalSystem" %>
+
+<%
+    RentalSystem rentalSystem = new RentalSystemController().getRentalSystem();
+%>
 <section>
     <div id="footer-top" class="banner-padding">
         <div class="container">
@@ -19,9 +24,12 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left" id="contact-us">
                     <h4 class="footer-heading">Contact Us</h4>
                     <ul class="list-unstyled">
-                        <li><span><i class="fa fa-map-marker"></i></span>29 Land St, Lorem City, CA</li>
-                        <li><span><i class="fa fa-phone"></i></span>+00 123 4567</li>
-                        <li><span><i class="fa fa-envelope"></i></span>info@starhotel.com</li>
+                        <li><span><i class="fa fa-map-marker"></i></span><%= rentalSystem.getAddress()%>
+                        </li>
+                        <li><span><i class="fa fa-phone"></i></span><%= rentalSystem.getTelNumber()%>
+                        </li>
+                        <li><span><i class="fa fa-envelope"></i></span><%= rentalSystem.getEmailAddress()%>
+                        </li>
                     </ul>
 
                 </div><!-- end social-links -->

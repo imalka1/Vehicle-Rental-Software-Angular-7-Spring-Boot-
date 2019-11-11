@@ -12,7 +12,7 @@
     <mapping class="com.vrs.entity.User"/>
     <mapping class="com.vrs.entity.Place"/>
     <mapping class="com.vrs.entity.Customer"/>
-    <mapping class="com.vrs.entity.Personal"/>
+    <mapping class="com.vrs.entity.RentalSystem"/>
     <mapping class="com.vrs.entity.Reservation"/>
     <mapping class="com.vrs.entity.Passenger"/>
 </session-factory>

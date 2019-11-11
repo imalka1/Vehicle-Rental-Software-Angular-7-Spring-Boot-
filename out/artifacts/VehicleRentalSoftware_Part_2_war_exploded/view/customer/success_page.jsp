@@ -1,7 +1,7 @@
-<%@ page import="com.vrs.controller.reservation.GetReservationController" %>
+<%@ page import="com.vrs.controller.reservation.ReservationController" %>
 <%@ page import="com.vrs.entity.Reservation" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="com.vrs.controller.passenger.GetPassengersPriceController" %>
+<%@ page import="com.vrs.controller.passenger.PassengerController" %>
 <%@ page import="java.util.Base64" %>
 
 <jsp:include page="../header.jsp"/>
@@ -22,7 +22,7 @@
             if (!request.getParameter("reservation").equals("0")) {
                 try {
                     String reservationId = new String(Base64.getUrlDecoder().decode(request.getParameter("reservation")));
-                    Reservation reservation = new GetReservationController().getReservation(Integer.parseInt(reservationId));
+                    Reservation reservation = new ReservationController().getReservation(Integer.parseInt(reservationId));
                     if (reservation != null) {
         %>
         <div class="row">
@@ -104,7 +104,7 @@
                     </div>
                     <div class="col-6" style="padding: 5px;font-size: 32px;color: black">Total Cost</div>
                     <div class="col-6" style="padding: 5px;font-size: 32px;text-align: right;color: black">
-                        &euro;<span><%= new GetPassengersPriceController().getPrice(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants())%></span>
+                        &euro;<span><%= new PassengerController().getPrice(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants())%></span>
                     </div>
 
                 </div>
