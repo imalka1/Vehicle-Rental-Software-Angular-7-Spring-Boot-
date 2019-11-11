@@ -1,11 +1,16 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
 <jsp:include page="../header.jsp"/>
 <jsp:include page="../nav_bar.jsp"/>
 
 <%
     HttpSession sessionLogin = request.getSession(false);
+
+    String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     if (sessionLogin.getAttribute("accountType") == null) {
 %>
-<jsp:forward page="../admin/login.jsp"/>
+<%--<jsp:forward page="../admin/login.jsp"/>--%>
 <%
     }
 %>
@@ -24,8 +29,33 @@
 
 <section id="about" style="padding-top: 50px;padding-bottom: 90px">
     <div class="container-fluid" style="margin-left: 20px;margin-right: 20px">
-        <div class="row" style="margin-top: 100px;font-size: 15px">
-            <div class="col-sm-7" style="padding: 0px">
+        <div class="row" style="margin-top: 70px;font-size: 15px">
+            <div class="col-sm-7">
+                <div class="row" style="font-size: 15px;margin-bottom: 30px;padding-right: 16px">
+                    <div class="col-sm-5">
+                        <div class="col-3"
+                             style="text-align: right;margin-top: 5px;font-weight: bold;color: #636363">
+                            Date :
+                        </div>
+                        <div class="col-9" style="padding-left: 5px">
+                            <input type="date" class="form-control" value="<%= currentDate%>"
+                                   min="<%= currentDate%>">
+                        </div>
+                    </div>
+                    <div class="col-sm-7" style="border: 1px solid #dfdfdf;padding-bottom: 7px">
+                    <%--<div class="col-sm-7">--%>
+                        <div class="col-1" style="text-align: right;margin-top: 5px;color: #636363">
+                            <i class="fa fa-arrow-left" style="cursor: pointer"></i>
+                        </div>
+                        <div class="col-10"
+                             style="text-align: center;font-size: 14px;font-weight: bold;margin-top: 6px;color: #636363">
+                            Pending / Completed Reservations
+                        </div>
+                        <div class="col-1" style="text-align: left;margin-top: 5px;color: #636363">
+                            <i class="fa fa-arrow-right" style="cursor: pointer"></i>
+                        </div>
+                    </div>
+                </div>
                 <table width="100%">
                     <thead>
                     <tr>
@@ -44,8 +74,16 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="row" style="text-align: center;margin-top: 50px">
+                    <div class="col-6">
+                        <i class="fa fa-arrow-left fa-2x"></i>
+                    </div>
+                    <div class="col-6">
+                        <i class="fa fa-arrow-right fa-2x"></i>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-5" style="padding-left: 35px">
+            <div class="col-sm-5" style="margin-top: 65px">
                 <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;color: #4b4b4b">
                     <div class="col-sm-12"
                          style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px;color: black;font-weight: bold">
@@ -126,19 +164,22 @@
                         Customer Details
                     </div>
                     <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
-                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Customer Name
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Customer
+                        Name
                     </div>
                     <div class="col-7"
                          style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldCustomerName">Not selected
                     </div>
-                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Email Address
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Email
+                        Address
                     </div>
                     <div class="col-7"
                          style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2"
                          id="fieldCustomerEmail">Not selected
                     </div>
-                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Contact No
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Contact
+                        No
                     </div>
                     <div class="col-7"
                          style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2"
@@ -149,14 +190,7 @@
                     <div class="col-7"
                          style="padding: 5px;font-weight: normal"
                          id="fieldCustomerComment">
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut beatae, blanditiis
-                            consequuntur inventore labore molestias necessitatibus nemo nobis non odit praesentium quam
-                            qui quis ratione recusandae rerum similique voluptatem.
-                        </div>
-                        <div>Ab blanditiis ducimus eum laudantium magnam numquam vitae? Consequatur corporis deserunt
-                            dignissimos dolore earum excepturi exercitationem expedita facere necessitatibus neque
-                            nesciunt, quam quasi quisquam ratione rem, repellendus sed vel voluptatibus.
-                        </div>
+                        Not selected
                     </div>
                 </div>
             </div>

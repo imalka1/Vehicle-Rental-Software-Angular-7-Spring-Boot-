@@ -30,7 +30,7 @@
 
 <section id="about" style="padding-top: 80px;padding-bottom: 80px">
     <form action="${pageContext.request.contextPath}/make_reservation" method="post" name="makeReservatio">
-        <div class="container" style="font-size: 16px">
+        <div class="container-fluid" style="font-size: 16px;margin-left: 50px;margin-right: 50px">
             <div class="row" style="font-size: 25px;text-align: center;font-weight: bold">
                 <div class="col-12">
                     <span style="padding: 18px;border-radius: 50px;border: 3px solid #FFCB05">Booking Details</span>
@@ -40,7 +40,7 @@
             <%--<hr style="margin-top: 50px;margin-bottom: 10px;margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">--%>
 
             <div class="row" style="font-weight: bold;padding-top: 90px">
-                <div class="col-sm-7" style="padding: 20px">
+                <div class="col-sm-7" style="padding: 30px">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="row" style="padding: 5px">
