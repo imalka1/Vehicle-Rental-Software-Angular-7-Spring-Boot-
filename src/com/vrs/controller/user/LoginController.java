@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/login")
@@ -18,9 +19,11 @@ public class LoginController extends HttpServlet {
         user.setUserEmail(req.getParameter("userEmail"));
         user.setUserPassword(req.getParameter("userPassword"));
         if (new UserDAO().checkUser(user)) {
+            HttpSession sessionLogin = req.getSession(true);
+            sessionLogin.setAttribute("accountType", "logged");
             resp.sendRedirect("index.jsp");
         } else {
-            resp.sendRedirect("login.jsp?error=error");
+            resp.sendRedirect("view/admin/login.jsp?error=error");
         }
     }
 }

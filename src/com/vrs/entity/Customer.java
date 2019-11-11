@@ -16,7 +16,7 @@ public class Customer {
 
 //    @OneToMany(mappedBy = "customer")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
-//    private Set<Comment> customerComments;
+//    private Set<Personal> customerComments;
 
 //    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "reservationCustomer")
 //    @OnDelete(action = OnDeleteAction.CASCADE)

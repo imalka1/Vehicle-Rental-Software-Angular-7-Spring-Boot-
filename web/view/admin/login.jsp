@@ -12,19 +12,19 @@
                         <form action="${pageContext.request.contextPath}/login" method="post">
 
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" name="username">
+                                <input type="text" class="form-control" placeholder="Username" name="userEmail">
                                 <span><i class="fa fa-user"></i></span>
                             </div>
 
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" name="password">
+                                <input type="password" class="form-control" placeholder="Password" name="userPassword">
                                 <span><i class="fa fa-lock"></i></span>
                             </div>
 
-                            <div class="custom-check">
-                                <input type="checkbox" id="check" name="checkbox"/>
-                                <label for="check"><span><i class="fa fa-check"></i></span>Remember Me</label>
-                            </div><!-- end checkbox -->
+                            <%--<div class="custom-check">--%>
+                                <%--<input type="checkbox" id="check" name="checkbox"/>--%>
+                                <%--<label for="check"><span><i class="fa fa-check"></i></span>Remember Me</label>--%>
+                            <%--</div><!-- end checkbox -->--%>
 
                             <button class="btn btn-yellow btn-block">Login</button>
                         </form>

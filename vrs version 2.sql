@@ -4,6 +4,13 @@ INSERT INTO `vehicle_rental_software`.`place`
 VALUES
 ('Galle'),('Matara');
 
+INSERT INTO `vehicle_rental_software`.`user`
+(
+`userEmail`,
+`userPassword`)
+VALUES
+('im@gmail.com','123');
+
 
 INSERT INTO `vehicle_rental_software`.`passenger`
 (
@@ -43,3 +50,7 @@ SELECT `place`.`id`,
 FROM `vehicle_rental_software`.`place`;
 
 
+SELECT `user`.`id`,
+    `user`.`userEmail`,
+    `user`.`userPassword`
+FROM `vehicle_rental_software`.`user`;

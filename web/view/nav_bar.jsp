@@ -25,7 +25,8 @@
                 <div class="collapse navbar-collapse" id="myNavbar1">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li class="dropdown" id="btnHome"><a class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                        <li class="dropdown"><a href="${pageContext.request.contextPath}/index.jsp"
+                                                class="dropdown-toggle">Home</a>
                         </li>
 
                         <%
@@ -50,7 +51,19 @@
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Contact</a>
                         </li>
 
-                        <li id="btnLogin"><a style="cursor: pointer">Login</a></li>
+                        <%
+                            if (sessionLogin.getAttribute("accountType") != null) {
+                        %>
+                        <li><a href="${pageContext.request.contextPath}/logout" style="cursor: pointer">Logout</a>
+                        </li>
+                        <%
+                        } else {
+                        %>
+                        <li><a href="${pageContext.request.contextPath}/view/admin/login.jsp" style="cursor: pointer">Login</a>
+                        </li>
+                        <%
+                            }
+                        %>
 
                     </ul>
                 </div><!-- end navbar collapse -->
@@ -61,12 +74,12 @@
 </div>
 <!-- end home-container -->
 
-<script>
-    $('#btnHome').click(function () {
-        document.location.href = "${pageContext.request.contextPath}/index.jsp";
-    })
+<%--<script>--%>
+<%--$('#btnHome').click(function () {--%>
+<%--document.location.href = "${pageContext.request.contextPath}/index.jsp";--%>
+<%--})--%>
 
-    $('#btnLogin').click(function () {
-        document.location.href = "${pageContext.request.contextPath}/view/admin/login.jsp";
-    })
-</script>
+<%--$('#btnLogin').click(function () {--%>
+<%--document.location.href = "${pageContext.request.contextPath}/view/admin/login.jsp";--%>
+<%--})--%>
+<%--</script>--%>
