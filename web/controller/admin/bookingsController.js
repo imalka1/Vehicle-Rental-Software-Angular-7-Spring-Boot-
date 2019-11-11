@@ -29,14 +29,13 @@ $(window).on("load", function () {
 $('#reservationDate').change(function () {
     loadReservations($('#reservationDate').val());
     changeReservationCategory(position);
-    pageCount = [0, 0, 1, 1];
 })
 
 $('#reservationsLeft').click(function () {
     if (position > 0) {
         changeReservationCategory(--position);
         setTableBody();
-        $('#pagination').html(pageCount[2] + ' / ' + pagesCount[0]);
+        $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
     }
 })
 
@@ -44,23 +43,19 @@ $('#reservationsRight').click(function () {
     if (position < 1) {
         changeReservationCategory(++position);
         setTableBody();
-        $('#pagination').html(pageCount[3] + ' / ' + pagesCount[1]);
+        $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
     }
 })
 
-var pageCount = [1, 1];
-var pagePosition = [0, 0, 0, 0];
 $('#pageLeft').click(function () {
     if (position === 0) {
         if (pageCount[0] > 1) {
             pageCount[0]--;
-            // pageCount[0] -= 22;
             $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
         }
     } else if (position === 1) {
         if (pageCount[1] > 1) {
             pageCount[1]--;
-            // pageCount[1] -= 22;
             $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
         }
     }
@@ -71,14 +66,11 @@ $('#pageRight').click(function () {
     if (position === 0) {
         if (pageCount[0] < pagesCount[0]) {
             pageCount[0]++;
-            // pageCount[0] += 22;
             $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
         }
     } else if (position === 1) {
         if (pageCount[1] < pagesCount[1]) {
             pageCount[1]++;
-            // pageCount[1] += 22;
-            pagePosition[2] = pagePosition[3];
             $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
         }
     }
@@ -125,7 +117,7 @@ function setTableBody() {
     var count = 0;
     var tableData = '';
     if (position === 0) {
-        for (var i = pagePositionPending[pageCount[0]-1]; i < obj.length; i++) {
+        for (var i = pagePositionPending[pageCount[0] - 1]; i < obj.length; i++) {
             if (!obj[i].ReservationIsCompleted) {
                 if (count < 22) {
                     count++;
@@ -140,7 +132,7 @@ function setTableBody() {
             }
         }
     } else if (position === 1) {
-        for (var i = pagePositionCompleted[pageCount[1]-1]; i < obj.length; i++) {
+        for (var i = pagePositionCompleted[pageCount[1] - 1]; i < obj.length; i++) {
             if (obj[i].ReservationIsCompleted) {
                 if (count < 22) {
                     count++;
@@ -159,7 +151,8 @@ function setTableBody() {
     selectTableRow();
 }
 
-var pagesCount = [0, 0];
+var pageCount = [1, 1];
+var pagesCount = [1, 1];
 var pagePositionPending = [];
 var pagePositionCompleted = [];
 
@@ -168,43 +161,49 @@ function setPagesCount() {
     pagePositionCompleted = [];
     pagePositionPending.push(0);
     pagePositionCompleted.push(0);
+    pagesCount = [1, 1];
+    var tempCount = [1, 1];
 
     var rowCount = [0, 0];
     for (var i = 0; i < obj.length; i++) {
         if (!obj[i].ReservationIsCompleted) {
             rowCount[0]++;
-            if (rowCount[0] === 22) {
-                pagePositionPending.push(i+1);
+            if (rowCount[0] === 22 * tempCount[0]) {
+                tempCount[0]++;
+                pagePositionPending.push(i + 1);
+            }
+            if (rowCount[0] === 23 * pagesCount[0]) {
+                pagesCount[0]++;
             }
         }
         if (obj[i].ReservationIsCompleted) {
             rowCount[1]++;
-            if (rowCount[1] === 22) {
-                pagePositionCompleted.push(i+1);
+            if (rowCount[1] === 22 * tempCount[1]) {
+                tempCount[1]++;
+                pagePositionCompleted.push(i + 1);
+            }
+            if (rowCount[1] === 23 * pagesCount[1]) {
+                pagesCount[1]++;
             }
         }
     }
 
-    pagesCount = [0, 0];
-    while (rowCount[0] > 0) {
-        pagesCount[0]++;
-        rowCount[0] -= 22;
+    if (position === 0) {
+        $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
+    } else if (position === 1) {
+        $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
     }
 
-    while (rowCount[1] > 0) {
-        pagesCount[1]++;
-        rowCount[1] -= 22;
-    }
 
-    if (rowCount[0] === 0) {
-        pagesCount[0]++;
-    }
-
-    if (rowCount[1] === 0) {
-        pagesCount[1]++;
-    }
-
-    $('#pagination').html('1 / ' + pagesCount[0]);
+    // while (rowCount[0] > 0) {
+    //     pagesCount[0]++;
+    //     rowCount[0] -= 22;
+    // }
+    //
+    // while (rowCount[1] > 0) {
+    //     pagesCount[1]++;
+    //     rowCount[1] -= 22;
+    // }
 }
 
 $('#btnChangeReservationComplete').click(function () {
