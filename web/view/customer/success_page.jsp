@@ -2,15 +2,29 @@
 <%@ page import="com.vrs.entity.Reservation" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.vrs.controller.passenger.GetPassengersPriceController" %>
-<%@ page import="javax.crypto.Cipher" %>
-<%@ page import="java.security.Key" %>
-<%@ page import="javax.crypto.spec.SecretKeySpec" %>
 <%@ page import="java.util.Base64" %>
+
 <jsp:include page="../header.jsp"/>
 <jsp:include page="../nav_bar.jsp"/>
 <jsp:include page="../carousel.jsp"/>
+
+<%
+    if (request.getParameter("reservation") == null) {
+%>
+<jsp:forward page="../../index.jsp"/>
+<%
+    }
+%>
+
 <section id="about" style="padding-top: 50px;padding-bottom: 90px">
     <div class="container">
+        <%
+            if (!request.getParameter("reservation").equals("0")) {
+                try {
+                    String reservationId = new String(Base64.getUrlDecoder().decode(request.getParameter("reservation")));
+                    Reservation reservation = new GetReservationController().getReservation(Integer.parseInt(reservationId));
+                    if (reservation != null) {
+        %>
         <div class="row">
             <div class="col-sm-12" style="text-align: center">
                 <span style="font-weight: bold">Note :- </span>
@@ -21,13 +35,6 @@
         <div class="row" style="font-weight: bold;padding-top: 40px">
             <div class="col-sm-6" style="float: none;margin: 0 auto;">
                 <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;font-size: 15px;color: #4b4b4b">
-
-
-                    <%
-                        if (!request.getParameter("reservation").equals("0")) {
-                            String reservationId = new String(Base64.getUrlDecoder().decode(request.getParameter("reservation")));
-                            Reservation reservation = new GetReservationController().getReservation(Integer.parseInt(reservationId));
-                    %>
 
                     <div class="col-sm-12"
                          style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 28px;color: black">
@@ -100,19 +107,53 @@
                         &euro;<span><%= new GetPassengersPriceController().getPrice(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants())%></span>
                     </div>
 
-                    <%
-                    } else {
-                    %>
-                    <div class="col-sm-12"
-                         style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">Error in
-                        reservation
-                    </div>
-                    <%
-                        }
-                    %>
                 </div>
             </div>
         </div>
+        <%
+        } else {
+        %>
+        <div class="row" style="font-weight: bold;padding-top: 40px">
+            <div class="col-sm-6" style="float: none;margin: 0 auto;">
+                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;font-size: 15px;color: #4b4b4b">
+                    <div class="col-sm-12"
+                         style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">
+                        Something went wrong
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%
+            }
+        } catch (Exception e) {
+        %>
+        <div class="row" style="font-weight: bold;padding-top: 40px">
+            <div class="col-sm-6" style="float: none;margin: 0 auto;">
+                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;font-size: 15px;color: #4b4b4b">
+                    <div class="col-sm-12"
+                         style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">
+                        Something went wrong
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%
+            }
+        } else {
+        %>
+        <div class="row" style="font-weight: bold;padding-top: 40px">
+            <div class="col-sm-6" style="float: none;margin: 0 auto;">
+                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;font-size: 15px;color: #4b4b4b">
+                    <div class="col-sm-12"
+                         style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px">
+                        Something went wrong
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%
+            }
+        %>
     </div>
 </section>
 

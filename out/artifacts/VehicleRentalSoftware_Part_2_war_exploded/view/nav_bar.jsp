@@ -39,9 +39,8 @@
                             Panel<span><i
                                     class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
-                                <li><a style="cursor: pointer">Drivers</a></li>
                                 <li><a style="cursor: pointer">Places</a></li>
-                                <li><a style="cursor: pointer">Vehicles</a></li>
+                                <li><a style="cursor: pointer">Account Settings</a></li>
                             </ul>
                         </li>
                         <%
