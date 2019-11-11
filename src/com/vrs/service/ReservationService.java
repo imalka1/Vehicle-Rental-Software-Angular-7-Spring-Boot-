@@ -36,7 +36,6 @@ public class ReservationService {
         customer.setCustomerEmail(req.getParameter("customerEmail").trim());
         customer.setCustomerContactNumber(req.getParameter("customerContact").trim());
         customer.setCustomerName(req.getParameter("customerName").trim());
-        customer.setCustomerComments(req.getParameter("customerComments").trim());
 
         Reservation reservation = new Reservation();
         reservation.setReservationPlaceFrom(placeFrom);
@@ -46,6 +45,7 @@ public class ReservationService {
         reservation.setReservationAdults(Integer.parseInt(req.getParameter("adults")));
         reservation.setReservationChildren(Integer.parseInt(req.getParameter("children")));
         reservation.setReservationInfants(Integer.parseInt(req.getParameter("infants")));
+        reservation.setReservationComments(req.getParameter("customerComments").trim());
         reservation.setReservationDateAndTime(dateAndTime);
 
         savedRegistration = new ReservationDAO().saveRegistration(reservation);

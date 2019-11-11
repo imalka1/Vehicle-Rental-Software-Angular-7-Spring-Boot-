@@ -14,6 +14,7 @@ public class Reservation {
     private int reservationAdults;
     private int reservationChildren;
     private int reservationInfants;
+    private String reservationComments;
 
     @OneToOne
     @JoinColumn(nullable = false)
@@ -110,6 +111,14 @@ public class Reservation {
         this.reservationPlaceTo = reservationPlaceTo;
     }
 
+    public String getReservationComments() {
+        return reservationComments;
+    }
+
+    public void setReservationComments(String reservationComments) {
+        this.reservationComments = reservationComments;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
@@ -120,6 +129,7 @@ public class Reservation {
                 ", reservationAdults=" + reservationAdults +
                 ", reservationChildren=" + reservationChildren +
                 ", reservationInfants=" + reservationInfants +
+                ", reservationComments='" + reservationComments + '\'' +
                 ", reservationCustomer=" + reservationCustomer +
                 ", reservationPlaceFrom=" + reservationPlaceFrom +
                 ", reservationPlaceTo=" + reservationPlaceTo +

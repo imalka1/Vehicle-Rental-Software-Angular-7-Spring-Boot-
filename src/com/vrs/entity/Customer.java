@@ -12,7 +12,6 @@ public class Customer {
     private String customerEmail;
     private String customerName;
     private String customerContactNumber;
-    private String customerComments;
 
 //    @OneToMany(mappedBy = "customer")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
@@ -47,21 +46,12 @@ public class Customer {
         this.customerContactNumber = customerContactNumber;
     }
 
-    public String getCustomerComments() {
-        return customerComments;
-    }
-
-    public void setCustomerComments(String customerComments) {
-        this.customerComments = customerComments;
-    }
-
     @Override
     public String toString() {
         return "Customer{" +
                 "customerEmail='" + customerEmail + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", customerContactNumber='" + customerContactNumber + '\'' +
-                ", customerComments='" + customerComments + '\'' +
                 '}';
     }
 
