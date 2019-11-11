@@ -43,7 +43,7 @@
                     </div>
                     <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
 
-                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Reservation ID
+                    <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Reservation Number
                     </div>
                     <div class="col-6"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">
