@@ -2,6 +2,7 @@ package com.vrs.controller.customer;
 
 import com.vrs.dao.CustomerDAO;
 import com.vrs.entity.Customer;
+import com.vrs.service.CustomerService;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
@@ -15,17 +16,7 @@ import java.io.IOException;
 public class CustomerURLController extends HttpServlet {
 
     private void getCustomerViaEmail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Customer customer = new CustomerDAO().getCustomerViaEmail(req.getParameter("customerEmail"));
-        JSONObject customerJson = new JSONObject();//---Creates a JSON object {}
-
-        if (customer != null) {
-            customerJson.put("CustomerName", customer.getCustomerName());
-            customerJson.put("CustomerContactNo", customer.getCustomerContactNumber());
-        } else {
-            customerJson.put("CustomerName", "");
-            customerJson.put("CustomerContactNo", "");
-        }
-        resp.getWriter().println(customerJson.toJSONString());//---Print and reply JSON as a text
+        new CustomerService().getCustomerViaEmail(req, resp);
     }
 
     @Override

@@ -1,10 +1,11 @@
 package com.vrs.controller.passenger;
 
 import com.vrs.dao.PassengerDAO;
+import com.vrs.service.PassengerService;
 
 public class PassengerController {
 
     public String getPrice(int count) {
-        return String.format("%.2f", new PassengerDAO().getPassengersPrice(Integer.valueOf(count)));
+        return new PassengerService().getPrice(count);
     }
 }

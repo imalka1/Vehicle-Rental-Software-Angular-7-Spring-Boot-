@@ -1,20 +1,26 @@
-package com.vrs.controller.passenger;
+package com.vrs.controller.user;
 
-import com.vrs.dao.PassengerDAO;
-import com.vrs.service.PassengerService;
+import com.vrs.dao.UserDAO;
+import com.vrs.entity.User;
+import com.vrs.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/get_passengers_price"})
-public class PassengerURLController extends HttpServlet {
+@WebServlet(urlPatterns = {"/login", "/logout"})
+public class UserURLController extends HttpServlet {
 
-    private void getPassengersPrice(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        new PassengerService().getPassengersPrice(req, resp);
+    private void userLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new UserService().userLogin(req, resp);
+    }
+
+    private void userLogout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new UserService().userLogout(req, resp);
     }
 
     @Override
@@ -30,12 +36,12 @@ public class PassengerURLController extends HttpServlet {
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String path = req.getServletPath();
         switch (path) {
-            case "/get_passengers_price":
-                getPassengersPrice(req, resp);
+            case "/login":
+                userLogin(req, resp);
                 break;
-//            case SERLVET_ONE:
-//                // ... call your function2
-//                break;
+            case "/logout":
+                userLogout(req, resp);
+                break;
 //
 //            case SERLVET_TWO:
 //                // ... call your function3
