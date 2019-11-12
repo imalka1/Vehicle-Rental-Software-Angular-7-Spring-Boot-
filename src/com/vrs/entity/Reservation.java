@@ -31,6 +31,11 @@ public class Reservation {
 //    @OnDelete(action = OnDeleteAction.CASCADE)
     private Place reservationPlaceTo;
 
+    @OneToOne
+    @JoinColumn(nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Passenger reservationPassenger;
+
     public long getId() {
         return id;
     }
@@ -119,6 +124,14 @@ public class Reservation {
         this.reservationComments = reservationComments;
     }
 
+    public Passenger getReservationPassenger() {
+        return reservationPassenger;
+    }
+
+    public void setReservationPassenger(Passenger reservationPassenger) {
+        this.reservationPassenger = reservationPassenger;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
@@ -133,6 +146,7 @@ public class Reservation {
                 ", reservationCustomer=" + reservationCustomer +
                 ", reservationPlaceFrom=" + reservationPlaceFrom +
                 ", reservationPlaceTo=" + reservationPlaceTo +
+                ", reservationPassenger=" + reservationPassenger +
                 '}';
     }
 }

@@ -1,7 +1,6 @@
 <%@ page import="com.vrs.controller.reservation.ReservationController" %>
 <%@ page import="com.vrs.entity.Reservation" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="com.vrs.controller.passenger.PassengerController" %>
 <%@ page import="java.util.Base64" %>
 
 <jsp:include page="../header.jsp"/>
@@ -104,7 +103,7 @@
                     </div>
                     <div class="col-6" style="padding: 5px;font-size: 32px;color: black">Total Cost</div>
                     <div class="col-6" style="padding: 5px;font-size: 32px;text-align: right;color: black">
-                        &euro;<span><%= new PassengerController().getPrice(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants())%></span>
+                        &euro;<span><%= String.format("%.2f", reservation.getReservationPassenger().getPassengersPrice())%></span>
                     </div>
 
                 </div>

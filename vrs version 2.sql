@@ -50,8 +50,7 @@ FROM `vehicle_rental_software`.`reservation`;
 
 SELECT `customer`.`customerEmail`,
     `customer`.`customerContactNumber`,
-    `customer`.`customerName`,
-    `customer`.`customerComments`
+    `customer`.`customerName`
 FROM `vehicle_rental_software`.`customer`;
 
 SELECT `place`.`id`,
@@ -63,3 +62,6 @@ SELECT `user`.`id`,
     `user`.`userEmail`,
     `user`.`userPassword`
 FROM `vehicle_rental_software`.`user`;
+
+select date(curdate());
+select curdate();

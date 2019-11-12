@@ -8,18 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Passenger {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     private int passengersCount;
     private double passengersPrice;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public int getPassengersCount() {
         return passengersCount;
@@ -40,7 +30,6 @@ public class Passenger {
     @Override
     public String toString() {
         return "Passenger{" +
-                "id=" + id +
                 ", passengersCount=" + passengersCount +
                 ", passengersPrice=" + passengersPrice +
                 '}';

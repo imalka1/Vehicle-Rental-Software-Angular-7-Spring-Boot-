@@ -43,7 +43,7 @@ public class EmailService {
                     "<span style='font-weight:bold'>Children</span><span> - " + savedRegistration.getReservationChildren() + "</span><br>" +
                     "<span style='font-weight:bold'>Infants</span><span> - " + savedRegistration.getReservationInfants() + "</span><br>" +
                     "<span style='font-weight:bold'>No of passengers</span><span> - " + (savedRegistration.getReservationAdults() + savedRegistration.getReservationChildren() + savedRegistration.getReservationInfants()) + "</span><br>" +
-                    "<span style='font-weight:bold;font-size:24px'>Total Cost</span><span style='font-weight:bold;font-size:24px'> - &euro;" + new PassengerController().getPrice(savedRegistration.getReservationAdults() + savedRegistration.getReservationChildren() + savedRegistration.getReservationInfants()) + "</span>" +
+                    "<span style='font-weight:bold;font-size:24px'>Total Cost</span><span style='font-weight:bold;font-size:24px'> - &euro;" + String.format("%.2f", savedRegistration.getReservationPassenger().getPassengersPrice()) + "</span>" +
                     "</div>";
 
             msg.setContent(htmlMessage, "text/html");

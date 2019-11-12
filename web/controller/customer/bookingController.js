@@ -251,7 +251,8 @@ function validateSubmitButton() {
             $('.clsTime').css('color') === 'rgb(255, 0, 0)') ||
         $('#customerEmail').val().length === 0 ||
         $('#customerContact').val().length === 0 ||
-        $('#customerName').val().length === 0
+        $('#customerName').val().length === 0 ||
+        $('#priceText').html() === '0.00'
     ) {
         $('#btnSubmitReservation').prop("disabled", true);
     } else {

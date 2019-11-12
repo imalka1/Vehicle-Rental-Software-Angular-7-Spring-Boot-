@@ -32,4 +32,20 @@ public class PassengerDAO {
         }
         return 0;
     }
+
+    public Passenger getPassenger(int id) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        Passenger passenger = null;
+        try {
+            tx = session.beginTransaction();
+            passenger = session.get(Passenger.class, id);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return passenger;
+    }
 }

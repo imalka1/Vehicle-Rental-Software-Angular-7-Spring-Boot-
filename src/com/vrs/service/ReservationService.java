@@ -1,5 +1,6 @@
 package com.vrs.service;
 
+import com.vrs.dao.PassengerDAO;
 import com.vrs.dao.PlaceDAO;
 import com.vrs.dao.ReservationDAO;
 import com.vrs.entity.Customer;
@@ -23,6 +24,7 @@ public class ReservationService {
     private Reservation savedRegistration;
 
     public void makeReservation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         Thread currentThread = Thread.currentThread();
 
         Date dateAndTime = null;
@@ -50,6 +52,7 @@ public class ReservationService {
         reservation.setReservationInfants(Integer.parseInt(req.getParameter("infants")));
         reservation.setReservationComments(req.getParameter("customerComments").trim());
         reservation.setReservationDateAndTime(dateAndTime);
+        reservation.setReservationPassenger(new PassengerDAO().getPassenger(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants()));
 
         savedRegistration = new ReservationDAO().saveRegistration(reservation);
 
@@ -106,10 +109,9 @@ public class ReservationService {
             reservationJson.put("ReservationChildren", reservationObj.getReservationChildren());
             reservationJson.put("ReservationInfants", reservationObj.getReservationInfants());
             reservationJson.put("ReservationNoOfPassengers", reservationObj.getReservationAdults() + reservationObj.getReservationChildren() + reservationObj.getReservationInfants());
-            reservationJson.put("ReservationCost", new PassengerService().getPrice(reservationObj.getReservationAdults() + reservationObj.getReservationChildren() + reservationObj.getReservationInfants()));
+            reservationJson.put("ReservationCost", String.format("%.2f", reservationObj.getReservationPassenger().getPassengersPrice()));
             reservationsJson.add(reservationJson);
         }
-//        obj.put("Subjects", subjectsJson);
         resp.getWriter().println(reservationsJson.toJSONString());//---Print and reply JSON as a text
     }
 }

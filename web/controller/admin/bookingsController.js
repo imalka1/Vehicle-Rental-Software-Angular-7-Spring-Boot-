@@ -1,7 +1,12 @@
 var position = 0;
+
 $(window).on("load", function () {
     changeReservationCategory(position);
 });
+
+$('#reservationDate').change(function () {
+    changeReservationCategory(position);
+})
 
 $('#reservationsLeft').click(function () {
     if (position > 0) {

@@ -1,7 +1,12 @@
 var position = 0;
+
 $(window).on("load", function () {
     changeReservationCategory(position);
 });
+
+$('#reservationDate').change(function () {
+    changeReservationCategory(position);
+})
 
 $('#reservationsLeft').click(function () {
     if (position > 0) {
@@ -43,7 +48,7 @@ function loadReservations(reservationDate, isCompleted) {
                         '<tr>' +
                         '<td style="text-align: left;font-weight: bold">' + obj[i].ReservationNumber + '</td>' +
                         '<td>' + obj[i].ReservationTime + '</td>' +
-                        '<td style="cursor: pointer"><i class="fa fa-search"></i></td>' +
+                        '<td style="cursor: pointer" class="btnViewDetails"><i class="fa fa-search"></i></td>' +
                         '</tr>'
                 }
                 $('#reservationsBody').html(tableData);
