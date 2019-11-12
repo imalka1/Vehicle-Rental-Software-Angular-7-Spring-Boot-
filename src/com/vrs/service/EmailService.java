@@ -38,7 +38,7 @@ public class EmailService {
                     "<span style='font-weight:bold'>Drop To</span><span> - " + savedRegistration.getReservationPlaceTo().getPlaceName() + "</span><br>" +
                     "<span style='font-weight:bold'>Trip</span><span> - " + (savedRegistration.getReservationTrip() == 1 ? "One way" : "Round trip") + "</span><br>" +
                     "<span style='font-weight:bold'>Pickup Date</span><span> - " + new SimpleDateFormat("yyyy-MM-dd").format(savedRegistration.getReservationDateAndTime()) + "</span><br>" +
-                    "<span style='font-weight:bold'>Pickup Time</span><span> - " + new SimpleDateFormat("hh:MM a").format(savedRegistration.getReservationDateAndTime()) + "</span><br>" +
+                    "<span style='font-weight:bold'>Pickup Time</span><span> - " + new SimpleDateFormat("hh:mm a").format(savedRegistration.getReservationDateAndTime()) + "</span><br>" +
                     "<span style='font-weight:bold'>Adults</span><span> - " + savedRegistration.getReservationAdults() + "</span><br>" +
                     "<span style='font-weight:bold'>Children</span><span> - " + savedRegistration.getReservationChildren() + "</span><br>" +
                     "<span style='font-weight:bold'>Infants</span><span> - " + savedRegistration.getReservationInfants() + "</span><br>" +

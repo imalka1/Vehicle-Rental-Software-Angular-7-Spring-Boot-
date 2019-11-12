@@ -94,7 +94,7 @@ public class ReservationService {
         for (Reservation reservationObj : reservations) {
             JSONObject reservationJson = new JSONObject();
             reservationJson.put("ReservationNumber", "R" + reservationObj.getId());
-            reservationJson.put("ReservationTime", new SimpleDateFormat("hh:MM a").format(reservationObj.getReservationDateAndTime()));
+            reservationJson.put("ReservationTime", new SimpleDateFormat("hh:mm a").format(reservationObj.getReservationDateAndTime()));
 
             reservationJson.put("CustomerName", reservationObj.getReservationCustomer().getCustomerName());
             reservationJson.put("CustomerEmail", reservationObj.getReservationCustomer().getCustomerEmail());
