@@ -7,6 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 public class ReservationDAO {
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
@@ -43,5 +46,24 @@ public class ReservationDAO {
             session.close();
         }
         return reservation;
+    }
+
+    public List<Reservation> getReservations(Reservation reservation) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        List reservations = null;
+        try {
+            tx = session.beginTransaction();
+            reservations = session.createQuery("from Reservation where date(reservationDateAndTime)=?1 and reservationCompleted=?2")
+                    .setParameter(1, reservation.getReservationDateAndTime())
+                    .setParameter(2, reservation.isReservationCompleted())
+                    .list();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return reservations;
     }
 }

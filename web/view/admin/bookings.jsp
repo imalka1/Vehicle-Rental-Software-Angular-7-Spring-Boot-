@@ -38,11 +38,11 @@
                             Date :
                         </div>
                         <div class="col-9" style="padding-left: 5px">
-                            <input type="date" class="form-control" value="<%= currentDate%>">
+                            <input type="date" class="form-control" value="<%= currentDate%>" id="reservationDate" style="font-weight: bold">
                         </div>
                     </div>
                     <div class="col-sm-6" style="border: 1px solid #dfdfdf;padding-bottom: 7px">
-                    <%--<div class="col-sm-7">--%>
+                        <%--<div class="col-sm-7">--%>
                         <div class="col-1" style="text-align: right;margin-top: 5px;color: #636363">
                             <i class="fa fa-arrow-left" style="cursor: pointer" id="reservationsLeft"></i>
                         </div>
@@ -58,19 +58,13 @@
                 <table width="100%">
                     <thead>
                     <tr>
-                        <th width="15%" style="text-align: center">Date</th>
+                        <th width="75%" style="text-align: center">Reservation Number</th>
                         <th width="15%" style="text-align: center">Time</th>
-                        <th width="63%" style="text-align: center">Reservation Number</th>
-                        <th width="7%" style="text-align: center">View</th>
+                        <th width="10%" style="text-align: center">View</th>
                     </tr>
                     </thead>
                     <tbody style="text-align: center" id="reservationsBody">
-                    <tr>
-                        <td>2019-02-02</td>
-                        <td>11:00 PM</td>
-                        <td style="text-align: left">R123</td>
-                        <td style="cursor: pointer"><i class="fa fa-search"></i></td>
-                    </tr>
+
                     </tbody>
                 </table>
                 <div class="row" style="text-align: center;margin-top: 50px">
@@ -127,7 +121,8 @@
                         Taxi Details
                     </div>
                     <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
-                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Reservation Number
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">
+                        Reservation Number
                     </div>
                     <div class="col-7"
                          style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"

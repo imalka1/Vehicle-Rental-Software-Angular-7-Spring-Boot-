@@ -1,11 +1,5 @@
 package com.vrs.controller.reservation;
 
-import com.vrs.dao.PlaceDAO;
-import com.vrs.dao.ReservationDAO;
-import com.vrs.entity.Customer;
-import com.vrs.entity.Place;
-import com.vrs.entity.Reservation;
-import com.vrs.service.EmailService;
 import com.vrs.service.ReservationService;
 
 import javax.servlet.ServletException;
@@ -15,11 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/make_reservation"})
+@WebServlet(urlPatterns = {"/make_reservation", "/get_reservations"})
 public class ReservationURLController extends HttpServlet {
 
     private void makeReservation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         new ReservationService().makeReservation(req, resp);
+    }
+
+    private void getReservations(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new ReservationService().getReservations(req, resp);
     }
 
     @Override
@@ -38,13 +36,9 @@ public class ReservationURLController extends HttpServlet {
             case "/make_reservation":
                 makeReservation(req, resp);
                 break;
-//            case SERLVET_ONE:
-//                // ... call your function2
-//                break;
-//
-//            case SERLVET_TWO:
-//                // ... call your function3
-//                break;
+            case "/get_reservations":
+                getReservations(req, resp);
+                break;
             default:
                 break;
         }
