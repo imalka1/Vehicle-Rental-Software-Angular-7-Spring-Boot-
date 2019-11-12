@@ -1,6 +1,5 @@
 package com.vrs.service;
 
-import com.vrs.controller.passenger.PassengerController;
 import com.vrs.entity.Reservation;
 
 import javax.mail.*;

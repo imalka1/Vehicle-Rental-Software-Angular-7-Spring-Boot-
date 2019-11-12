@@ -71,8 +71,8 @@
                     <div class="col-4">
                         <i class="fa fa-arrow-left fa-2x"></i>
                     </div>
-                    <div class="col-4" style="font-size: 20px;font-weight: bold">
-                        8 / 10
+                    <div class="col-4" style="font-size: 20px;font-weight: bold" id="pagination">
+
                     </div>
                     <div class="col-4">
                         <i class="fa fa-arrow-right fa-2x"></i>
@@ -81,41 +81,6 @@
             </div>
             <div class="col-sm-5" style="margin-top: 65px">
                 <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;color: #4b4b4b">
-                    <div class="col-sm-12"
-                         style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px;color: black;font-weight: bold">
-                        Customer Details
-                    </div>
-                    <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
-                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Customer
-                        Name
-                    </div>
-                    <div class="col-7"
-                         style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
-                         id="fieldCustomerName">Not selected
-                    </div>
-                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Email
-                        Address
-                    </div>
-                    <div class="col-7"
-                         style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
-                         id="fieldCustomerEmail">Not selected
-                    </div>
-                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Contact
-                        No
-                    </div>
-                    <div class="col-7"
-                         style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
-                         id="fieldCustomerTelNo">Not selected
-                    </div>
-                    <div class="col-5" style="padding: 5px;font-weight: bold">Comments
-                    </div>
-                    <div class="col-7"
-                         style="padding: 5px;font-weight: normal;text-align: justify;direction: rtl"
-                         id="fieldCustomerComment">
-                        Not selected
-                    </div>
-                </div>
-                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;color: #4b4b4b;margin-top: 15px">
                     <div class="col-sm-12"
                          style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px;color: black;font-weight: bold">
                         Taxi Details
@@ -193,6 +158,41 @@
                          style="padding: 5px;font-size: 30px;text-align: right;color: black;font-weight: bold">
                         &euro;<span
                             id="priceText">0.00</span>
+                    </div>
+                </div>
+                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;color: #4b4b4b;margin-top: 15px">
+                    <div class="col-sm-12"
+                         style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px;color: black;font-weight: bold">
+                        Customer Details
+                    </div>
+                    <hr style="margin-left: 20px;margin-right: 20px;border: 0.5px solid #b8b8b8">
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Customer
+                        Name
+                    </div>
+                    <div class="col-7"
+                         style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
+                         id="fieldCustomerName">Not selected
+                    </div>
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Email
+                        Address
+                    </div>
+                    <div class="col-7"
+                         style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
+                         id="fieldCustomerEmail">Not selected
+                    </div>
+                    <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Contact
+                        No
+                    </div>
+                    <div class="col-7"
+                         style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
+                         id="fieldCustomerTelNo">Not selected
+                    </div>
+                    <div class="col-5" style="padding: 5px;font-weight: bold">Comments
+                    </div>
+                    <div class="col-7"
+                         style="padding: 5px;font-weight: normal;text-align: justify;direction: rtl"
+                         id="fieldCustomerComment">
+                        Not selected
                     </div>
                 </div>
             </div>
