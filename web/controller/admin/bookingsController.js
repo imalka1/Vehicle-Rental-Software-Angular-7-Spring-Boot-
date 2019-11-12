@@ -47,37 +47,7 @@ $('#reservationsRight').click(function () {
     }
 })
 
-$('#pageLeft').click(function () {
-    if (position === 0) {
-        if (pageCount[0] > 1) {
-            pageCount[0]--;
-            $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
-        }
-    } else if (position === 1) {
-        if (pageCount[1] > 1) {
-            pageCount[1]--;
-            $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
-        }
-    }
-    setTableBody();
-});
-
-$('#pageRight').click(function () {
-    if (position === 0) {
-        if (pageCount[0] < pagesCount[0]) {
-            pageCount[0]++;
-            $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
-        }
-    } else if (position === 1) {
-        if (pageCount[1] < pagesCount[1]) {
-            pageCount[1]++;
-            $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
-        }
-    }
-    setTableBody();
-});
-
-var obj = Array;
+var obj = [];
 
 function loadReservations(reservationDate) {
     $.ajax(
@@ -128,6 +98,8 @@ function setTableBody() {
                         '<td>' + obj[i].ReservationPickupFrom + '</td>' +
                         '<td>' + obj[i].ReservationDropTo + '</td>' +
                         '</tr>';
+                } else {
+                    break;
                 }
             }
         }
@@ -143,67 +115,14 @@ function setTableBody() {
                         '<td>' + obj[i].ReservationPickupFrom + '</td>' +
                         '<td>' + obj[i].ReservationDropTo + '</td>' +
                         '</tr>'
+                } else {
+                    break;
                 }
             }
         }
     }
     $('#reservationsBody').html(tableData);
     selectTableRow();
-}
-
-var pageCount = [1, 1];
-var pagesCount = [1, 1];
-var pagePositionPending = [];
-var pagePositionCompleted = [];
-
-function setPagesCount() {
-    pagePositionPending = [];
-    pagePositionCompleted = [];
-    pagePositionPending.push(0);
-    pagePositionCompleted.push(0);
-    pagesCount = [1, 1];
-    var tempCount = [1, 1];
-
-    var rowCount = [0, 0];
-    for (var i = 0; i < obj.length; i++) {
-        if (!obj[i].ReservationIsCompleted) {
-            rowCount[0]++;
-            if (rowCount[0] === 22 * tempCount[0]) {
-                tempCount[0]++;
-                pagePositionPending.push(i + 1);
-            }
-            if (rowCount[0] === 23 * pagesCount[0]) {
-                pagesCount[0]++;
-            }
-        }
-        if (obj[i].ReservationIsCompleted) {
-            rowCount[1]++;
-            if (rowCount[1] === 22 * tempCount[1]) {
-                tempCount[1]++;
-                pagePositionCompleted.push(i + 1);
-            }
-            if (rowCount[1] === 23 * pagesCount[1]) {
-                pagesCount[1]++;
-            }
-        }
-    }
-
-    if (position === 0) {
-        $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
-    } else if (position === 1) {
-        $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
-    }
-
-
-    // while (rowCount[0] > 0) {
-    //     pagesCount[0]++;
-    //     rowCount[0] -= 22;
-    // }
-    //
-    // while (rowCount[1] > 0) {
-    //     pagesCount[1]++;
-    //     rowCount[1] -= 22;
-    // }
 }
 
 $('#btnChangeReservationComplete').click(function () {
@@ -313,4 +232,90 @@ function setFieldsToNull() {
     $('#fieldInfants').html('Not selected');
     $('#fieldNoOfPassengers').html('Not selected');
     $('#priceText').html('0.00');
+}
+
+//--------------
+
+$('#pageLeft').click(function () {
+    if (position === 0) {
+        if (pageCount[0] > 1) {
+            pageCount[0]--;
+            $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
+        }
+    } else if (position === 1) {
+        if (pageCount[1] > 1) {
+            pageCount[1]--;
+            $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
+        }
+    }
+    setTableBody();
+});
+
+$('#pageRight').click(function () {
+    if (position === 0) {
+        if (pageCount[0] < pagesCount[0]) {
+            pageCount[0]++;
+            $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
+        }
+    } else if (position === 1) {
+        if (pageCount[1] < pagesCount[1]) {
+            pageCount[1]++;
+            $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
+        }
+    }
+    setTableBody();
+});
+
+var pageCount = [1, 1];
+var pagesCount = [1, 1];
+var pagePositionPending = [];
+var pagePositionCompleted = [];
+
+function setPagesCount() {
+    pagePositionPending = [];
+    pagePositionCompleted = [];
+    pagePositionPending.push(0);
+    pagePositionCompleted.push(0);
+    pagesCount = [1, 1];
+    var tempCount = [1, 1];
+
+    var rowCount = [0, 0];
+    for (var i = 0; i < obj.length; i++) {
+        if (!obj[i].ReservationIsCompleted) {
+            rowCount[0]++;
+            if (rowCount[0] === 22 * tempCount[0]) {
+                tempCount[0]++;
+                pagePositionPending.push(i + 1);
+            }
+            if (rowCount[0] === 23 * pagesCount[0]) {
+                pagesCount[0]++;
+            }
+        }
+        if (obj[i].ReservationIsCompleted) {
+            rowCount[1]++;
+            if (rowCount[1] === 22 * tempCount[1]) {
+                tempCount[1]++;
+                pagePositionCompleted.push(i + 1);
+            }
+            if (rowCount[1] === 23 * pagesCount[1]) {
+                pagesCount[1]++;
+            }
+        }
+    }
+
+    if (position === 0) {
+        $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
+        if (pageCount[0] > pagesCount[0]) {
+            pageCount[0]--;
+            $('#pagination').html(pageCount[0] + ' / ' + pagesCount[0]);
+            setTableBody();
+        }
+    } else if (position === 1) {
+        $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
+        if (pageCount[1] > pagesCount[1]) {
+            pageCount[1]--;
+            $('#pagination').html(pageCount[1] + ' / ' + pagesCount[1]);
+            setTableBody();
+        }
+    }
 }
