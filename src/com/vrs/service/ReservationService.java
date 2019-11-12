@@ -1,5 +1,6 @@
 package com.vrs.service;
 
+import com.vrs.controller.reservation.ReservationWebSocketController;
 import com.vrs.dao.PassengerDAO;
 import com.vrs.dao.PlaceDAO;
 import com.vrs.dao.ReservationDAO;
@@ -12,16 +13,16 @@ import org.json.simple.JSONObject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.Session;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class ReservationService {
-
-    private Reservation savedRegistration;
 
     public void makeReservation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -54,11 +55,16 @@ public class ReservationService {
         reservation.setReservationDateAndTime(dateAndTime);
         reservation.setReservationPassenger(new PassengerDAO().getPassenger(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants()));
 
-        savedRegistration = new ReservationDAO().saveRegistration(reservation);
+        reservation = new ReservationDAO().saveRegistration(reservation);
 
-        String registrationId = savedRegistration.getId() + "";
+        String registrationId = reservation.getId() + "";
 
-        if (savedRegistration.getId() != 0) {
+        if (reservation.getId() != 0) {
+            Set<Session> userSessions = ReservationWebSocketController.getUserSessions();
+            for (Session userSession : userSessions) {
+                userSession.getBasicRemote().sendText(getJsonReservation(reservation).toJSONString());
+            }
+
             String emailAddress = req.getParameter("customerEmail").trim();
             registrationId = Base64.getUrlEncoder().encodeToString(registrationId.getBytes());
 //            new Thread(() -> {
@@ -69,7 +75,7 @@ public class ReservationService {
 //                }
 //                new EmailService().sendEmailReservation(emailAddress, savedRegistration);
 //            }).start();
-            new EmailService().sendEmailReservation(emailAddress, savedRegistration);
+            new EmailService().sendEmailReservation(emailAddress, reservation);
         }
 
         resp.sendRedirect("view/customer/success_page.jsp?reservation=" + registrationId);
@@ -89,29 +95,32 @@ public class ReservationService {
         reservation.setReservationCompleted(Boolean.parseBoolean(req.getParameter("isCompleted").trim()));
         List<Reservation> reservations = new ReservationDAO().getReservations(reservation);
 
-//        JSONObject obj = new JSONObject();
         JSONArray reservationsJson = new JSONArray();
         for (Reservation reservationObj : reservations) {
-            JSONObject reservationJson = new JSONObject();
-            reservationJson.put("ReservationNumber", "R" + reservationObj.getId());
-            reservationJson.put("ReservationTime", new SimpleDateFormat("hh:mm a").format(reservationObj.getReservationDateAndTime()));
-
-            reservationJson.put("CustomerName", reservationObj.getReservationCustomer().getCustomerName());
-            reservationJson.put("CustomerEmail", reservationObj.getReservationCustomer().getCustomerEmail());
-            reservationJson.put("CustomerTelNo", reservationObj.getReservationCustomer().getCustomerContactNumber());
-            reservationJson.put("CustomerComments", reservationObj.getReservationComments());
-
-            reservationJson.put("ReservationPickupFrom", reservationObj.getReservationPlaceFrom().getPlaceName());
-            reservationJson.put("ReservationDropTo", reservationObj.getReservationPlaceTo().getPlaceName());
-            reservationJson.put("ReservationTrip", reservationObj.getReservationTrip() == 1 ? "One way" : "Round trip");
-//            reservationJson.put("ReservationDate", new SimpleDateFormat("yyyy-MM-dd").format(reservationObj.getReservationDateAndTime()));
-            reservationJson.put("ReservationAdults", reservationObj.getReservationAdults());
-            reservationJson.put("ReservationChildren", reservationObj.getReservationChildren());
-            reservationJson.put("ReservationInfants", reservationObj.getReservationInfants());
-            reservationJson.put("ReservationNoOfPassengers", reservationObj.getReservationAdults() + reservationObj.getReservationChildren() + reservationObj.getReservationInfants());
-            reservationJson.put("ReservationCost", String.format("%.2f", reservationObj.getReservationPassenger().getPassengersPrice()));
-            reservationsJson.add(reservationJson);
+            reservationsJson.add(getJsonReservation(reservationObj));
         }
         resp.getWriter().println(reservationsJson.toJSONString());//---Print and reply JSON as a text
+    }
+
+    private JSONObject getJsonReservation(Reservation reservationObj) {
+        JSONObject reservationJson = new JSONObject();
+        reservationJson.put("ReservationNumber", "R" + reservationObj.getId());
+        reservationJson.put("ReservationTime", new SimpleDateFormat("hh:mm a").format(reservationObj.getReservationDateAndTime()));
+
+        reservationJson.put("CustomerName", reservationObj.getReservationCustomer().getCustomerName());
+        reservationJson.put("CustomerEmail", reservationObj.getReservationCustomer().getCustomerEmail());
+        reservationJson.put("CustomerTelNo", reservationObj.getReservationCustomer().getCustomerContactNumber());
+        reservationJson.put("CustomerComments", reservationObj.getReservationComments());
+
+        reservationJson.put("ReservationPickupFrom", reservationObj.getReservationPlaceFrom().getPlaceName());
+        reservationJson.put("ReservationDropTo", reservationObj.getReservationPlaceTo().getPlaceName());
+        reservationJson.put("ReservationTrip", reservationObj.getReservationTrip() == 1 ? "One way" : "Round trip");
+//            reservationJson.put("ReservationDate", new SimpleDateFormat("yyyy-MM-dd").format(reservationObj.getReservationDateAndTime()));
+        reservationJson.put("ReservationAdults", reservationObj.getReservationAdults());
+        reservationJson.put("ReservationChildren", reservationObj.getReservationChildren());
+        reservationJson.put("ReservationInfants", reservationObj.getReservationInfants());
+        reservationJson.put("ReservationNoOfPassengers", reservationObj.getReservationAdults() + reservationObj.getReservationChildren() + reservationObj.getReservationInfants());
+        reservationJson.put("ReservationCost", String.format("%.2f", reservationObj.getReservationPassenger().getPassengersPrice()));
+        return reservationJson;
     }
 }

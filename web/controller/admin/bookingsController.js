@@ -1,3 +1,13 @@
+var webSoc = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port + $('#contextPath').val() + "/get_reservation_socket");
+
+webSoc.onopen = function (ev) {
+    console.log("logged");
+}
+
+webSoc.onclose = function (ev) {
+    console.log("closed");
+}
+
 var position = 0;
 
 $(window).on("load", function () {
@@ -24,14 +34,16 @@ function changeReservationCategory(position) {
     var reservationsText = ['Pending Reservations', 'Completed Reservations'];
     if (position === 0) {
         $('#reservationsText').html(reservationsText[0]);
+        $('#btnChangeReservationCategory').html('Complete Reservation');
         loadReservations($('#reservationDate').val(), false)
     } else if (position === 1) {
         $('#reservationsText').html(reservationsText[1]);
+        $('#btnChangeReservationCategory').html('Set reservation as pending');
         loadReservations($('#reservationDate').val(), true)
     }
 }
 
-var obj;
+var obj = Array;
 
 function loadReservations(reservationDate, isCompleted) {
     $.ajax(
@@ -44,23 +56,35 @@ function loadReservations(reservationDate, isCompleted) {
             },
             success: function (response) {
                 obj = JSON.parse(response);
-                var tableData = '';
-                for (var i = 0; i < obj.length; i++) {
-                    tableData += '' +
-                        '<tr>' +
-                        '<td style="text-align: left;font-weight: bold"><input type="hidden" value="' + i + '">' + obj[i].ReservationNumber + '</td>' +
-                        '<td>' + obj[i].ReservationTime + '</td>' +
-                        '<td style="cursor: pointer" class="btnViewDetails"><i class="fa fa-search"></i></td>' +
-                        '</tr>'
-                }
-                $('#reservationsBody').html(tableData);
-                $('#pagination').html('1 / ' + obj.length)
+                setTableBody();
             },
             error: function () {
 
             }
         }
     );
+}
+
+webSoc.onmessage = function processMessage(message) {
+    if (position === 0) {
+        obj.unshift(JSON.parse(message.data));
+        setTableBody();
+    }
+}
+
+function setTableBody() {
+    var tableData = '';
+    for (var i = 0; i < obj.length; i++) {
+        tableData += '' +
+            '<tr>' +
+            '<td style="text-align: left;font-weight: bold"><input type="hidden" value="' + i + '"><span>' + obj[i].ReservationNumber + '</span></td>' +
+            '<td>' + obj[i].ReservationTime + '</td>' +
+            '<td style="cursor: pointer" class="btnViewDetails"><i class="fa fa-search"></i></td>' +
+            '</tr>'
+    }
+    $('#reservationsBody').html(tableData);
+    $('#pagination').html('1 / ' + obj.length);
+    selectTableRow();
 }
 
 $(document).on('click', '.btnViewDetails', function () {
@@ -82,9 +106,14 @@ $(document).on('click', '.btnViewDetails', function () {
     $('#fieldNoOfPassengers').html(objDetails.ReservationNoOfPassengers);
     $('#priceText').html(objDetails.ReservationCost);
 
-    for (var i = 0; i < $(this).parent().parent().children().length; i++) {
-        $(this).parent().parent().children().eq(i).css('background-color', '');
-    }
-
-    $(this).parent().css('background-color', '#dbdbdb')
+    selectTableRow();
 });
+
+function selectTableRow() {
+    for (var i = 0; i < $('#reservationsBody').parent().children('tbody').children().length; i++) {
+        $('#reservationsBody').parent().children('tbody').children().eq(i).css('background-color', '');
+        if ($('#fieldReservationId').html() === $('#reservationsBody').parent().children('tbody').children().eq(i).children().eq(0).children('span').html()) {
+            $('#reservationsBody').parent().children('tbody').children().eq(i).css('background-color', '#dbdbdb');
+        }
+    }
+}

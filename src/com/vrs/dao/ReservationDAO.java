@@ -54,7 +54,7 @@ public class ReservationDAO {
         List reservations = null;
         try {
             tx = session.beginTransaction();
-            reservations = session.createQuery("from Reservation where date(reservationDateAndTime)=?1 and reservationCompleted=?2")
+            reservations = session.createQuery("from Reservation where date(reservationDateAndTime)=?1 and reservationCompleted=?2 order by id desc")
                     .setParameter(1, reservation.getReservationDateAndTime())
                     .setParameter(2, reservation.isReservationCompleted())
                     .list();

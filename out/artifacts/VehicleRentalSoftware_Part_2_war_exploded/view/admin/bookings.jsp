@@ -34,10 +34,10 @@
                 <div class="row" style="margin-bottom: 30px;padding-right: 16px">
                     <div class="col-sm-6">
                         <div class="col-3"
-                             style="text-align: right;margin-top: 5px;font-weight: bold;color: #636363">
+                             style="text-align: center;margin-top: 5px;font-weight: bold;color: #636363">
                             Date :
                         </div>
-                        <div class="col-9" style="padding-left: 5px">
+                        <div class="col-9">
                             <input type="date" class="form-control" value="<%= currentDate%>" id="reservationDate" style="font-weight: bold">
                         </div>
                     </div>
@@ -79,8 +79,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5" style="margin-top: 65px">
-                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;color: #4b4b4b">
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-6 text-center">
+                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="btnChangeReservationCategory">Complete Reservation</button>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="btnRemoveReservation">Remove Reservation</button>
+                    </div>
+                </div>
+                <div class="row" style="border: 1px solid #b8b8b8;padding: 5px;color: #4b4b4b;margin-top: 25px">
                     <div class="col-sm-12"
                          style="margin-top: 15px;margin-bottom:15px;text-align: center;font-size: 25px;color: black;font-weight: bold">
                         Taxi Details
