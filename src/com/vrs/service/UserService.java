@@ -10,11 +10,14 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class UserService {
+
+    private UserDAO userDAO = new UserDAO();
+
     public void userLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
         user.setUserEmail(req.getParameter("userEmail"));
         user.setUserPassword(req.getParameter("userPassword"));
-        if (new UserDAO().checkUser(user)) {
+        if (userDAO.checkUser(user)) {
             HttpSession sessionLogin = req.getSession(true);
             sessionLogin.setAttribute("accountType", "logged");
             resp.sendRedirect("index.jsp");

@@ -7,7 +7,9 @@ import java.util.List;
 
 public class PlaceService {
 
+    private PlaceDAO placeDAO = new PlaceDAO();
+
     public List<Place> getAllPlaces() {
-        return new PlaceDAO().getAllPlaces();
+        return placeDAO.getAllPlaces();
     }
 }

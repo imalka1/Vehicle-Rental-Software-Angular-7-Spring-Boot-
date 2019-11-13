@@ -29,8 +29,8 @@
 
 <section id="about" style="padding-top: 50px;padding-bottom: 90px">
     <div class="container-fluid" style="margin-left: 10px;margin-right: 10px">
-        <div class="row" style="margin-top: 70px;font-size: 15px">
-            <div class="col-sm-8">
+        <div class="row" style="margin-top: 70px;font-size: 14px">
+            <div class="col-sm-7">
                 <div class="row" style="margin-bottom: 30px;padding-right: 16px">
                     <div class="col-sm-6">
                         <div class="col-3"
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5" style="font-size: 15px">
                 <div class="row">
                     <div class="col-sm-6 text-center">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="btnChangeReservationCategory">Complete Reservation</button>

@@ -10,7 +10,9 @@ import java.util.List;
 
 public class PassengerService {
 
+    private PassengerDAO passengerDAO = new PassengerDAO();
+
     public void getPassengersPrice(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println(String.format("%.2f", new PassengerDAO().getPassengersPrice(Integer.valueOf(req.getParameter("passengersCount")))));
+        resp.getWriter().println(String.format("%.2f", passengerDAO.getPassengersPrice(Integer.valueOf(req.getParameter("passengersCount")))));
     }
 }

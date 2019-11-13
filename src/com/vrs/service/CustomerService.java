@@ -11,8 +11,10 @@ import java.io.IOException;
 
 public class CustomerService {
 
+    private CustomerDAO customerDAO = new CustomerDAO();
+
     public void getCustomerViaEmail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Customer customer = new CustomerDAO().getCustomerViaEmail(req.getParameter("customerEmail"));
+        Customer customer = customerDAO.getCustomerViaEmail(req.getParameter("customerEmail"));
         JSONObject customerJson = new JSONObject();//---Creates a JSON object {}
 
         if (customer != null) {
