@@ -115,6 +115,7 @@ var selectedRow = -1;
 $(document).on('click', '.btnViewDetails', function () {
 
     selectedRow = $(this).children().eq(0).children('input').val();
+    console.log(selectedRow)
     var objDetails = obj[selectedRow];
     $('#fieldCustomerName').html(objDetails.CustomerName);
     $('#fieldCustomerEmail').html(objDetails.CustomerEmail);
@@ -164,6 +165,7 @@ $('#btnChangeReservationCategory').click(function () {
                 success: function (response) {
                     obj[selectedRow] = JSON.parse(response);
                     setTableBody();
+                    setFieldsToNull();
                 },
                 error: function () {
 
@@ -185,7 +187,8 @@ $('#btnRemoveReservation').click(function () {
                 },
                 success: function (response) {
                     if (JSON.parse(response) === true) {
-                        obj.pop(obj[selectedRow]);
+                        obj.splice(selectedRow, 1);
+                        setFieldsToNull();
                     }
                     setTableBody();
                 },
@@ -198,6 +201,7 @@ $('#btnRemoveReservation').click(function () {
 })
 
 function setFieldsToNull() {
+    selectedRow = -1;
     $('#fieldCustomerName').html('Not selected');
     $('#fieldCustomerEmail').html('Not selected');
     $('#fieldCustomerTelNo').html('Not selected');

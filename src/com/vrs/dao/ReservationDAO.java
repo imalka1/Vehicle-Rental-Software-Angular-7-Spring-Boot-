@@ -90,7 +90,8 @@ public class ReservationDAO {
         Transaction tx;
         try {
             tx = session.beginTransaction();
-            session.delete(reservation);
+            Reservation reservationObj = session.get(Reservation.class, reservation.getId());
+            session.delete(reservationObj);
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
