@@ -24,6 +24,8 @@ import java.util.Set;
 
 public class ReservationService {
 
+    private ReservationDAO reservationDAO = new ReservationDAO();
+
     public void makeReservation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Thread currentThread = Thread.currentThread();
@@ -55,7 +57,7 @@ public class ReservationService {
         reservation.setReservationDateAndTime(dateAndTime);
         reservation.setReservationPassenger(new PassengerDAO().getPassenger(reservation.getReservationAdults() + reservation.getReservationChildren() + reservation.getReservationInfants()));
 
-        reservation = new ReservationDAO().saveRegistration(reservation);
+        reservation = reservationDAO.saveRegistration(reservation);
 
         String registrationId = reservation.getId() + "";
 
@@ -82,7 +84,7 @@ public class ReservationService {
     }
 
     public Reservation getReservation(long id) {
-        return new ReservationDAO().getReservation(id);
+        return reservationDAO.getReservation(id);
     }
 
     public void getReservations(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -92,8 +94,7 @@ public class ReservationService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        reservation.setReservationCompleted(Boolean.parseBoolean(req.getParameter("isCompleted").trim()));
-        List<Reservation> reservations = new ReservationDAO().getReservations(reservation);
+        List<Reservation> reservations = reservationDAO.getReservations(reservation);
 
         JSONArray reservationsJson = new JSONArray();
         for (Reservation reservationObj : reservations) {
@@ -102,9 +103,16 @@ public class ReservationService {
         resp.getWriter().println(reservationsJson.toJSONString());//---Print and reply JSON as a text
     }
 
+    public void setReservationComplete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Reservation reservation = reservationDAO.getReservation(Long.parseLong(req.getParameter("reservationId").trim()));
+        reservation.setReservationCompleted(Boolean.parseBoolean(req.getParameter("isCompleted").trim()));
+        reservation = reservationDAO.updateReservation(reservation);
+        resp.getWriter().println(getJsonReservation(reservation).toJSONString());//---Print and reply JSON as a text
+    }
+
     private JSONObject getJsonReservation(Reservation reservationObj) {
         JSONObject reservationJson = new JSONObject();
-        reservationJson.put("ReservationNumber", "R" + reservationObj.getId());
+        reservationJson.put("ReservationNumber", reservationObj.getId());
         reservationJson.put("ReservationTime", new SimpleDateFormat("hh:mm a").format(reservationObj.getReservationDateAndTime()));
 
         reservationJson.put("CustomerName", reservationObj.getReservationCustomer().getCustomerName());
@@ -116,6 +124,7 @@ public class ReservationService {
         reservationJson.put("ReservationDropTo", reservationObj.getReservationPlaceTo().getPlaceName());
         reservationJson.put("ReservationTrip", reservationObj.getReservationTrip() == 1 ? "One way" : "Round trip");
 //            reservationJson.put("ReservationDate", new SimpleDateFormat("yyyy-MM-dd").format(reservationObj.getReservationDateAndTime()));
+        reservationJson.put("ReservationIsCompleted", reservationObj.isReservationCompleted());
         reservationJson.put("ReservationAdults", reservationObj.getReservationAdults());
         reservationJson.put("ReservationChildren", reservationObj.getReservationChildren());
         reservationJson.put("ReservationInfants", reservationObj.getReservationInfants());

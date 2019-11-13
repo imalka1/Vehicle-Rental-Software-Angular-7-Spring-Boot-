@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/make_reservation", "/get_reservations"})
+@WebServlet(urlPatterns = {"/make_reservation", "/get_reservations", "/set_reservation_complete"})
 public class ReservationURLController extends HttpServlet {
 
     private void makeReservation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,6 +18,10 @@ public class ReservationURLController extends HttpServlet {
 
     private void getReservations(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         new ReservationService().getReservations(req, resp);
+    }
+
+    private void setReservationComplete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new ReservationService().setReservationComplete(req, resp);
     }
 
     @Override
@@ -38,6 +42,9 @@ public class ReservationURLController extends HttpServlet {
                 break;
             case "/get_reservations":
                 getReservations(req, resp);
+                break;
+            case "/set_reservation_complete":
+                setReservationComplete(req, resp);
                 break;
             default:
                 break;

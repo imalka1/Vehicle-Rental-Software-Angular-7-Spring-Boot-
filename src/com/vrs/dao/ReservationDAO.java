@@ -54,9 +54,8 @@ public class ReservationDAO {
         List reservations = null;
         try {
             tx = session.beginTransaction();
-            reservations = session.createQuery("from Reservation where date(reservationDateAndTime)=?1 and reservationCompleted=?2 order by id desc")
+            reservations = session.createQuery("from Reservation where date(reservationDateAndTime)=?1 order by id desc")
                     .setParameter(1, reservation.getReservationDateAndTime())
-                    .setParameter(2, reservation.isReservationCompleted())
                     .list();
             tx.commit();
         } catch (Exception e) {
@@ -65,5 +64,21 @@ public class ReservationDAO {
             session.close();
         }
         return reservations;
+    }
+
+    public Reservation updateReservation(Reservation reservation) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
+            session.update(reservation);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+        return reservation;
     }
 }

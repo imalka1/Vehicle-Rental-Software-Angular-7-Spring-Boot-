@@ -30,7 +30,7 @@
 <section id="about" style="padding-top: 50px;padding-bottom: 90px">
     <div class="container-fluid" style="margin-left: 10px;margin-right: 10px">
         <div class="row" style="margin-top: 70px;font-size: 15px">
-            <div class="col-sm-7">
+            <div class="col-sm-8">
                 <div class="row" style="margin-bottom: 30px;padding-right: 16px">
                     <div class="col-sm-6">
                         <div class="col-3"
@@ -58,9 +58,10 @@
                 <table width="100%">
                     <thead>
                     <tr>
-                        <th width="75%" style="text-align: center">Reservation Number</th>
-                        <th width="15%" style="text-align: center">Time</th>
-                        <th width="10%" style="text-align: center">View</th>
+                        <th width="38%" style="text-align: center">Reservation Number</th>
+                        <th width="12%" style="text-align: center">Time</th>
+                        <th width="25%" style="text-align: center">Place From</th>
+                        <th width="25%" style="text-align: center">Place To</th>
                     </tr>
                     </thead>
                     <tbody style="text-align: center" id="reservationsBody">
@@ -79,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <div class="row">
                     <div class="col-sm-6 text-center">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="btnChangeReservationCategory">Complete Reservation</button>
@@ -182,7 +183,6 @@
                          id="fieldCustomerName">Not selected
                     </div>
                     <div class="col-5" style="padding: 5px;border-bottom: 1px solid #e2e2e2;font-weight: bold">Email
-                        Address
                     </div>
                     <div class="col-7"
                          style="padding: 5px;font-weight: normal;border-bottom: 1px solid #e2e2e2;text-align: right"
