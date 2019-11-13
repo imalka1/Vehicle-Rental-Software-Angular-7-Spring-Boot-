@@ -39,9 +39,11 @@ function changeReservationCategory(position) {
     if (position === 0) {
         $('#reservationsText').html(reservationsText[0]);
         $('#btnChangeReservationCategory').html('Complete Reservation');
+        $('#btnRemoveReservation').prop("disabled", true);
     } else if (position === 1) {
         $('#reservationsText').html(reservationsText[1]);
         $('#btnChangeReservationCategory').html('Set as pending');
+        $('#btnRemoveReservation').prop("disabled", false);
     }
     setFieldsToNull();
 }
@@ -161,6 +163,30 @@ $('#btnChangeReservationCategory').click(function () {
                 },
                 success: function (response) {
                     obj[selectedRow] = JSON.parse(response);
+                    setTableBody();
+                },
+                error: function () {
+
+                }
+            }
+        );
+    }
+});
+
+$('#btnRemoveReservation').click(function () {
+    if (selectedRow !== -1) {
+        var objDetails = obj[selectedRow];
+        $.ajax(
+            {
+                type: "post",
+                url: window.location.origin + $('#contextPath').val() + "/remove_reservation",
+                data: {
+                    reservationId: objDetails.ReservationNumber
+                },
+                success: function (response) {
+                    if (JSON.parse(response) === true) {
+                        obj.pop(obj[selectedRow]);
+                    }
                     setTableBody();
                 },
                 error: function () {

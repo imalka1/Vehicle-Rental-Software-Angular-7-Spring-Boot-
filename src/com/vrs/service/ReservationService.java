@@ -104,10 +104,22 @@ public class ReservationService {
     }
 
     public void setReservationComplete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Reservation reservation = reservationDAO.getReservation(Long.parseLong(req.getParameter("reservationId").trim()));
+        Reservation reservation = new Reservation();
+        reservation.setId(Long.parseLong(req.getParameter("reservationId").trim()));
         reservation.setReservationCompleted(Boolean.parseBoolean(req.getParameter("isCompleted").trim()));
         reservation = reservationDAO.updateReservation(reservation);
-        resp.getWriter().println(getJsonReservation(reservation).toJSONString());//---Print and reply JSON as a text
+        if (reservation != null) {
+            resp.getWriter().println(getJsonReservation(reservation).toJSONString());//---Print and reply JSON as a text
+        } else {
+            resp.getWriter().println("");//---Print and reply JSON as a text
+        }
+    }
+
+    public void removeReservation(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Reservation reservation = new Reservation();
+        reservation.setId(Long.parseLong(req.getParameter("reservationId").trim()));
+        boolean removeReservation = reservationDAO.removeReservation(reservation);
+        resp.getWriter().println(removeReservation);//---Print and reply JSON as a text
     }
 
     private JSONObject getJsonReservation(Reservation reservationObj) {
@@ -132,4 +144,5 @@ public class ReservationService {
         reservationJson.put("ReservationCost", String.format("%.2f", reservationObj.getReservationPassenger().getPassengersPrice()));
         return reservationJson;
     }
+
 }

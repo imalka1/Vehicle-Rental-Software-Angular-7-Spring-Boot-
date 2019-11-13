@@ -69,9 +69,12 @@ public class ReservationDAO {
     public Reservation updateReservation(Reservation reservation) {
         Session session = sessionFactory.openSession();
         Transaction tx;
+        Reservation reservationObj;
         try {
             tx = session.beginTransaction();
-            session.update(reservation);
+            reservationObj = session.get(Reservation.class, reservation.getId());
+            reservationObj.setReservationCompleted(reservation.isReservationCompleted());
+            session.update(reservationObj);
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,6 +82,22 @@ public class ReservationDAO {
         } finally {
             session.close();
         }
-        return reservation;
+        return reservationObj;
+    }
+
+    public boolean removeReservation(Reservation reservation) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
+            session.delete(reservation);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
+        return true;
     }
 }
