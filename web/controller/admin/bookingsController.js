@@ -287,7 +287,7 @@ function setPagesCount() {
                 tempCount[0]++;
                 pagePositionPending.push(i + 1);
             }
-            if (rowCount[0] === 23 * pagesCount[0]) {
+            if (rowCount[0] === 22 * pagesCount[0]) {
                 pagesCount[0]++;
             }
         }
@@ -297,10 +297,18 @@ function setPagesCount() {
                 tempCount[1]++;
                 pagePositionCompleted.push(i + 1);
             }
-            if (rowCount[1] === 23 * pagesCount[1]) {
+            if (rowCount[1] === 22 * pagesCount[1]) {
                 pagesCount[1]++;
             }
         }
+    }
+
+    if ((tempCount[0] * 22) - 22 === rowCount[0]) {
+        pagesCount[0]--;
+    }
+
+    if ((tempCount[1] * 22) - 22 === rowCount[1]) {
+        pagesCount[1]--;
     }
 
     if (position === 0) {

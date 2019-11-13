@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-sm-12" style="text-align: center">
                 <span style="font-weight: bold">Note :- </span>
-                (Your reservation is completed. Please check your email)
+                (Your reservation is completed. Please check your email inbox or spam)
             </div>
         </div>
 

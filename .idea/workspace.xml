@@ -51,7 +51,7 @@
           <entry key="dummy" value="56" />
           <entry key="java" value="4901" />
           <entry key="js" value="4187" />
-          <entry key="jsp" value="5560" />
+          <entry key="jsp" value="5574" />
           <entry key="xml" value="153" />
         </counts>
       </usages-collector>
@@ -59,7 +59,7 @@
         <counts>
           <entry key="HTML" value="1" />
           <entry key="JAVA" value="4901" />
-          <entry key="JSP" value="5560" />
+          <entry key="JSP" value="5574" />
           <entry key="JavaScript" value="4186" />
           <entry key="PLAIN_TEXT" value="56" />
           <entry key="XML" value="153" />
@@ -90,7 +90,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/vrs/service/EmailService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-391">
+            <state relative-caret-position="-809">
               <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -158,8 +158,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/customer/success_page.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="67" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="67" />
+            <state relative-caret-position="340">
+              <caret line="29" column="85" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="85" />
+              <folding>
+                <element signature="e#1299#1334#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -225,7 +228,6 @@
         <option value="$PROJECT_DIR$/src/com/vrs/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/passenger/PassengerController.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/dao/PassengerDAO.java" />
-        <option value="$PROJECT_DIR$/web/view/customer/success_page.jsp" />
         <option value="$PROJECT_DIR$/src/com/vrs/controller/reservation/ReservationWebSocketController.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/service/CustomerService.java" />
         <option value="$PROJECT_DIR$/src/com/vrs/service/PassengerService.java" />
@@ -239,6 +241,7 @@
         <option value="$PROJECT_DIR$/web/view/customer/booking.jsp" />
         <option value="$PROJECT_DIR$/web/controller/customer/bookingController.js" />
         <option value="$PROJECT_DIR$/src/com/vrs/service/EmailService.java" />
+        <option value="$PROJECT_DIR$/web/view/customer/success_page.jsp" />
       </list>
     </option>
   </component>
@@ -258,7 +261,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -418,7 +421,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573751943533" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573672826294" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/email/javax.mail-1.6.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -612,18 +615,18 @@
       <workItem from="1572632321609" duration="40000" />
       <workItem from="1572632417332" duration="6099000" />
       <workItem from="1572672009636" duration="202843000" />
-      <workItem from="1573569851954" duration="79817000" />
+      <workItem from="1573569851954" duration="81071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292750000" />
+    <option name="totallyTimeSpent" value="294004000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20872483" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20872483" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Persistence" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -634,7 +637,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2751773" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2751773" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -882,13 +885,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vrs/controller/passenger/PassengerController.java" />
-    <entry file="file://$PROJECT_DIR$/web/view/customer/success_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="67" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vrs/controller/reservation/ReservationWebSocketController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1040,9 +1036,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/customer/success_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="85" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="85" />
+          <folding>
+            <element signature="e#1299#1334#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vrs/service/EmailService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
+        <state relative-caret-position="-809">
           <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
