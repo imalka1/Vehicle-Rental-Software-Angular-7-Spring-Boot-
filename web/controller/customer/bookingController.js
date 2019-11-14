@@ -1,4 +1,19 @@
+$(document).ready(function() {
+    console.log('ready')
+    $('#makeReservationForm').submit(function(e){
+        e.preventDefault(e);
+    });
+});
+
+$('#btnSubmitReservation').click(function () {
+    var that=this;
+    $("#makeReservationForm").unbind("submit");
+    $('#makeReservationForm').submit();
+    $(that).prop("disabled", true);
+})
+
 $(window).on("load", function () {
+    console.log('load')
     initialFill();
     validateSubmitButton();
 });
