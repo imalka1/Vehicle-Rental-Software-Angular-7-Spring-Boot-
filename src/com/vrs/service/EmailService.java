@@ -1,5 +1,6 @@
 package com.vrs.service;
 
+import com.vrs.email.EmailSession;
 import com.vrs.entity.Reservation;
 
 import javax.mail.*;
@@ -11,31 +12,8 @@ import java.util.Properties;
 public class EmailService {
     public void sendEmailReservation(String emailAddress, Reservation savedRegistration) {
         try {
-            //------------------------------Set gmail server as smtp mailing server-------------------------------------
-            Properties props = new Properties();
 
-//            props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
-//            props.put("mail.smtp.socketFactory.port", "465"); //SSL Port
-//            props.put("mail.smtp.socketFactory.class",
-//                    "javax.net.ssl.SSLSocketFactory"); //SSL Factory Class
-//            props.put("mail.smtp.auth", "true"); //Enabling SMTP Authentication
-//            props.put("mail.smtp.port", "465"); //SMTP Port
-
-            props.setProperty("mail.host", "smtp.gmail.com");
-            props.setProperty("mail.smtp.port", "587");
-            props.setProperty("mail.smtp.auth", "true");
-            props.setProperty("mail.smtp.starttls.enable", "true");
-
-            //----------------------------------------Login to email (sender)-------------------------------------------
-//            Authenticator auth = new SMTPAuthenticator("webphpjava@gmail.com", "webphpjava123");
-
-//            Session session = Session.getInstance(props, auth);
-            Session session = Session.getInstance(props,
-                    new javax.mail.Authenticator() {
-                        protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication("rajapaksap1@gmail.com", "Priyantha123");
-                        }
-                    });
+            Session session = EmailSession.getEmailSession();
             //--------------------------------------Create email text (body)--------------------------------------------
             MimeMessage msg = new MimeMessage(session);
             msg.addHeader("Content-type", "text/html; charset=UTF-8");
