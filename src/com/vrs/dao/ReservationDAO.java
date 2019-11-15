@@ -69,7 +69,7 @@ public class ReservationDAO {
     public Reservation updateReservation(Reservation reservation) {
         Session session = sessionFactory.openSession();
         Transaction tx;
-        Reservation reservationObj;
+        Reservation reservationObj = null;
         try {
             tx = session.beginTransaction();
             reservationObj = session.get(Reservation.class, reservation.getId());
@@ -78,7 +78,7 @@ public class ReservationDAO {
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+//            return null;
         } finally {
             session.close();
         }

@@ -1,13 +1,14 @@
 <%@ page import="com.vrs.service.PlaceService" %>
 <%@ page import="com.vrs.entity.Place" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.vrs.controller.place.PlaceController" %>
 
 <jsp:include page="view/header.jsp"/>
 <jsp:include page="view/nav_bar.jsp"/>
 <jsp:include page="view/carousel.jsp"/>
 
 <%
-    List<Place> allPlaces = new PlaceService().getAllPlaces();
+    List<Place> allPlaces = new PlaceController().getAllPlaces();
 %>
 
 <section id="about" style="padding-top: 60px;padding-bottom: 60px">

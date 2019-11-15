@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="com.vrs.controller.place.PlaceController" %>
 
 <jsp:include page="../header.jsp"/>
 <jsp:include page="../nav_bar.jsp"/>
@@ -20,7 +21,7 @@
     String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     String currentTime = new SimpleDateFormat("HH:mm").format(new Date());
 
-    List<Place> allPlaces = new PlaceService().getAllPlaces();
+    List<Place> allPlaces = new PlaceController().getAllPlaces();
 %>
 
 <input type="hidden" id="pickUpFromIndex" value="<%= request.getParameter("placeFromId")%>">

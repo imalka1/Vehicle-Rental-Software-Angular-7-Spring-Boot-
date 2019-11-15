@@ -45,4 +45,55 @@ public class PlaceDAO {
         }
         return place;
     }
+
+    public Place addPlace(Place place) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
+            session.saveOrUpdate(place);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return place;
+    }
+
+//    public Place updatePlace(Place place) {
+//        Session session = sessionFactory.openSession();
+//        Transaction tx;
+//        Place placeObj = null;
+//        try {
+//            tx = session.beginTransaction();
+//            placeObj = session.get(Place.class, place.getId());
+//            placeObj.setPlaceName(place.getPlaceName());
+//            session.update(placeObj);
+//            tx.commit();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+////            return null;
+//        } finally {
+//            session.close();
+//        }
+//        return placeObj;
+//    }
+
+    public boolean removePlace(Place place) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
+            Place placeObj = session.get(Place.class, place.getId());
+            session.delete(placeObj);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
+        return true;
+    }
 }
