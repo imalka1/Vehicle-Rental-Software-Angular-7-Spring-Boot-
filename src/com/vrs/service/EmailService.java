@@ -10,10 +10,11 @@ import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 public class EmailService {
+
     public void sendEmailReservation(String emailAddress, Reservation savedRegistration) {
         try {
 
-            Session session = EmailSession.getEmailSession();
+            Session session = new EmailSession().getEmailSession();
             //--------------------------------------Create email text (body)--------------------------------------------
             MimeMessage msg = new MimeMessage(session);
             msg.addHeader("Content-type", "text/html; charset=UTF-8");

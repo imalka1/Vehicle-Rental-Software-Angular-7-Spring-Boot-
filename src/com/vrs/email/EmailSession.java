@@ -5,9 +5,9 @@ import javax.mail.Session;
 import java.util.Properties;
 
 public class EmailSession {
-    private static Session session;
+    private Session session;
 
-    static {
+    public EmailSession() {
         try {
             Properties props = new Properties();
 
@@ -34,7 +34,7 @@ public class EmailSession {
         }
     }
 
-    public static Session getEmailSession() {
+    public Session getEmailSession() {
         return session;
     }
 }
