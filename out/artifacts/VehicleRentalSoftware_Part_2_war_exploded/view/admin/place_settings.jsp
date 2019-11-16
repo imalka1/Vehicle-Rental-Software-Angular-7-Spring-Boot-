@@ -29,7 +29,7 @@
 <section id="about" style="padding-top: 50px;padding-bottom: 90px">
     <div class="container-fluid" style="margin-left: 10px;margin-right: 10px">
         <div class="row" style="margin-top: 70px;font-size: 14px">
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="margin-top: 21px">
                 <table width="100%">
                     <thead>
                     <tr>
@@ -44,9 +44,12 @@
             </div>
             <div class="col-sm-6">
                 <div class="row" style="margin-bottom: 30px">
+                    <div class="col-sm-12" style="font-weight: bold">
+                        Place
+                    </div>
                     <div class="col-sm-12">
                         <input type="hidden" id="placeId" value="0">
-                        <input type="text" class="form-control" placeholder="Place" id="placeName">
+                        <input type="text" class="form-control" placeholder="Enter Place" id="placeName">
                     </div>
                     <div class="col-sm-6 text-center" style="margin-top: 40px">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="newPlace">
