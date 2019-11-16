@@ -53,7 +53,11 @@ function selectTableRow() {
 }
 
 $('#newPassenger').click(function () {
-    if ($('#passengersCount').val() > 0) {
+    if (
+        $('#passengersCount').val() !== '' && $('#passengersCount').val() !== '' &&
+        parseInt($('#passengersCount').val()) > 0 && parseInt($('#passengersPrice').val()) > 0 &&
+        $('#passengersPrice').val() !== '0.00' && $('#passengersPrice').val() !== '0'
+    ) {
         $.ajax(
             {
                 type: "post",

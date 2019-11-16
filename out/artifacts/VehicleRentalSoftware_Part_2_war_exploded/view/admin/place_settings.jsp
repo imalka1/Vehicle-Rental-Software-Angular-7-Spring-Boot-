@@ -51,12 +51,12 @@
                         <input type="hidden" id="placeId" value="0">
                         <input type="text" class="form-control" placeholder="Enter Place" id="placeName">
                     </div>
-                    <div class="col-sm-6 text-center" style="margin-top: 40px">
+                    <div class="col-sm-6 text-center" style="margin-top: 70px">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="newPlace">
                             New Place
                         </button>
                     </div>
-                    <div class="col-sm-6 text-center" style="margin-top: 40px">
+                    <div class="col-sm-6 text-center" style="margin-top: 70px">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="updatePlace">
                             Update Place
                         </button>

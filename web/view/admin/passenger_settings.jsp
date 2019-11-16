@@ -57,7 +57,7 @@
                     <div class="col-sm-6">
                         <input type="number" class="form-control" value="0.00" id="passengersPrice" min="0">
                     </div>
-                    <div class="col-sm-12 text-center" style="margin-top: 40px">
+                    <div class="col-sm-12 text-center" style="margin-top: 70px">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="newPassenger">
                             Submit Passenger
                         </button>
