@@ -1,12 +1,12 @@
-$(document).ready(function() {
+$(document).ready(function () {
     console.log('ready')
-    $('#makeReservationForm').submit(function(e){
+    $('#makeReservationForm').submit(function (e) {
         e.preventDefault(e);
     });
 });
 
 $('#btnSubmitReservation').click(function () {
-    var that=this;
+    var that = this;
     $("#makeReservationForm").unbind("submit");
     $('#makeReservationForm').submit();
     $(that).prop("disabled", true);
@@ -51,7 +51,7 @@ $('#pickupTime').change(function () {
 });
 
 $('#adults').bind("keyup change", function (e) {
-    if ($('#adults').val() !== '') {
+    if ($('#adults').val() !== '' && $('#adults').val() >= 0) {
         $('#adults').val(parseInt($('#adults').val()) - checkNoOfPassengers());
     } else {
         $('#adults').val(0)
@@ -61,33 +61,36 @@ $('#adults').bind("keyup change", function (e) {
 });
 
 $('#children').bind("keyup change", function (e) {
-    if ($('#children').val() !== '') {
-        $('#children').val(parseInt($('#children').val()) - checkNoOfPassengers());
+    if ($(this).val() !== '' && $(this).val() >= 0) {
+        $(this).val(parseInt($(this).val()) - checkNoOfPassengers());
     } else {
-        $('#children').val(0)
+        $(this).val(0)
     }
-    $('#fieldChildren').html($('#children').val());
+    $('#fieldChildren').html($(this).val());
     validateInputs();
 });
 
 $('#infants').bind("keyup change", function (e) {
-    if ($('#infants').val() !== '') {
-        $('#infants').val(parseInt($('#infants').val()) - checkNoOfPassengers());
+    if ($(this).val() !== '' && $(this).val() >= 0) {
+        $(this).val(parseInt($(this).val()) - checkNoOfPassengers());
     } else {
-        $('#infants').val(0)
+        $(this).val(0)
     }
-    $('#fieldInfants').html($('#infants').val());
+    $('#fieldInfants').html($(this).val());
     validateInputs();
 });
 
 $('#noOfPassengers').bind("keyup change", function (e) {
-    if ($('#noOfPassengers').val() !== '') {
-        $('#fieldNoOfPassengers').html($('#noOfPassengers').val());
+    if ($(this).val() !== '' && $(this).val() >= 0) {
+        if ($(this).val() <= maxPassengersCount) {
+            $('#fieldNoOfPassengers').html($(this).val());
+            getPassengersPrice();
+        } else {
+            $(this).val(parseInt($(this).val()) - (parseInt($(this).val()) - maxPassengersCount));
+        }
     } else {
-        $('#noOfPassengers').val(0);
+        $(this).val(0);
     }
-    $('#fieldNoOfPassengers').html($('#noOfPassengers').val());
-    getPassengersPrice();
     validateInputs();
 });
 
@@ -138,6 +141,7 @@ function initialFill() {
         convertAmPm()
     );
     setPlaces();
+    getMaxPassengersCount();
     getPassengersPrice();
 }
 
@@ -249,6 +253,25 @@ function getPassengersPrice() {
             success: function (response) {
                 totalCost = JSON.parse(response).toFixed(2);
                 validateInputs();
+            },
+            error: function () {
+
+            }
+        }
+    );
+}
+
+var maxPassengersCount = 0;
+
+function getMaxPassengersCount() {
+    $.ajax(
+        {
+            type: "post",
+            url: window.location.origin + $('#contextPath').val() + "/get_max_passenger_count",
+            data: {},
+            success: function (response) {
+                maxPassengersCount = JSON.parse(response);
+
             },
             error: function () {
 

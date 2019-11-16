@@ -48,4 +48,54 @@ public class PassengerDAO {
         }
         return passenger;
     }
+
+    public int getMaxPassengersCount() {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
+            List maxValues = session.createQuery("select max(passengersCount) from Passenger").list();
+            tx.commit();
+            if (maxValues.size() > 0) {
+                return (int) maxValues.get(0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return 0;
+    }
+
+    public Passenger addPassenger(Passenger passenger) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
+            session.saveOrUpdate(passenger);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return passenger;
+    }
+
+    public boolean removePassenger(Passenger passenger) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
+            Passenger passengerObj = session.get(Passenger.class, passenger.getPassengersCount());
+            session.delete(passengerObj);
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
+        return true;
+    }
 }

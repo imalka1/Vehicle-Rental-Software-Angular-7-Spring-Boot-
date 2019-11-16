@@ -110,6 +110,7 @@
 
     $(window).on("load", function () {
         getPassengersPrice();
+        getMaxPassengersCount();
         validateInputs();
     });
 
@@ -122,7 +123,17 @@
     });
 
     $('#noOfPassengers').bind("keyup change", function (e) {
-        getPassengersPrice();
+        if ($(this).val() !== '' && $(this).val() >= 0) {
+            if ($(this).val() <= maxPassengersCount) {
+                $('#fieldNoOfPassengers').html($(this).val());
+                getPassengersPrice();
+            } else {
+                $(this).val(parseInt($(this).val()) - (parseInt($(this).val()) - maxPassengersCount));
+            }
+        } else {
+            $(this).val(0);
+        }
+        validateInputs();
     });
 
     $('#btnBookNow').click(function () {
@@ -155,6 +166,25 @@
                 success: function (response) {
                     totalCost = JSON.parse(response).toFixed(2);
                     validateInputs();
+                },
+                error: function () {
+
+                }
+            }
+        );
+    }
+
+    var maxPassengersCount = 0;
+
+    function getMaxPassengersCount() {
+        $.ajax(
+            {
+                type: "post",
+                url: window.location.origin + $('#contextPath').val() + "/get_max_passenger_count",
+                data: {},
+                success: function (response) {
+                    maxPassengersCount = JSON.parse(response);
+
                 },
                 error: function () {
 

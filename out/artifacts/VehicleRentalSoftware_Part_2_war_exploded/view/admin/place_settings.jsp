@@ -7,7 +7,6 @@
 <%
     HttpSession sessionLogin = request.getSession(false);
 
-    String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     if (sessionLogin.getAttribute("accountType") == null) {
 %>
 <%--<jsp:forward page="../admin/login.jsp"/>--%>

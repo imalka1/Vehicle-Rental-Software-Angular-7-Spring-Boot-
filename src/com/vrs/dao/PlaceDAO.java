@@ -61,25 +61,6 @@ public class PlaceDAO {
         return place;
     }
 
-//    public Place updatePlace(Place place) {
-//        Session session = sessionFactory.openSession();
-//        Transaction tx;
-//        Place placeObj = null;
-//        try {
-//            tx = session.beginTransaction();
-//            placeObj = session.get(Place.class, place.getId());
-//            placeObj.setPlaceName(place.getPlaceName());
-//            session.update(placeObj);
-//            tx.commit();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-////            return null;
-//        } finally {
-//            session.close();
-//        }
-//        return placeObj;
-//    }
-
     public boolean removePlace(Place place) {
         Session session = sessionFactory.openSession();
         Transaction tx;

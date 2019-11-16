@@ -41,6 +41,7 @@
                                     class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="${pageContext.request.contextPath}/view/admin/place_settings.jsp" style="cursor: pointer">Places</a></li>
+                                <li><a href="${pageContext.request.contextPath}/view/admin/passenger_settings.jsp" style="cursor: pointer">Passengers</a></li>
                                 <li><a style="cursor: pointer">Account Settings</a></li>
                             </ul>
                         </li>

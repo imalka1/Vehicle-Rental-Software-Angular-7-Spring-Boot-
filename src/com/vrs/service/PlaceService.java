@@ -34,17 +34,9 @@ public class PlaceService {
         Place place = new Place();
         place.setId(Integer.parseInt(req.getParameter("placeId").trim()));
         place.setPlaceName(req.getParameter("placeName").trim());
-        Place addPlace = placeDAO.addPlace(place);
-        resp.getWriter().println(getJsonPlace(addPlace));//---Print and reply JSON as a text
+        place = placeDAO.addPlace(place);
+        resp.getWriter().println(getJsonPlace(place));//---Print and reply JSON as a text
     }
-
-//    public void updatePlace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        Place place = new Place();
-//        place.setId(Integer.parseInt(req.getParameter("placeId").trim()));
-//        place.setPlaceName(req.getParameter("placeName"));
-//        Place updatePlace = placeDAO.updatePlace(place);
-//        resp.getWriter().println(getJsonPlace(updatePlace));//---Print and reply JSON as a text
-//    }
 
     public void removePlace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Place place = new Place();

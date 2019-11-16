@@ -29,33 +29,43 @@
 <section id="about" style="padding-top: 50px;padding-bottom: 90px">
     <div class="container-fluid" style="margin-left: 10px;margin-right: 10px">
         <div class="row" style="margin-top: 70px;font-size: 14px">
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="margin-top: 21px">
                 <table width="100%">
                     <thead>
                     <tr>
-                        <th width="90%" style="text-align: center">Place</th>
+                        <th width="45%" style="text-align: center">Passengers Count</th>
+                        <th width="45%" style="text-align: center">Passengers Price</th>
                         <th width="10%" style="text-align: center">Remove</th>
                     </tr>
                     </thead>
-                    <tbody style="text-align: center" id="placesBody">
+                    <tbody style="text-align: center" id="passengersBody">
 
                     </tbody>
                 </table>
             </div>
             <div class="col-sm-6">
                 <div class="row" style="margin-bottom: 30px">
-                    <div class="col-sm-12">
-                        <input type="hidden" id="placeId" value="0">
-                        <input type="text" class="form-control" placeholder="Place" id="placeName">
+                    <div class="col-sm-6" style="font-weight: bold">
+                        Passengers Count
+                    </div>
+                    <div class="col-sm-6" style="font-weight: bold">
+                        Passengers Price
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="hidden" id="passengersCount" value="0">
+                        <input type="number" class="form-control" value="0">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" value="0" id="passengersPrice">
                     </div>
                     <div class="col-sm-6 text-center" style="margin-top: 40px">
-                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="newPlace">
-                            New Place
+                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="newPassenger">
+                            New Passenger
                         </button>
                     </div>
                     <div class="col-sm-6 text-center" style="margin-top: 40px">
-                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="updatePlace">
-                            Update Place
+                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="updatePassenger">
+                            Update Passenger
                         </button>
                     </div>
                 </div>
@@ -64,6 +74,6 @@
     </div>
 </section>
 
-<script src="${pageContext.request.contextPath}/controller/admin/placeSettingsController.js"></script>
+<script src="${pageContext.request.contextPath}/controller/admin/passengerSettingsController.js"></script>
 
 <jsp:include page="../footer.jsp"/>
