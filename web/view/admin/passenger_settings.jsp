@@ -52,22 +52,21 @@
                         Passengers Price
                     </div>
                     <div class="col-sm-6">
-                        <input type="hidden" id="passengersCount" value="0">
-                        <input type="number" class="form-control" value="0">
+                        <input type="number" class="form-control" value="1" id="passengersCount" min="1">
                     </div>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" value="0" id="passengersPrice">
+                        <input type="number" class="form-control" value="0.00" id="passengersPrice" min="0">
                     </div>
-                    <div class="col-sm-6 text-center" style="margin-top: 40px">
+                    <div class="col-sm-12 text-center" style="margin-top: 40px">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="newPassenger">
-                            New Passenger
+                            Submit Passenger
                         </button>
                     </div>
-                    <div class="col-sm-6 text-center" style="margin-top: 40px">
-                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="updatePassenger">
-                            Update Passenger
-                        </button>
-                    </div>
+                    <%--<div class="col-sm-6 text-center" style="margin-top: 40px">--%>
+                        <%--<button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="updatePassenger">--%>
+                            <%--Update Passenger--%>
+                        <%--</button>--%>
+                    <%--</div>--%>
                 </div>
             </div>
         </div>

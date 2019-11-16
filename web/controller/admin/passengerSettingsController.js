@@ -1,14 +1,14 @@
 $(window).on("load", function () {
-    loadPlaces();
+    loadPassengers();
 });
 
 var obj = [];
 
-function loadPlaces() {
+function loadPassengers() {
     $.ajax(
         {
             type: "post",
-            url: window.location.origin + $('#contextPath').val() + "/get_places",
+            url: window.location.origin + $('#contextPath').val() + "/get_passengers",
             data: {},
             success: function (response) {
                 obj = JSON.parse(response);
@@ -26,66 +26,54 @@ function setTableBody() {
     for (var i = 0; i < obj.length; i++) {
         tableData += '' +
             '<tr class="btnViewDetails" style="cursor: pointer">' +
-            '<td style="text-align: left"><input type="hidden" value="' + i + '"><span>' + obj[i].PlaceName + '</span></td>' +
+            '<td style="text-align: center"><input type="hidden" value="' + i + '"><span>' + obj[i].PassengersCount + '</span></td>' +
+            '<td style="text-align: center"><span>&euro;' + obj[i].PassengersPrice.toFixed(2) + '</span></td>' +
             '<td class="btnRemove"><i class="fa fa-times" style="color: red"></i></td>' +
             '</tr>';
     }
-    $('#placesBody').html(tableData);
-    $('#placeId').val(0);
-    $('#placeName').val('');
+    $('#passengersBody').html(tableData);
+    $('#passengersCount').val(1);
+    $('#passengersPrice').val('0.00');
 }
 
 var selectedRow = -1;
 $(document).on('click', '.btnViewDetails', function () {
     selectedRow = $(this).children().eq(0).children('input').val();
     var objDetails = obj[selectedRow];
-    $('#placeId').val(objDetails.PlaceId);
-    $('#placeName').val(objDetails.PlaceName);
+    $('#passengersCount').val(objDetails.PassengersCount);
+    $('#passengersPrice').val(objDetails.PassengersPrice);
     selectTableRow();
     $(this).css('background-color', '#dbdbdb');
 });
 
 function selectTableRow() {
     for (var i = 0; i < obj.length; i++) {
-        $('#placesBody').parent().children('tbody').children().eq(i).css('background-color', '');
+        $('#passengersBody').parent().children('tbody').children().eq(i).css('background-color', '');
     }
 }
 
-$('#newPlace').click(function () {
-    if ($('#placeName').val().length !== 0) {
-        $('#placeId').val(0)
+$('#newPassenger').click(function () {
+    if ($('#passengersCount').val() > 0) {
         $.ajax(
             {
                 type: "post",
-                url: window.location.origin + $('#contextPath').val() + "/add_place",
+                url: window.location.origin + $('#contextPath').val() + "/add_passenger",
                 data: {
-                    placeId: $('#placeId').val(),
-                    placeName: $('#placeName').val()
+                    passengersCount: $('#passengersCount').val(),
+                    passengersPrice: $('#passengersPrice').val()
                 },
                 success: function (response) {
-                    obj.push(JSON.parse(response));
-                    setTableBody();
-                },
-                error: function () {
-
-                }
-            }
-        );
-    }
-});
-
-$('#updatePlace').click(function () {
-    if ($('#placeName').val().length !== 0) {
-        $.ajax(
-            {
-                type: "post",
-                url: window.location.origin + $('#contextPath').val() + "/update_place",
-                data: {
-                    placeId: $('#placeId').val(),
-                    placeName: $('#placeName').val()
-                },
-                success: function (response) {
-                    obj[selectedRow] = JSON.parse(response);
+                    var tempObj = JSON.parse(response);
+                    var insert = true;
+                    for (var i = 0; i < obj.length; i++) {
+                        if (tempObj.PassengersCount === obj[i].PassengersCount) {
+                            obj[i] = JSON.parse(response);
+                            insert = false;
+                        }
+                    }
+                    if (insert) {
+                        obj.push(JSON.parse(response));
+                    }
                     setTableBody();
                 },
                 error: function () {
@@ -98,14 +86,14 @@ $('#updatePlace').click(function () {
 
 $(document).on('click', '.btnRemove', function () {
     var that = this;
-    var r = confirm("Do you want to delete " + obj[$(that).parent().children().children('input').val()].PlaceName + "?");
+    var r = confirm("Do you want to delete passengers count " + obj[$(that).parent().children().children('input').val()].PassengersCount + "?");
     if (r === true) {
         $.ajax(
             {
                 type: "post",
-                url: window.location.origin + $('#contextPath').val() + "/remove_place",
+                url: window.location.origin + $('#contextPath').val() + "/remove_passenger",
                 data: {
-                    placeId: obj[$(that).parent().children().children('input').val()].PlaceId
+                    passengersCount: obj[$(that).parent().children().children('input').val()].PassengersCount
                 },
                 success: function (response) {
                     if (JSON.parse(response)) {

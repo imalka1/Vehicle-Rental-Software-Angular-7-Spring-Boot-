@@ -98,4 +98,21 @@ public class PassengerDAO {
         }
         return true;
     }
+
+    public List<Passenger> getPassengers() {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        List passengers = null;
+        try {
+            tx = session.beginTransaction();
+            passengers = session.createQuery("from Passenger")
+                    .list();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return passengers;
+    }
 }

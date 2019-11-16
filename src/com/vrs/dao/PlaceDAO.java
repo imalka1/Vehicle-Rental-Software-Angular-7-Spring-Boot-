@@ -51,7 +51,7 @@ public class PlaceDAO {
         Transaction tx;
         try {
             tx = session.beginTransaction();
-            session.saveOrUpdate(place);
+            session.save(place);
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();

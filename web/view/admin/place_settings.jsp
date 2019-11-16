@@ -45,19 +45,19 @@
             <div class="col-sm-6">
                 <div class="row" style="margin-bottom: 30px">
                     <div class="col-sm-12">
-                        <input type="hidden" id="placeId" value="0">
+                        <%--<input type="hidden" id="placeId" value="0">--%>
                         <input type="text" class="form-control" placeholder="Place" id="placeName">
                     </div>
-                    <div class="col-sm-6 text-center" style="margin-top: 40px">
+                    <div class="col-sm-12 text-center" style="margin-top: 40px">
                         <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="newPlace">
-                            New Place
+                            Submit Place
                         </button>
                     </div>
-                    <div class="col-sm-6 text-center" style="margin-top: 40px">
-                        <button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="updatePlace">
-                            Update Place
-                        </button>
-                    </div>
+                    <%--<div class="col-sm-6 text-center" style="margin-top: 40px">--%>
+                        <%--<button class="btn btn-default" style="background-color: #FFCB05;padding: 10px;font-size: 14px" id="updatePlace">--%>
+                            <%--Update Place--%>
+                        <%--</button>--%>
+                    <%--</div>--%>
                 </div>
             </div>
         </div>

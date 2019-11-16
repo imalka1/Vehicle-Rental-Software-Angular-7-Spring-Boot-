@@ -3,6 +3,7 @@ package com.vrs.service;
 import com.vrs.dao.PassengerDAO;
 import com.vrs.entity.Passenger;
 import com.vrs.entity.Place;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,16 @@ public class PassengerService {
 
     public void getMaxPassengersCount(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println(passengerDAO.getMaxPassengersCount());
+    }
+
+    public void getPassengers(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Passenger> passengers = passengerDAO.getPassengers();
+
+        JSONArray placesJson = new JSONArray();
+        for (Passenger passenger : passengers) {
+            placesJson.add(getJsonPassenger(passenger));
+        }
+        resp.getWriter().println(placesJson.toJSONString());//---Print and reply JSON as a text
     }
 
     public void addPassenger(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
