@@ -32,7 +32,7 @@ public class PlaceService {
 
     public void addPlace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Place place = new Place();
-//        place.setId(Integer.parseInt(req.getParameter("placeId").trim()));
+        place.setId(Integer.parseInt(req.getParameter("placeId").trim()));
         place.setPlaceName(req.getParameter("placeName").trim());
         place = placeDAO.addPlace(place);
         resp.getWriter().println(getJsonPlace(place));//---Print and reply JSON as a text

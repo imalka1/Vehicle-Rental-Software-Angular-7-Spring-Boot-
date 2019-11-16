@@ -35,6 +35,22 @@ function setTableBody() {
     $('#placeName').val('');
 }
 
+var selectedRow = -1;
+$(document).on('click', '.btnViewDetails', function () {
+    selectedRow = $(this).children().eq(0).children('input').val();
+    var objDetails = obj[selectedRow];
+    $('#placeId').val(objDetails.PlaceId);
+    $('#placeName').val(objDetails.PlaceName);
+    selectTableRow();
+    $(this).css('background-color', '#dbdbdb');
+});
+
+function selectTableRow() {
+    for (var i = 0; i < obj.length; i++) {
+        $('#placesBody').parent().children('tbody').children().eq(i).css('background-color', '');
+    }
+}
+
 $('#newPlace').click(function () {
     if ($('#placeName').val().length !== 0) {
         $('#placeId').val(0)
@@ -48,6 +64,28 @@ $('#newPlace').click(function () {
                 },
                 success: function (response) {
                     obj.push(JSON.parse(response));
+                    setTableBody();
+                },
+                error: function () {
+
+                }
+            }
+        );
+    }
+});
+
+$('#updatePlace').click(function () {
+    if ($('#placeName').val().length !== 0) {
+        $.ajax(
+            {
+                type: "post",
+                url: window.location.origin + $('#contextPath').val() + "/update_place",
+                data: {
+                    placeId: $('#placeId').val(),
+                    placeName: $('#placeName').val()
+                },
+                success: function (response) {
+                    obj[selectedRow] = JSON.parse(response);
                     setTableBody();
                 },
                 error: function () {
