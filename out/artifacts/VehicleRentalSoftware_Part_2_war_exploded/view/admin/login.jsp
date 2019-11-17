@@ -22,13 +22,16 @@
                             </div>
 
                             <%--<div class="custom-check">--%>
-                                <%--<input type="checkbox" id="check" name="checkbox"/>--%>
-                                <%--<label for="check"><span><i class="fa fa-check"></i></span>Remember Me</label>--%>
+                            <%--<input type="checkbox" id="check" name="checkbox"/>--%>
+                            <%--<label for="check"><span><i class="fa fa-check"></i></span>Remember Me</label>--%>
                             <%--</div><!-- end checkbox -->--%>
 
                             <button class="btn btn-yellow btn-block">Login</button>
                         </form>
-
+                        <div style="margin-top: 30px">
+                            <a style="font-weight: bold;cursor: pointer;text-decoration: none;color: black;">Forgot
+                                password?</a>
+                        </div>
                     </div><!-- end custom-form -->
 
                 </div><!-- end columns -->
@@ -36,6 +39,7 @@
         </div><!-- end container -->
     </div><!-- end login -->
 
-</section><!-- end innerpage-wrapper -->
+</section>
+<!-- end innerpage-wrapper -->
 
 <jsp:include page="../footer.jsp"/>

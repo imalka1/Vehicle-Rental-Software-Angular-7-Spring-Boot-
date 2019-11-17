@@ -82,12 +82,10 @@ $('#infants').bind("keyup change", function (e) {
 
 $('#noOfPassengers').bind("keyup change", function (e) {
     if ($(this).val() !== '' && $(this).val() >= 0) {
-        if ($(this).val() <= maxPassengersCount) {
-            $('#fieldNoOfPassengers').html($(this).val());
-        } else {
+        if ($(this).val() > maxPassengersCount) {
             $(this).val(parseInt($(this).val()) - (parseInt($(this).val()) - maxPassengersCount));
-            $('#fieldNoOfPassengers').html($(this).val());
         }
+        $('#fieldNoOfPassengers').html($(this).val());
         getPassengersPrice();
     } else {
         $(this).val(0);

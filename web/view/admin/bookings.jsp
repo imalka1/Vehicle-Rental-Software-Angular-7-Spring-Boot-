@@ -58,7 +58,8 @@
                 <table width="100%">
                     <thead>
                     <tr>
-                        <th width="38%" style="text-align: center">Reservation Number</th>
+                        <th width="5%"></th>
+                        <th width="33%" style="text-align: center">Reservation Number</th>
                         <th width="12%" style="text-align: center">Time</th>
                         <th width="25%" style="text-align: center">Place From</th>
                         <th width="25%" style="text-align: center">Place To</th>
@@ -68,17 +69,17 @@
 
                     </tbody>
                 </table>
-                <div class="row" style="text-align: center;margin-top: 50px">
-                    <div class="col-4">
-                        <i class="fa fa-arrow-left fa-2x" id="pageLeft" style="cursor: pointer"></i>
-                    </div>
-                    <div class="col-4" style="font-size: 20px;font-weight: bold" id="pagination">
+                <%--<div class="row" style="text-align: center;margin-top: 50px">--%>
+                    <%--<div class="col-4">--%>
+                        <%--<i class="fa fa-arrow-left fa-2x" id="pageLeft" style="cursor: pointer"></i>--%>
+                    <%--</div>--%>
+                    <%--<div class="col-4" style="font-size: 20px;font-weight: bold" id="pagination">--%>
 
-                    </div>
-                    <div class="col-4">
-                        <i class="fa fa-arrow-right fa-2x" id="pageRight" style="cursor: pointer"></i>
-                    </div>
-                </div>
+                    <%--</div>--%>
+                    <%--<div class="col-4">--%>
+                        <%--<i class="fa fa-arrow-right fa-2x" id="pageRight" style="cursor: pointer"></i>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             </div>
             <div class="col-sm-5" style="font-size: 15px">
                 <div class="row">

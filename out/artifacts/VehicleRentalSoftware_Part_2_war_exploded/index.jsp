@@ -124,9 +124,7 @@
 
     $('#noOfPassengers').bind("keyup change", function (e) {
         if ($(this).val() !== '' && $(this).val() >= 0) {
-            if ($(this).val() <= maxPassengersCount) {
-                $('#fieldNoOfPassengers').html($(this).val());
-            } else {
+            if ($(this).val() > maxPassengersCount) {
                 $(this).val(parseInt($(this).val()) - (parseInt($(this).val()) - maxPassengersCount));
             }
             getPassengersPrice();
@@ -138,7 +136,6 @@
 
     $('#btnBookNow').click(function () {
         document.location.href = "${pageContext.request.contextPath}/view/customer/booking.jsp?placeFromId=" + $('#placeFrom').val() + "&placeToId=" + $('#placeTo').val() + "&noOfPassengers=" + $('#noOfPassengers').val() + "&trip=" + $('#trip').val();
-        <%--document.location.href = "${pageContext.request.contextPath}/booking?placeFromId=" + $('#placeFrom').val() + "&placeToId=" + $('#placeTo').val() + "&noOfPassengers=" + $('#noOfPassengers').val() + "&trip=" + $('#trip').val();--%>
     })
 
     function validateInputs() {
