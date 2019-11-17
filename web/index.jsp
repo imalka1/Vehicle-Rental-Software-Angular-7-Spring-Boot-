@@ -126,10 +126,10 @@
         if ($(this).val() !== '' && $(this).val() >= 0) {
             if ($(this).val() <= maxPassengersCount) {
                 $('#fieldNoOfPassengers').html($(this).val());
-                getPassengersPrice();
             } else {
                 $(this).val(parseInt($(this).val()) - (parseInt($(this).val()) - maxPassengersCount));
             }
+            getPassengersPrice();
         } else {
             $(this).val(0);
         }
@@ -184,7 +184,6 @@
                 data: {},
                 success: function (response) {
                     maxPassengersCount = JSON.parse(response);
-
                 },
                 error: function () {
 

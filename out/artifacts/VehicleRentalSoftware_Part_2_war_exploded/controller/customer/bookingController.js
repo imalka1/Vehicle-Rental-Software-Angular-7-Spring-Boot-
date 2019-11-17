@@ -84,11 +84,11 @@ $('#noOfPassengers').bind("keyup change", function (e) {
     if ($(this).val() !== '' && $(this).val() >= 0) {
         if ($(this).val() <= maxPassengersCount) {
             $('#fieldNoOfPassengers').html($(this).val());
-            getPassengersPrice();
         } else {
             $(this).val(parseInt($(this).val()) - (parseInt($(this).val()) - maxPassengersCount));
             $('#fieldNoOfPassengers').html($(this).val());
         }
+        getPassengersPrice();
     } else {
         $(this).val(0);
     }
