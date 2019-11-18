@@ -59,9 +59,14 @@ public class UserDAO {
         Transaction tx;
         try {
             tx = session.beginTransaction();
-            User userObj = session.get(User.class, user.getUserEmail());
-            userObj.setUserPassword(user.getUserPassword());
-            session.update(userObj);
+            List usersList = session.createQuery("from User where userEmail=?1")
+                    .setParameter(1, user.getUserEmail())
+                    .list();
+            if (usersList.size() > 0) {
+                User userObj = (User) usersList.get(0);
+                userObj.setUserPassword(user.getUserPassword());
+                session.update(userObj);
+            }
             tx.commit();
             return true;
         } catch (Exception e) {

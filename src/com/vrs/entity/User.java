@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String userEmail;
     private String userPassword;
 
@@ -14,6 +16,14 @@ public class User {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUserPassword() {
@@ -27,6 +37,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
+                "id=" + id +
                 ", userEmail='" + userEmail + '\'' +
                 ", userPassword='" + userPassword + '\'' +
                 '}';
