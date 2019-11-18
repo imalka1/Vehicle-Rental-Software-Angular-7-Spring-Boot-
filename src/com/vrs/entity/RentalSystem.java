@@ -10,6 +10,7 @@ public class RentalSystem {
     private String address;
     private String telNumber;
     private String emailAddress;
+    private String emailPassword;
 
     public long getId() {
         return id;
@@ -43,6 +44,14 @@ public class RentalSystem {
         this.emailAddress = emailAddress;
     }
 
+    public String getEmailPassword() {
+        return emailPassword;
+    }
+
+    public void setEmailPassword(String emailPassword) {
+        this.emailPassword = emailPassword;
+    }
+
     @Override
     public String toString() {
         return "RentalSystem{" +
@@ -50,6 +59,7 @@ public class RentalSystem {
                 ", address='" + address + '\'' +
                 ", telNumber='" + telNumber + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
+                ", emailPassword='" + emailPassword + '\'' +
                 '}';
     }
 }

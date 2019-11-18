@@ -1,11 +1,14 @@
 package com.vrs.email;
 
+import com.vrs.controller.rental_system.RentalSystemController;
+
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import java.util.Properties;
 
 public class EmailSession {
     private Session session;
+    private RentalSystemController rentalSystemController = new RentalSystemController();
 
     public EmailSession() {
         try {
@@ -26,7 +29,7 @@ public class EmailSession {
             session = Session.getInstance(props,
                     new javax.mail.Authenticator() {
                         protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication("rajapaksap1@gmail.com", "Priyantha123");
+                            return new PasswordAuthentication(rentalSystemController.getRentalSystem().getEmailAddress(), rentalSystemController.getRentalSystem().getEmailPassword());
                         }
                     });
         } catch (Exception e) {

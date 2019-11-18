@@ -34,10 +34,22 @@ public class UserService {
         resp.sendRedirect("view/admin/login.jsp");
     }
 
-    public void forgotPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void checkEmail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
         user.setUserEmail(req.getParameter("userEmail").trim());
         if (userDAO.checkEmail(user)) {
+            resp.getWriter().println(true);
+        } else {
+            resp.getWriter().println(false);
+        }
+    }
+
+    public void updateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User user = new User();
+        user.setId(Long.parseLong(req.getParameter("userId").trim()));
+        user.setUserEmail(req.getParameter("userEmail").trim());
+        user.setUserPassword(req.getParameter("userPassword").trim());
+        if (userDAO.updateUser(user)) {
             resp.getWriter().println(true);
         } else {
             resp.getWriter().println(false);
@@ -48,10 +60,14 @@ public class UserService {
         User user = new User();
         user.setUserEmail(req.getParameter("userEmail").trim());
         user.setUserPassword(req.getParameter("userPassword").trim());
-        if (userDAO.updateUser(user)) {
+        if (userDAO.resetPassword(user)) {
             resp.getWriter().println(true);
         } else {
             resp.getWriter().println(false);
         }
+    }
+
+    public User getUser() {
+        return userDAO.getUser();
     }
 }

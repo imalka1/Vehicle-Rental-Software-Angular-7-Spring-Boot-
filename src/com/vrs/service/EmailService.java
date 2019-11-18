@@ -1,5 +1,7 @@
 package com.vrs.service;
 
+import com.vrs.controller.rental_system.RentalSystemController;
+import com.vrs.controller.rental_system.RentalSystemURLController;
 import com.vrs.email.EmailSession;
 import com.vrs.entity.Reservation;
 
@@ -46,7 +48,7 @@ public class EmailService {
 //            msg.setText("abc");
             msg.setContent(multipart);
             msg.setSubject("Trip Reservation");//---Set subject
-            msg.setFrom(new InternetAddress("rajapaksap1@gmail.com", "Trip Reservation Bill"));//---Set email
+            msg.setFrom(new InternetAddress(new RentalSystemController().getRentalSystem().getEmailAddress(), "Trip Reservation Bill"));//---Set email
             msg.addRecipient(Message.RecipientType.TO, new InternetAddress(emailAddress));//---Set receiver's email
 
             //------------------------------------------Send email------------------------------------------------------

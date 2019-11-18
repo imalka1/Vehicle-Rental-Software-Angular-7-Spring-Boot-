@@ -1,7 +1,5 @@
 package com.vrs.controller.user;
 
-import com.vrs.dao.UserDAO;
-import com.vrs.entity.User;
 import com.vrs.service.UserService;
 
 import javax.servlet.ServletException;
@@ -9,10 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/login", "/logout", "/forgot_password", "/reset_password"})
+@WebServlet(urlPatterns = {"/login", "/logout", "/forgot_password", "/reset_password", "/update_password", "/get_user"})
 public class UserURLController extends HttpServlet {
 
     private void userLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,7 +21,11 @@ public class UserURLController extends HttpServlet {
     }
 
     private void forgotPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        new UserService().forgotPassword(req, resp);
+        new UserService().checkEmail(req, resp);
+    }
+
+    private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new UserService().updateUser(req, resp);
     }
 
     private void resetPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,6 +56,9 @@ public class UserURLController extends HttpServlet {
                 break;
             case "/reset_password":
                 resetPassword(req, resp);
+                break;
+            case "/update_password":
+                updateUser(req, resp);
                 break;
             default:
                 break;

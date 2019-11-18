@@ -59,6 +59,30 @@ public class UserDAO {
         Transaction tx;
         try {
             tx = session.beginTransaction();
+            List usersList = session.createQuery("from User where id=?1")
+                    .setParameter(1, user.getId())
+                    .list();
+            if (usersList.size() > 0) {
+                User userObj = (User) usersList.get(0);
+                userObj.setUserEmail(user.getUserEmail());
+                userObj.setUserPassword(user.getUserPassword());
+                session.update(userObj);
+            }
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
+
+    public boolean resetPassword(User user) {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        try {
+            tx = session.beginTransaction();
             List usersList = session.createQuery("from User where userEmail=?1")
                     .setParameter(1, user.getUserEmail())
                     .list();
@@ -72,6 +96,27 @@ public class UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        } finally {
+            session.close();
+        }
+    }
+
+    public User getUser() {
+        Session session = sessionFactory.openSession();
+        Transaction tx;
+        User userObj = null;
+        try {
+            tx = session.beginTransaction();
+            List usersList = session.createQuery("from User")
+                    .list();
+            if (usersList.size() > 0) {
+                userObj = (User) usersList.get(0);
+            }
+            tx.commit();
+            return userObj;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         } finally {
             session.close();
         }
