@@ -6,7 +6,7 @@
 
     if (sessionLogin.getAttribute("accountType") == null) {
 %>
-<%--<jsp:forward page="../admin/login.jsp"/>--%>
+<jsp:forward page="../admin/login.jsp"/>
 <%
     }
 %>
@@ -15,7 +15,7 @@
     <div class="container-fluid" style="margin-left: 10px;margin-right: 10px">
         <div class="row" style="margin-top: 40px;font-size: 14px">
             <div class="col-sm-12" style="margin-bottom: 20px;font-weight: bold;font-size: 20px">
-                System Details (Contact us)
+                System Details (Contact Us)
             </div>
             <div class="col-sm-4" style="font-weight: bold">
                 Address

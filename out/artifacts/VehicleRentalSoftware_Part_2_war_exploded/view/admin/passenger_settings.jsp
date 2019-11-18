@@ -9,7 +9,7 @@
 
     if (sessionLogin.getAttribute("accountType") == null) {
 %>
-<%--<jsp:forward page="../admin/login.jsp"/>--%>
+<jsp:forward page="../admin/login.jsp"/>
 <%
     }
 %>

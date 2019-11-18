@@ -49,8 +49,8 @@
                             }
                         %>
 
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Contact</a>
-                        </li>
+                        <%--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Contact</a>--%>
+                        <%--</li>--%>
 
                         <%
                             if (sessionLogin.getAttribute("accountType") != null) {

@@ -9,17 +9,17 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left" id="company">
-                    <h4 class="footer-heading">Services</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Rooms</a></li>
-                        <li><a href="#">Dinning</a></li>
-                        <li><a href="#">Staff</a></li>
-                        <li><a href="#">Blog's</a></li>
-                    </ul>
-                </div><!-- end useful-links -->
+                <%--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left" id="company">--%>
+                    <%--<h4 class="footer-heading">Services</h4>--%>
+                    <%--<ul class="list-unstyled">--%>
+                        <%--<li><a href="#">Home</a></li>--%>
+                        <%--<li><a href="#">About</a></li>--%>
+                        <%--<li><a href="#">Rooms</a></li>--%>
+                        <%--<li><a href="#">Dinning</a></li>--%>
+                        <%--<li><a href="#">Staff</a></li>--%>
+                        <%--<li><a href="#">Blog's</a></li>--%>
+                    <%--</ul>--%>
+                <%--</div><!-- end useful-links -->--%>
 
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-left" id="contact-us">
                     <h4 class="footer-heading">Contact Us</h4>
