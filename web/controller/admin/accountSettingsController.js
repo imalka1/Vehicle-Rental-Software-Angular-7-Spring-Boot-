@@ -23,7 +23,7 @@ $('#btnSubmitDetails').click(function () {
 });
 
 $('#btnSubmitEmail').click(function () {
-    if ($('#systemEmail').val() !== '' && $('#password1').val() !== '' && checkPasswordEqualitySystem()) {
+    if ($('#systemEmail').val() !== '' && checkPasswordEqualitySystem()) {
         $.ajax(
             {
                 type: "post",
@@ -47,7 +47,7 @@ $('#btnSubmitEmail').click(function () {
 });
 
 $('#btnSubmitUser').click(function () {
-    if ($('#systemEmail').val() !== '' && $('#password1').val() !== '' && checkPasswordEqualityUser()) {
+    if ($('#userEmail').val() !== '' && checkPasswordEqualityUser()) {
         $.ajax(
             {
                 type: "post",
