@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/login", "/logout"})
+@WebServlet(urlPatterns = {"/login", "/logout", "/forgot_password", "/reset_password"})
 public class UserURLController extends HttpServlet {
 
     private void userLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,6 +21,14 @@ public class UserURLController extends HttpServlet {
 
     private void userLogout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         new UserService().userLogout(req, resp);
+    }
+
+    private void forgotPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new UserService().forgotPassword(req, resp);
+    }
+
+    private void resetPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new UserService().resetPassword(req, resp);
     }
 
     @Override
@@ -42,10 +50,12 @@ public class UserURLController extends HttpServlet {
             case "/logout":
                 userLogout(req, resp);
                 break;
-//
-//            case SERLVET_TWO:
-//                // ... call your function3
-//                break;
+            case "/forgot_password":
+                forgotPassword(req, resp);
+                break;
+            case "/reset_password":
+                resetPassword(req, resp);
+                break;
             default:
                 break;
         }

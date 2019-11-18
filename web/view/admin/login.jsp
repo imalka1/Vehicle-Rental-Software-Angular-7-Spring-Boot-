@@ -12,7 +12,7 @@
                         <form action="${pageContext.request.contextPath}/login" method="post">
 
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" name="userEmail">
+                                <input type="text" class="form-control" placeholder="Email Address" name="userEmail">
                                 <span><i class="fa fa-user"></i></span>
                             </div>
 
@@ -29,8 +29,9 @@
                             <button class="btn btn-yellow btn-block">Login</button>
                         </form>
                         <div style="margin-top: 30px">
-                            <a style="font-weight: bold;cursor: pointer;text-decoration: none;color: black;">Forgot
-                                password?</a>
+                            <a href="${pageContext.request.contextPath}/view/admin/forgot_password.jsp" style="font-weight: bold;cursor: pointer;text-decoration: none;color: black">
+                                Forgot Password?
+                            </a>
                         </div>
                     </div><!-- end custom-form -->
 

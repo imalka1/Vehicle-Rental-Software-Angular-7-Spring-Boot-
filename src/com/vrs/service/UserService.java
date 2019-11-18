@@ -33,4 +33,25 @@ public class UserService {
         }
         resp.sendRedirect("view/admin/login.jsp");
     }
+
+    public void forgotPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User user = new User();
+        user.setUserEmail(req.getParameter("userEmail").trim());
+        if (userDAO.checkEmail(user)) {
+            resp.getWriter().println(true);
+        } else {
+            resp.getWriter().println(false);
+        }
+    }
+
+    public void resetPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User user = new User();
+        user.setUserEmail(req.getParameter("userEmail").trim());
+        user.setUserPassword(req.getParameter("userPassword").trim());
+        if (userDAO.updateUser(user)) {
+            resp.getWriter().println(true);
+        } else {
+            resp.getWriter().println(false);
+        }
+    }
 }
