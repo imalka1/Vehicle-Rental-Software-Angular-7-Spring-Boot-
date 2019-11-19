@@ -94,8 +94,9 @@ $('#noOfPassengers').bind("keyup change", function (e) {
 });
 
 $('#customerEmail').keyup(function () {
-    var regex = /^([a-z])([a-z0-9])*([._-]([a-z0-9])+)*@+([a-z])*([._-]([a-z0-9])+)*([.]([a-z])+)+$/;
-    if (regex.test($('#customerEmail').val())) {
+    // var regex = /^([a-z])([a-z0-9])*([._-]([a-z0-9])+)*@+([a-z])*([._-]([a-z0-9])+)*([.]([a-z])+)+$/;
+    if (isEmail($(this).val())) {
+        $(this).css('border-color', '');
         $.ajax(
             {
                 type: "post",
@@ -115,6 +116,7 @@ $('#customerEmail').keyup(function () {
             }
         );
     } else {
+        $(this).css('border-color', 'red');
         validateSubmitButton();
     }
 })
@@ -287,6 +289,7 @@ function validateSubmitButton() {
             $('.clsDate').css('color') === 'rgb(255, 0, 0)' ||
             $('.clsTime').css('color') === 'rgb(255, 0, 0)') ||
         $('#customerEmail').val().length === 0 ||
+        !isEmail($('#customerEmail').val()) ||
         $('#customerContact').val().length === 0 ||
         $('#customerName').val().length === 0 ||
         $('#priceText').html() === '0.00'
@@ -295,6 +298,16 @@ function validateSubmitButton() {
     } else {
         $('#btnSubmitReservation').prop("disabled", false);
     }
+}
+
+function isNationalId(nationalId) {
+    var regex = /^([0-9]{9}V{1})*([0-9]{11}V{1})*$/;
+    return regex.test(nationalId);
+}
+
+function isEmail(email) {
+    var regex = /^([a-z])([a-z0-9])*([._-]([a-z0-9])+)*@+([a-z])*([._-]([a-z0-9])+)*([.]([a-z])+)+$/;
+    return regex.test(email);
 }
 
 //----------------------------------------

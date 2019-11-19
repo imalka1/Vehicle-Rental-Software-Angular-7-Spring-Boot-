@@ -30,6 +30,7 @@ public class EmailSession {
                     new javax.mail.Authenticator() {
                         protected PasswordAuthentication getPasswordAuthentication() {
                             return new PasswordAuthentication(rentalSystemController.getRentalSystem().getEmailAddress(), rentalSystemController.getRentalSystem().getEmailPassword());
+//                            return new PasswordAuthentication("rajapaksap1@gmail.com", "Priyantha123");
                         }
                     });
         } catch (Exception e) {
