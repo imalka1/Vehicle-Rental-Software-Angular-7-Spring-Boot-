@@ -259,8 +259,16 @@
                 </div>
                 <div class="col-sm-12">
                     <div class="row" style="padding: 10px">
-                        <div class="col-12" style="font-weight: bold">Your Name</div>
-                        <div class="col-12">
+                        <div class="col-1" style="font-weight: bold">Title</div>
+                        <div class="col-11" style="font-weight: bold">Your Name</div>
+                        <div class="col-1" style="padding-right: 10px">
+                            <select class="form-control" name="customerTitle">
+                                <option>Mr.</option>
+                                <option>Mrs.</option>
+                                <option>Miss.</option>
+                            </select>
+                        </div>
+                        <div class="col-11">
                             <input type="text" class="form-control" id="customerName" name="customerName">
                         </div>
                     </div>

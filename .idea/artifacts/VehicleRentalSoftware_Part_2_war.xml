@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="VehicleRentalSoftware_Part_2:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/VehicleRentalSoftware_Part_2_war</output-path>
+    <root id="archive" name="VehicleRentalSoftware_Part_2_war.war">
+      <element id="artifact" artifact-name="VehicleRentalSoftware_Part_2:war exploded" />
+    </root>
+  </artifact>
+</component>

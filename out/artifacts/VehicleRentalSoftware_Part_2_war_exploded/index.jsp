@@ -12,7 +12,7 @@
 %>
 
 <section id="about" style="padding-top: 60px;padding-bottom: 60px">
-    <div class="container" style="font-size: 16px">
+    <div class="container-fluid" style="font-size: 16px">
         <%--<div class="row" style="font-size: 25px;text-align: center;font-weight: bold;margin-top: 20px">--%>
         <%--<div class="col-5">--%>
         <%--Book Your Taxi Now--%>
@@ -23,7 +23,7 @@
         <%--<div class="col-5">--%>
 
         <%--</div>--%>
-        <div class="row" style="font-weight: bold;padding-top: 50px">
+        <div class="row" style="font-weight: bold;padding-top: 50px;margin-left: 20px;margin-right: 20px">
             <div class="col-sm-4">
                 <div class="row" style="padding: 5px">
                     <div class="col-12">Pickup From</div>

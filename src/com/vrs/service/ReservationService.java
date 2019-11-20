@@ -43,7 +43,7 @@ public class ReservationService {
         Customer customer = new Customer();
         customer.setCustomerEmail(req.getParameter("customerEmail").trim());
         customer.setCustomerContactNumber(req.getParameter("customerContact").trim());
-        customer.setCustomerName(req.getParameter("customerName").trim());
+        customer.setCustomerName(req.getParameter("customerTitle").trim() + req.getParameter("customerName").trim());
 
         Reservation reservation = new Reservation();
         reservation.setReservationPlaceFrom(placeFrom);
