@@ -25,7 +25,7 @@ public class EmailService {
             String htmlMessage = "" +
                     "<div style='font-size:14px'>" +
                     "<span style='font-weight:bold'>Reservation Number</span><span> - R" + savedRegistration.getId() + "</span><br>" +
-                    "<span style='font-weight:bold'>Customer</span><span> - " + savedRegistration.getReservationCustomer().getCustomerName() + "</span><br>" +
+                    "<span style='font-weight:bold'>Customer</span><span> - " + savedRegistration.getReservationCustomer().getCustomerTitle() + savedRegistration.getReservationCustomer().getCustomerName() + "</span><br>" +
                     "<span style='font-weight:bold'>Pickup From</span><span> - " + savedRegistration.getReservationPlaceFrom().getPlaceName() + "</span><br>" +
                     "<span style='font-weight:bold'>Drop To</span><span> - " + savedRegistration.getReservationPlaceTo().getPlaceName() + "</span><br>" +
                     "<span style='font-weight:bold'>Trip</span><span> - " + (savedRegistration.getReservationTrip() == 1 ? "One way" : "Round trip") + "</span><br>" +

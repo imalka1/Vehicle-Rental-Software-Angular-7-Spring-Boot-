@@ -10,6 +10,7 @@ import java.util.Set;
 public class Customer {
     @Id
     private String customerEmail;
+    private String customerTitle;
     private String customerName;
     private String customerContactNumber;
 
@@ -46,16 +47,25 @@ public class Customer {
         this.customerContactNumber = customerContactNumber;
     }
 
+    public String getCustomerTitle() {
+        return customerTitle;
+    }
+
+    public void setCustomerTitle(String customerTitle) {
+        this.customerTitle = customerTitle;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "customerEmail='" + customerEmail + '\'' +
+                ", customerTitle='" + customerTitle + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", customerContactNumber='" + customerContactNumber + '\'' +
                 '}';
     }
 
-//    public Reservation getReservation() {
+    //    public Reservation getReservation() {
 //        return reservation;
 //    }
 //

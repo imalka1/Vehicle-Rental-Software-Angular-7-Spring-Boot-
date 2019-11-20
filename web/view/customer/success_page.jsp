@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-6"
                          style="padding: 5px;text-align: right;font-weight: normal;border-bottom: 1px solid #e2e2e2">
-                        <%= reservation.getReservationCustomer().getCustomerName()%>
+                        <%= reservation.getReservationCustomer().getCustomerTitle() + reservation.getReservationCustomer().getCustomerName()%>
                     </div>
                     <div class="col-6" style="padding: 5px;border-bottom: 1px solid #e2e2e2">Pickup
                         From

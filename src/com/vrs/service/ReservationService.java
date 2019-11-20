@@ -43,7 +43,8 @@ public class ReservationService {
         Customer customer = new Customer();
         customer.setCustomerEmail(req.getParameter("customerEmail").trim());
         customer.setCustomerContactNumber(req.getParameter("customerContact").trim());
-        customer.setCustomerName(req.getParameter("customerTitle").trim() + req.getParameter("customerName").trim());
+        customer.setCustomerTitle(req.getParameter("customerTitle").trim());
+        customer.setCustomerName(req.getParameter("customerName").trim());
 
         Reservation reservation = new Reservation();
         reservation.setReservationPlaceFrom(placeFrom);
@@ -127,6 +128,7 @@ public class ReservationService {
         reservationJson.put("ReservationNumber", reservationObj.getId());
         reservationJson.put("ReservationTime", new SimpleDateFormat("hh:mm a").format(reservationObj.getReservationDateAndTime()));
 
+        reservationJson.put("CustomerTitle", reservationObj.getReservationCustomer().getCustomerTitle());
         reservationJson.put("CustomerName", reservationObj.getReservationCustomer().getCustomerName());
         reservationJson.put("CustomerEmail", reservationObj.getReservationCustomer().getCustomerEmail());
         reservationJson.put("CustomerTelNo", reservationObj.getReservationCustomer().getCustomerContactNumber());

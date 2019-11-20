@@ -193,7 +193,7 @@ $(document).on('click', '.btnViewDetails', function () {
     selectedRow = $(this).children().eq(1).children('input').val();
     // console.log(selectedRow);
     var objDetails = obj[selectedRow];
-    $('#fieldCustomerName').html(objDetails.CustomerName);
+    $('#fieldCustomerName').html(objDetails.CustomerTitle + objDetails.CustomerName);
     $('#fieldCustomerEmail').html(objDetails.CustomerEmail);
     $('#fieldCustomerTelNo').html(objDetails.CustomerTelNo);
     $('#fieldCustomerComment').html(objDetails.CustomerComments);
