@@ -1,3 +1,4 @@
+var verificationCode = 0;
 $('#btnReset').click(function () {
     var that = this;
     if ($(that).html() === 'Send Email') {
@@ -5,26 +6,20 @@ $('#btnReset').click(function () {
             $.ajax(
                 {
                     type: "post",
-                    url: window.location.origin + $('#contextPath').val() + "/forgot_password",
+                    url: window.location.origin + $('#contextPath').val() + "/send_verification",
                     data: {
                         userEmail: $('#userEmail').val()
                     },
                     success: function (response) {
-                        if (JSON.parse(response) === true) {
+                        verificationCode = JSON.parse(response);
+                        if (verificationCode !== 0) {
                             $('#passwordFields').html(
                                 '<div class="form-group">' +
-                                '<input type="password" class="form-control" placeholder="New Password" id="userPassword1">' +
-                                '<span><i class="fa fa-lock"></i></span>' +
-                                '</div>' +
-                                '<div class="form-group">' +
-                                '<input type="password" class="form-control" placeholder="Re-enter Password" id="userPassword2">' +
+                                '<input type="text" class="form-control" placeholder="Enter Verification Code" id="verifyCode">' +
                                 '<span><i class="fa fa-lock"></i></span>' +
                                 '</div>'
-                            )
-                            $(that).html('Reset')
-                        } else {
-                            $('#passwordFields').html('');
-                            $(that).html('Send Email')
+                            );
+                            $(that).html('Reset');
                         }
                     },
                     error: function () {
@@ -41,7 +36,8 @@ $('#btnReset').click(function () {
                     url: window.location.origin + $('#contextPath').val() + "/reset_password",
                     data: {
                         userEmail: $('#userEmail').val(),
-                        userPassword: $('#userPassword1').val()
+                        userPassword: $('#userPassword1').val(),
+                        verificationCode: verificationCode
                     },
                     success: function (response) {
                         if (JSON.parse(response) === true) {
@@ -56,6 +52,24 @@ $('#btnReset').click(function () {
         }
     }
 });
+
+$(document).on('keyup', '#verifyCode', function () {
+    if (verificationCode === parseInt($(this).val())) {
+        $(this).css('border-color', '');
+        $('#passwordFields').html(
+            '<div class="form-group">' +
+            '<input type="password" class="form-control" placeholder="New Password" id="userPassword1">' +
+            '<span><i class="fa fa-lock"></i></span>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<input type="password" class="form-control" placeholder="Re-enter Password" id="userPassword2">' +
+            '<span><i class="fa fa-lock"></i></span>' +
+            '</div>'
+        );
+    } else {
+        $(this).css('border-color', 'red');
+    }
+})
 
 function checkPasswordEquality() {
     if (

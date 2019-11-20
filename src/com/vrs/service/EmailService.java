@@ -7,9 +7,12 @@ import com.vrs.entity.Reservation;
 
 import javax.mail.*;
 import javax.mail.internet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Properties;
+import java.util.Random;
 
 public class EmailService {
 
@@ -61,6 +64,55 @@ public class EmailService {
             ex.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+        }
+    }
+
+    public int sendVerificationCode(String emailAddress, HttpServletRequest request) {
+        HttpSession sessionLogin = request.getSession(false);
+        int randomNumber = 100000 + new Random().nextInt(100000);
+        sessionLogin.setAttribute("verificationCode", randomNumber);
+
+        try {
+
+            Session session = new EmailSession().getEmailSession();
+            //--------------------------------------Create email text (body)--------------------------------------------
+            MimeMessage msg = new MimeMessage(session);
+            msg.addHeader("Content-type", "text/html; charset=UTF-8");
+//            msg.setText(String.valueOf(number));//---Set random number to email
+
+            String htmlMessage = "" +
+                    "<div style='font-size:14px'>" +
+                    "<span style='font-weight:bold'>Verification Code - </span>" +
+                    "<span>" + randomNumber + "</span>" +
+                    "</div>";
+            BodyPart messageBodyPart = new MimeBodyPart();
+
+            // Fill the message
+            messageBodyPart.setContent(htmlMessage, "text/html; charset=UTF-8");
+            Multipart multipart = new MimeMultipart();
+
+            // Set text message part
+            multipart.addBodyPart(messageBodyPart);
+            msg.setContent(multipart);
+            msg.setSubject("Verification Code");//---Set subject
+            msg.setFrom(new InternetAddress(emailAddress, "Verification Code"));//---Set email
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress(emailAddress));//---Set receiver's email
+
+            //------------------------------------------Send email------------------------------------------------------
+            Transport.send(msg);
+            return randomNumber;
+        } catch (AuthenticationFailedException ex) {//--Catch if any authentication exception occurred
+            ex.printStackTrace();
+            return 0;
+        } catch (AddressException ex) {//--Catch if any address exception occurred
+            ex.printStackTrace();
+            return 0;
+        } catch (MessagingException ex) {//--Catch if any messaging exception occurred
+            ex.printStackTrace();
+            return 0;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return 0;
         }
     }
 

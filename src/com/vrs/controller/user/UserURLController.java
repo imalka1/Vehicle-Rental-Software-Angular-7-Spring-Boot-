@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/login", "/logout", "/forgot_password", "/reset_password", "/update_password", "/get_user"})
+@WebServlet(urlPatterns = {"/login", "/logout", "/send_verification", "/reset_password", "/update_password", "/get_user"})
 public class UserURLController extends HttpServlet {
 
     private void userLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,8 +20,8 @@ public class UserURLController extends HttpServlet {
         new UserService().userLogout(req, resp);
     }
 
-    private void forgotPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        new UserService().checkEmail(req, resp);
+    private void sendVerification(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        new UserService().sendVerificationToEmail(req, resp);
     }
 
     private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -51,8 +51,8 @@ public class UserURLController extends HttpServlet {
             case "/logout":
                 userLogout(req, resp);
                 break;
-            case "/forgot_password":
-                forgotPassword(req, resp);
+            case "/send_verification":
+                sendVerification(req, resp);
                 break;
             case "/reset_password":
                 resetPassword(req, resp);

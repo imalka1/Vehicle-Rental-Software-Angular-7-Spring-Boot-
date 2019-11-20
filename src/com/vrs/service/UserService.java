@@ -34,13 +34,14 @@ public class UserService {
         resp.sendRedirect("view/admin/login.jsp");
     }
 
-    public void checkEmail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void sendVerificationToEmail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
         user.setUserEmail(req.getParameter("userEmail").trim());
         if (userDAO.checkEmail(user)) {
-            resp.getWriter().println(true);
+            int verificationCode = new EmailService().sendVerificationCode(req.getParameter("userEmail").trim(), req);
+            resp.getWriter().println(verificationCode);
         } else {
-            resp.getWriter().println(false);
+            resp.getWriter().println(0);
         }
     }
 
@@ -57,11 +58,17 @@ public class UserService {
     }
 
     public void resetPassword(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession sessionLogin = req.getSession(false);
         User user = new User();
         user.setUserEmail(req.getParameter("userEmail").trim());
         user.setUserPassword(req.getParameter("userPassword").trim());
-        if (userDAO.resetPassword(user)) {
-            resp.getWriter().println(true);
+
+        if (Integer.parseInt(sessionLogin.getAttribute("verificationCode").toString()) != 0 && sessionLogin.getAttribute("verificationCode").toString().equals(req.getParameter("verificationCode"))) {
+            if (userDAO.resetPassword(user)) {
+                resp.getWriter().println(true);
+            } else {
+                resp.getWriter().println(false);
+            }
         } else {
             resp.getWriter().println(false);
         }
