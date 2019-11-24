@@ -19,14 +19,6 @@ INSERT INTO `vehicle_rental_software`.`passenger`
 VALUES
 (1,10.0),(2,20.0),(3,30.0),(4,25.50);
 
-INSERT INTO `vehicle_rental_software`.`customer`
-(
-`customerContactNumber`,
-`customerEmail`,
-`customerName`)
-VALUES
-(123,'im@gmail.com','im');
-
 INSERT INTO `vehicle_rental_software`.`rentalsystem`
 (
 `address`,

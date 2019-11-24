@@ -81,26 +81,29 @@ $('#btnChangeReservationComplete').click(function () {
 $('#btnRemoveReservation').click(function () {
     if (selectedRow !== -1) {
         var objDetails = obj[selectedRow];
-        $.ajax(
-            {
-                type: "post",
-                url: window.location.origin + $('#contextPath').val() + "/remove_reservation",
-                data: {
-                    reservationId: objDetails.ReservationNumber
-                },
-                success: function (response) {
-                    if (JSON.parse(response) === true) {
-                        obj.splice(selectedRow, 1);
-                        setFieldsToNull();
-                        setTableBody();
-                        // setPagesCount();
-                    }
-                },
-                error: function () {
+        var r = confirm("Do you want to delete reservation - R" + objDetails.ReservationNumber + "?");
+        if (r === true) {
+            $.ajax(
+                {
+                    type: "post",
+                    url: window.location.origin + $('#contextPath').val() + "/remove_reservation",
+                    data: {
+                        reservationId: objDetails.ReservationNumber
+                    },
+                    success: function (response) {
+                        if (JSON.parse(response) === true) {
+                            obj.splice(selectedRow, 1);
+                            setFieldsToNull();
+                            setTableBody();
+                            // setPagesCount();
+                        }
+                    },
+                    error: function () {
 
+                    }
                 }
-            }
-        );
+            );
+        }
     }
 });
 

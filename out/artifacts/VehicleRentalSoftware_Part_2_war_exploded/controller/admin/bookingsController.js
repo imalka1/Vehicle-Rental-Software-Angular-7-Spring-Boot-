@@ -47,6 +47,89 @@ $('#reservationsRight').click(function () {
     }
 })
 
+$('#btnChangeReservationComplete').click(function () {
+    if (selectedRow !== -1) {
+        var objDetails = obj[selectedRow];
+        var isCompleted = false;
+        if (position === 0) {
+            isCompleted = true;
+        } else if (position === 1) {
+            isCompleted = false;
+        }
+        $.ajax(
+            {
+                type: "post",
+                url: window.location.origin + $('#contextPath').val() + "/set_reservation_complete",
+                data: {
+                    reservationId: objDetails.ReservationNumber,
+                    isCompleted: isCompleted
+                },
+                success: function (response) {
+                    obj[selectedRow] = JSON.parse(response);
+                    setFieldsToNull();
+                    setTableBody();
+                    // setPagesCount();
+                },
+                error: function () {
+
+                }
+            }
+        );
+    }
+});
+
+$('#btnRemoveReservation').click(function () {
+    if (selectedRow !== -1) {
+        var objDetails = obj[selectedRow];
+        var r = confirm("Do you want to delete reservation - R" + objDetails.ReservationNumber + "?");
+        if (r === true) {
+            $.ajax(
+                {
+                    type: "post",
+                    url: window.location.origin + $('#contextPath').val() + "/remove_reservation",
+                    data: {
+                        reservationId: objDetails.ReservationNumber
+                    },
+                    success: function (response) {
+                        if (JSON.parse(response) === true) {
+                            obj.splice(selectedRow, 1);
+                            setFieldsToNull();
+                            setTableBody();
+                            // setPagesCount();
+                        }
+                    },
+                    error: function () {
+
+                    }
+                }
+            );
+        }
+    }
+});
+
+var selectedRow = -1;
+$(document).on('click', '.btnViewDetails', function () {
+    selectedRow = $(this).children().eq(1).children('input').val();
+    var objDetails = obj[selectedRow];
+    $('#fieldCustomerName').html(objDetails.CustomerTitle + objDetails.CustomerName);
+    $('#fieldCustomerEmail').html(objDetails.CustomerEmail);
+    $('#fieldCustomerTelNo').html(objDetails.CustomerTelNo);
+    $('#fieldCustomerComment').html(objDetails.CustomerComments);
+    $('#fieldReservationId').html('R' + objDetails.ReservationNumber);
+    $('#fieldPickUpFrom').html(objDetails.ReservationPickupFrom);
+    $('#fieldDropTo').html(objDetails.ReservationDropTo);
+    $('#fieldTrip').html(objDetails.ReservationTrip);
+    $('#fieldPickupDate').html($('#reservationDate').val());
+    $('#fieldPickupTime').html(objDetails.ReservationTime);
+    $('#fieldAdults').html(objDetails.ReservationAdults);
+    $('#fieldChildren').html(objDetails.ReservationChildren);
+    $('#fieldInfants').html(objDetails.ReservationInfants);
+    $('#fieldNoOfPassengers').html(objDetails.ReservationNoOfPassengers);
+    $('#priceText').html(objDetails.ReservationCost);
+
+    selectTableRow();
+});
+
 var obj = [];
 
 function loadReservations(reservationDate) {
@@ -130,87 +213,6 @@ function setTableBody() {
     $('#reservationsBody').html(tableData);
     selectTableRow();
 }
-
-$('#btnChangeReservationComplete').click(function () {
-    if (selectedRow !== -1) {
-        var objDetails = obj[selectedRow];
-        var isCompleted = false;
-        if (position === 0) {
-            isCompleted = true;
-        } else if (position === 1) {
-            isCompleted = false;
-        }
-        $.ajax(
-            {
-                type: "post",
-                url: window.location.origin + $('#contextPath').val() + "/set_reservation_complete",
-                data: {
-                    reservationId: objDetails.ReservationNumber,
-                    isCompleted: isCompleted
-                },
-                success: function (response) {
-                    obj[selectedRow] = JSON.parse(response);
-                    setFieldsToNull();
-                    setTableBody();
-                    // setPagesCount();
-                },
-                error: function () {
-
-                }
-            }
-        );
-    }
-});
-
-$('#btnRemoveReservation').click(function () {
-    if (selectedRow !== -1) {
-        var objDetails = obj[selectedRow];
-        $.ajax(
-            {
-                type: "post",
-                url: window.location.origin + $('#contextPath').val() + "/remove_reservation",
-                data: {
-                    reservationId: objDetails.ReservationNumber
-                },
-                success: function (response) {
-                    if (JSON.parse(response) === true) {
-                        obj.splice(selectedRow, 1);
-                        setFieldsToNull();
-                        setTableBody();
-                        // setPagesCount();
-                    }
-                },
-                error: function () {
-
-                }
-            }
-        );
-    }
-});
-
-var selectedRow = -1;
-$(document).on('click', '.btnViewDetails', function () {
-    selectedRow = $(this).children().eq(1).children('input').val();
-    // console.log(selectedRow);
-    var objDetails = obj[selectedRow];
-    $('#fieldCustomerName').html(objDetails.CustomerTitle + objDetails.CustomerName);
-    $('#fieldCustomerEmail').html(objDetails.CustomerEmail);
-    $('#fieldCustomerTelNo').html(objDetails.CustomerTelNo);
-    $('#fieldCustomerComment').html(objDetails.CustomerComments);
-    $('#fieldReservationId').html('R' + objDetails.ReservationNumber);
-    $('#fieldPickUpFrom').html(objDetails.ReservationPickupFrom);
-    $('#fieldDropTo').html(objDetails.ReservationDropTo);
-    $('#fieldTrip').html(objDetails.ReservationTrip);
-    $('#fieldPickupDate').html($('#reservationDate').val());
-    $('#fieldPickupTime').html(objDetails.ReservationTime);
-    $('#fieldAdults').html(objDetails.ReservationAdults);
-    $('#fieldChildren').html(objDetails.ReservationChildren);
-    $('#fieldInfants').html(objDetails.ReservationInfants);
-    $('#fieldNoOfPassengers').html(objDetails.ReservationNoOfPassengers);
-    $('#priceText').html(objDetails.ReservationCost);
-
-    selectTableRow();
-});
 
 function selectTableRow() {
     for (var i = 0; i < $('#reservationsBody').parent().children('tbody').children().length; i++) {
