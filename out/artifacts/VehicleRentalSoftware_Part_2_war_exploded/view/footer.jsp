@@ -47,8 +47,9 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="terms">
                     <ul class="list-unstyled list-inline">
-                        <!--<li><a href="#">Terms & Condition</a></li>-->
-                        <!--<li><a href="#">Privacy Policy</a></li>-->
+                        <%--<li><a href="#">Terms & Condition</a></li>--%>
+                        <%--<li><a href="#">Privacy Policy</a></li>--%>
+                            <li><a style="text-decoration: none;font-weight: bold">Online - 10</a></li>
                     </ul>
                 </div><!-- end columns -->
             </div><!-- end row -->
