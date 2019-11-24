@@ -49,7 +49,7 @@
                     <ul class="list-unstyled list-inline">
                         <%--<li><a href="#">Terms & Condition</a></li>--%>
                         <%--<li><a href="#">Privacy Policy</a></li>--%>
-                            <li><a style="text-decoration: none;font-weight: bold">Online - 10</a></li>
+                            <li><a style="text-decoration: none;font-weight: bold">Online - <span id="onlineCount"></span></a></li>
                     </ul>
                 </div><!-- end columns -->
             </div><!-- end row -->
@@ -58,6 +58,8 @@
 
 </section>
 <!--Footer Section Ends-->
+
+<script src="${pageContext.request.contextPath}/controller/onlineCountController.js"></script>
 
 </body>
 
