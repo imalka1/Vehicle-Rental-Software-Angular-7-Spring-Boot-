@@ -243,7 +243,7 @@
             <div class="row" style="font-weight: bold;padding-top: 70px">
                 <div class="col-sm-6">
                     <div class="row" style="padding: 10px">
-                        <div class="col-12" style="font-weight: bold">Email <span style="font-size: 13px">(If you was a customer. Your email will suggest other details)</span>
+                        <div class="col-12" style="font-weight: bold">Email <span style="font-size: 13px">(If you are a customer. Your email will suggest other details)</span>
                         </div>
                         <div class="col-12">
                             <input type="text" class="form-control" id="customerEmail" name="customerEmail"></div>
